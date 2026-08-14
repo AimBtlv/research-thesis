@@ -365,9 +365,9 @@ def pos_tag(sci_name: str, phonetic_token: str) -> tuple[str, str]:
 
 GRAPHEME_FIELDS = [
     "unicode_id",
-    "sign_cuneiform",
+    "sign_grapheme",
     "sign_trlitScien",
-    "sign_trlitPhonet",
+    "sign_phonetic",
     "sign_translation",
     "artifact_id",
     "corpus_id",
@@ -448,9 +448,9 @@ def process_txt_file(
             # ── Build record ──────────────────────────────────────────────
             record = {
                 "unicode_id":             uid,
-                "sign_cuneiform":         glyph,
+                "sign_grapheme":         glyph,
                 "sign_trlitScien":        sci_name,
-                "sign_trlitPhonet":       phon,
+                "sign_phonetic":       phon,
                 "sign_translation":       "",      # to be filled manually / from dict
                 "artifact_id":            atf_meta.get("artifact_id", ""),
                 "corpus_id":              atf_meta.get("corpus_id",   ""),
