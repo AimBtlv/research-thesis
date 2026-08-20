@@ -2,7 +2,7 @@
 #### Column Structure
 Grapheme_v3.csv:
 unicode_id |
-sign_cuneiform |
+sign_grapheme |
 sign_Graphimication | - Scientific Transliteration(value)  of sign
 sign_trlitPhonet(atf) | - Phonetic Transliteration (value) of sign (Polyphony)
 sign_type(Logo, Syll,dcrt,cmpnd) |
