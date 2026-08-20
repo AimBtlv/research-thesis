@@ -5,7 +5,7 @@
 ##### About Project: [2-3 sentences: what was developed? what reason? what the methods?]
 ***
 ##### Research Questions and Hypotheses:
-- **RQ1** 
+- **RQ1**  Whether the graphic and phonetic variation documented for cuneiform signs shows regular patterns across provenance and period, and whether school-context sign usage correlates with usage in administrative, literary, or commercial corpora).
 - **RQ2** 
 - **H1** 
 - **H2**
