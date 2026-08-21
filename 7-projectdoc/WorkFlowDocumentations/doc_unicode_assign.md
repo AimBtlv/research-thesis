@@ -3,26 +3,26 @@
 This step establishes a catalogue that assigns cuneiform sign in the Unicode unique identifier and its full range of phonetic transliteration values.
 
 The goal is to create a single reference table  as the lookup layer for all subsequent corpus parsing. When an ATF text contains a token such as 'sila₃' or lamma(GURUŠ), the pipeline must be able to answer two questions reliably: Which Unicode sign does this token refer to? and What is the full set of phonetic values this sign can carry?     
-**The first staeg of the pipeline is to assign: Unicode ID + Phonetic Version table.**
+**The first stage of the pipeline is to assign: Unicode ID + Phonetic Version table.**
 
 ## Data Sources 
 
 |Source	|Description|	
 |----|----|
-|**Unicode Cuneiform Block**unicodeSigns.csv|Complete list of 1,234 cuneiform code points (U+12000–U+1254F) as defined by the Unicode Consortium. Each entry carries the code point, the cuneiform glyph, and a plain-text transliteration label derived from the Unicode character name|
-|**Syllabary CM** syllabary_CM.txt|Sign list compiled by Professor Massimo Maiocchi. Maps phonetic ATF readings to scientific sign names (e.g. sila₃ → SILA₃). Covers standard cuneiform periods.|
-|**Uruk Archaic Syllabary**syllabary_uruk2.txt|Sign list for the proto-cuneiform Uruk IV–III period (~3400–3000 BCE). Contains only sign names without phonetic readings, because Uruk-period writing was logographic rather than phonetic.|
+|**Unicode Cuneiform Block** unicodeSigns.csv|Complete list of 1,2345 cuneiform code points (U+12000–U+1254F) as defined by the Unicode Consortium. Each entry carries the code point, the cuneiform glyph, and a plain-text transliteration label derived from the Unicode character name|
+|**Syllabary CM** syllabary_CM.txt |Sign list compiled by Professor Massimo Maiocchi. Maps phonetic ATF readings to scientific sign names (e.g. sila₃ → SILA₃). Covers standard cuneiform periods.|
+|**Uruk Archaic Syllabary**syllabary_uruk2.txt|Sign list for the proto-cuneiform Uruk IV–III period (3400–3000 BCE). |
 |**Additional Signs** additional_signs.txt|Supplementary mapping file for rare, compound, or non-standard sign forms encountered in CDLI corpora that are absent from the main syllabary.|
 |**ORACC Sign List** osl.asl|Machine-readable version of the ORACC Sign List (OSL), the current standard scientific catalogue of cuneiform signs. ASL format encodes sign names (@sign), Unicode IDs (@list U+), glyphs (@ucun), and all attested phonetic values (@v).|
 
 ## Pipeline Overview 
 
 The pipeline follows a sequential strategy, processing the Unicode sign list in two passes. 
-1. The first pass matches signs against the professor's syllabary. 
+1. The first pass matches signs to the professor's syllabary. 
 2. The second pass enriches the remaining unmatched signs from the ORACC Sign List. 
 
 ---
-Both outputs are merged into a unified table of 1,234 entries
+Both outputs are merged into a unified table of 1,235 entries
 
 |Stage|	Input|	Output|
 |---|---|---|
@@ -41,13 +41,13 @@ Three source files were merged into a single, unified syllabary:
 ●	**syllabary_uruk2.txt** archaic Uruk-period sign names    
 ●	**additional_signs.txt** supplementary entries for rare or compound forms
 
-Each line in the merged file follows the format: phonetic_reading → SIGN_NAME. 
+Each line in the merged file follows the format: phonetic_reading to SIGN_NAME. 
 
 **Output: Syllabary_CM.csv** acts as the lookup dictionary for Stage A.
 ### 2.Download and Prepare the Unicode Sign List
 The complete list of cuneiform Unicode code points was obtained from the Unicode Consortium's Cuneiform block (U+12000–U+1254F).  
 **Link**: https://www.unicode.org/charts/?utm_source=chatgpt.com    
-**Resulting** in 1,234 signs. 
+**Resulting** in 1,235 signs. 
 
 **Each record contains:**   
 ●	**unicode_id** the code point (e.g. U+12000).  
@@ -99,7 +99,7 @@ The two output files from Stages A and B were concatenated into a single unified
 **Output: unicodePhoneticVersion_full.csv**
 
 ## Output Description
-Total signs in Unicode cuneiform block: 1235 signs.
+Total signs in Unicode cuneiform block: 1235 signs.     
 The PhoneticsVersion column deliberately records all attested readings for each sign, not only the most common one
 
 
