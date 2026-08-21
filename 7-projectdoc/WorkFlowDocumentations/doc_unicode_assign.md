@@ -1,8 +1,9 @@
-## Step 1: How Unicode IDs and Phonetic Versions Were Assigned
+##  1. How  Assigned Unicode ID and Phonetic Versions?
 
-This step establishes a machine-readable catalogue that assigns every cuneiform sign in the Unicode standard its unique identifier and its full range of phonetic transliteration values.
+This step establishes a catalogue that assigns cuneiform sign in the Unicode unique identifier and its full range of phonetic transliteration values.
 
-The goal is to create a single authoritative reference table that can serve as the lookup layer for all subsequent corpus parsing. When an ATF text contains a token such as sila₃ or lamma(GURUŠ), the pipeline must be able to answer two questions reliably: Which Unicode sign does this token refer to? and What is the full set of phonetic values this sign can carry? The Unicode ID + Phonetic Version table is the answer to both.
+The goal is to create a single reference table  as the lookup layer for all subsequent corpus parsing. When an ATF text contains a token such as 'sila₃' or lamma(GURUŠ), the pipeline must be able to answer two questions reliably: Which Unicode sign does this token refer to? and What is the full set of phonetic values this sign can carry?     
+**The first staeg of the pipeline is to assign: Unicode ID + Phonetic Version table.**
 
 ## Data Sources 
 
