@@ -95,8 +95,12 @@ The two output files from Stages A and B were concatenated into a single unified
 |restUnicodeSigns.csv|444|Phonetic coverage from OSL |
 |Total|1235|Covers the complete Unicode cuneiform block|
 
+**Output: unicodePhoneticVersion_full.csv**
+
 ## Output Description
-Total 
+Total signs in Unicode cuneiform block: 1235 signs.
+The PhoneticsVersion column deliberately records all attested readings for each sign, not only the most common one
+
 
 
 All records share the same schema:
