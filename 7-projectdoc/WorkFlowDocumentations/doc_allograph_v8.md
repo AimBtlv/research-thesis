@@ -1,50 +1,47 @@
-## 2. How was Created allograph_all_v8?
+## 3. How Created allograph_all_v8?
 
-This step takes the Unicode + Phonetic Version catalogue produced in Step 1 (`unicodePhoneticVersion_full.csv`, 1,235 signs) and combines it with the full structural content of the ORACC Sign List (`osl.asl`) to build a single table that answers, for every attested cuneiform sign, three questions:    
-**1. what Unicode identity does it carry?**   
-**2. what is it built from, if it is a compound?**    
-**3. what phonetic readings does it share with its component or parent signs**? 
+This step produces the complete sign-level dataset: for every sign documented anywhere in the available sources, its Unicode identity, its structural composition (simple sign or compound, and if compound, exactly which components it decomposes into), and its phonetic reading, drawing on Step 2's compound reading table wherever a sign is a compound.
 
-Signs in `osl.asl` are not a flat list, they are catalogued either    
-- as an independent `@sign` (a scientific/basic name) or 
-- as a `@form` nested inside a `@sign` (an attested alternate catalogue name for the same underlying sign, such as an archaic Deimel number (LAK240)). 
-- Some signs are atomic, some are explicitly built from other signs (`@useq`,compound signs connected with (.))
-- some are written as a visual combination of other signs without any formal decomposition on record(compound signs conected by (x)(&)) and 
-- some are documented only by name, with no Unicode identity at all.    
-The purpose of this step is to resolve each of these situations consistently, so that a researcher can query the table by Unicode ID, by sign name, or by component, and always get a structurally correct answer, rather than treating undocumented and compound signs as if they were equivalent, or discarding signs that the underlying source records only partially.
+
+ Signs in `osl.asl` are not a flat list, they are catalogued either.    
+ But `osl.asl` alone does not cover every sign a real text might contain, so a second goal of this step is closing that gap using the historical syllabary, while being explicit about which signs carry full Unicode-level verification and which do not.
+
+ The purpose of this step is to resolve each of these situations consistently, so that a researcher can query the table by Unicode ID, by sign name, or by component, and always get a structurally correct answer, rather than treating undocumented and compound signs as if they were equivalent, or discarding signs that the underlying source records only partially.
 
 ## Data Sources
 
 | Source | Description |
 |---|---|
-| **ORACC Sign List** `osl.asl` | Machine-readable ORACC Sign List. Encodes sign names (`@sign`), alternate catalogue names (`@form`), Unicode IDs (`@list U+...`), compound decompositions (`@useq`), glyphs (`@ucun`), and cross-references to historical paper catalogues (`@list <catalogue-code>`). |
-| **Unicode Cuneiform Reference** `1_unicodeSigns.csv` | Canonical list of 1,235 ratified Unicode Cuneiform code points, produced independently of `osl.asl`. Used to verify that a code claimed in `osl.asl` is actually a published Unicode code point. |
-| **Unicode + Phonetic Catalogue** `unicodePhoneticVersion_full.csv` (Step 1 output) | 1,235-entry table of `unicode_id → unicodeTrLit / syllabarySign / PhoneticsVersion`. Used as the lookup table joined into every row of this dataset. |
-| **compound_form_reading_table.csv** | Per-compound reading status (`ATTESTED_DIRECT` / `NESTED_IN_LONGER_FORM` / `NO_ATTESTED_READING`) built in the step 2. |
-| **Syllabary_CM.csv** | Merged historical syllabary (CM + URUK2 + ADDITIONAL, 4,196 distinct sign names), used both for compound readings and for signs missing from `osl.asl` entirely. |
+| **osl.asl** | ORACC Cuneiform Sign List. Encodes sign names (`@sign`), alternate catalogue names (`@form`) such as an archaic Deimel number (LAK240), Unicode IDs (`@list U+...`), compound decompositions (`@useq`), glyphs (`@ucun`), attested readings (`@v`), and cross-references to historical paper catalogues (`@list <catalogue-code>`). Some are written as a visual combination of other signs without any formal decomposition on record(compound signs conected by (x)(&)) and some are documented only by name, with no Unicode identity at all.|
+| **Unicode Cuneiform Reference** `1_unicodeSigns.csv`| Canonical list of 1,234 ratified Unicode Cuneiform code points, used to verify that a code claimed in `osl.asl` is actually published. |
+| **Unicode + Phonetic Catalogue**`unicodePhoneticVersion_full.csv` *(Step 1 output)* | `unicode_id/ unicodeTrLit / syllabarySign / PhoneticsVersion`, joined into every atomic sign's row. |
+| **compound_form_reading_table.csv** *(Step 2 output)* | Compound whole-word reading and attestation status, joined into every compound sign's rows. |
+| **Syllabary_CM.csv** | Merged historical syllabary (CM + URUK2 + ADDITIONAL, 4,196 distinct sign names), used for the sign names attested nowhere in `osl.asl`. |
 
 ## Pipeline Overview
-
-The pipeline was built in three stage over the full sign list:
+The pipeline was built in four stage over the full sign list:
 
 | Stage | Task | Output |
 |---|---|---|
-| **Stage 1** | Parse every `@sign` and `@form` entity, classify each into `sign_type` and `sign_structure`, decompose compounds into components | 7,238 rows (one per component position) covering all 3,249 signs |
+| **Stage 1** | Parse every `@sign` and `@form` in `osl.asl`. Classify each into `sign_type` and `sign_structure`.Decompose compounds into ordered components |  7,238 rows (one per component position) covering all 3,249 signs in `osl.asl` |
 | **Stage 2** | Assign `graphic_variant_id` to every row, numbering each sign's distinct documented @forms(catalogue variant) in the order they appear in `osl.asl` | same rows, `graphic_variant_id` populated |
-| **Stage 3** | Join `unicodeTrLit`, `syllabary_sign`, `phonetic_version` from the Step 1 catalogue, matched by `unicode_id` | same rows, phonetic fields populated where a match exists |
+| **Stage 3** | Join phonetic data: atomic signs from the Step 1 catalogue by `unicode_id`; compounds from Step 2's reading table by `compound_form` | `typePhonetic_Version` and `phonetic_version` populated on every row |
+| **Stage 4** | Find every sign name in the merged syllabary **Syllabary_CM.csv**  with no counterpart in Stage 1's output, and append it | 2,372 additional rows |
 
-**Output: `allograph_all_v8.csv`**, 7,238 rows, 3,249 unique signs (100% coverage).
+**Output: `allograph_all_v8.csv`**, 9,610 rows, 5,621 unique `sign_name` values.
 
 ## Step-by-Step Description
 
-### 1. Parsing At Full Sign Coverage
+### 1. Parsing full Coverage At The Sign Level
 
 The parser walks every `@sign` block in `osl.asl`.     
 If the block contains one or more `@form` sub-block, each form is processed as its own entity, with the parent `@sign` header kept only as a fallback.     
-If the block contains no `@form` at all (headless*), the header itself is processed as the sign's sole documented entity. 
+If the block contains no `@form` at all (headless*), the header itself is processed as the sign's sole documented entity.   
+This gives complete coverage of `osl.asl`: all 3,249 signs, not only the subset that happen to have an alternate catalogue name recorded as a `@form`.
 
 **Note:**.  
 ***Headless**  meaning the sign has no attested alternate catalogue name (terminology of this project)
+
 ### 2. Subdividing Signs Into Three Types (`sign_type`)
 We have divided all signs into 3 type groups:
 
@@ -113,20 +110,47 @@ Each row's own `unicode_id` and `sign_grapheme` (columns 1 and 2) describe that 
 
 Each sign's distinct documented @forms(catalogue variant or glyph version) are numbered `{PREFIX}_v1`, `_v2`, in the order they are **documented in `osl.asl`**. All component rows belonging to one compound form share the same id, since they represent one physical attestation, not separate variants. This id is a structural label.
 
-### 6. Assigning Phonetic Version, Transliteration, And Syllabary Sign
 
-Every row's `unicode_id` is looked up against the Step 1 catalogue (`unicodePhoneticVersion_full.csv`), and three fields are copied in where a match is found:
+### 6. Assigning Phonetic Version, Transliteration, And Syllabary Sign
 
 ●	**`unicodeTrLit`**  the transliteration derived from the sign's Unicode character name.    
 ●	**`syllabary_sign`** the scientific sign name as used in academic citation.    
-●	**`phonetic_version`** the full pipe-separated list of attested phonetic readings.       
-Because this join uses the same `unicode_id` key that Step 1 built, every sign's phonetic profile is inherited automatically, no separate phonetic lookup was re-implemented for this stage.     
+●	**`phonetic_version`** the full pipe-separated list of attested phonetic readings.
 
-**Note**  `X` rows carry the undeciphered-sign placeholder 
+Every row is classified into exactly one of five `typePhonetic_Version` values, and `phonetic_version` populated accordingly:
 
+| `typePhonetic_Version` | Condition | Rows |
+|---|---|---|
+| `Single Sign Reading` | atomic sign, joined by its own `unicode_id` against the Step 1 catalogue | 3,557 |
+| `Attested Compound Reading` | compound, whole-word reading found via Step 2's table | 3,556 |
+| `No Attested Compound Reading` | compound, no reading found anywhere | 1,825 |
+| `Compound Nested in Longer Form` | compound documented only inside a longer attested form | 210 |
+| `No Sign Identity` | no Unicode code, no decomposition | 462 |
 
+For compound rows, every component row of the same compound carries the **same** `phonetic_version`, the compound's own whole-word reading, following the same convention already used by `compound_form` / `compound_grapheme` / `compound_unicode`. This is deliberate: the compound's reading describes the word as a whole, not any single component. Where no compound-level reading is attested, the field is left empty. `Compound Nested in Longer Form` rows are, by design, always empty in `phonetic_version`: that status specifically means no reading of the short form's own exists (see `nested_in_forms` in `compound_form_reading_table.csv` for that context).
 
-### 7. Role Of The Other Historical Catalogues (`signList_analogue`)
+For atomic rows, still have an empty `phonetic_version`it is  Unicode code not present in the canonical registry or signs have a verified code for which no reading is recorded anywhere in the phonetic catalogue.
+
+### 7. Extending Coverage With Signs Outside osl.asl
+
+Every one of the 4,196 distinct sign names in the merged syllabary (**Syllabary_CM.csv** ) is checked against every sign already classified in Stage 1 (normalised: pipes stripped, Unicode subscript digits folded to ASCII). **2,372 have no counterpart anywhere.**
+
+| `sign_source` | New signs |
+|---|---|
+| `Uruk2` | 2,081 | 
+| `Syllabary_CM` | 246 |
+| `Additional Sources` | 45|
+The overwhelming majority come from the archaic proto-cuneiform Uruk period (3400–3000 BCE)
+
+**Classification Of These Additional Sign** Due to lack of information source:  
+- `unicode_id` the absence is specifically of a Unicode identity 
+- No `sign_type`/`sign_structure` for these Additional Sign
+- `sign_type = "Type_3"` 
+- `sign_structure = "not_identified"`, identical to any other sign without a Unicode identity.
+- `sign_source`: `"Uruk2"` / `"Syllabary_CM"` / `"Additional Sources"` for these 2,372. Every field that cannot apply to them (`unicode_id`, `sign_grapheme`, `compound_form`, `compound_grapheme`, `compound_unicode`, `unicodeTrLit`, `signList_analogue`) is left empty
+- `typePhonetic_Version` since they do carry a real, attested reading, that is the entire reason they are included, 
+
+### 8. Role Of The Other Historical Catalogues (`signList_analogue`)
 
 Beyond Unicode, `osl.asl` cross-references each sign against up to fifteen other historical sign-list systems (`LAK`, `MZL`, `RSP`, `ABZL`, `ELLES`, `KWU`, `BAU`, `ASY`, `GCSL`, `PTACE`, `HZL`, `SYA`, `ZATU`, `REC`, and others). These are not Unicode codes, they are references to paper catalogues compiled at different points in the history, each associated with a particular period and scholarly tradition ( `LAK` for the Uruk archaic corpus, `ABZL` for Old Babylonian school texts, `MZL` for standard Babylonian). `signList_analogue` collects every such reference attached to a sign, annotated with its approximate period and region, into one semicolon-separated field. Its role in this dataset is traceability: it lets a sign found in this table be cross-checked against the specific secondary-literature catalogue a philologist would recognize, and it gives an approximate chronological/regional anchor for a sign even before any corpus text has been joined.
 
@@ -138,7 +162,7 @@ Beyond Unicode, `osl.asl` cross-references each sign against up to fifteen other
 
 ## Output Description
 
-**`allograph_all_v6.csv`**  7,238 rows, 3,249 unique signs(The whole corpus of OSL.asl).
+**`allograph_all_v8.csv`** — 9,610 rows, 5,621 unique `sign_name` (3,249 classified directly from `osl.asl`, 2,372 from the syllabary).
 
 | # | Column | Type | Definition | Source field in `osl.asl` |Notes |
 |---|---|---|---|--|---
@@ -160,4 +184,5 @@ Beyond Unicode, `osl.asl` cross-references each sign against up to fifteen other
 | 16 | `typePhonetic_Version` | string | - | - |see Step 6 above|
 | 17 | `phonetic_version` | string |  All attested phonetic reading versions for single and compound signs. | - |Pipe-separated list|
 | 18 | `signList_analogue` | string |Cross-references to other historical sign catalogues (LAK, MZL, RSP, ABZL, etc.). | `@list` (all non-Unicode entries) | Semicolon-separated list, each annotated with approximate period and region|
+
 
