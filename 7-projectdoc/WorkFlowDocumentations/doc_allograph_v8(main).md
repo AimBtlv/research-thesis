@@ -1,12 +1,13 @@
-## 3. How Created allograph_all_v8?
+## 3. How Created Profile Dataset which included the Unicode + Phonetic Version ?
 
-This step produces the complete sign-level dataset: for every sign documented anywhere in the available sources, its Unicode identity, its structural composition (simple sign or compound, and if compound, exactly which components it decomposes into), and its phonetic reading, drawing on Step 2's compound reading table wherever a sign is a compound.
+This step takes the Unicode + Phonetic Version catalogue produced in Step 1 and 2 and combines it with  the ORACC Sign List (`osl.asl`) and Merged historical syllabary (CM + URUK2 + ADDITIONAL) to build a single table that answers, for every attested cuneiform sign, three questions:    
+**1. what Unicode identity does it carry?**   
+**2. what is it built from, if it is a compound?**    
+**3. what phonetic readings does it share with its component or parent signs**? 
 
 
  Signs in `osl.asl` are not a flat list, they are catalogued either.    
  But `osl.asl` alone does not cover every sign a real text might contain, so a second goal of this step is closing that gap using the historical syllabary, while being explicit about which signs carry full Unicode-level verification and which do not.
-
- The purpose of this step is to resolve each of these situations consistently, so that a researcher can query the table by Unicode ID, by sign name, or by component, and always get a structurally correct answer, rather than treating undocumented and compound signs as if they were equivalent, or discarding signs that the underlying source records only partially.
 
 ## Data Sources
 
