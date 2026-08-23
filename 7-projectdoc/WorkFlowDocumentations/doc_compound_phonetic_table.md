@@ -1,6 +1,6 @@
 ## 2. How Was compound_form_reading_table.csv Built?
 
-For every compound sign documented in `osl.asl` (a sign written as a sequence, ligature, or fusion of other signs) and other catalogue  this table answers one question:  A compound sign's *components*  have their own individual reading or  compound *as a whole*?
+For every compound sign documented in `osl.asl` (a sign written as a sequence, ligature, or fusion of other signs) and Merged historical syllabary (CM + URUK2 + ADDITIONAL)  this table answers one question:  A compound sign's *components*  have their own individual reading or  compound *as a whole*?
 
 
 ## Data Sources
