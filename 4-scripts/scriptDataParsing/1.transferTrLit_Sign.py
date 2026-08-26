@@ -45,25 +45,14 @@ import os
 import re
 from pathlib import Path
 
-
-# ══════════════════════════════════════════════════════════════════════════════
 # STEP 1 — SYLLABARY LOADING
-# Three files: syllabary_CM.txt | syllabary_uruk2.txt | additional_signs.txt
-# Replicates sign_name.py steps 1–4 exactly.
-# ══════════════════════════════════════════════════════════════════════════════
 
 SCRIPT_DIR = Path(__file__).parent
 
 def _find_file(name: str) -> Path:
-    """Look for a syllabary file next to this script."""
     p = SCRIPT_DIR / name
     if p.exists():
         return p
-    # Also check uploads dir (for claude.ai context)
-    up = Path("/mnt/user-data/uploads") / name
-    if up.exists():
-        return up
-    return p  # will fail gracefully below
 
 
 def load_syllabary() -> dict[str, str]:
