@@ -45,7 +45,7 @@ Description: Parsing Layer, Step 1. Reads ATF transliteration files and
              not a second, redundant parse of the ATF text.
 Author: Digital Humanities Pipeline
 Date: 2026-08-28
-Version: 1.0
+Version: 12
 """
 
 import csv
@@ -54,9 +54,16 @@ import unicodedata
 from pathlib import Path
 from collections import defaultdict
 
-# ─────────────────────────────────────────────────────────────────────────────
+
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
+
+SCRIPT_DIR = Path(__file__).parent
+
+def find_file(name:str) -> Path:
+    p=SCRIPT_DIR / name 
+    if p.exists():
+        return p
 
 INPUT_ALLOGRAPH = "allograph_all_v11.csv"
 INPUT_COMPOUND_TABLE = "compound_form_reading_table.csv"
@@ -72,23 +79,17 @@ TOKENS_FIELDNAMES = [
     "resolved_name", "token_kind", "confidence", "source", "determinative",
 ]
 
-# ─────────────────────────────────────────────────────────────────────────────
 # NORMALISATION
 # ─────────────────────────────────────────────────────────────────────────────
 
 def normalize_name(s: str) -> str:
-    """Pipes stripped, subscript digits folded to ASCII, case-folded.
-    Used as the dictionary lookup key throughout."""
+    """Used for the dictionary lookup key throughout."""
     return s.strip('|').translate(SUB_MAP).lower()
 
 
 def x_operator_variants(name: str) -> set:
-    """For the narrow, confirmed case where a compound's own attested
-    reading IS its own structural name (no deeper phonetic value — see
-    project notes), the sign-name operator × may appear in the source ATF
-    text as Unicode × or ASCII x. Returns the set of equivalent forms.
-    Deliberately NOT applied to ordinary phonetic readings, which never
-    contain a structural operator character."""
+    """Returns equivalent forms with Unicode × and ASCII x.
+    Used only for confirmed structural names, not ordinary phonetic readings."""
     variants = {name}
     if '×' in name:
         variants.add(name.replace('×', 'x'))
@@ -97,8 +98,8 @@ def x_operator_variants(name: str) -> set:
     return variants
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 1 — LOAD THE THREE DICTIONARIES
+
+# STAGE 1: LOAD THE THREE DICTIONARIES
 # ─────────────────────────────────────────────────────────────────────────────
 
 def load_simple_dict(path: str) -> dict:
