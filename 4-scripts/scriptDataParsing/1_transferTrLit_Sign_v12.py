@@ -58,12 +58,21 @@ from collections import defaultdict
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
 
+<<<<<<< HEAD
 INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
 INPUT_COMPOUND_TABLE = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/compound_form_reading_table.csv"
 
 OUTPUT_TOKENS_CSV = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
 OUTPUT_WARNINGS_CSV = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/warnings.csv"
 OUTPUT_TXT_DIR = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt"
+=======
+INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
+INPUT_COMPOUND_TABLE = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/4-scripts/scriptDataParsing/compound_form_reading_table.csv"
+
+OUTPUT_TOKENS_CSV = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
+OUTPUT_WARNINGS_CSV = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/2-dataset/InputData/2.parsingFromAtf_Txt/warnings.csv"
+OUTPUT_TXT_DIR = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/2-dataset/InputData/2.parsingFromAtf_Txt"
+>>>>>>> 5bf9a0a5c76dfaab1d1104ff0bdc663b9e10055a
 
 SUB_MAP = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 
@@ -158,12 +167,10 @@ def load_compound_dicts(path: str) -> tuple:
 # and the tokenizer, so they can never drift apart.
 # ─────────────────────────────────────────────────────────────────────────────
 
-DIACRITIC_MAP = {
-    "c": "š", "C": "Š",  # placeholder examples; extend as house-style requires
-}
+
 
 ASCII_DIACRITIC_TABLE = [
-    # order matters: longer/quote-marked forms before the bare digraph
+    # order impotant: longer/quote-marked forms before the bare digraph
     (r"s'", "ṣ"), (r"S'", "Ṣ"), (r's,', "ṣ"), (r'S,', "Ṣ"),
     (r's"', "š"), (r'S"', "Š"),
     (r"t'", "ṭ"), (r"T'", "Ṭ"), (r't,', "ṭ"), (r'T,', "Ṭ"),
@@ -181,17 +188,11 @@ UNWANTED_GLYPHS_RE = re.compile(r'["*?!\[\]]|<<|>>|<|>|⌜|⌝|#')
 
 
 def preprocess_line(raw: str) -> str:
-    """Syntax-level cleanup only. No dictionary lookups happen here.
-    Order matters: ASCII diacritics and @-modifiers are resolved before
-    the general unwanted-glyph strip, since some of their source forms
-    (e.g. the apostrophe in s') would otherwise be stripped first and
-    become unrecoverable."""
+    """line cleanup only.
+    Order important: ASCII diacritics, @-modifiers,the general unwanted-glyph strip,"""
     line = raw
 
-    # inline ($ ... $) structural comments (e.g. '($ blank space $)') are
-    # not sign content and must be removed as a whole unit, found by
-    # tracing real ATF where such a comment appeared mid-line alongside
-    # genuine transliteration on the same numbered line
+    # inline ($ ... $) structural comments: remove
     line = INLINE_DOLLAR_COMMENT_RE.sub('', line)
 
     for old, new in ASCII_DIACRITIC_TABLE:
@@ -202,8 +203,8 @@ def preprocess_line(raw: str) -> str:
     # combining-diacritic folding
     line = line.replace('g̃', 'g').replace('ḫ', 'h')
 
-    line = re.sub(r'\.\.\.+', '…', line)          # collapse ellipsis
-    line = UNWANTED_GLYPHS_RE.sub('', line)         # damage/collation/editorial flags
+    line = re.sub(r'\.\.\.+', '…', line)          # ellipsis
+    line = UNWANTED_GLYPHS_RE.sub('', line)       # damage,collation,editorial flags
     line = re.sub(r'⸢|⸣', '', line)
     line = re.sub(r'\s+', ' ', line).strip()
 
