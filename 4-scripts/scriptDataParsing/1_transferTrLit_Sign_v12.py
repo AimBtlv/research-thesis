@@ -58,21 +58,12 @@ from collections import defaultdict
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
 
-<<<<<<< HEAD
 INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
 INPUT_COMPOUND_TABLE = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/compound_form_reading_table.csv"
 
 OUTPUT_TOKENS_CSV = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
 OUTPUT_WARNINGS_CSV = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/warnings.csv"
 OUTPUT_TXT_DIR = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt"
-=======
-INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
-INPUT_COMPOUND_TABLE = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/4-scripts/scriptDataParsing/compound_form_reading_table.csv"
-
-OUTPUT_TOKENS_CSV = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
-OUTPUT_WARNINGS_CSV = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/2-dataset/InputData/2.parsingFromAtf_Txt/warnings.csv"
-OUTPUT_TXT_DIR = "/Users/aima/Desktop/Practice/Pract-4Semester/thesisSpring2026/research-thesis_v12/2-dataset/InputData/2.parsingFromAtf_Txt"
->>>>>>> 5bf9a0a5c76dfaab1d1104ff0bdc663b9e10055a
 
 SUB_MAP = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 
