@@ -47,10 +47,10 @@ from collections import defaultdict
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
 
-INPUT_ALLOGRAPH = "allograph_all_v11.csv"
-INPUT_TOKENS = "atf_tokens.csv"
-OUTPUT_GRAPHEME = "grapheme.csv"
-OUTPUT_WARNINGS = "warnings_grapheme.csv"
+INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
+INPUT_TOKENS = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
+OUTPUT_GRAPHEME = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/3.parsingFromTxt_Csv/grapheme.csv"
+OUTPUT_WARNINGS = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/3.parsingFromTxt_Csv/warnings_grapheme.csv"
 
 GRAPHEME_FIELDS = [
     "unicode_id", "sign_grapheme", "sign_trlitScien", "sign_phonetic",
@@ -248,7 +248,9 @@ def load_all_artifact_metadata(metadata_folder: str) -> dict:
     (keyword-matching against ATF header text) is used only as a fallback
     for any P-number with no matching artifacts_*.csv."""
     index = {}
-    for path in Path(metadata_folder).glob("artifacts_*.csv"):
+    # "**/artifacts_*.csv" — metadata files sit two levels deep in genre
+    # subfolders (metadata/metaOBP_Legal_72/*.csv etc.)
+    for path in Path(metadata_folder).glob("**/artifacts_*.csv"):
         try:
             meta = load_artifact_metadata_csv(path)
             index[meta["artifact_id"]] = meta
@@ -290,7 +292,7 @@ def parse_atf_metadata(header_text: str, p_number: str) -> dict:
 def load_all_atf_metadata(atf_folder: str) -> dict:
     """Returns {p_number: metadata_dict}."""
     index = {}
-    for atf_path in Path(atf_folder).glob("*.atf"):
+    for atf_path in Path(atf_folder).glob("**/*.atf"):
         text = atf_path.read_text(encoding="utf-8", errors="replace")
         pm = re.search(r'&\s*(P\d+)', text)
         p_number = pm.group(1) if pm else atf_path.stem
@@ -388,7 +390,8 @@ def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: d
 # MAIN
 # ─────────────────────────────────────────────────────────────────────────────
 
-def main(atf_folder: str = "atf_input", metadata_folder: str = "metadata"):
+def main(atf_folder: str = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/1.downloadCorpusATF/EDIII-OBP_School/atf",
+         metadata_folder: str = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/1.downloadCorpusATF/EDIII-OBP_School/metadata"):
     print(f"[INFO] Loading {INPUT_ALLOGRAPH}")
     atomic_lookup, compound_components = load_sign_lookup(INPUT_ALLOGRAPH)
     print(f"  atomic signs indexed: {len(atomic_lookup)}")
@@ -446,4 +449,7 @@ def main(atf_folder: str = "atf_input", metadata_folder: str = "metadata"):
 
 if __name__ == "__main__":
     import sys
-    main(sys.argv[1] if len(sys.argv) > 1 else "atf_input")
+    if len(sys.argv) > 2:
+        main(sys.argv[1], sys.argv[2])
+    else:
+        main()  # uses the real default paths set above
