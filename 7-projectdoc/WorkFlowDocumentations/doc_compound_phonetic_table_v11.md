@@ -87,13 +87,13 @@ Each compound's components read individually (their own first-listed reading) an
 ## Output Description
 **`compound_form_reading_table.csv`** — 2,176 rows
 
-●	**`compound_form`** the compound's name, exactly as documented in `osl.asl`. 
-●   **`compound_form_normalized`** without pipes (|...|)
-●	**`PhoneticVersion_Compound`** attested whole-word reading(s), pipe-separated `ATTESTED_DIRECT` unless Empty.   
-●	**`reading_status`** `ATTESTED_DIRECT` / `NESTED_IN_LONGER_FORM` / `NO_ATTESTED_READING`.
-●	**`reading_source`** `OSL` / `DIRI` / `OGSL` / `SYLLABARY_CM`, in priority order; empty otherwise.
-●	**`nested_in_forms`** for `NESTED_IN_LONGER_FORM` rows, the longer attested name this compound is documented as part of. Semicolon-separated. 
-●	**`component_reading_inferred`** hyphen-joined concatenation of each component's own reading. 
+●	**`compound_form`** the compound's name, exactly as documented in `osl.asl`.    
+●   **`compound_form_normalized`** without pipes (|...|).   
+●	**`PhoneticVersion_Compound`** attested whole-word reading(s), pipe-separated `ATTESTED_DIRECT` unless Empty.       
+●	**`reading_status`** `ATTESTED_DIRECT` / `NESTED_IN_LONGER_FORM` / `NO_ATTESTED_READING`.      
+●	**`reading_source`** `OSL` / `DIRI` / `OGSL` / `SYLLABARY_CM`, in priority order; empty otherwise.       
+●	**`nested_in_forms`** for `NESTED_IN_LONGER_FORM` rows, the longer attested name this compound is documented as part of. Semicolon-separated.      
+●	**`component_reading_inferred`** hyphen-joined concatenation of each component's own reading.    
 
 
 
