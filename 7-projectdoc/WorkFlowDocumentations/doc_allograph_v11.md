@@ -1,16 +1,28 @@
 ## 4. How Was allograph_all_v11.csv Built?
 
-This step produces the complete sign-level dataset: for every sign documented anywhere in the available sources, its Unicode identity, its structural composition (simple sign or compound, and if compound, exactly which components it decomposes into), and its phonetic reading, drawing on Step 3's compound reading table wherever a sign is a compound.
+This step produces the complete sign dataset:
+- For sign documented in the available sources
+- Its Unicode identity 
+- Its structural composition (simple sign or compound, and if compound, exactly which components it decomposes into)
+- Its phonetic reading, drawing on Step 3's compound reading table wherever a sign is a compound.
+This step combines of osl.asl simple/compound character with phonetic readings from all previous steps:
+- Step 1 for simple characters
+- Step 3 for compounds plus samples from alternative dataset Diri/OGSL and decomposition into components (character-by-character dataset).
+
+The goal is to provide a single summary table where, for any character are immediately visible (whether atomic, compound, encoded in Unicode, or only mentioned in the syllabary,its structure, its reading, and the source of that reading ). The pipeline must be able to answer three question:
+- Character in the corpus—simple or compound?
+- How was it read? 
+- How reliably do we know this?
 
 ## Data Sources
 
 | Source | Description |
 |---|---|
-| **osl.asl** | ORACC Cuneiform Sign List — the structural backbone. |
-| **Unicode + Phonetic Catalogue** *(Step 1)* | `unicode_id → unicodeTrLit / syllabarySign / PhoneticsVersion`. |
-| **compound_form_reading_table.csv** *(Step 3)* | Per-compound reading, resolved through four tiers. |
-| **diri_lexical_list.csv** / **ogsl_sign_readings.json** | Used a second time here, directly, as a name-keyed fallback for signs the unicode-keyed Step 1 catalogue cannot help — see §4 below. |
-| **Syllabary_CM.csv** | For sign names attested nowhere in `osl.asl` at all. |
+| **osl.asl** | ORACC Cuneiform Sign List |
+| **7_unicodePhoneticVersion_full.csv** *(Step 1)* | Dataset for each unicode cuneiform character + Its Phonetic Version: `unicode_id / unicodeTrLit / syllabarySign / PhoneticsVersion`. |
+| **compound_form_reading_table.csv** *(Step 3)* | Attested Compound reading as a whole word. |
+| **diri_lexical_list.csv** / **ogsl_sign_readings.json** |  DIRI list/ OGSL (Oracc Global Sign List), a cross-project consolidation of sign values drawn from ABZL, BAU, HZL, KWU, LAK, MZL, RSP, SLLHA and other historical catalogues |
+| **Syllabary_CM.csv** | Merged historical syllabary (CM + URUK2 + ADDITIONAL)signs not attested in `osl.asl` |
 
 ## Editorial Markers In osl.asl That Change How It Must Be Parsed
 
