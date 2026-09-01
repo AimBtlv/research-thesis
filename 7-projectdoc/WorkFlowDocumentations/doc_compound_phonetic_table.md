@@ -20,8 +20,14 @@ For every compound sign documented in `osl.asl` (a sign written as a sequence, l
 | **Stage 4** | For compounds with neither, search for the name as a sub-sequence inside a longer, independently attested name | `NESTED_IN_LONGER_FORM` where found |
 | **Stage 5** | For every compound, attempt a synthesised reading by concatenating each component's own individual reading | `component_reading_inferred`, populated only when *all* components have one |
 
-**Output: `compound_form_reading_table.csv`**, 2,176 rows, one per distinct compound sign.
+**Output: `compound_form_reading_table.csv`**, 2,176 rows, one per distinct compound sign.   
 
+**Note:**     
+**ATTESTED_DIRECT** a status indicating that the compound has a real, fully attested reading found in at least one of four sources (OSL/DIRI/OGSL/SYLLABARY_CM).
+
+**NESTED_IN_LONGER_FORM**  a status for a compound that has no reading of its own, but is documented only as part of a longer, separately attested sequence—that is, it has never been read as an independent word.
+
+**component_reading_inferred** a compund's guess, not a fact: a reading obtained by simply hyphenating the readings of each component of the compound separately, this is filled in regardless of the status above and should never be considered a real attested reading.
 ## Step-by-Step Description
 
 ### 1. `@v`: The Primary Source
