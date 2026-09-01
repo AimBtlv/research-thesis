@@ -35,13 +35,14 @@ A **diri compound** is one whose reading is genuinely **unpredictable** from its
 
 ## Output Description
 
-●	**`p_number`** — CDLI/ORACC identifier (P-number for an exemplar, Q-number for a composite).   
+●	**`p_number`** — the CDLI/ORACC identifier of the source tablet. 
 ●	**`designation`** — standard publication citation. How the tablet is cited in scientific literature?  
-●	**`period`** / **`provenience`** — where known.   
-●	**`subgenre`** — the specific Diri recension, or `"{series} (composite score)"` for Q-texts.    
-●	**`line_label`** — tablet line reference, for citing back to source.    
+●	**`period`** - the tablet's dated period (Old Babylonian, Middle Babylonian, Middle Assyrian, Neo-Assyrian, Neo-Babylonian).
+● **`provenience`** — findspot, where recorded. 
+●	**`subgenre`** — the specific Diri recension this tablet belongs to.
+●	**`line_label`** — tablet line reference, for citing back to source. (i.e r i' 4')   
 ●	**`sumerian_reading`** — attested Sumerian pronunciation.    
-●	**`sign_sequence`** — the compound sign sequence (extracted differently per text type, see above).    
+●	**`sign_sequence`** — the compound sign sequence 
 ●	**`akkadian_gloss`** — accompanying Akkadian translation/equivalent, where preserved.    
 
 ## Summary
