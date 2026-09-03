@@ -6,20 +6,17 @@
 ***
 ##### Research Questions and Hypotheses:
 - **RQ1** ? Whether the graphic and phonetic variation documented for cuneiform signs shows regular patterns across provenance and period, and whether school-context sign usage correlates with usage in administrative, literary, or commercial corpora?
-- **RQ2** ?
 - **H1** ?
-- **H2** ?
-- **H3** ?
 ***
 ##### Repository Structure:
 - intro/ Context of Research Qiestions/[`/1-intro/`](./1-intro/)
 - datasets/    
-Data Profile: **Sign Catalog** (*this is the result of work on the catalog of signs itself,fixed data*) /   [`/2-dataset/DataProfile`](./2-dataset/DataProfile/)    
-Input Data: **Parsing Tablet** (*this workspace for parsing each tablet,three  subfolders correspond to the three stages: downloaded, tokenized,expanded into characters. The contents here change with each new download from CDLI.*)/ [`/2-dataset/InputData/`](./2-dataset/InputData/)
+Data Profile: **Sign Catalog** (*result of work on the catalog of signs itself,fixed data*) /   [`/2-dataset/DataProfile`](./2-dataset/DataProfile/)    
+Input Data: **Parsing Tablet** (*workspace for parsing each tablet,three  subfolders correspond to the three stages: downloaded, tokenized,expanded into characters. The contents here change with each new download from CDLI.*)/ [`/2-dataset/InputData/`](./2-dataset/InputData/)
 - notebooks/
 - scripts/         
-**scriptDataProfile** (*assembly of the sign catalog (Unicode, Diri, compounds, allograph_all)*)[`/4-scripts/scriptDataProfile`](./4-scripts/scriptDataProfile/).   
-**scriptDataParsing** (*ATF text processing (ATF, tokens, signs)*)/ [`/4-scripts/scriptDataParsing`](./4-scripts/scriptDataParsing/)  
+**scriptDataProfile** (*python code to assemble of the sign catalog (Unicode, Diri, compounds, allograph_all)*)[`/4-scripts/scriptDataProfile`](./4-scripts/scriptDataProfile/).   
+**scriptDataParsing** (*python code for ATF text processing (ATF, tokens, signs)*)/ [`/4-scripts/scriptDataParsing`](./4-scripts/scriptDataParsing/)  
 - images/
 - bibliography/
 - documentation/  
