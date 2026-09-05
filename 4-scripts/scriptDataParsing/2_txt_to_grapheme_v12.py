@@ -1,12 +1,49 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Name: 2_txt_to_grapheme.py
+Description: Parsing Layer, Step 2. Reads atf_tokens.csv (Script 1's
+             output) together with allograph_all_v11.csv, and produces
+             grapheme.csv — one row per actual sign occurrence, expanding
+             every compound token into its verified components.
+
+             Key differences from the original design this replaces:
+
+             (1) Sign lookup is against allograph_all_v11.csv, not the
+                 stale, disconnected 6_unicodeTrLit_Grph_Phon.csv.
+
+             (2) Compound tokens are no longer treated as opaque, unmatched
+                 strings. Each compound token from Script 1 is expanded
+                 into N rows — one per component_position — using the
+                 already-verified component list in allograph_all_v11.csv.
+                 No second, redundant parse of the ATF text happens here.
+
+             (3) sign_type (LOGO / SYLL / NUMERAL / COMPOUND / UNKNOWN) is
+                 read from raw_atf_token, preserved untouched by Script 1,
+                 not from the resolved canonical name — a token that
+                 resolves to canonical name 'A' but was written lowercase
+                 'a' in the source is SYLL, not LOGO, regardless of how the
+                 dictionary happens to capitalise its entries.
+
+             (4) LOGO/SYLL is deliberately NOT assigned to compound tokens
+                 or their expanded components. A compound is a distinct,
+                 third category of use (a memorised whole-word reading),
+                 not a point on the LOGO-SYLL spectrum, and its individual
+                 graphic components are not independently read at all —
+                 asking whether a piece of a diri-writing is 'logographic'
+                 or 'syllabic' is a category error, not an unanswered
+                 question.
+Author: Digital Humanities Pipeline
+Date: 2026-08-28
+Version: 1.0
+"""
 
 import csv
 import re
 from pathlib import Path
 from collections import defaultdict
 
-
+# ─────────────────────────────────────────────────────────────────────────────
 # CONFIGURATION
 # ─────────────────────────────────────────────────────────────────────────────
 

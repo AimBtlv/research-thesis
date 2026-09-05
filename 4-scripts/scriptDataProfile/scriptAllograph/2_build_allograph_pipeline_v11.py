@@ -1,5 +1,39 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Name: build_allograph_pipeline_v11.py
+Description: Builds the two datasets described in Steps 3 and 4 of the
+             project workflow in a single run: compound_form_reading_table.csv
+             (Step 3) and allograph_all_v11.csv (Step 4). osl.asl is parsed
+             exactly once, producing the full sign classification (sign
+             type, sign structure, compound decomposition) that both steps
+             need. That parsed structure is passed directly between stages
+             as in-memory Python objects, never written to an intermediate
+             file and read back in, so the two output files are always
+             mutually consistent by construction.
 
+             Compound readings are resolved through four sources, in order
+             of authority: @v tags native to osl.asl, the digitised Diri
+             lexical series (Step 2), OGSL (cross-project sign value
+             consolidation), and the merged historical syllabary as the
+             final fallback. Atomic signs with no reading in the Step 1
+             catalogue, and signs with no Unicode identity at all, also
+             fall back to Diri/OGSL by name where the Step 1 catalogue
+             cannot help.
+
+             osl.asl itself uses several editorial markers that change how
+             it must be parsed: '@sign-' and '@form-' (hyphen, no space)
+             mark entries explicitly flagged spurious/deprecated/"do not
+             use" by the source's own editors, and must be recognised as
+             block boundaries but excluded from the inventory, not silently
+             merged into whichever entry preceded them. '@fake 1' marks
+             synthetic placeholder entities (e.g. technical space-markers)
+             that are not real signs. All three are handled explicitly
+             below.
+Author: Digital Humanities Pipeline
+Date: 2026-08-26
+Version: 11.0
+"""
 
 import csv
 import json
