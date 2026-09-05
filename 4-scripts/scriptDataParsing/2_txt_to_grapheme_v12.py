@@ -6,9 +6,9 @@ import re
 from pathlib import Path
 from collections import defaultdict
 
-# ─────────────────────────────────────────────────────────────────────────────
+
 # CONFIGURATION
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
 INPUT_TOKENS = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
@@ -24,9 +24,8 @@ GRAPHEME_FIELDS = [
     "is_school_text", "genre_uncertain", "period_uncertain", "provenience_uncertain",
 ]
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 1 — LOAD allograph_all_v11.csv
-# ─────────────────────────────────────────────────────────────────────────────
+# STAGE 1  LOAD allograph_all_v11.csv
+
 
 def load_sign_lookup(path: str) -> tuple:
     """
@@ -34,7 +33,7 @@ def load_sign_lookup(path: str) -> tuple:
     atomic_lookup:       {sign_name: {unicode_id, sign_grapheme, unicodeTrLit}}
                           only rows with sign_structure in ('atomic',
                           'atomic_with_decompositions') or syllabary-only
-                          simple signs — one canonical row per name.
+                          simple signs  one canonical row per name.
     compound_components: {compound_form: [(position, unicode_id, sign_grapheme), ...]}
                           sorted by component_position.
     """
@@ -62,9 +61,9 @@ def load_sign_lookup(path: str) -> tuple:
     return atomic_lookup, compound_components
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 2 — sign_type FROM raw_atf_token (never from resolved_name)
-# ─────────────────────────────────────────────────────────────────────────────
+
+# STAGE 2 sign_type FROM raw_atf_token 
+
 
 def determine_sign_type(raw_atf_token: str, token_kind: str) -> str:
     """LOGO/SYLL is a property of a single atomic token's actual case in
@@ -82,9 +81,8 @@ def determine_sign_type(raw_atf_token: str, token_kind: str) -> str:
     return "LOGO" if first_alpha.isupper() else "SYLL"
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 3 — ATF METADATA (&, #, @ header lines) — unchanged in logic
-# ─────────────────────────────────────────────────────────────────────────────
+# STAGE 3 — ATF METADATA (&, #, @ header lines)  unchanged in logic
+
 
 PERIOD_TABLE = [
     ("uruk", "Uruk", 3400), ("jemdet nasr", "Jemdet Nasr", 3000),
@@ -140,8 +138,8 @@ PROVENANCE_MODERN_RE = re.compile(r'^(.*?)\s*\(mod\.\s*([^()]*)\)\s*$', re.IGNOR
 
 
 def split_period(period_str: str) -> tuple:
-    """'ED IIIa (ca. 2600-2500 BC)' -> ('ED IIIa', 'ca. 2600-2500 BC').
-    Returns (period_index, period_dates); if there is no parenthetical
+    """'ED IIIa (ca. 2600-2500 BC)' to ('ED IIIa', 'ca. 2600-2500 BC').
+    Returns (period_index, period_dates), if there is no parenthetical
     part at all, period_dates is left empty rather than guessed."""
     m = PERIOD_SPLIT_RE.match(period_str)
     if m:
@@ -150,9 +148,9 @@ def split_period(period_str: str) -> tuple:
 
 
 def split_provenance(provenance_str: str) -> tuple:
-    """'Shuruppak (mod. Fara)' -> ('Shuruppak', 'Fara'). Only the specific
+    """'Shuruppak (mod. Fara)' - ('Shuruppak', 'Fara'). Only the specific
     'mod. X' convention is split off; a parenthetical that isn't a modern-
-    name gloss (e.g. an uncertainty marker) is left attached to
+    name gloss (i.e. an uncertainty marker) is left attached to
     provenance untouched, rather than guessed apart."""
     m = PROVENANCE_MODERN_RE.match(provenance_str)
     if m:
@@ -161,7 +159,7 @@ def split_provenance(provenance_str: str) -> tuple:
 
 
 def load_artifact_metadata_csv(path) -> dict:
-    """Reads one CDLI artifacts_{artifact_id}.csv export directly — the
+    """Reads one CDLI artifacts_{artifact_id}.csv export directly  the
     authoritative source when available, in preference to guessing period/
     genre/provenance by keyword-matching noisy ATF body text. Preserves
     CDLI's own uncertainty flags rather than discarding them: a genre or
@@ -207,12 +205,11 @@ def load_artifact_metadata_csv(path) -> dict:
 
 def load_all_artifact_metadata(metadata_folder: str) -> dict:
     """Returns {p_number: metadata_dict}, one entry per artifacts_*.csv
-    file found. This is the primary metadata source; load_all_atf_metadata
+    file found. This is the primary metadata source, load_all_atf_metadata
     (keyword-matching against ATF header text) is used only as a fallback
     for any P-number with no matching artifacts_*.csv."""
     index = {}
-    # "**/artifacts_*.csv" — metadata files sit two levels deep in genre
-    # subfolders (metadata/metaOBP_Legal_72/*.csv etc.)
+    
     for path in Path(metadata_folder).glob("**/artifacts_*.csv"):
         try:
             meta = load_artifact_metadata_csv(path)
@@ -263,10 +260,8 @@ def load_all_atf_metadata(atf_folder: str) -> dict:
         index[p_number] = parse_atf_metadata("\n".join(header_lines), p_number)
     return index
 
+# STAGE 4 EXPAND TOKENS INTO grapheme.csv ROWS
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 4 — EXPAND TOKENS INTO grapheme.csv ROWS
-# ─────────────────────────────────────────────────────────────────────────────
 
 def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: dict,
                     artifact_meta_index: dict, atf_meta_index: dict) -> tuple:
@@ -328,30 +323,20 @@ def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: d
                                 "is_compound": "SIMPLE", "component_position": ""})
 
             elif row["token_kind"] == "broken":
-                continue  # damaged/missing text marker, not a sign occurrence
-
+                continue 
             elif row["token_kind"] == "numeral":
-                continue  # numerals are counting-system notation, not sign
-                          # occurrences — excluded from grapheme.csv entirely,
-                          # per project decision, not a data gap
+                continue 
 
             else:  # unresolved
                 missing.setdefault(row["raw_atf_token"], []).append(
                     (row["word_id"], meta.get("provenance",""), meta.get("period_index","")))
-                continue  # UNKNOWN rows are excluded from grapheme.csv entirely,
-                          # same as numerals — fully preserved instead in
-                          # warnings_grapheme.csv, with word_id/provenance/
-                          # period/count already attached there, so nothing
-                          # is lost, only kept out of the main sign-occurrence
-                          # table where an empty unicode_id row would sit
-                          # alongside verified facts without a clear marker
+                continue 
 
     return records, missing
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 # MAIN
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def main(atf_folder: str = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/1.downloadCorpusATF/EDIII-OBP_School/atf",
          metadata_folder: str = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/1.downloadCorpusATF/EDIII-OBP_School/metadata"):
@@ -393,12 +378,7 @@ def main(atf_folder: str = "/Users/aima/Desktop/Practice/GitHub/research-thesis/
         with open(OUTPUT_WARNINGS, "w", encoding="utf-8-sig", newline="") as f:
             w = csv.writer(f)
             w.writerow(["word_id", "unresolved_name", "sign_type", "provenance", "period_index", "count"])
-            # grouped by (name, provenance, period_index): word_id shown is
-            # the FIRST occurrence in that group, for tracing back to a
-            # concrete example; count is how many occurrences share that
-            # exact (name, provenance, period) combination, not a global
-            # corpus-wide total — a name unresolved in two different
-            # periods/sites gets two separate rows, not one merged count.
+           
             grouped = defaultdict(list)
             for name, occurrences in missing.items():
                 for word_id, provenance, period_index in occurrences:
@@ -415,4 +395,4 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         main(sys.argv[1], sys.argv[2])
     else:
-        main()  # uses the real default paths set above
+        main()

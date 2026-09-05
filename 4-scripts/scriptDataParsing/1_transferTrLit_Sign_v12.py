@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-
 import csv
 import re
 import unicodedata
 from pathlib import Path
 from collections import defaultdict
 
-# ─────────────────────────────────────────────────────────────────────────────
 # CONFIGURATION
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
 INPUT_COMPOUND_TABLE = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/compound_form_reading_table.csv"
@@ -26,19 +23,16 @@ TOKENS_FIELDNAMES = [
     "resolved_name", "token_kind", "confidence", "source", "determinative",
 ]
 
-# ─────────────────────────────────────────────────────────────────────────────
 # NORMALISATION
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def normalize_name(s: str) -> str:
-    """Pipes stripped, subscript digits folded to ASCII, case-folded.
-    Used as the dictionary lookup key throughout."""
     return s.strip('|').translate(SUB_MAP).lower()
 
 
 def x_operator_variants(name: str) -> set:
     """For the narrow, confirmed case where a compound's own attested
-    reading IS its own structural name (no deeper phonetic value — see
+    reading IS its own structural name (no deeper phonetic value  see
     project notes), the sign-name operator × may appear in the source ATF
     text as Unicode × or ASCII x. Returns the set of equivalent forms.
     Deliberately NOT applied to ordinary phonetic readings, which never
@@ -58,7 +52,7 @@ def x_operator_variants(name: str) -> set:
 def load_simple_dict(path: str) -> dict:
     """{normalized_reading: sign_name}, atomic signs only (typePhonetic_Version
     == 'Single Sign Reading'). This already includes the Diri/OGSL fallback
-    readings baked into allograph_all_v11.csv — no separate lookup needed."""
+    readings baked into allograph_all_v11.csv —no separate lookup needed."""
     d = {}
     with open(path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
@@ -105,12 +99,9 @@ def load_compound_dicts(path: str) -> tuple:
     return attested, inferred, source_by_form
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 2 — LINE PREPROCESSING (syntax cleanup, unchanged in spirit from the
-# original script: diacritic normalisation, ellipsis collapse, bracket
-# handling). This is the SINGLE pass whose output feeds both the .txt file
-# and the tokenizer, so they can never drift apart.
-# ─────────────────────────────────────────────────────────────────────────────
+
+# STAGE 2 LINE PREPROCESSING 
+
 
 
 
@@ -172,9 +163,9 @@ def strip_determinatives(word: str) -> tuple:
 
     A determinative sitting strictly between two other signs with no
     existing hyphen/dot on either side (e.g. 'gal{d}la') is replaced with
-    a hyphen, not deleted outright — deleting it would silently fuse the
+    a hyphen, not deleted outright deleting it would silently fuse the
     surrounding signs into a phantom sequence that never existed in the
-    source ('gal' + 'la' -> 'galla'). Where a separator already exists
+    source ('gal' + 'la' to 'galla'). Where a separator already exists
     immediately adjacent, no extra hyphen is inserted."""
     found = DETERMINATIVE_RE.findall(word)
 
@@ -187,12 +178,7 @@ def strip_determinatives(word: str) -> tuple:
     cleaned = DETERMINATIVE_RE.sub(_replace, word)
     return cleaned, found
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # STAGE 3 — TOKENIZATION
-# Two-level split: SPACE first (word boundary, never crossed by compound
-# matching), then HYPHEN+DOT together within each word (sign boundary).
-# ─────────────────────────────────────────────────────────────────────────────
 
 _LRVS_EXCEPTION = re.compile(r'^[lrvs]e?\??\.')
 
@@ -228,11 +214,6 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
     lrvs_prefix = ""
     m = _LRVS_EXCEPTION.match(word)
     if m:
-        # Protect only the matched prefix itself (e.g. 'r.') from being
-        # tokenized as a sign boundary — NOT the whole remaining word.
-        # An earlier version returned the entire word as a single
-        # unresolvable blob here, silently swallowing any real sign that
-        # happened to follow the prefix (e.g. 'r.gal' lost 'gal' entirely).
         lrvs_prefix = m.group(0)
         word = word[len(lrvs_prefix):]
         if not word:
@@ -242,20 +223,6 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
     n = len(parts)
     # state: None = unresolved, else the finished token dict
     slots = [None] * n
-
-    # PASS 1 — attested only, longest-to-shortest, left to right. Only
-    # multi-piece spans (2+) here: a lone single piece is deliberately
-    # NOT tried against attested_dict at this stage, even though some
-    # single pieces do have a genuine attested compound reading (e.g.
-    # 'hul' inside 'ba-hul-a'). Checked here first, a common short
-    # syllable that happens to coincidentally share a reading with some
-    # rare attested compound (confirmed for real: 'u3' resolves to a
-    # totally different sign depending on whether it is read as the
-    # atomic sign |IGI.DIB| or the DIRI compound |IGI.LU|) would be
-    # wrongly classified as that rare compound by default. Single pieces
-    # are resolved afterwards, in resolve_single_piece, which tries
-    # simple_dict FIRST and only falls back to attested_dict if the piece
-    # has no ordinary atomic reading at all.
     i = 0
     while i < n:
         if slots[i] is not None:
@@ -279,7 +246,7 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
         if not matched:
             i += 1
 
-    # PASS 2 — inferred, only for positions still fully unresolved
+    # PASS 2 
     i = 0
     while i < n:
         if slots[i] is not None:
@@ -325,7 +292,7 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
 def resolve_single_piece(text: str, simple_dict: dict, attested_dict: dict,
                           source_by_form: dict) -> tuple:
     """Returns (resolved_name, token_kind, source). Priority is simple_dict
-    FIRST, attested_dict only as a fallback — confirmed necessary on real
+    FIRST, attested_dict only as a fallback  confirmed necessary on real
     data: 'u3' has both an ordinary atomic reading (|IGI.DIB|) and an
     unrelated attested DIRI compound reading (|IGI.LU|) for the exact same
     string, and the common syllable use must win by default, not the rare
@@ -342,7 +309,7 @@ def resolve_single_piece(text: str, simple_dict: dict, attested_dict: dict,
     simple_dict and hit the same coincidental 'xxx' collision.
 
     'source' is always one of OSL/DIRI/OGSL/SYLLABARY_CM (looked up the
-    same way as any other compound match) or empty — never a separate,
+    same way as any other compound match) or empty  never a separate,
     made-up label for this fallback path."""
     if is_broken_marker(text):
         return text, "broken", ""
@@ -460,9 +427,8 @@ def process_atf_text(text: str, simple_dict: dict, attested_dict: dict,
                     })
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 # MAIN
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def main(atf_folder: str):
     print(f"[INFO] Loading dictionaries")
@@ -473,8 +439,7 @@ def main(atf_folder: str):
     print(f"  inferred_compound_dict: {len(inferred_dict)} readings")
 
     Path(OUTPUT_TXT_DIR).mkdir(exist_ok=True)
-    # "**/*.atf" (not "*.atf") — .atf files sit two levels deep in genre
-    # subfolders (atf/atfOBP_Legal_72/*.atf etc.), not directly in atf_folder
+    
     atf_files = sorted(Path(atf_folder).glob("**/*.atf"))
     print(f"[INFO] {len(atf_files)} ATF file(s) found in {atf_folder}")
 

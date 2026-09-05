@@ -3,11 +3,11 @@ import csv
 import re
 from pathlib import Path
 
-# ── 0. Paths ──────────────────────────────────────────────────────────────────
+#  0. Paths
 
-BASE_DIR   = Path(__file__).parent          # directory of this script
-INPUT_DIR  = Path("/mnt/project")           # read-only project files
-OUTPUT_DIR = Path("/mnt/user-data/outputs") # output directory
+BASE_DIR   = Path(__file__).parent          
+INPUT_DIR  = Path("/mnt/project")           
+OUTPUT_DIR = Path("/mnt/user-data/outputs") 
 
 UNICODE_CSV  = INPUT_DIR  / "1_unicodeSigns.csv"
 MATCHED_CSV  = INPUT_DIR  / "4_matched_signs_full.csv"
@@ -23,7 +23,7 @@ OUTPUT_FIELDNAMES = [
 ]
 
 
-# ── 1. Load 1_unicodeSigns.csv ────────────────────────────────────────────────
+#1. Load 1_unicodeSigns.csv
 
 def load_unicode_signs(path: Path) -> dict[str, dict]:
     """
@@ -37,7 +37,7 @@ def load_unicode_signs(path: Path) -> dict[str, dict]:
     return signs
 
 
-# ── 2. Load 4_matched_signs_full.csv — collect already-matched IDs ────────────
+#  2. Load 4_matched_signs_full.csv  collect already-matched IDs 
 
 def load_matched_ids(path: Path) -> set[str]:
     """
@@ -51,8 +51,7 @@ def load_matched_ids(path: Path) -> set[str]:
     return ids
 
 
-# ── 3. Parse osl.asl ──────────────────────────────────────────────────────────
-
+#  3. Parse osl.asl
 def parse_osl(path: Path) -> dict[str, dict]:
     """
     Parse an ORACC Sign List (.asl) file and return a dict keyed by unicode_id.
@@ -120,9 +119,7 @@ def parse_osl(path: Path) -> dict[str, dict]:
             elif line.startswith("@end sign"):
                 break
 
-            # Nested @form blocks also contain @v lines; the current simple
-            # loop collects them all — this is intentional so we capture
-            # every attested reading for polyphony analysis.
+            
 
         if unicode_id:
             osl[unicode_id] = {
@@ -139,7 +136,7 @@ def parse_osl(path: Path) -> dict[str, dict]:
     return osl
 
 
-# ── 4. Build the output rows ───────────────────────────────────────────────────
+#  4. Build the output rows 
 
 def build_missing_rows(
     unicode_signs: dict[str, dict],
@@ -182,7 +179,7 @@ def build_missing_rows(
     return rows, not_in_osl
 
 
-# ── 5. Write output CSV ────────────────────────────────────────────────────────
+#  5. Write output CSV 
 
 def write_csv(path: Path, rows: list[dict], fieldnames: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -193,7 +190,7 @@ def write_csv(path: Path, rows: list[dict], fieldnames: list[str]) -> None:
     print(f"[5] Written {len(rows):,} rows → {path}")
 
 
-# ── 6. Summary report ─────────────────────────────────────────────────────────
+#  6. Summary report
 
 def print_summary(rows: list[dict], not_in_osl: list[str]) -> None:
     with_phonetics = sum(1 for r in rows if r["PhoneticsVersion"])
@@ -222,7 +219,7 @@ def print_summary(rows: list[dict], not_in_osl: list[str]) -> None:
         )
 
 
-# ── main ──────────────────────────────────────────────────────────────────────
+#  main 
 
 def main() -> None:
     print("=" * 65)

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
 import json
 import csv
 from pathlib import Path
@@ -20,11 +19,7 @@ def load_diri_catalogue(path: str) -> dict:
     with open(path, encoding="utf-8") as f:
         cat = json.load(f)
     members = cat["members"]
-    # Two independent tags mark a Diri text in this catalogue: 'subgenre'
-    # (used for individual tablet exemplars, e.g. 'OB Nippur Diri') and
-    # 'series' (used for composite/score editions, e.g. Q000146 'Diri 01').
-    # Missing the second missed the actual MSL 15 = watru master edition
-    # entirely in the first pass.
+
     return {pid: rec for pid, rec in members.items()
             if "diri" in rec.get("subgenre", "").lower()
             or rec.get("series", "").strip().lower() == "diri"}
@@ -136,7 +131,7 @@ def process_text(json_path: Path, meta: dict) -> list:
                 akkadian = frag
 
         if not (reading or sign_sequence):
-            continue  # fully broken line, nothing usable
+            continue 
 
         rows.append({
             "p_number": meta["id_text"],
@@ -160,7 +155,7 @@ def main():
     available = {}
     for corpus_dir in CORPUS_DIRS:
         for p in list(corpus_dir.glob("P*.json")) + list(corpus_dir.glob("Q*.json")):
-            available.setdefault(p.stem, p)  # first archive found wins
+            available.setdefault(p.stem, p) 
     to_process = {pid: meta for pid, meta in diri_catalogue.items() if pid in available}
     print(f"[INFO] {len(to_process)} of those texts are present in the corpus archives")
 

@@ -1,25 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
 import csv
 import json
 import re
 from collections import defaultdict, Counter
 
-# ─────────────────────────────────────────────────────────────────────────────
 # CONFIGURATION
-# ─────────────────────────────────────────────────────────────────────────────
-
 INPUT_ASL = "osl.asl"
 INPUT_UNICODE = "1_unicodeSigns.csv"
 INPUT_PHONETIC = "7_unicodePhoneticVersion_full.csv"
 INPUT_SYLLABARY = "Syllabary_CM.csv"
-INPUT_DIRI = "diri_lexical_list.csv"          # Step 2 primary source (MSL 15 = watru)
-INPUT_OGSL = "ogsl_sign_readings.json"        # cross-project sign value consolidation
+INPUT_DIRI = "diri_lexical_list.csv"          
+INPUT_OGSL = "ogsl_sign_readings.json"       
 
-OUTPUT_COMPOUND_TABLE = "compound_form_reading_table.csv"  # Step 2 output
-OUTPUT_V8 = "allograph_all_v11.csv"                          # Step 3 output
+OUTPUT_COMPOUND_TABLE = "compound_form_reading_table.csv"  
+OUTPUT_V8 = "allograph_all_v11.csv"                          
 
 SUBSCRIPT_TO_ASCII = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 V_PAT = re.compile(r'^@v\s+(.*)')
@@ -58,10 +54,7 @@ V8_FIELDNAMES = [
     "signList_analogue",
 ]
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # SHARED HELPERS
-# ─────────────────────────────────────────────────────────────────────────────
 
 def normalize_name(name: str) -> str:
     return name.strip('|').translate(SUBSCRIPT_TO_ASCII)
@@ -149,7 +142,7 @@ def parse_entity_header(lines):
 def split_form_blocks(block):
     """Splits a @sign block's raw text into (form_text, is_deprecated) pairs
     for both '@form' (valid) and '@form-' (marked spurious/deprecated/
-    superseded by osl.asl's own editors — must be excluded, not silently
+    superseded by osl.asl's own editors must be excluded, not silently
     merged into whichever form precedes it). form_text keeps the same shape
     the rest of the code expects: first line is the form's own name."""
     parts = re.split(r'(^@form-?[ \t])', block, flags=re.MULTILINE)
@@ -254,33 +247,18 @@ def load_phonetic_reference(path):
     return ref
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 1 — PARSE osl.asl ONCE: classify every sign, decompose compounds,
-#            and collect @v readings, all from a single pass over the file
-# ─────────────────────────────────────────────────────────────────────────────
+
+# STAGE 1 PARSE osl.asl ONCE: classify every sign, decompose compounds, and collect @v readings, all from a single pass over the file
+
 
 def parse_osl(path, unicode_ref):
     with open(path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Two SEPARATE indices, deliberately not merged:
-    #  - sign_index: @sign HEADERS ONLY. Used for resolving × / & component
-    #    names during compound decomposition. Must stay header-only, because
-    #    a @form's alternate catalogue name can coincidentally collide with
-    #    an unrelated sign's own name elsewhere in the file; mixing the two
-    #    namespaces let a weaker @form entry silently overwrite a correct
-    #    @sign entry sharing the same string, breaking own_uid lookups for
-    #    the real sign of that name.
-    #  - entity_v_index: @sign headers AND @form blocks. Used only for @v
-    #    lookup in Stage 2, where the entity being looked up (a compound's
-    #    documented form) can legitimately be a @form name.
     sign_index = {}
     entity_v_index = {}
     sign_blocks_raw = re.split(r'^@sign-?[ \t]', content, flags=re.MULTILINE)
-    # Positions of "@sign-" starts are needed to know which blocks are
-    # deprecated/spurious (marked by ORACC's own editors) and must be
-    # excluded from the main inventory rather than silently merged into
-    # whichever preceding block the old splitter last recognised.
+   
     deprecated_starts = set(m.start() for m in re.finditer(r'^@sign-[ \t]', content, flags=re.MULTILINE))
     all_starts = [m.start() for m in re.finditer(r'^@sign-?[ \t]', content, flags=re.MULTILINE)]
 
@@ -293,7 +271,7 @@ def parse_osl(path, unicode_ref):
         if not block.strip() or block.strip().startswith('@'):
             continue
         if is_deprecated:
-            continue  # explicitly marked spurious/deprecated/"do not use" by osl.asl itself
+            continue 
         lines = block.strip().split('\n')
         name, header_lines = split_entity_lines(lines)
         header = parse_entity_header(header_lines)
@@ -302,17 +280,17 @@ def parse_osl(path, unicode_ref):
         form_parts = split_form_blocks(block)
         for form_section, form_is_dep in form_parts:
             if form_is_dep:
-                continue  # @form- : marked spurious/deprecated by osl.asl itself
+                continue  
             form_lines = form_section.strip().split('\n')
             entity_v_index[form_lines[0].strip()] = parse_entity_header(form_lines[1:])
-    entity_index = sign_index  # used below for × / & component resolution only
+    entity_index = sign_index  
 
     sign_rows = []
     for block, is_deprecated in sign_blocks:
         if not block.strip() or block.strip().startswith('@'):
             continue
         if is_deprecated:
-            continue  # explicitly marked spurious/deprecated/"do not use" by osl.asl itself
+            continue  
         block_lines = block.strip().split('\n')
         sign_name, sign_header_lines = split_entity_lines(block_lines)
         sign_header = parse_entity_header(sign_header_lines)
@@ -323,7 +301,7 @@ def parse_osl(path, unicode_ref):
 
         if not form_sections:
             if sign_header["is_fake"]:
-                continue  # @fake 1 : synthetic placeholder entity, not a real sign
+                continue  
             cls = classify_entity(sign_name, sign_header, entity_index, unicode_ref)
             sign_rows.extend(build_rows_for_entity(
                 sign_name, "", cls, sign_header["ucun"], unicode_ref,
@@ -334,7 +312,7 @@ def parse_osl(path, unicode_ref):
                 form_name = form_lines[0].strip()
                 form_header = parse_entity_header(form_lines[1:])
                 if form_header["is_fake"]:
-                    continue  # @fake 1 : synthetic placeholder entity, not a real form
+                    continue 
                 cls = classify_entity(form_name, form_header, entity_index, unicode_ref)
 
                 if (cls["sign_type"] == "Type_3" and not cls["component_uids"]
@@ -415,11 +393,9 @@ def join_phonetics(rows, phon_ref):
     return rows
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 2 — compound_form_reading_table: for every compound sign identified
-#            in Stage 1, resolve its whole-word reading from @v tags, or the
-#            merged historical syllabary as fallback
-# ─────────────────────────────────────────────────────────────────────────────
+
+# STAGE 2 compound_form_reading_table: for every compound sign identified in Stage 1, resolve its whole-word reading from @v tags, or the merged historical syllabary as fallback
+
 
 def load_syllabary(path):
     name_to_readings = defaultdict(list)
@@ -434,8 +410,7 @@ def load_syllabary(path):
 def load_diri_lexical(path):
     """Returns {normalized_sign_sequence: [reading, reading, ...]}, aggregating
     every attested reading across all surviving Diri tablet lines that share
-    that exact sign sequence (preserving genuine polyphony, e.g. |EN.ME.GI|
-    attested as both 'engiz' readings on the same tablet)."""
+    that exact sign sequence """
     seq_to_readings = defaultdict(list)
     with open(path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
@@ -451,7 +426,7 @@ def load_diri_lexical(path):
 
 def load_ogsl(path):
     """Returns {normalized_sign_name: [reading, ...]}, from the OGSL
-    (Oracc Global Sign List) portal export — a cross-project consolidation
+    (Oracc Global Sign List) portal export a cross-project consolidation
     of sign values drawn from ABZL, BAU, HZL, KWU, LAK, MZL, RSP, SLLHA,
     and other historical sign lists, one 'Values:' entry per sign."""
     with open(path, encoding="utf-8") as f:
@@ -487,13 +462,7 @@ def build_compound_table(sign_rows, entity_index, name_to_readings, diri_reading
         comps = sorted(compound_components.get(cf, []))
         inferred = "-".join(c[1].lower() for c in comps) if comps and all(c[1] for c in comps) else ""
 
-        # Four-tier resolution, in order of authority:
-        #   1. @v in osl.asl        — tied directly to this entity, no name matching
-        #   2. Diri lexical series  — ancient primary source (MSL 15 = watru)
-        #   3. OGSL                 — cross-project consolidation of ABZL/BAU/HZL/
-        #                             KWU/LAK/MZL/RSP/SLLHA and other sign lists
-        #   4. Syllabary_CM         — modern compiled syllabary, broadest coverage,
-        #                             lowest priority as the most general secondary source
+       
         if v_reading:
             status, source, reading = "ATTESTED_DIRECT", "OSL", v_reading
         elif diri_reading:
@@ -516,12 +485,8 @@ def build_compound_table(sign_rows, entity_index, name_to_readings, diri_reading
 
     return table_rows, status_by_form, reading_by_form
 
+# STAGE 3 allograph_all_v8: attach phonetic typing to every sign (using Stage 2's compound readings) and extend coverage with sign names attested only in the historical syllabary
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGE 3 — allograph_all_v8: attach phonetic typing to every sign (using
-#            Stage 2's compound readings) and extend coverage with sign
-#            names attested only in the historical syllabary
-# ─────────────────────────────────────────────────────────────────────────────
 
 def build_v8_rows(sign_rows, status_by_form, reading_by_form, diri_readings, ogsl_readings):
     v8_rows = []
@@ -534,9 +499,7 @@ def build_v8_rows(sign_rows, status_by_form, reading_by_form, diri_readings, ogs
 
         if ss in ("atomic", "atomic_with_decompositions"):
             row["typePhonetic_Version"] = "Single Sign Reading"
-            # Fallback: the Step 1 phonetic catalogue has no reading for this
-            # code, but Diri/OGSL may know how the sign itself was read,
-            # by name rather than by unicode_id.
+           
             if not row["phonetic_version"].strip():
                 if norm in diri_readings:
                     row["phonetic_version"] = "|".join(diri_readings[norm])
@@ -551,8 +514,7 @@ def build_v8_rows(sign_rows, status_by_form, reading_by_form, diri_readings, ogs
         else:
             row["typePhonetic_Version"] = "No Sign Identity"
             row["phonetic_version"] = ""
-            # Fallback: no Unicode identity for this sign at all, but Diri/OGSL
-            # may still attest how it was actually read, by name.
+         
             if norm in diri_readings:
                 row["phonetic_version"] = "|".join(diri_readings[norm])
                 row["structural_hint"] = "phonetic_via_diri"
@@ -599,9 +561,7 @@ def write_csv(rows, path, fieldnames):
         w.writeheader(); w.writerows(rows)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 # ENTRY POINT
-# ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     unicode_ref = load_unicode_reference(INPUT_UNICODE)

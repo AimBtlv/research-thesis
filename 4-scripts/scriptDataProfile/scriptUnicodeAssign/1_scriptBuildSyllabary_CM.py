@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
 import csv
 import sys
 from pathlib import Path
 
-# ── 0. Paths ──────────────────────────────────────────────────────────────────
-# Edit INPUT_DIR / OUTPUT_DIR to match your local setup.
+# 0. Paths
 
-INPUT_DIR  = Path("/mnt/project")            # folder with source files
-OUTPUT_DIR = Path("/mnt/user-data/outputs")  # folder for output CSV
+
+INPUT_DIR  = Path("/mnt/project")           
+OUTPUT_DIR = Path("/mnt/user-data/outputs") 
 
 CM_FILE         = INPUT_DIR / "2_syllabary_CM.csv"
 URUK2_FILE      = INPUT_DIR / "syllabary_uruk2.txt"
@@ -20,8 +19,7 @@ OUTPUT_CSV      = OUTPUT_DIR / "Syllabary_CM.csv"
 FIELDNAMES = ["phonetic_reading", "sign_name", "source"]
 
 
-# ── 1. Parse syllabary_CM.txt ─────────────────────────────────────────────────
-
+#1. Parse syllabary_CM.txt
 def parse_cm(path: Path) -> list[dict]:
     """
     Parse the main CM syllabary.
@@ -40,11 +38,11 @@ def parse_cm(path: Path) -> list[dict]:
         for i, line in enumerate(fh, start=1):
             line = line.strip()
             if not line:
-                continue                           # skip blank lines
+                continue                          
 
             parts = line.split("\t")
             if len(parts) < 2:
-                skipped += 1                       # no tab → not a valid entry
+                skipped += 1                       
                 continue
 
             phonetic  = parts[0].strip()
@@ -65,14 +63,14 @@ def parse_cm(path: Path) -> list[dict]:
     return rows
 
 
-# ── 2. Parse syllabary_uruk2.txt ──────────────────────────────────────────────
+#  2. Parse syllabary_uruk2.txt 
 
 def parse_uruk2(path: Path) -> list[dict]:
     """
     Parse the Uruk archaic sign list.
 
     Format per line:  SIGN_NAME   (one sign name per line, no phonetic value)
-    - Lines starting with # are comments — skip.
+    - Lines starting with # are comments  skip.
     - Empty lines are skipped silently.
 
     Because Uruk-period writing was purely logographic (no phonetic component),
@@ -91,8 +89,8 @@ def parse_uruk2(path: Path) -> list[dict]:
                 continue
 
             rows.append({
-                "phonetic_reading": line,   # sign name used as lookup key
-                "sign_name":        line,   # same — no separate phonetic value
+                "phonetic_reading": line,  
+                "sign_name":        line,   
                 "source":           "URUK2",
             })
 
@@ -100,7 +98,7 @@ def parse_uruk2(path: Path) -> list[dict]:
     return rows
 
 
-# ── 3. Parse additional_signs.txt ─────────────────────────────────────────────
+#  3. Parse additional_signs.txt
 
 def parse_additional(path: Path) -> list[dict]:
     """
@@ -144,8 +142,7 @@ def parse_additional(path: Path) -> list[dict]:
     return rows
 
 
-# ── 4. Merge and deduplicate ──────────────────────────────────────────────────
-
+#  4. Merge and deduplicate 
 def merge(cm: list[dict], uruk2: list[dict], additional: list[dict]) -> list[dict]:
     """
     Merge all three sources.
@@ -171,7 +168,7 @@ def merge(cm: list[dict], uruk2: list[dict], additional: list[dict]) -> list[dic
     return merged
 
 
-# ── 5. Write output ───────────────────────────────────────────────────────────
+# 5. Write output 
 
 def write_csv(path: Path, rows: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -182,7 +179,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
     print(f"\n  [saved] {path}")
 
 
-# ── 6. Summary ────────────────────────────────────────────────────────────────
+#  6. Summary
 
 def print_summary(cm, uruk2, additional, merged) -> None:
     from collections import Counter
@@ -209,7 +206,7 @@ def print_summary(cm, uruk2, additional, merged) -> None:
     print("──────────────────────────────────────────────────────────────\n")
 
 
-# ── main ──────────────────────────────────────────────────────────────────────
+# main
 
 def main() -> None:
     print("=" * 65)
