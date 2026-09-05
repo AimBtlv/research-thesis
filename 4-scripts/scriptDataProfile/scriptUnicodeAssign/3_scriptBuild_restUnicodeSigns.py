@@ -1,28 +1,3 @@
-"""
-build_restUnicodeSigns.py
-─────────────────────────────────────────────────────────────────────────────
-Task:
-  Find all Unicode cuneiform signs that are present in 1_unicodeSigns.csv
-  but MISSING from 4_matched_signs_full.csv, then enrich them with phonetic
-  values from the OSL sign-list (osl.asl) and save as restUnicodeSigns.csv.
-
-Input files:
-  1_unicodeSigns.csv        — full Unicode sign inventory  (unicode_id, sign_grapheme, transliteration)
-  4_matched_signs_full.csv  — already matched signs        (unicode_id, sign_grapheme, unicodeTrLit, syllabarySign, PhoneticsVersion)
-  osl.asl                   — ORACC Sign List (ASL format) — authoritative phonetic values
-
-Output:
-  restUnicodeSigns.csv      — same schema as 4_matched_signs_full.csv,
-                              containing only the 443 previously-missing signs
-
-Schema of output:
-  unicode_id       — e.g. U+12000
-  sign_grapheme    — cuneiform character(s)
-  unicodeTrLit     — transliteration from 1_unicodeSigns.csv
-  syllabarySign    — scientific sign name from OSL (@sign line)
-  PhoneticsVersion — pipe-separated phonetic values from OSL (@v lines)
-─────────────────────────────────────────────────────────────────────────────
-"""
 
 import csv
 import re

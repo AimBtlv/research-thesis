@@ -1,42 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Name:        build_syllabary_CM.py
-Description: Stage A / Step 1 — Builds the master Syllabary_CM.csv by
-             merging three source files into a single unified lookup table.
 
-             Each row in the output maps one phonetic ATF reading to the
-             scientific sign name (Sign Name) that carries it.
-             This lookup table is used in Stage A to match the Unicode sign
-             list against known phonetic readings.
-
-Input files:
-    syllabary_CM.txt     — Main phonetic syllabary by Prof. C. Michel.
-                           Format: TAB-separated  phonetic_reading<TAB>SIGN_NAME
-                           (~19,273 entries)
-
-    syllabary_uruk2.txt  — Archaic Uruk IV–III sign list (CDLI).
-                           Format: one SIGN_NAME per line (no phonetic values,
-                           because Uruk-period writing was purely logographic).
-                           Comment lines start with #.
-                           (~2,212 entries)
-
-    additional_signs.txt — Supplementary mappings for rare / compound forms
-                           absent from the main syllabary.
-                           Format: TAB-separated  phonetic_reading<TAB>SIGN_NAME
-                           (~65 entries)
-
-Output file:
-    Syllabary_CM.csv — unified lookup table with columns:
-        phonetic_reading  — ATF reading as it appears in transliterated texts
-        sign_name         — scientific sign name (e.g. A, SILA3, |AN.KI|)
-        source            — which file this entry came from
-                            ('CM' | 'URUK2' | 'ADDITIONAL')
-
-Author:      [your name]
-Date:        2025
-Version:     1.0
-"""
 
 import csv
 import sys

@@ -1,52 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Name: 1_transferTrLit_Sign.py
-Description: Parsing Layer, Step 1. Reads ATF transliteration files and
-             produces two outputs per corpus run:
 
-               atf_tokens.csv  — ONE file for the whole corpus. One row per
-                                  word-token occurrence, carrying both the
-                                  untouched original ATF text (raw_atf_token)
-                                  and the resolved sign/compound identity,
-                                  with explicit confidence and source so a
-                                  synthesised guess is never silently mixed
-                                  with an attested fact.
-
-               {P-number}.txt   — one per tablet. The transliteration after
-                                  syntax cleanup (brackets, diacritics,
-                                  ellipsis collapse) but BEFORE dictionary
-                                  resolution. Doubles as a human-readable,
-                                  easy-to-open copy of the tablet and as a
-                                  control file: the same cleaned line used
-                                  to write this file is the exact source
-                                  raw_atf_token is sliced from, so the two
-                                  outputs can never silently drift apart.
-
-             Compound recognition: within each space-separated word, hyphen
-             and dot are treated as a single combined boundary set (not
-             hyphen-first-then-dot), and the longest contiguous span
-             starting at the current position is tried against the
-             attested-reading dictionary before any shorter span or
-             single-sign fallback. This is required to recognise real
-             multi-syllable attested compound readings that happen to be
-             hyphenated in the source text (e.g. a-rin4-na), which a
-             hyphen-first split can never find as a whole. A second,
-             explicitly weaker pass against synthesised (non-attested)
-             component-concatenation guesses runs only after the first
-             pass is completely exhausted for the whole word, never
-             interleaved position-by-position with it, so a guess can
-             never pre-empt a real attested match starting a little
-             further along the same word.
-
-             Compound tokens are NEVER split back into components here —
-             that decomposition is Script 2's job, using the verified
-             component_position data already in allograph_all_v11.csv,
-             not a second, redundant parse of the ATF text.
-Author: Digital Humanities Pipeline
-Date: 2026-08-28
-Version: 1.0
-"""
 
 import csv
 import re

@@ -1,23 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Name: build_diri_lexical_list.py
-Description: Extracts a clean CSV from the ORACC DCCLT/signlists corpus,
-             covering the ancient Diri lexical series specifically. Each
-             tablet line in a Diri text typically records three parallel
-             fields: the Sumerian phonetic reading, the Sumerian sign
-             sequence (the compound itself, e.g. |PAD.AN.MUŠ3|), and an
-             Akkadian phonetic gloss/translation. This script walks the
-             ORACC CDL (Cuneiform Discourse Language) JSON tree for every
-             text identified as Diri in catalogue.json, groups lemmas by
-             their tablet line ("sentence" node), and classifies each lemma
-             by language and form shape (lowercase Sumerian = reading,
-             pipe-bracketed/uppercase Sumerian = sign sequence, Akkadian =
-             gloss).
-Author: Digital Humanities Pipeline
-Date: 2026-08-26
-Version: 1.0
-"""
+
 
 import json
 import csv
