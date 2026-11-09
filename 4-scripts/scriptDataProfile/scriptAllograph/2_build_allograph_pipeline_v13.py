@@ -1,5 +1,41 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Name: 2_build_allograph_pipeline_v13.py
+Description: Workflow Stage 1, Step 4. Builds the full sign catalogue
+             (allograph_all_v12.csv; the file name is historical and has
+             nothing to do with allographs) and compound_form_reading_table
+             from osl.asl, the Unicode list, the phonetic reference, Diri,
+             OGSL and Syllabary_CM.
+             v12 FIX: a @sign that has @form variants now gets a row of its
+             own (its own Unicode code point and readings) BEFORE the rows of
+             its variants. In v11 only the variants were written, so 217
+             Unicode signs (KA, SUM, TE, GAN, GUL, IL2, U ...) had no
+             "Single Sign Reading" row and their readings (ka, du11, inim,
+             šum2 ...) could not be resolved by the parser of Step 5.
+             v13 (on top of v12):
+             1. OSL @v values fill GAPS in the readings of simple signs: a
+                value of a sign (or form) in osl.asl is added to that row
+                only if no simple-sign row of the catalogue has this reading
+                yet (e.g. ṣi, ṣa, ṭu₃ were missing). Existing readings are
+                never moved. Added values are listed in the new column
+                'osl_v_added'. Cases where OSL gives a reading to another
+                sign than the catalogue are written to
+                osl_reading_conflicts_v13.csv instead of being changed.
+             2. Names that come only from the historical syllabaries (Uruk2,
+                Syllabary_CM, additional sources) get the Unicode code point
+                of an OSL sign when the link is unambiguous: the name is an
+                OSL sign name (structural_hint unicode_via_osl_name) or an
+                OSL value of exactly one simple sign (unicode_via_osl_value).
+                A name that is the OSL value of exactly one COMPOUND sign
+                (PA3 = pa₃ of |IGI.RU|) becomes a reference to that compound
+                ('Syllabary Name Of OSL Compound'), so that it no longer hides
+                the compound reading from the parser.
+             Everything else is unchanged.
+Author: Aima, fixes prepared with Claude
+Date: 2026-11-09
+Version: 13
+"""
 
 import csv
 import json
@@ -14,8 +50,9 @@ INPUT_SYLLABARY = "Syllabary_CM.csv"
 INPUT_DIRI = "diri_lexical_list.csv"          
 INPUT_OGSL = "ogsl_sign_readings.json"       
 
-OUTPUT_COMPOUND_TABLE = "compound_form_reading_table.csv"  
-OUTPUT_V8 = "allograph_all_v11.csv"                          
+OUTPUT_COMPOUND_TABLE = "compound_form_reading_table_v13.csv"
+OUTPUT_CONFLICTS = "osl_reading_conflicts_v13.csv"  
+OUTPUT_V8 = "allograph_all_v13.csv"                          
 
 SUBSCRIPT_TO_ASCII = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 V_PAT = re.compile(r'^@v\s+(.*)')
@@ -51,7 +88,7 @@ V8_FIELDNAMES = [
     "component_position", "sign_name", "allograph_form", "graphic_variant_id",
     "sign_type", "compound_form", "compound_grapheme", "compound_unicode",
     "unicodeTrLit", "syllabary_sign", "typePhonetic_Version", "phonetic_version",
-    "signList_analogue",
+    "signList_analogue", "osl_v_added",
 ]
 
 # SHARED HELPERS
@@ -307,6 +344,13 @@ def parse_osl(path, unicode_ref):
                 sign_name, "", cls, sign_header["ucun"], unicode_ref,
                 build_signlist_analogue([], sign_parent_lists)))
         else:
+            # v12 FIX: write the sign itself first (its own code point and
+            # readings), then its variants. v11 skipped the sign here.
+            if not sign_header["is_fake"]:
+                cls_parent = classify_entity(sign_name, sign_header, entity_index, unicode_ref)
+                sign_rows.extend(build_rows_for_entity(
+                    sign_name, "", cls_parent, sign_header["ucun"], unicode_ref,
+                    build_signlist_analogue([], sign_parent_lists)))
             for form_section in form_sections:
                 form_lines = form_section.strip().split('\n')
                 form_name = form_lines[0].strip()
@@ -488,6 +532,113 @@ def build_compound_table(sign_rows, entity_index, name_to_readings, diri_reading
 # STAGE 3 allograph_all_v8: attach phonetic typing to every sign (using Stage 2's compound readings) and extend coverage with sign names attested only in the historical syllabary
 
 
+def clean_osl_value(v):
+    """v13: usable @v value: no language-tagged lemmas (%akk ...), no
+    multi-word values, trailing '?' removed."""
+    v = v.strip()
+    if not v or v.startswith("%") or " " in v:
+        return ""
+    return v.rstrip("?")
+
+
+def reading_key(v):
+    return v.strip().translate(SUBSCRIPT_TO_ASCII).lower()
+
+
+def add_osl_values(v8_rows, entity_v_index):
+    """v13: fill gaps in the readings of simple-sign rows with OSL @v values.
+    Returns the list of conflicts (OSL value already given to another sign)."""
+    simple = [r for r in v8_rows if r["typePhonetic_Version"] == "Single Sign Reading"]
+    owner = {}
+    for r in simple:
+        for v in r["phonetic_version"].split("|"):
+            if v.strip():
+                owner.setdefault(reading_key(v), r.get("allograph_form") or r["sign_name"])
+    conflicts, seen_conf = [], set()
+    for r in v8_rows:
+        r.setdefault("osl_v_added", "")
+    for r in simple:
+        if r["sign_source"] != "OSL":
+            continue
+        entity = r.get("allograph_form") or r["sign_name"]
+        values = [clean_osl_value(v) for v in entity_v_index.get(entity, {}).get("v_values", [])]
+        added = []
+        for v in values:
+            if not v:
+                continue
+            k = reading_key(v)
+            if k not in owner:
+                owner[k] = entity
+                added.append(v)
+            elif owner[k] != entity and (k, entity) not in seen_conf:
+                seen_conf.add((k, entity))
+                conflicts.append({"reading": v, "osl_sign": entity,
+                                  "catalogue_sign": owner[k]})
+        if added:
+            existing = [v.strip() for v in r["phonetic_version"].split("|") if v.strip()]
+            r["phonetic_version"] = " | ".join(existing + added)
+            r["osl_v_added"] = " | ".join(added)
+    return conflicts
+
+
+def link_syllabary_rows(v8_rows, entity_v_index, reading_by_form, unicode_ref):
+    """v13: link names that come only from the historical syllabaries to OSL
+    when the link is unambiguous:
+      - the name is an OSL sign/form name with its own code point
+        -> unicode_id filled (structural_hint unicode_via_osl_name);
+      - the name is an OSL value of exactly one simple sign
+        -> unicode_id filled (unicode_via_osl_value);
+      - the name is an OSL value of exactly one COMPOUND sign (PA3 = pa₃ of
+        |IGI.RU|) -> the row becomes a reference to that compound
+        (typePhonetic_Version 'Syllabary Name Of OSL Compound',
+        compound_form = |IGI.RU|), so that it no longer hides the compound
+        reading from the parser.
+    Ambiguous names are only marked (osl_value_ambiguous)."""
+    name_uid = {}
+    value_owner = defaultdict(set)      # reading -> {("atomic", uid, ucun) | ("compound", form)}
+    for name, header in entity_v_index.items():
+        uid = header.get("own_uid", "")
+        if uid:
+            name_uid.setdefault(reading_key(normalize_name(name)), (uid, header.get("ucun", "")))
+            for v in header.get("v_values", []):
+                v = clean_osl_value(v)
+                if v:
+                    value_owner[reading_key(v)].add(("atomic", uid, header.get("ucun", "")))
+    for form, readings in reading_by_form.items():
+        for v in readings.split("|"):
+            v = clean_osl_value(v)
+            if v:
+                value_owner[reading_key(v)].add(("compound", form, ""))
+    linked = Counter()
+    for r in v8_rows:
+        if r["sign_source"] == "OSL" or r["unicode_id"]:
+            continue
+        key = reading_key(normalize_name(r["sign_name"]))
+        owners = value_owner.get(key, set())
+        if key in name_uid:
+            uid, ucun = name_uid[key]
+            r["unicode_id"], r["sign_grapheme"] = uid, ucun or unicode_ref.get(uid, "")
+            r["structural_hint"] = "unicode_via_osl_name"
+            linked["unicode_via_osl_name"] += 1
+        elif len(owners) == 1:
+            kind, target, ucun = next(iter(owners))
+            if kind == "atomic":
+                r["unicode_id"], r["sign_grapheme"] = target, ucun or unicode_ref.get(target, "")
+                r["structural_hint"] = "unicode_via_osl_value"
+                linked["unicode_via_osl_value"] += 1
+            else:
+                r["typePhonetic_Version"] = "Syllabary Name Of OSL Compound"
+                r["compound_form"] = target
+                r["structural_hint"] = "osl_value_of_compound"
+                linked["osl_value_of_compound"] += 1
+        elif len(owners) > 1:
+            r["structural_hint"] = "osl_value_ambiguous"
+            linked["osl_value_ambiguous"] += 1
+        else:
+            linked["no_osl_match"] += 1
+    return linked
+
+
 def build_v8_rows(sign_rows, status_by_form, reading_by_form, diri_readings, ogsl_readings):
     v8_rows = []
     covered_names = set()
@@ -590,9 +741,18 @@ def main():
     print(f"    via OSL: {src_stats['OSL']}, via DIRI: {src_stats['DIRI']}, "
           f"via OGSL: {src_stats['OGSL']}, via SYLLABARY_CM: {src_stats['SYLLABARY_CM']}")
 
-    print(f"\n[Step 4] Building allograph_all_v11.csv")
+    print(f"\n[Step 4] Building {OUTPUT_V8}")
     v8_rows, covered_names = build_v8_rows(sign_rows, status_by_form, reading_by_form, diri_readings, ogsl_readings)
     v8_rows += build_syllabary_only_rows(INPUT_SYLLABARY, covered_names)
+    # v13: OSL @v values fill gaps; syllabary names linked to OSL signs
+    conflicts = add_osl_values(v8_rows, entity_v_index)
+    linked = link_syllabary_rows(v8_rows, entity_v_index, reading_by_form, unicode_ref)
+    write_csv(conflicts, OUTPUT_CONFLICTS, ["reading", "osl_sign", "catalogue_sign"])
+    n_added = sum(1 for r in v8_rows if r.get("osl_v_added"))
+    n_values = sum(len(r["osl_v_added"].split("|")) for r in v8_rows if r.get("osl_v_added"))
+    print(f"  OSL @v values added: {n_values} values in {n_added} rows; "
+          f"conflicts recorded: {len(conflicts)} -> {OUTPUT_CONFLICTS}")
+    print(f"  syllabary names linked to OSL: {dict(linked)}")
     write_csv(v8_rows, OUTPUT_V8, V8_FIELDNAMES)
     print(f"  {len(v8_rows)} rows, {len({r['sign_name'] for r in v8_rows})} unique sign_name -> {OUTPUT_V8}")
 

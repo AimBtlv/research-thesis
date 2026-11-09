@@ -1,5 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Name: 2_txt_to_grapheme_v14.py
+Description: Workflow Stage 1, Step 5 (part 2). atf_tokens.csv -> grapheme.csv
+             (one row per sign occurrence) + warnings_grapheme.csv.
+             v13 changes (everything else as in v12):
+             1. Simple signs are looked up under the same identity as in
+                part 1 v13: a registered variant under its own name (MAŠ₂ ->
+                U+12227), otherwise under the parent name; parent names stay
+                available as a fallback key.
+             2. sign_type uses the new column 'underscore_region' of
+                atf_tokens.csv: 'sumerogram' -> LOGO, 'akkadian' -> SYLL;
+                only tokens outside underscores keep the letter-case rule
+                (still an open question for Sumerian texts).
+             v14 changes (on top of v13):
+             3. New column 'editorial_state' copied from atf_tokens.csv
+                (restored / supplied / superfluous): rows are kept, Stage 2
+                decides whether to count them.
+             4. token_kind 'unreadable' (x) is skipped like 'broken': an
+                unreadable sign has no identity and no reading.
+             Uses allograph_all_v13.csv and atf_tokens.csv from part 1 v14.
+Author: Aima, v13-v14 changes prepared with Claude
+Date: 2026-11-09
+Version: 14
+"""
 
 import csv
 import re
@@ -10,7 +34,7 @@ from collections import defaultdict
 # CONFIGURATION
 
 
-INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
+INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v13.csv"
 INPUT_TOKENS = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
 OUTPUT_GRAPHEME = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/3.parsingFromTxt_Csv/grapheme.csv"
 OUTPUT_WARNINGS = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/3.parsingFromTxt_Csv/warnings_grapheme.csv"
@@ -22,6 +46,7 @@ GRAPHEME_FIELDS = [
     "artifact_id", "corpus_id", "genre_name", "provenance", "modern",
     "archaeological_context", "period_index", "period_dates", "languages",
     "is_school_text", "genre_uncertain", "period_uncertain", "provenience_uncertain",
+    "editorial_state",
 ]
 
 # STAGE 1  LOAD allograph_all_v11.csv
@@ -41,13 +66,24 @@ def load_sign_lookup(path: str) -> tuple:
     compound_raw = defaultdict(list)
 
     with open(path, encoding="utf-8-sig") as f:
-        for row in csv.DictReader(f):
+        rows = list(csv.DictReader(f))
+    # v13: same sign identity as part 1 (registered variants under own name)
+    registered = {r["sign_name"] for r in rows if not r.get("allograph_form")}
+    parent_fallback = {}
+    if True:
+        for row in rows:
             if row["sign_structure"] == "compound":
                 pos = int(row["component_position"]) if row["component_position"] else 0
                 compound_raw[row["compound_form"]].append(
                     (pos, row["unicode_id"], row["sign_grapheme"]))
             elif row["typePhonetic_Version"] == "Single Sign Reading":
-                name = row["sign_name"]
+                form = row.get("allograph_form", "")
+                name = form if form and form in registered else row["sign_name"]
+                # the parent name is kept as a fallback key (second pass)
+                parent_fallback.setdefault(row["sign_name"], {
+                    "unicode_id": row["unicode_id"],
+                    "sign_grapheme": row["sign_grapheme"],
+                    "unicodeTrLit": row["unicodeTrLit"]})
                 if name not in atomic_lookup:
                     atomic_lookup[name] = {
                         "unicode_id": row["unicode_id"],
@@ -55,6 +91,8 @@ def load_sign_lookup(path: str) -> tuple:
                         "unicodeTrLit": row["unicodeTrLit"],
                     }
 
+    for name, info in parent_fallback.items():
+        atomic_lookup.setdefault(name, info)   # only names still missing
     compound_components = {
         cf: sorted(comps, key=lambda c: c[0]) for cf, comps in compound_raw.items()
     }
@@ -65,7 +103,8 @@ def load_sign_lookup(path: str) -> tuple:
 # STAGE 2 sign_type FROM raw_atf_token 
 
 
-def determine_sign_type(raw_atf_token: str, token_kind: str) -> str:
+def determine_sign_type(raw_atf_token: str, token_kind: str,
+                        underscore_region: str = "") -> str:
     """LOGO/SYLL is a property of a single atomic token's actual case in
     the source text. Compounds are their own category, not assigned a
     LOGO/SYLL value at all (see module docstring, point 4)."""
@@ -75,6 +114,11 @@ def determine_sign_type(raw_atf_token: str, token_kind: str) -> str:
         return "NUMERAL"
     if token_kind == "unresolved":
         return "UNKNOWN"
+    # v13: the ATF underscore marks the second language of the text
+    if underscore_region == "sumerogram":
+        return "LOGO"
+    if underscore_region == "akkadian":
+        return "SYLL"
     first_alpha = next((c for c in raw_atf_token if c.isalpha()), None)
     if first_alpha is None:
         return "UNKNOWN"
@@ -279,9 +323,11 @@ def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: d
                     "is_school_text": "", "genre_uncertain": "",
                     "period_uncertain": "", "provenience_uncertain": "",
                 })
-            sign_type = determine_sign_type(row["raw_atf_token"], row["token_kind"])
+            sign_type = determine_sign_type(row["raw_atf_token"], row["token_kind"],
+                                            row.get("underscore_region", ""))
             base = {
                 "sign_translation": "",
+                "editorial_state": row.get("editorial_state", ""),
                 "sign_type": sign_type,
                 "word_id": row["word_id"],
                 "confidence": row["confidence"],
@@ -322,7 +368,7 @@ def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: d
                                 "sign_phonetic": row["raw_atf_token"],
                                 "is_compound": "SIMPLE", "component_position": ""})
 
-            elif row["token_kind"] == "broken":
+            elif row["token_kind"] in ("broken", "unreadable"):
                 continue 
             elif row["token_kind"] == "numeral":
                 continue 

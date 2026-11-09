@@ -1,5 +1,45 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Name: 1_transferTrLit_Sign_v14.py
+Description: Workflow Stage 1, Step 5 (part 1). ATF -> atf_tokens.csv (one row
+             per resolved token) + one cleaned .txt per tablet + warnings.csv.
+             v13 changes (everything else as in v12):
+             1. A variant row of the catalogue that is a registered sign of
+                its own (e.g. MAŠ₂, U+12227) is resolved under its own name
+                instead of the parent's (KUN), so that Step 5.2 finds the right
+                code point; purely graphic variants (ASAL₂~a) keep the parent
+                name, because ATF does not record the form of a sign.
+             2. The ATF underscore _..._ is no longer left inside the tokens
+                (it made '_lugal_' unresolvable). It is read as a language
+                switch and stored in the new column 'underscore_region':
+                'sumerogram' in an Akkadian text (#atf: lang akk, or no
+                language line), 'akkadian' in a Sumerian text.
+             3. The column separator '&' (lexical / mathematical texts) is
+                skipped instead of being reported as an unresolved token.
+             v14 changes (on top of v13):
+             4. Editorial brackets are no longer deleted silently. Signs in
+                [ ] (restored by the editor), < > (omitted by the scribe,
+                supplied by the editor) and << >> (superfluous, written by
+                the scribe) are kept and labelled in the new column
+                'editorial_state' (restored / supplied / superfluous), so
+                that Stage 2 can decide what to count.
+             5. 'x' and '(x)' (unreadable sign) become token_kind
+                'unreadable' instead of the catalogue sign X.
+             6. Qualified readings reading(SIGN) and reading!(SIGN), e.g.
+                kux(DU), gal!(GIR3), libx(|NI.UDU|), are resolved by the sign
+                name in brackets (source = QUALIFIER); sign names written
+                with ATF 'x' are matched with the operator × (|LAGABxTIL|).
+             7. Numerals inside words (2(disz)-kam) and bare digits are
+                numerals, not unresolved tokens.
+             8. Parallel / score lines of lexical texts (||B 384) are skipped.
+             9. Empty pieces left by adjacent determinatives ({disz}{d}utu)
+                are dropped.
+             Uses allograph_all_v13.csv / compound_form_reading_table_v13.csv.
+Author: Aima, v13-v14 changes prepared with Claude
+Date: 2026-11-09
+Version: 14
+"""
 import csv
 import re
 import unicodedata
@@ -9,8 +49,8 @@ from collections import defaultdict
 # CONFIGURATION
 
 
-INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v11.csv"
-INPUT_COMPOUND_TABLE = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/compound_form_reading_table.csv"
+INPUT_ALLOGRAPH = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/8_allograph_all_v13.csv"
+INPUT_COMPOUND_TABLE = "/Users/aima/Desktop/Practice/GitHub/research-thesis/4-scripts/scriptDataParsing/compound_form_reading_table_v13.csv"
 
 OUTPUT_TOKENS_CSV = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/atf_tokens.csv"
 OUTPUT_WARNINGS_CSV = "/Users/aima/Desktop/Practice/GitHub/research-thesis/2-dataset/InputData/2.parsingFromAtf_Txt/warnings.csv"
@@ -21,6 +61,7 @@ SUB_MAP = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 TOKENS_FIELDNAMES = [
     "p_number", "line_num", "word_id", "raw_atf_token",
     "resolved_name", "token_kind", "confidence", "source", "determinative",
+    "underscore_region", "editorial_state",
 ]
 
 # NORMALISATION
@@ -49,21 +90,37 @@ def x_operator_variants(name: str) -> set:
 # STAGE 1 — LOAD THE THREE DICTIONARIES
 # ─────────────────────────────────────────────────────────────────────────────
 
+def sign_identity(row: dict, registered: set) -> str:
+    """v13: name under which a catalogue row is resolved (shared by part 1
+    and part 2 of Step 5)."""
+    form = row.get("allograph_form", "")
+    return form if form and form in registered else row["sign_name"]
+
+
 def load_simple_dict(path: str) -> dict:
     """{normalized_reading: sign_name}, atomic signs only (typePhonetic_Version
     == 'Single Sign Reading'). This already includes the Diri/OGSL fallback
     readings baked into allograph_all_v11.csv —no separate lookup needed."""
     d = {}
     with open(path, encoding="utf-8-sig") as f:
-        for row in csv.DictReader(f):
+        rows = list(csv.DictReader(f))
+    # v13: names registered as signs of their own (rows without allograph_form)
+    registered = {r["sign_name"] for r in rows if not r.get("allograph_form")}
+    if True:
+        for row in rows:
             if row["typePhonetic_Version"] != "Single Sign Reading":
                 continue
             if not row["phonetic_version"].strip():
                 continue
+            # v13: a variant that is a registered sign of its own (MAŠ₂,
+            # own code point U+12227) is resolved under its own name instead
+            # of the parent's (KUN); a purely graphic variant (ASAL₂~a) keeps
+            # the parent's name, because ATF does not record the form
+            own_name = sign_identity(row, registered)
             for reading in row["phonetic_version"].split("|"):
                 reading = reading.strip()
                 if reading:
-                    d.setdefault(normalize_name(reading), row["sign_name"])
+                    d.setdefault(normalize_name(reading), own_name)
     return d
 
 
@@ -120,7 +177,9 @@ AT_MODIFIER_TABLE = [
 ]
 
 INLINE_DOLLAR_COMMENT_RE = re.compile(r'\(\$.*?\$\)')
-UNWANTED_GLYPHS_RE = re.compile(r'["*?!\[\]]|<<|>>|<|>|⌜|⌝|#')
+# v14: [ ] < > << >> are NOT removed here any more; they are read as
+# editorial states in editorial_segments()
+UNWANTED_GLYPHS_RE = re.compile(r'["*?!]|⌜|⌝|#')
 
 
 def preprocess_line(raw: str) -> str:
@@ -151,6 +210,67 @@ def preprocess_line(raw: str) -> str:
     line = re.sub(r'\([^()]*\.[^()]*\)', _fix_paren, line)
 
     return line
+
+
+MARKS = ("<<", ">>", "<", ">", "[", "]", "_")
+
+
+def mark_parts(word: str, state: dict) -> tuple:
+    """v14: read the editorial marks of one ATF word WITHOUT cutting the word.
+    The word is split into parts exactly like split_word_into_parts() would
+    split the clean word ('-' and '.'), and every part gets the flags
+    {'logo', 'restored', 'supplied', 'superfluous'} that are active on any of
+    its characters. The state dict carries open marks to the next word of
+    the same line (_iti udru u4_, [ki-ib-ra-tim]). Returns
+    (clean_word, [flags of part 0, flags of part 1, ...]); parts that consist
+    only of marks are dropped."""
+    parts, flags_list, seps = [], [], []
+    buf, active, sep_before = "", {}, ""
+
+    def close_part(sep):
+        nonlocal buf, active, sep_before
+        if buf:
+            if parts:
+                seps.append(sep_before or "-")
+            parts.append(buf)
+            flags_list.append(active)
+        buf, active = "", {}
+        sep_before = sep
+
+    i = 0
+    while i < len(word):
+        two, ch = word[i:i + 2], word[i]
+        if two in ("<<", ">>"):
+            state["superfluous"] = two == "<<"; i += 2; continue
+        if ch in "<>":
+            state["supplied"] = ch == "<"; i += 1; continue
+        if ch in "[]":
+            state["restored"] = ch == "["; i += 1; continue
+        if ch == "_":
+            state["logo"] = not state["logo"]; i += 1; continue
+        if ch in "-.":
+            close_part(ch); i += 1; continue
+        buf += ch
+        for k, v in state.items():          # union of flags over the part
+            if v:
+                active[k] = True
+        i += 1
+    close_part("")
+    clean = parts[0] if parts else ""
+    for sep, part in zip(seps, parts[1:]):
+        clean += sep + part
+    return clean, flags_list
+
+
+def union_flags(flags_list: list, span: tuple) -> dict:
+    out = {}
+    for f in flags_list[span[0]:span[1]]:
+        out.update(f)
+    return out
+
+
+def editorial_label(flags: dict) -> str:
+    return ",".join(k for k in ("restored", "supplied", "superfluous") if flags.get(k))
 
 
 DETERMINATIVE_RE = re.compile(r'\{[^{}]*\}')
@@ -277,7 +397,8 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
     i = 0
     while i < n:
         if slots[i] is None:
-            tokens.append({"text": parts[i], "kind": "atomic_candidate"})
+            tokens.append({"text": parts[i], "kind": "atomic_candidate",
+                           "span": (i, i + 1)})
             i += 1
         elif slots[i] == "consumed":
             i += 1  # already emitted as part of a compound span
@@ -285,8 +406,55 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
             tokens.append(slots[i])
             i += 1
     if lrvs_prefix:
-        tokens.insert(0, {"text": lrvs_prefix, "kind": "atomic_candidate"})
+        # v14: spans are relative to the word after the prefix
+        for t in tokens:
+            if "span" in t:
+                t["span"] = (t["span"][0] + 1, t["span"][1] + 1)
+        tokens.insert(0, {"text": lrvs_prefix, "kind": "atomic_candidate",
+                          "span": (0, 1)})
     return tokens
+
+
+NAME_INDEX = {}   # v14: normalised sign name -> (canonical name, kind)
+
+
+def build_name_index(allograph_path: str) -> dict:
+    """v14: every sign name of the catalogue (simple signs under the same
+    identity as load_simple_dict, parent names, compound forms) so that a
+    sign NAME written in ATF (DU, SU3@g, |LAGABxTIL|, qualifier in brackets)
+    can be resolved directly."""
+    with open(allograph_path, encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    registered = {r["sign_name"] for r in rows if not r.get("allograph_form")}
+    index = {}
+    for r in rows:
+        if r["typePhonetic_Version"] == "Single Sign Reading":
+            index.setdefault(normalize_name(sign_identity(r, registered)),
+                             (sign_identity(r, registered), "atomic"))
+    for r in rows:
+        if r["typePhonetic_Version"] == "Single Sign Reading":
+            index.setdefault(normalize_name(r["sign_name"]), (r["sign_name"], "atomic"))
+        elif r["sign_structure"] == "compound" and r["compound_form"]:
+            index.setdefault(normalize_name(r["compound_form"]), (r["compound_form"], "compound"))
+    return index
+
+
+ATF_TIMES_RE = re.compile(r"(?<=[A-Z0-9₀-₉)@])x(?=[A-Z(|])")
+
+
+def lookup_sign_name(name: str):
+    """v14: ATF sign name -> (canonical, kind) or None. ATF writes the
+    operator × as 'x' and the qualifier dot as '+' (see preprocess_line)."""
+    candidates = [name, name.replace("+", "."), ATF_TIMES_RE.sub("×", name),
+                  ATF_TIMES_RE.sub("×", name.replace("+", "."))]
+    for cand in candidates:
+        for key in (normalize_name(cand), normalize_name("|" + cand.strip("|") + "|")):
+            if key in NAME_INDEX:
+                return NAME_INDEX[key]
+    return None
+
+
+QUALIFIER_RE = re.compile(r"^(.+?)\((.+)\)$")
 
 
 def resolve_single_piece(text: str, simple_dict: dict, attested_dict: dict,
@@ -313,12 +481,31 @@ def resolve_single_piece(text: str, simple_dict: dict, attested_dict: dict,
     made-up label for this fallback path."""
     if is_broken_marker(text):
         return text, "broken", ""
+    # v14: unreadable sign, numerals inside words, bare digits
+    if text.lower() in ("x", "(x)"):
+        return "X", "unreadable", ""
+    if is_numeral(text) or re.fullmatch(r"\d+(/\d+)?", text) or \
+            re.fullmatch(r"[n\d+/]+\([^()]+\)", text):      # n+1(aš), 1/2
+        return text, "numeral", ""
+    # v14: qualified reading reading(SIGN): the sign in brackets decides
+    # (sign names are written in capitals or between pipes)
+    m = QUALIFIER_RE.match(text)
+    if m and (m.group(2)[:1].isupper() or m.group(2).startswith("|")):
+        hit = lookup_sign_name(m.group(2))
+        if hit:
+            return hit[0], hit[1], "QUALIFIER"
+        return text, "unresolved", ""
     norm = normalize_name(text)
     if norm in simple_dict:
         return simple_dict[norm], "atomic", ""
     if norm in attested_dict:
         cf = attested_dict[norm]
         return cf, "compound", source_by_form.get(cf, "")
+    # v14: a sign NAME written in ATF (capitals or pipes)
+    if text[:1].isupper() or text.startswith("|"):
+        hit = lookup_sign_name(text)
+        if hit:
+            return hit[0], hit[1], ""
     return text, "unresolved", ""
 
 
@@ -361,10 +548,14 @@ def process_atf_text(text: str, simple_dict: dict, attested_dict: dict,
                       token_rows: list, txt_lines: list, missing: dict) -> None:
     p_number = find_p_number(text)
     word_counter = 0
+    # v13: meaning of _..._ depends on the base language of the text
+    m_lang = re.search(r'#atf:\s*lang\s+(\S+)', text)
+    base_lang = m_lang.group(1).lower() if m_lang else ""
+    region_label = "akkadian" if base_lang.startswith("sux") else "sumerogram"
 
     for raw_line in text.splitlines():
         line = raw_line.rstrip("\n")
-        if not line.strip() or re.match(r'^[&#@$>]', line.strip()):
+        if not line.strip() or re.match(r'^([&#@$>]|\|\|)', line.strip()):
             continue
         m = re.match(r'^(\S+)\s+(.*)', line)
         if not m:
@@ -374,57 +565,79 @@ def process_atf_text(text: str, simple_dict: dict, attested_dict: dict,
             continue
 
         cleaned = preprocess_line(content)
-        txt_lines.append(f"{line_num}\t{cleaned}")
+        plain = re.sub(r"[_\[\]<>]", "", cleaned)   # txt mirror without marks
+        txt_lines.append(f"{line_num}\t{plain}")
+        state = {"logo": False, "restored": False, "supplied": False,
+                 "superfluous": False}   # all regions closed at line start
 
-        for word in cleaned.split(" "):
-            if not word:
+        for raw_word in cleaned.split(" "):
+            if not raw_word:
                 continue
-            word, dets = strip_determinatives(word)
+            if raw_word in ("&",):
+                continue         # v13: column separator, not a token
+            # v14: determinatives first (also restored ones), then marks
+            no_det, dets = strip_determinatives(raw_word)
+            det_str = ";".join(d.strip("{}").strip("[]<>_") for d in dets)
+            word, part_flags = mark_parts(no_det, state)
+            # drop empty pieces left by adjacent determinatives
+            word = re.sub(r"[-.]{2,}", "-", word).strip("-.")
             if not word:
                 continue  # a bare determinative with nothing else - nothing to tokenize
+            if len(re.split(r"[-.]", word)) != len(part_flags):
+                part_flags = [union_flags(part_flags, (0, len(part_flags)))] * \
+                    len(re.split(r"[-.]", word))      # safety: keep alignment
             word_counter += 1
             word_id = f"{p_number}_{word_counter}"
-            det_str = ";".join(d.strip("{}") for d in dets)
-
-            if is_broken_marker(word):
-                token_rows.append({
-                    "p_number": p_number, "line_num": line_num, "word_id": word_id,
-                    "raw_atf_token": word, "resolved_name": word,
-                    "token_kind": "broken", "confidence": "", "source": "",
-                    "determinative": det_str,
-                })
-                continue
-
-            if is_numeral(word):
-                token_rows.append({
-                    "p_number": p_number, "line_num": line_num, "word_id": word_id,
-                    "raw_atf_token": word, "resolved_name": word,
-                    "token_kind": "numeral", "confidence": "", "source": "",
-                    "determinative": det_str,
-                })
-                continue
-
-            for tok in tokenize_word(word, attested_dict, inferred_dict):
-                if tok["kind"] == "compound":
+            whole = union_flags(part_flags, (0, len(part_flags)))
+            region = region_label if whole.get("logo") else ""
+            editorial = editorial_label(whole)
+            if True:
+                if is_broken_marker(word):
                     token_rows.append({
                         "p_number": p_number, "line_num": line_num, "word_id": word_id,
-                        "raw_atf_token": tok["text"], "resolved_name": tok["resolved"],
-                        "token_kind": "compound", "confidence": tok["confidence"],
-                        "source": source_by_form.get(tok["resolved"], "") if tok["confidence"] == "attested" else "",
-                        "determinative": det_str,
+                        "raw_atf_token": word, "resolved_name": word,
+                        "token_kind": "broken", "confidence": "", "source": "",
+                        "determinative": det_str, "underscore_region": region,
+                        "editorial_state": editorial,
                     })
-                else:
-                    resolved, kind, source = resolve_single_piece(tok["text"], simple_dict, attested_dict, source_by_form)
-                    if kind == "unresolved":
-                        missing[normalize_name(tok["text"])] = missing.get(normalize_name(tok["text"]), 0) + 1
+                    continue
+
+                if is_numeral(word):
                     token_rows.append({
                         "p_number": p_number, "line_num": line_num, "word_id": word_id,
-                        "raw_atf_token": tok["text"], "resolved_name": resolved,
-                        "token_kind": kind,
-                        "confidence": "attested" if kind in ("atomic", "compound") else "",
-                        "source": source,
-                        "determinative": det_str,
+                        "raw_atf_token": word, "resolved_name": word,
+                        "token_kind": "numeral", "confidence": "", "source": "",
+                        "determinative": det_str, "underscore_region": region,
+                        "editorial_state": editorial,
                     })
+                    continue
+
+                for tok in tokenize_word(word, attested_dict, inferred_dict):
+                    tf = union_flags(part_flags, tok.get("span", (0, len(part_flags))))
+                    region = region_label if tf.get("logo") else ""
+                    editorial = editorial_label(tf)
+                    if tok["kind"] == "compound":
+                        token_rows.append({
+                            "p_number": p_number, "line_num": line_num, "word_id": word_id,
+                            "raw_atf_token": tok["text"], "resolved_name": tok["resolved"],
+                            "token_kind": "compound", "confidence": tok["confidence"],
+                            "source": source_by_form.get(tok["resolved"], "") if tok["confidence"] == "attested" else "",
+                            "determinative": det_str, "underscore_region": region,
+                        "editorial_state": editorial,
+                        })
+                    else:
+                        resolved, kind, source = resolve_single_piece(tok["text"], simple_dict, attested_dict, source_by_form)
+                        if kind == "unresolved":
+                            missing[normalize_name(tok["text"])] = missing.get(normalize_name(tok["text"]), 0) + 1
+                        token_rows.append({
+                            "p_number": p_number, "line_num": line_num, "word_id": word_id,
+                            "raw_atf_token": tok["text"], "resolved_name": resolved,
+                            "token_kind": kind,
+                            "confidence": "attested" if kind in ("atomic", "compound") else "",
+                            "source": source,
+                            "determinative": det_str, "underscore_region": region,
+                        "editorial_state": editorial,
+                        })
 
 
 # MAIN
@@ -434,6 +647,8 @@ def main(atf_folder: str):
     print(f"[INFO] Loading dictionaries")
     simple_dict = load_simple_dict(INPUT_ALLOGRAPH)
     attested_dict, inferred_dict, source_by_form = load_compound_dicts(INPUT_COMPOUND_TABLE)
+    NAME_INDEX.update(build_name_index(INPUT_ALLOGRAPH))   # v14
+    print(f"  sign-name index: {len(NAME_INDEX)} names")
     print(f"  simple_dict: {len(simple_dict)} readings")
     print(f"  attested_compound_dict: {len(attested_dict)} readings")
     print(f"  inferred_compound_dict: {len(inferred_dict)} readings")
@@ -473,6 +688,8 @@ def main(atf_folder: str):
     n_compound = sum(1 for r in all_token_rows if r["token_kind"] == "compound")
     n_atomic = sum(1 for r in all_token_rows if r["token_kind"] == "atomic")
     n_unresolved = sum(1 for r in all_token_rows if r["token_kind"] == "unresolved")
+    n_unreadable = sum(1 for r in all_token_rows if r["token_kind"] == "unreadable")
+    print(f"  unreadable (x): {n_unreadable}")
     print(f"\n  compound: {n_compound}, atomic: {n_atomic}, unresolved: {n_unresolved}")
 
 
