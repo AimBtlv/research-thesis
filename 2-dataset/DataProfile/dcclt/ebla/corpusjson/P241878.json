@@ -1,0 +1,365 @@
+{
+  "type": "cdl",
+  "project": "dcclt/ebla",
+  "source": "http://oracc.org/dcclt/ebla",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2024-08-19T01:30:57",
+  "textid": "P241878",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P241878.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P241878.o.1",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1o",
+          "type": "column",
+          "ref": "P241878.o.i.2",
+          "n": "1",
+          "label": "o i"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P241878.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P241878.U2",
+              "label": "o i 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P241878.3",
+                  "n": "1",
+                  "label": "o i 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "nam-munus",
+                  "id": "P241878.l02b35",
+                  "ref": "P241878.3.1",
+                  "inst": "nammunus[femininity]N",
+                  "exosig": "@dcclt/ebla%sux:nam-munus=nammunus[femininity//femininity]N'N$nammunus/nam-munus#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "nam-munus",
+                    "gdl": [
+                      {
+                        "v": "nam",
+                        "oid": "o0000474",
+                        "gdl_sign": "NAM",
+                        "utf8": "𒉆",
+                        "id": "P241878.3.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "munus",
+                        "oid": "o0000522",
+                        "gdl_sign": "SAL",
+                        "utf8": "𒊩",
+                        "id": "P241878.3.1.1"
+                      }
+                    ],
+                    "cf": "nammunus",
+                    "gw": "femininity",
+                    "sense": "femininity",
+                    "norm0": "nammunus",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "nam-munus",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P241878.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P241878.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P241878.U4",
+              "label": "o i 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P241878.4",
+                  "n": "2",
+                  "label": "o i 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "u₃-nu-sum",
+                  "id": "P241878.l02b36",
+                  "ref": "P241878.4.1",
+                  "inst": "+ʾunūṯu[femininity]N$ʾunūṯum",
+                  "sig": "@dcclt/ebla%akk-x-earakk:u₃-nu-sum=ʾunūṯu[femininity//femininity]N'N$ʾunūṯum",
+                  "f": {
+                    "lang": "akk-x-earakk",
+                    "form": "u₃-nu-sum",
+                    "gdl": [
+                      {
+                        "v": "u₃",
+                        "oid": "o0001487",
+                        "gdl_sign": "|IGI.DIB|",
+                        "utf8": "𒅇",
+                        "id": "P241878.4.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "nu",
+                        "oid": "o0000487",
+                        "gdl_sign": "NU",
+                        "utf8": "𒉡",
+                        "id": "P241878.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "sum",
+                        "oid": "o0000536",
+                        "gdl_sign": "SUM",
+                        "utf8": "𒋧",
+                        "id": "P241878.4.1.2"
+                      }
+                    ],
+                    "cf": "ʾunūṯu",
+                    "gw": "femininity",
+                    "sense": "femininity",
+                    "norm": "ʾunūṯum",
+                    "pos": "N",
+                    "epos": "N"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P241878.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P241878.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "column 2o",
+                  "type": "column",
+                  "ref": "P241878.o.ii.5",
+                  "n": "2",
+                  "label": "o ii"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P241878.U6",
+              "label": "o ii 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P241878.6",
+                  "n": "1",
+                  "label": "o ii 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "šag₄-zu",
+                  "id": "P241878.l02b37",
+                  "ref": "P241878.6.1",
+                  "inst": "šagzu[midwife]N",
+                  "exosig": "@dcclt/ebla%sux:šag₄-zu=šagzu[midwife//midwife]N'N$šagzu/šag₄-zu#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "šag₄-zu",
+                    "gdl": [
+                      {
+                        "v": "šag₄",
+                        "oid": "o0002828",
+                        "gdl_sign": "ŠA₃",
+                        "utf8": "𒊮",
+                        "id": "P241878.6.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "zu",
+                        "oid": "o0000614",
+                        "gdl_sign": "ZU",
+                        "utf8": "𒍪",
+                        "id": "P241878.6.1.1"
+                      }
+                    ],
+                    "cf": "šagzu",
+                    "gw": "midwife",
+                    "sense": "midwife",
+                    "norm0": "šagzu",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "šag₄-zu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P241878.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P241878.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonw",
+                  "ref": ""
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P241878.U8",
+              "label": "o ii 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P241878.7",
+                  "n": "2",
+                  "label": "o ii 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "wa-a-tum",
+                  "id": "P241878.l02b38",
+                  "ref": "P241878.7.1",
+                  "inst": "+wallāttu[midwife]N$wallāttum",
+                  "sig": "@dcclt/ebla%akk-x-earakk:wa-a-tum=wallāttu[midwife//midwife]N'N$wallāttum",
+                  "f": {
+                    "lang": "akk-x-earakk",
+                    "form": "wa-a-tum",
+                    "gdl": [
+                      {
+                        "v": "wa",
+                        "oid": "o0000502",
+                        "gdl_sign": "PI",
+                        "utf8": "𒉿",
+                        "id": "P241878.7.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "id": "P241878.7.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tum",
+                        "oid": "o0000559",
+                        "gdl_sign": "TUM",
+                        "utf8": "𒌈",
+                        "id": "P241878.7.1.2"
+                      }
+                    ],
+                    "cf": "wallāttu",
+                    "gw": "midwife",
+                    "sense": "midwife",
+                    "norm": "wallāttum",
+                    "pos": "N",
+                    "epos": "N"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P241878.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P241878.7.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P241878.r.8",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P241878.9",
+                  "strict": "0",
+                  "state": "blank"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

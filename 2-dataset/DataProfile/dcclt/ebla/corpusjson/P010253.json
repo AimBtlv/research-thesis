@@ -1,0 +1,230 @@
+{
+  "type": "cdl",
+  "project": "dcclt/ebla",
+  "source": "http://oracc.org/dcclt/ebla",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2024-08-19T01:30:39",
+  "textid": "P010253",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P010253.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P010253.o.1",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1o '",
+          "type": "column",
+          "ref": "P010253.o.i_.2",
+          "n": "1",
+          "label": "o i'"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P010253.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P010253.U2",
+              "label": "o i' 1'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P010253.3",
+                  "n": "1'",
+                  "label": "o i' 1'"
+                },
+                {
+                  "node": "d",
+                  "frag": "*",
+                  "type": "nonw",
+                  "ref": "P010253.3.0.a",
+                  "lang": "sux",
+                  "delim": ""
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}inanna-MA-ti-⸢x⸣",
+                  "id": "P010253.l035e7",
+                  "ref": "P010253.3.1",
+                  "inst": "%sux:{d}inanna-MA-ti-x=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}inanna-MA-ti-x",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "id": "P010253.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "inanna",
+                        "oid": "o0000466",
+                        "gdl_sign": "MUŠ₃",
+                        "utf8": "𒈹",
+                        "id": "P010253.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "MA",
+                        "oid": "o0000444",
+                        "gdl_sign": "MA",
+                        "utf8": "𒈠",
+                        "id": "P010253.3.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ti",
+                        "oid": "o0000553",
+                        "gdl_sign": "TI",
+                        "utf8": "𒋾",
+                        "id": "P010253.3.1.3",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "x",
+                        "oid": "o0000601",
+                        "gdl_sign": "X",
+                        "utf8": "X",
+                        "id": "P010253.3.1.4",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P010253.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P010253.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P010253.U4",
+              "label": "o i' 2'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P010253.4",
+                  "n": "2'",
+                  "label": "o i' 2'"
+                },
+                {
+                  "node": "d",
+                  "frag": "*",
+                  "type": "nonw",
+                  "ref": "P010253.4.0.a",
+                  "lang": "sux",
+                  "delim": ""
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}nanibgal-⸢x⸣",
+                  "id": "P010253.l035e8",
+                  "ref": "P010253.4.1",
+                  "inst": "%sux:{d}nanibgal-x=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}nanibgal-x",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "id": "P010253.4.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nanibgal",
+                        "oid": "o0000819",
+                        "gdl_sign": "|AN.NAGA|",
+                        "utf8": "𒀭𒉀",
+                        "id": "P010253.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "x",
+                        "oid": "o0000601",
+                        "gdl_sign": "X",
+                        "utf8": "X",
+                        "id": "P010253.4.1.2",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P010253.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P010253.4.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

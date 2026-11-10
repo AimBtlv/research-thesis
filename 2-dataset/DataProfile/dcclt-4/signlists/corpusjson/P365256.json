@@ -1,0 +1,86 @@
+{
+  "type": "cdl",
+  "project": "dcclt/signlists",
+  "source": "http://oracc.org/dcclt/signlists",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-16T02:05:45",
+  "textid": "P365256",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "sentence",
+      "implicit": "yes",
+      "tag": "#auto",
+      "id": "P365256.U337",
+      "label": "r ii 36'",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "line-start",
+          "ref": "P365256.247",
+          "n": "36'",
+          "label": "r ii 36'"
+        },
+        {
+          "node": "l",
+          "frag": "[...]-⸢x⸣",
+          "id": "P365256.l0bcee",
+          "ref": "P365256.247.1",
+          "inst": "%akk-x-stdbab:x-x=",
+          "f": {
+            "lang": "akk-x-stdbab",
+            "form": "x-x",
+            "gdl": [
+              {
+                "x": "ellipsis",
+                "id": "P365256.247.1.0",
+                "breakStart": "1",
+                "break": "missing",
+                "o": "]",
+                "breakEnd": "P365256.247.1.0",
+                "delim": "-"
+              },
+              {
+                "v": "x",
+                "oid": "o0000601",
+                "gdl_sign": "X",
+                "utf8": "X",
+                "key": "o0000601..x",
+                "id": "P365256.247.1.1",
+                "break": "damaged",
+                "ho": "1",
+                "hc": "1"
+              }
+            ]
+          },
+          "props": [
+            {
+              "name": "field",
+              "group": "env",
+              "ngram": "-1",
+              "ref": "P365256.247.1"
+            },
+            {
+              "name": "discourse",
+              "group": "env",
+              "value": "colophon",
+              "ngram": "-1",
+              "ref": "P365256.247.1"
+            }
+          ]
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P365256.248",
+          "strict": "1",
+          "extent": "n",
+          "scope": "line",
+          "state": "missing"
+        }
+      ]
+    }
+  ]
+}

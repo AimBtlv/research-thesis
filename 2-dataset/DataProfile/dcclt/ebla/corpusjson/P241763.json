@@ -1,0 +1,192 @@
+{
+  "type": "cdl",
+  "project": "dcclt/ebla",
+  "source": "http://oracc.org/dcclt/ebla",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2024-08-19T01:30:55",
+  "textid": "P241763",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P241763.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P241763.o.1",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1o",
+          "type": "column",
+          "ref": "P241763.o.i.2",
+          "n": "1",
+          "label": "o i"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P241763.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P241763.U2",
+              "label": "o i 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P241763.3",
+                  "n": "1",
+                  "label": "o i 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "haš-haš",
+                  "id": "P241763.l02b2b",
+                  "ref": "P241763.3.1",
+                  "inst": "haš[break//piece]V/t'N/haš-haš#~",
+                  "exosig": "@dcclt/ebla%sux:haš-haš=haš[break//piece]V/t'N$haš/haš-haš#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "haš-haš",
+                    "gdl": [
+                      {
+                        "v": "haš",
+                        "oid": "o0000548",
+                        "gdl_sign": "TAR",
+                        "utf8": "𒋻",
+                        "id": "P241763.3.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "haš",
+                        "oid": "o0000548",
+                        "gdl_sign": "TAR",
+                        "utf8": "𒋻",
+                        "id": "P241763.3.1.1"
+                      }
+                    ],
+                    "cf": "haš",
+                    "gw": "break",
+                    "sense": "piece",
+                    "norm0": "haš",
+                    "pos": "V/t",
+                    "epos": "N",
+                    "base": "haš-haš",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P241763.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P241763.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P241763.U4",
+              "label": "o i 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P241763.4",
+                  "n": "2",
+                  "label": "o i 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "ga-da-tum",
+                  "id": "P241763.l02b2c",
+                  "ref": "P241763.4.1",
+                  "inst": "gaddatu[piece]N$gaddātum",
+                  "sig": "@dcclt/ebla%akk-x-earakk:ga-da-tum=gaddatu[piece//piece]N'N$gaddātum",
+                  "f": {
+                    "lang": "akk-x-earakk",
+                    "form": "ga-da-tum",
+                    "gdl": [
+                      {
+                        "v": "ga",
+                        "oid": "o0000187",
+                        "gdl_sign": "GA",
+                        "utf8": "𒂵",
+                        "id": "P241763.4.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "da",
+                        "oid": "o0000132",
+                        "gdl_sign": "DA",
+                        "utf8": "𒁕",
+                        "id": "P241763.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tum",
+                        "oid": "o0000559",
+                        "gdl_sign": "TUM",
+                        "utf8": "𒌈",
+                        "id": "P241763.4.1.2"
+                      }
+                    ],
+                    "cf": "gaddatu",
+                    "gw": "piece",
+                    "sense": "piece",
+                    "norm": "gaddātum",
+                    "pos": "N",
+                    "epos": "N"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P241763.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P241763.4.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
