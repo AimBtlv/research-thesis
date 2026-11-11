@@ -32,7 +32,8 @@ Description: Workflow Stage 1, Step 4. Builds the full sign catalogue
                 ('Syllabary Name Of OSL Compound'), so that it no longer hides
                 the compound reading from the parser.
              Everything else is unchanged.
-
+Author: Aima, fixes prepared with Claude
+Date: 2026-11-09
 Version: 13
 """
 
@@ -61,6 +62,29 @@ INPUT_DIRI = (OUT / "step2" / "diri_lexical_list.csv"      # Step 2 re-run, if d
               if (OUT / "step2" / "diri_lexical_list.csv").exists()
               else UA / "diri_lexical_list.csv")
 INPUT_OGSL = DP / "ogsl_sign_readings.json"
+
+
+
+def check_inputs():
+    """Stop with a clear message if an input file is missing, and show
+    where a file with the same name exists elsewhere in 2-dataset/."""
+    missing = [p for p in (INPUT_ASL, INPUT_UNICODE, INPUT_PHONETIC, INPUT_SYLLABARY,
+                           INPUT_DIRI, INPUT_OGSL) if not p.exists()]
+    if not missing:
+        return
+    import sys
+    print("\n[ERROR] missing input file(s):")
+    for p in missing:
+        print(f"  - {p}")
+        found = sorted(ROOT.joinpath("2-dataset").rglob(p.name))
+        for f in found[:5]:
+            print(f"      found elsewhere: {f}")
+        if not found:
+            print("      not found anywhere in 2-dataset/: restore it from git "
+                  f"(git checkout -- \"{p.relative_to(ROOT)}\")")
+    print("Move or copy the file to the expected place and run this step again.")
+    sys.exit(1)
+
 
 OUTPUT_COMPOUND_TABLE = OUTPUT_DIR / "compound_form_reading_table_v13.csv"
 OUTPUT_CONFLICTS = OUTPUT_DIR / "osl_reading_conflicts_v13.csv"
@@ -727,6 +751,7 @@ def write_csv(rows, path, fieldnames):
 # ENTRY POINT
 
 def main():
+    check_inputs()
     unicode_ref = load_unicode_reference(INPUT_UNICODE)
     phon_ref = load_phonetic_reference(INPUT_PHONETIC)
 

@@ -6,9 +6,12 @@ Description: Workflow Stage 1, final check of the whole pipeline (Steps 1-5).
              Compares every output in pipeline_v14/output/ with the existing
              files of the repository (byte-identical where the step was only
              re-run) and with the reference numbers measured when the
-             pipeline was built (catalogue v13 + parser v14, 167 school
-             tablets of EDIII-OBP_School). Prints PASS / DIFF for each check.
-
+             pipeline was built (catalogue v13 + parser v14.2 on the whole
+             Old Babylonian corpus: OBP_full/practiceOBP_all.atf, 16,906
+             tablets, 15,709 with text). Prints PASS / DIFF for each check.
+Author: Aima, prepared with Claude
+Date: 2026-11-09
+Version: 1.2 (Step 5 reference numbers for the whole OB corpus)
 """
 
 import csv
@@ -90,19 +93,21 @@ def main():
     else:
         check("4", "allograph_all_v13.csv exists", True, False)
 
-    # Step 5: parser v14 on the 167 school tablets
+    # Step 5: parser v14.2 on the whole OB corpus (717 school + 16,189 practical tablets)
     s5 = OUT / "step5"
     if (s5 / "atf_tokens.csv").exists() and (s5 / "grapheme.csv").exists():
         tok = rows(s5 / "atf_tokens.csv")
         kinds = Counter(r["token_kind"] for r in tok)
-        check("5.1", "tablets", 167, len({r["p_number"] for r in tok}))
-        check("5.1", "token rows", 10293, len(tok))
-        check("5.1", "unresolved tokens", 28, kinds["unresolved"])
-        check("5.1", "unreadable x", 300, kinds["unreadable"])
+        check("5.1", "tablets with text (16,906 minus 1,197 header-only)", 15709,
+              len({r["p_number"] for r in tok}))
+        check("5.1", "token rows", 2267576, len(tok))
+        check("5.1", "unresolved tokens", 5395, kinds["unresolved"])
+        check("5.1", "unreadable x", 56215, kinds["unreadable"])
+        del tok
         gr = rows(s5 / "grapheme.csv")
-        check("5.2", "grapheme rows", 9718, len(gr))
-        check("5.2", "grapheme rows with Unicode", 9714, sum(1 for r in gr if r["unicode_id"]))
-        check("5.2", "LOGO rows", 226, sum(1 for r in gr if r["sign_type"] == "LOGO"))
+        check("5.2", "grapheme rows", 2155501, len(gr))
+        check("5.2", "grapheme rows with Unicode", 2152956, sum(1 for r in gr if r["unicode_id"]))
+        check("5.2", "LOGO rows", 317092, sum(1 for r in gr if r["sign_type"] == "LOGO"))
     else:
         check("5", "atf_tokens.csv and grapheme.csv exist", True, False)
 

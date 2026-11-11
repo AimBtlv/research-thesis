@@ -8,7 +8,9 @@ Description: Workflow Stage 1, Step 2. Extracts the lexical series Diri
              Only the paths are changed: the Oracc downloads are expected in
              2-dataset/DataProfile/oracc_dcclt/. If they are absent the step
              is skipped and the existing diri_lexical_list.csv is used.
-
+Author: Aima, paths prepared with Claude
+Date: 2026-11-09
+Version: 1.1
 """
 
 import json

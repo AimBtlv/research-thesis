@@ -36,8 +36,9 @@ Description: Workflow Stage 1, Step 5 (part 1). ATF -> atf_tokens.csv (one row
              9. Empty pieces left by adjacent determinatives ({disz}{d}utu)
                 are dropped.
              Uses allograph_all_v13.csv / compound_form_reading_table_v13.csv.
-
-Version: 14
+Author: Aima, v13-v14 changes prepared with Claude
+Date: 2026-11-09
+Version: 14.2 (default input: whole OB corpus, practiceOBP_all.atf; EDIII test folder removed)
 """
 import csv
 import re
@@ -58,7 +59,8 @@ INPUTDATA = ROOT / "2-dataset" / "InputData"
 OUT = _P(__file__).resolve().parent / "output"
 OUTPUT_DIR = OUT / "step5"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-DEFAULT_ATF = INPUTDATA / "1.downloadCorpusATF" / "EDIII-OBP_School" / "atf"
+# v14.2: the whole Old Babylonian corpus (717 school + 16,189 practical tablets)
+DEFAULT_ATF = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "practiceOBP_all.atf"
 
 INPUT_ALLOGRAPH = OUT / "step4" / "allograph_all_v13.csv"
 INPUT_COMPOUND_TABLE = OUT / "step4" / "compound_form_reading_table_v13.csv"
@@ -554,6 +556,16 @@ def find_p_number(text: str) -> str:
     return m.group(1) if m else "UNKNOWN"
 
 
+def split_tablets(text: str) -> list:
+    """v14.1: one ATF file may hold many tablets (e.g. the merged OBP.atf).
+    Split it into blocks, one per '&P...' header line, so that every tablet
+    gets its own p_number. A file with one tablet gives one block."""
+    starts = [m.start() for m in re.finditer(r'(?m)^&\s*P\d+', text)]
+    if len(starts) <= 1:
+        return [text]
+    return [text[a:b] for a, b in zip(starts, starts[1:] + [len(text)])]
+
+
 def process_atf_text(text: str, simple_dict: dict, attested_dict: dict,
                       inferred_dict: dict, source_by_form: dict,
                       token_rows: list, txt_lines: list, missing: dict) -> None:
@@ -586,6 +598,11 @@ def process_atf_text(text: str, simple_dict: dict, attested_dict: dict,
                 continue
             if raw_word in ("&",):
                 continue         # v13: column separator, not a token
+            # v14.2: ATF markup of lexical lists is not a word:
+            # %a / %s / %sux ... = language shift, '=' = column separator,
+            # '~' = repetition mark of bilingual lists
+            if raw_word in ("=", "~") or re.fullmatch(r"%[a-z][a-z0-9-]*", raw_word):
+                continue
             # v14: determinatives first (also restored ones), then marks
             no_det, dets = strip_determinatives(raw_word)
             det_str = ";".join(d.strip("{}").strip("[]<>_") for d in dets)
@@ -666,21 +683,27 @@ def main(atf_folder: str):
 
     Path(OUTPUT_TXT_DIR).mkdir(parents=True, exist_ok=True)
     
-    atf_files = sorted(Path(atf_folder).glob("**/*.atf"))
+    src = Path(atf_folder)
+    atf_files = [src] if src.is_file() else sorted(src.glob("**/*.atf"))   # v14.2: one file or a folder
     print(f"[INFO] {len(atf_files)} ATF file(s) found in {atf_folder}")
 
     all_token_rows = []
     missing = {}
 
     for atf_path in atf_files:
-        text = atf_path.read_text(encoding="utf-8")
-        p_number = find_p_number(text)
-        txt_lines = []
-        process_atf_text(text, simple_dict, attested_dict, inferred_dict,
-                          source_by_form, all_token_rows, txt_lines, missing)
-        txt_path = Path(OUTPUT_TXT_DIR) / f"{p_number}.txt"
-        txt_path.write_text("\n".join(txt_lines) + "\n", encoding="utf-8")
-        print(f"  [OK] {atf_path.name} -> {p_number}.txt")
+        file_text = atf_path.read_text(encoding="utf-8")
+        blocks = split_tablets(file_text)
+        for text in blocks:
+            p_number = find_p_number(text)
+            txt_lines = []
+            process_atf_text(text, simple_dict, attested_dict, inferred_dict,
+                              source_by_form, all_token_rows, txt_lines, missing)
+            txt_path = Path(OUTPUT_TXT_DIR) / f"{p_number}.txt"
+            txt_path.write_text("\n".join(txt_lines) + "\n", encoding="utf-8")
+        if len(blocks) == 1:
+            print(f"  [OK] {atf_path.name} -> {p_number}.txt")
+        else:
+            print(f"  [OK] {atf_path.name}: {len(blocks)} tablets")
 
     with open(OUTPUT_TOKENS_CSV, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=TOKENS_FIELDNAMES)
@@ -704,10 +727,11 @@ def main(atf_folder: str):
     print(f"\n  compound: {n_compound}, atomic: {n_atomic}, unresolved: {n_unresolved}")
 
 
+
 if __name__ == "__main__":
     import sys
     atf_dir = sys.argv[1] if len(sys.argv) > 1 else str(DEFAULT_ATF)
-    if not Path(atf_dir).is_dir():
-        sys.exit(f"[ERROR] ATF folder not found: {atf_dir}\n"
-                 f"        give the folder as argument: python3 {Path(__file__).name} <atf_folder>")
+    if not Path(atf_dir).exists():
+        sys.exit(f"[ERROR] ATF file or folder not found: {atf_dir}\n"
+                 f"        give it as argument: python3 {Path(__file__).name} <atf_file_or_folder>")
     main(atf_dir)

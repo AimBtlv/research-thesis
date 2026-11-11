@@ -20,7 +20,9 @@ Description: Workflow Stage 1, Step 5 (part 2). atf_tokens.csv -> grapheme.csv
              4. token_kind 'unreadable' (x) is skipped like 'broken': an
                 unreadable sign has no identity and no reading.
              Uses allograph_all_v13.csv and atf_tokens.csv from part 1 v14.
-Version: 14
+Author: Aima, v13-v14 changes prepared with Claude
+Date: 2026-11-09
+Version: 14.2 (whole OB corpus; one catalogue CSV for metadata; files with many tablets split at &P)
 """
 
 import csv
@@ -42,8 +44,9 @@ INPUTDATA = ROOT / "2-dataset" / "InputData"
 OUT = _P(__file__).resolve().parent / "output"
 OUTPUT_DIR = OUT / "step5"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-DEFAULT_ATF = INPUTDATA / "1.downloadCorpusATF" / "EDIII-OBP_School" / "atf"
-DEFAULT_META = INPUTDATA / "1.downloadCorpusATF" / "EDIII-OBP_School" / "metadata"
+# v14.2: whole OB corpus and its CDLI catalogue export (one CSV, 16,911 rows)
+DEFAULT_ATF = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "practiceOBP_all.atf"
+DEFAULT_META = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "allOBP_metadata_16911.csv"
 
 INPUT_ALLOGRAPH = OUT / "step4" / "allograph_all_v13.csv"
 INPUT_TOKENS = OUTPUT_DIR / "atf_tokens.csv"
@@ -213,16 +216,13 @@ def split_provenance(provenance_str: str) -> tuple:
     return provenance_str.strip(), ""
 
 
-def load_artifact_metadata_csv(path) -> dict:
+def metadata_from_row(row) -> dict:
     """Reads one CDLI artifacts_{artifact_id}.csv export directly  the
     authoritative source when available, in preference to guessing period/
     genre/provenance by keyword-matching noisy ATF body text. Preserves
     CDLI's own uncertainty flags rather than discarding them: a genre or
     period marked uncertain in the source should stay visibly uncertain
     here, not be presented with the same confidence as a certain one."""
-    with open(path, encoding="utf-8-sig") as f:
-        row = next(csv.DictReader(f))
-
     p_number = f"P{int(row['artifact_id']):06d}"
     genres = row.get("genres", "").strip()
     corpus_id = ""
@@ -258,14 +258,29 @@ def load_artifact_metadata_csv(path) -> dict:
     }
 
 
+def load_artifact_metadata_csv(path) -> dict:
+    """Reads one CDLI artifacts_{artifact_id}.csv export (first row)."""
+    with open(path, encoding="utf-8-sig") as f:
+        return metadata_from_row(next(csv.DictReader(f)))
+
+
 def load_all_artifact_metadata(metadata_folder: str) -> dict:
     """Returns {p_number: metadata_dict}, one entry per artifacts_*.csv
     file found. This is the primary metadata source, load_all_atf_metadata
     (keyword-matching against ATF header text) is used only as a fallback
     for any P-number with no matching artifacts_*.csv."""
     index = {}
-    
-    for path in Path(metadata_folder).glob("**/artifacts_*.csv"):
+    src = Path(metadata_folder)
+    if src.is_file():          # v14.2: one catalogue CSV with many tablets
+        with open(src, encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                try:
+                    meta = metadata_from_row(row)
+                    index[meta["artifact_id"]] = meta
+                except (KeyError, ValueError):
+                    continue
+        return index
+    for path in src.glob("**/artifacts_*.csv"):
         try:
             meta = load_artifact_metadata_csv(path)
             index[meta["artifact_id"]] = meta
@@ -307,12 +322,18 @@ def parse_atf_metadata(header_text: str, p_number: str) -> dict:
 def load_all_atf_metadata(atf_folder: str) -> dict:
     """Returns {p_number: metadata_dict}."""
     index = {}
-    for atf_path in Path(atf_folder).glob("**/*.atf"):
-        text = atf_path.read_text(encoding="utf-8", errors="replace")
-        pm = re.search(r'&\s*(P\d+)', text)
-        p_number = pm.group(1) if pm else atf_path.stem
-        header_lines = [l for l in text.splitlines() if re.match(r'^[&#@$]', l.strip())]
-        index[p_number] = parse_atf_metadata("\n".join(header_lines), p_number)
+    src = Path(atf_folder)
+    files = [src] if src.is_file() else src.glob("**/*.atf")   # v14.2: file or folder
+    for atf_path in files:
+        file_text = atf_path.read_text(encoding="utf-8", errors="replace")
+        # v14.2: one block per '&P...' line (a file may hold many tablets)
+        starts = [m.start() for m in re.finditer(r'(?m)^&\s*P\d+', file_text)] or [0]
+        for a, b in zip(starts, starts[1:] + [len(file_text)]):
+            text = file_text[a:b]
+            pm = re.search(r'&\s*(P\d+)', text)
+            p_number = pm.group(1) if pm else atf_path.stem
+            header_lines = [l for l in text.splitlines() if re.match(r'^[&#@$]', l.strip())]
+            index.setdefault(p_number, parse_atf_metadata("\n".join(header_lines), p_number))
     return index
 
 # STAGE 4 EXPAND TOKENS INTO grapheme.csv ROWS
@@ -446,9 +467,15 @@ def main(atf_folder: str = str(DEFAULT_ATF), metadata_folder: str = str(DEFAULT_
               f"{sum(len(v) for v in missing.values())} total occurrences -> {OUTPUT_WARNINGS}")
 
 
+
 if __name__ == "__main__":
     import sys
     if len(sys.argv) > 2:
         main(sys.argv[1], sys.argv[2])
     else:
-        main()
+        for need in (DEFAULT_ATF, DEFAULT_META):
+            if not need.exists():
+                sys.exit(f"[ERROR] not found: {need}\n"
+                         f"        give both as arguments: python3 {Path(__file__).name} "
+                         f"<atf_file_or_folder> <metadata_csv_or_folder>")
+        main(str(DEFAULT_ATF), str(DEFAULT_META))

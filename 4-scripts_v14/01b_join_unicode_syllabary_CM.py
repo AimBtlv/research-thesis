@@ -17,7 +17,9 @@ Description: Workflow Stage 1, Step 1.2. Restoration of the empty script
                - all readings of the matched sign go to PhoneticsVersion.
              Outputs: 3_matched_signs_full.csv (791 signs) and
              4_unmatched_for_review.csv (443 signs, input of Step 1.3).
-
+Author: Aima, restored with Claude
+Date: 2026-11-09
+Version: 1.0 (logic unchanged from the March 2026 version)
 """
 
 import csv
