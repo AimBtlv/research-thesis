@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Name: 02_build_diri_lexical_list.py (= 1_build_diri_lexical_list.py)
+Name: 05_build_diri_lexical_list.py (= 1_build_diri_lexical_list.py)
 Description: Workflow Stage 1, Step 2. Extracts the lexical series Diri
              (sign sequence + ancient reading) from the Oracc DCCLT JSON
              (catalogue.json + corpusjson folders) into diri_lexical_list.csv.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Name: 06_parse_atf_to_tokens_v14.py (= 1_transferTrLit_Sign_v14.py)
+Name: 07_parse_atf_to_tokens_v14.py (= 1_transferTrLit_Sign_v14.py)
 Description: Workflow Stage 1, Step 5 (part 1). ATF -> atf_tokens.csv (one row
              per resolved token) + one cleaned .txt per tablet + warnings.csv.
              v13 changes (everything else as in v12):
@@ -35,10 +35,19 @@ Description: Workflow Stage 1, Step 5 (part 1). ATF -> atf_tokens.csv (one row
              8. Parallel / score lines of lexical texts (||B 384) are skipped.
              9. Empty pieces left by adjacent determinatives ({disz}{d}utu)
                 are dropped.
+             v14.1-v14.3 changes:
+             10. A file with many tablets (OBP.atf, practiceOBP_all.atf) is
+                 split at its '&P...' lines; one file or a folder is accepted.
+                 Default input: the whole OB corpus, practiceOBP_all.atf.
+             11. ATF markup of lexical lists (%a, %s, %sux, '=', '~') is not
+                 a word and is skipped.
+             12. ş/ţ (cedilla, syllabaries) and ṣ/ṭ (dot below, OSL and ATF):
+                 when the exact lookup fails, a second index with one folded
+                 form is tried, so the exact (OSL) reading always wins.
              Uses allograph_all_v13.csv / compound_form_reading_table_v13.csv.
 Author: Aima, v13-v14 changes prepared with Claude
 Date: 2026-11-09
-Version: 14.2 (default input: whole OB corpus, practiceOBP_all.atf; EDIII test folder removed)
+Version: 14.3 (fallback lookup for ş/ţ of the syllabaries vs ṣ/ṭ of ATF)
 """
 import csv
 import re
@@ -82,6 +91,20 @@ TOKENS_FIELDNAMES = [
 
 def normalize_name(s: str) -> str:
     return s.strip('|').translate(SUB_MAP).lower()
+
+
+# v14.3: the syllabaries write the emphatic consonants with a cedilla
+# (ş U+015F, ţ U+0163), OSL and CDLI ATF with a dot below (ṣ U+1E63,
+# ṭ U+1E6D). A second, FALLBACK index uses one folded form, so that the
+# catalogue reading 'aţ' (syllabary) matches the ATF reading 'aṭ' (at,).
+# It is used only when the exact lookup finds nothing: an exact OSL reading
+# always wins (ṭi₂ = TI₂ in OSL, but ţi2 = HI in the syllabary).
+CEDILLA_MAP = str.maketrans({"ş": "ṣ", "Ş": "Ṣ", "ţ": "ṭ", "Ţ": "Ṭ"})
+FOLDED_SIMPLE = {}
+
+
+def fold_emphatics(key: str) -> str:
+    return key.translate(CEDILLA_MAP)
 
 
 def x_operator_variants(name: str) -> set:
@@ -134,6 +157,10 @@ def load_simple_dict(path: str) -> dict:
                 reading = reading.strip()
                 if reading:
                     d.setdefault(normalize_name(reading), own_name)
+    # v14.3: fallback index with ş/ţ folded to ṣ/ṭ (exact keys first)
+    FOLDED_SIMPLE.clear()
+    for key, name in d.items():
+        FOLDED_SIMPLE.setdefault(fold_emphatics(key), name)
     return d
 
 
@@ -514,6 +541,10 @@ def resolve_single_piece(text: str, simple_dict: dict, attested_dict: dict,
     if norm in attested_dict:
         cf = attested_dict[norm]
         return cf, "compound", source_by_form.get(cf, "")
+    # v14.3: fallback for ş/ţ (syllabaries) vs ṣ/ṭ (ATF)
+    folded = fold_emphatics(norm)
+    if folded in FOLDED_SIMPLE:
+        return FOLDED_SIMPLE[folded], "atomic", ""
     # v14: a sign NAME written in ATF (capitals or pipes)
     if text[:1].isupper() or text.startswith("|"):
         hit = lookup_sign_name(text)

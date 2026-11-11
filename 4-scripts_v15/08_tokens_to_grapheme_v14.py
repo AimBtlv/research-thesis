@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Name: 07_tokens_to_grapheme_v14.py (= 2_txt_to_grapheme_v14.py)
+Name: 08_tokens_to_grapheme_v14.py (= 2_txt_to_grapheme_v14.py)
 Description: Workflow Stage 1, Step 5 (part 2). atf_tokens.csv -> grapheme.csv
              (one row per sign occurrence) + warnings_grapheme.csv.
              v13 changes (everything else as in v12):
@@ -19,16 +19,53 @@ Description: Workflow Stage 1, Step 5 (part 2). atf_tokens.csv -> grapheme.csv
                 decides whether to count them.
              4. token_kind 'unreadable' (x) is skipped like 'broken': an
                 unreadable sign has no identity and no reading.
-             Uses allograph_all_v13.csv and atf_tokens.csv from part 1 v14.
+             v14.2 changes:
+             5. Default input: the whole OB corpus (practiceOBP_all.atf) and
+                ONE CDLI catalogue CSV for the metadata
+                (allOBP_metadata_16911.csv); a folder of artifacts_*.csv
+                files is still accepted.
+             6. The fallback metadata reader (ATF header lines) splits a file
+                with many tablets at its '&P...' lines.
+             v14.4 changes:
+             7. sign_type of simple signs is decided BY LANGUAGE AND CONTEXT
+                with the rules of the gold standard (08a_function_layer.py,
+                08b_goldlib.py): Sumerian verbal prefixes, roots, suffixes,
+                divine names, Akkadian words inside Sumerian texts, _..._,
+                gloss, lexical classifiers. The letter-case rule is only a
+                fallback (language of the tablet unknown, or token not
+                aligned with the gold-rule signs).
+             8. New columns: sign_function (LOGO / SYLL / DET / NUM /
+                UNCLEAR, for every row, compounds included), function_rule,
+                function_needs_check, line_ref (side:column:line).
+             Uses allograph_all_v13.csv, atf_tokens.csv from part 1 v14,
+             osl.asl and the ATF text (for the function rules).
 Author: Aima, v13-v14 changes prepared with Claude
 Date: 2026-11-09
-Version: 14.2 (whole OB corpus; one catalogue CSV for metadata; files with many tablets split at &P)
+Version: 14.4 (function by language and context, gold rules; letter case only as fallback)
 """
 
 import csv
 import re
 from pathlib import Path
 from collections import defaultdict
+
+# v14.4: gold function rules (08a_function_layer.py + 08b_goldlib.py in this folder)
+import importlib.util as _ilu
+import sys as _sys
+
+
+def _load_helper(module_name: str, file_name: str):
+    """Load a helper script of this folder whose file name starts with a
+    digit (08a_..., 08b_...), which a plain 'import' cannot do."""
+    path = Path(__file__).resolve().parent / file_name
+    spec = _ilu.spec_from_file_location(module_name, path)
+    module = _ilu.module_from_spec(spec)
+    _sys.modules[module_name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+fl = _load_helper("function_layer", "08a_function_layer.py")
 
 
 # CONFIGURATION
@@ -49,6 +86,8 @@ DEFAULT_ATF = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "practiceOBP_all.
 DEFAULT_META = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "allOBP_metadata_16911.csv"
 
 INPUT_ALLOGRAPH = OUT / "step4" / "allograph_all_v13.csv"
+# v14.4: osl.asl for the gold function rules (08a_function_layer.py)
+INPUT_OSL = DP / "6_osl.asl"
 INPUT_TOKENS = OUTPUT_DIR / "atf_tokens.csv"
 OUTPUT_GRAPHEME = OUTPUT_DIR / "grapheme.csv"
 OUTPUT_WARNINGS = OUTPUT_DIR / "warnings_grapheme.csv"
@@ -61,6 +100,8 @@ GRAPHEME_FIELDS = [
     "archaeological_context", "period_index", "period_dates", "languages",
     "is_school_text", "genre_uncertain", "period_uncertain", "provenience_uncertain",
     "editorial_state",
+    # v14.4: function by language and context (same rules as the gold standard)
+    "sign_function", "function_rule", "function_needs_check", "line_ref",
 ]
 
 # STAGE 1  LOAD allograph_all_v11.csv
@@ -339,13 +380,48 @@ def load_all_atf_metadata(atf_folder: str) -> dict:
 # STAGE 4 EXPAND TOKENS INTO grapheme.csv ROWS
 
 
+def iter_tablets(tokens_path: str):
+    """v14.4: atf_tokens.csv rows grouped by tablet (rows of one tablet are
+    consecutive), so that the function layer sees one whole tablet."""
+    with open(tokens_path, encoding="utf-8-sig") as f:
+        group, current = [], None
+        for row in csv.DictReader(f):
+            if row["p_number"] != current and group:
+                yield current, group
+                group = []
+            current = row["p_number"]
+            group.append(row)
+        if group:
+            yield current, group
+
+
+def tablet_functions(p_number: str, rows: list, atf_blocks: dict, osl,
+                     languages: str, stats: dict) -> list:
+    """v14.4: function of every token of one tablet by language and context
+    (gold rules); None where the fallback letter-case rule must be used."""
+    block = atf_blocks.get(p_number)
+    lang = fl.tablet_language(block, languages) if block else ""
+    if not lang:
+        stats["tablets_language_unknown"] += 1
+        return [None] * len(rows)
+    gold_signs = fl.label_tablet(block, lang, "#atf: use lexical" in block, osl)
+    return fl.align_functions([(r["raw_atf_token"], r["token_kind"]) for r in rows],
+                              gold_signs)
+
+
 def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: dict,
-                    artifact_meta_index: dict, atf_meta_index: dict) -> tuple:
+                    artifact_meta_index: dict, atf_meta_index: dict,
+                    atf_blocks: dict = None, osl=None) -> tuple:
     records = []
     missing = {}
+    stats = defaultdict(int)
 
-    with open(tokens_path, encoding="utf-8-sig") as f:
-        for row in csv.DictReader(f):
+    for p_number, tablet_rows in iter_tablets(tokens_path):
+        meta0 = artifact_meta_index.get(p_number) or {}
+        functions = (tablet_functions(p_number, tablet_rows, atf_blocks, osl,
+                                      meta0.get("languages", ""), stats)
+                     if osl is not None else [None] * len(tablet_rows))
+        for row, fn in zip(tablet_rows, functions):
             meta = artifact_meta_index.get(row["p_number"])
             if meta is None:
                 meta = atf_meta_index.get(row["p_number"], {
@@ -357,9 +433,23 @@ def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: d
                 })
             sign_type = determine_sign_type(row["raw_atf_token"], row["token_kind"],
                                             row.get("underscore_region", ""))
+            # v14.4: function by language and context (gold rules);
+            # letter case only as a fallback (language unknown / not aligned)
+            if fn is not None:
+                sign_function, function_rule, fn_check, line_ref = fn
+                stats["tokens_by_rules"] += 1
+            else:
+                sign_function = sign_type if sign_type in ("LOGO", "SYLL") else ""
+                function_rule, fn_check, line_ref = "fallback:letter_case", 1, ""
+                if row["token_kind"] in ("atomic", "compound"):
+                    stats["tokens_fallback"] += 1
+            if row["token_kind"] == "atomic" and sign_function:
+                sign_type = sign_function
             base = {
                 "sign_translation": "",
                 "editorial_state": row.get("editorial_state", ""),
+                "sign_function": sign_function, "function_rule": function_rule,
+                "function_needs_check": fn_check, "line_ref": line_ref,
                 "sign_type": sign_type,
                 "word_id": row["word_id"],
                 "confidence": row["confidence"],
@@ -410,7 +500,7 @@ def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: d
                     (row["word_id"], meta.get("provenance",""), meta.get("period_index","")))
                 continue 
 
-    return records, missing
+    return records, missing, stats
 
 
 # MAIN
@@ -431,9 +521,18 @@ def main(atf_folder: str = str(DEFAULT_ATF), metadata_folder: str = str(DEFAULT_
     fallback_used = set(atf_meta_index) - set(artifact_meta_index)
     print(f"  {len(fallback_used)} tablet(s) will use ATF-header fallback: {sorted(fallback_used) or 'none'}")
 
+    print(f"[INFO] Loading {INPUT_OSL} and ATF texts for the function rules (v14.4)")
+    osl = fl.OSLIndex(str(INPUT_OSL))
+    atf_blocks = fl.load_atf_blocks(atf_folder)
+    print(f"  {len(atf_blocks)} tablets")
+
     print(f"[INFO] Processing {INPUT_TOKENS}")
-    records, missing = process_tokens(INPUT_TOKENS, atomic_lookup, compound_components,
-                                       artifact_meta_index, atf_meta_index)
+    records, missing, stats = process_tokens(INPUT_TOKENS, atomic_lookup, compound_components,
+                                             artifact_meta_index, atf_meta_index,
+                                             atf_blocks, osl)
+    print(f"  function by language and context: {stats['tokens_by_rules']} tokens; "
+          f"letter-case fallback: {stats['tokens_fallback']} sign tokens; "
+          f"tablets with unknown language: {stats['tablets_language_unknown']}")
 
     with open(OUTPUT_GRAPHEME, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=GRAPHEME_FIELDS, extrasaction="ignore")

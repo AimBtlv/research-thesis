@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Name: 05_build_sign_catalogue_v13.py (= 2_build_allograph_pipeline_v13.py)
+Name: 06_build_sign_catalogue_v13.py (= 2_build_allograph_pipeline_v13.py)
 Description: Workflow Stage 1, Step 4. Builds the full sign catalogue
              (allograph_all_v12.csv; the file name is historical and has
              nothing to do with allographs) and compound_form_reading_table

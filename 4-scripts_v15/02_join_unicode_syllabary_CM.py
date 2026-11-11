@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Name: 01b_join_unicode_syllabary_CM.py
+Name: 02_join_unicode_syllabary_CM.py
 Description: Workflow Stage 1, Step 1.2. Restoration of the empty script
              2_scriptJoinUnicode_SyllabaryCM.py from its last working version
              (chat "Производитель языка Perl", March 2026).
