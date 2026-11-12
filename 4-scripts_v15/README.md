@@ -4,6 +4,7 @@ Put this folder inside `research-thesis/` (next to `2-dataset/`) and open it in 
 
 | No. | Script | Step | Output |
 |---|---|---|---|
+| 00 | `00_run_pipeline.py` (runs 01–09 in order with one command, without VS Code: `python3 00_run_pipeline.py`; options `--from 07`, `--list`) | all | – |
 | 01 | `01_build_syllabary_CM.py` | 1.1 | `output/step1/Syllabary_CM.csv` |
 | 02 | `02_join_unicode_syllabary_CM.py` (restored from the March 2026 chat version of the empty `2_scriptJoinUnicode_SyllabaryCM.py`; byte-identical output) | 1.2 | `output/step1/3_matched_signs_full.csv` (791), `4_unmatched_for_review.csv` (443) |
 | 03 | `03_build_rest_unicode_signs.py` | 1.3 | `output/step1/restUnicodeSigns.csv` |
@@ -19,6 +20,9 @@ Put this folder inside `research-thesis/` (next to `2-dataset/`) and open it in 
 Run order: 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 (uses 08a, which uses 08b) → 09.
 
 In VS Code: *Terminal → Run Task… → RUN ALL · Steps 1 -> 5 + check*.
+Without VS Code (e.g. for a reviewer): `python3 00_run_pipeline.py` from any folder (about 3–4 minutes).
+
+**Git:** `output/` is not stored in Git (`.gitignore`): `grapheme.csv` (~410 MB) and `atf_tokens.csv` (~120 MB) are over the GitHub limit of 100 MB per file. Anyone can recreate them with `00_run_pipeline.py`.
 
 ## Step 2: Oracc DCCLT Input
 
