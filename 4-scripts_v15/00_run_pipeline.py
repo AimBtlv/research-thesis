@@ -25,8 +25,8 @@ from pathlib import Path
 # --- The scripts, in run order: (file, step of the workflow, what it does) ---
 SCRIPTS = [
     ("01_build_syllabary_CM.py",        "1.1",  "merged syllabary Syllabary_CM.csv"),
-    ("02_join_unicode_syllabary_CM.py", "1.2",  "Unicode signs x syllabary (791 + 443)"),
-    ("03_build_rest_unicode_signs.py",  "1.3",  "the other 443 signs from OSL"),
+    ("02_join_unicode_syllabary_CM.py", "1.2",  "Unicode signs x syllabary (779 + 455), OSL decides the sign"),
+    ("03_build_rest_unicode_signs.py",  "1.3",  "the other 455 signs from OSL"),
     ("04_join_matched_rest_signs.py",   "1.4",  "full list of 1,234 Unicode signs"),
     ("05_build_diri_lexical_list.py",   "2",    "Diri list (skipped without the Oracc JSON)"),
     ("06_build_sign_catalogue_v13.py",  "3-4",  "compound readings + sign catalogue"),

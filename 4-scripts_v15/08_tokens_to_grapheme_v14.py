@@ -37,7 +37,7 @@ Description: Workflow Stage 1, Step 5 (part 2). atf_tokens.csv -> grapheme.csv
              8. New columns: sign_function (LOGO / SYLL / DET / NUM /
                 UNCLEAR, for every row, compounds included), function_rule,
                 function_needs_check, line_ref (side:column:line).
-             Uses allograph_all_v13.csv, atf_tokens.csv from part 1 v14,
+             Uses sign_catalogue_v13.csv, atf_tokens.csv from part 1 v14,
              osl.asl and the ATF text (for the function rules).
 Author: Aima, v13-v14 changes prepared with Claude
 Date: 2026-11-09
@@ -85,7 +85,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 DEFAULT_ATF = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "practiceOBP_all.atf"
 DEFAULT_META = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "allOBP_metadata_16911.csv"
 
-INPUT_ALLOGRAPH = OUT / "step4" / "allograph_all_v13.csv"
+INPUT_CATALOGUE = OUT / "step4" / "sign_catalogue_v13.csv"
 # v14.4: osl.asl for the gold function rules (08a_function_layer.py)
 INPUT_OSL = DP / "6_osl.asl"
 INPUT_TOKENS = OUTPUT_DIR / "atf_tokens.csv"
@@ -104,7 +104,7 @@ GRAPHEME_FIELDS = [
     "sign_function", "function_rule", "function_needs_check", "line_ref",
 ]
 
-# STAGE 1  LOAD allograph_all_v11.csv
+# STAGE 1  LOAD sign_catalogue_v13.csv (formerly allograph_all)
 
 
 def load_sign_lookup(path: str) -> tuple:
@@ -123,7 +123,7 @@ def load_sign_lookup(path: str) -> tuple:
     with open(path, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
     # v13: same sign identity as part 1 (registered variants under own name)
-    registered = {r["sign_name"] for r in rows if not r.get("allograph_form")}
+    registered = {r["sign_name"] for r in rows if not r.get("osl_form")}
     parent_fallback = {}
     if True:
         for row in rows:
@@ -132,7 +132,7 @@ def load_sign_lookup(path: str) -> tuple:
                 compound_raw[row["compound_form"]].append(
                     (pos, row["unicode_id"], row["sign_grapheme"]))
             elif row["typePhonetic_Version"] == "Single Sign Reading":
-                form = row.get("allograph_form", "")
+                form = row.get("osl_form", "")
                 name = form if form and form in registered else row["sign_name"]
                 # the parent name is kept as a fallback key (second pass)
                 parent_fallback.setdefault(row["sign_name"], {
@@ -507,8 +507,8 @@ def process_tokens(tokens_path: str, atomic_lookup: dict, compound_components: d
 
 
 def main(atf_folder: str = str(DEFAULT_ATF), metadata_folder: str = str(DEFAULT_META)):
-    print(f"[INFO] Loading {INPUT_ALLOGRAPH}")
-    atomic_lookup, compound_components = load_sign_lookup(INPUT_ALLOGRAPH)
+    print(f"[INFO] Loading {INPUT_CATALOGUE}")
+    atomic_lookup, compound_components = load_sign_lookup(INPUT_CATALOGUE)
     print(f"  atomic signs indexed: {len(atomic_lookup)}")
     print(f"  compound forms indexed: {len(compound_components)}")
 

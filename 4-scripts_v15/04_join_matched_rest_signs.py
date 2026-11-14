@@ -3,9 +3,9 @@
 """
 Name: 04_join_matched_rest_signs.py
 Description: Workflow Stage 1, Step 1.4. Reconstruction of the empty script
-             4_scriptJoinMatched_RestSigns.py. Joins the 791 Unicode signs
+             4_scriptJoinMatched_RestSigns.py. Joins the 779 Unicode signs
              matched to Syllabary_CM (Step 1.2, 3_matched_signs_full.csv) and
-             the 443 remaining signs described from OSL (Step 1.3,
+             the 455 remaining signs described from OSL (Step 1.3,
              restUnicodeSigns.csv) into one table with all 1,234 Unicode
              signs, in the order of 1_unicodeSigns.csv:
              7_unicodePhoneticVersion_full.csv.

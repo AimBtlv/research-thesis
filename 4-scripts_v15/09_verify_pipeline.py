@@ -11,7 +11,7 @@ Description: Workflow Stage 1, final check of the whole pipeline (Steps 1-5).
              tablets, 15,709 with text). Prints PASS / DIFF for each check.
 Author: Aima, prepared with Claude
 Date: 2026-11-09
-Version: 1.4 (Step 5.2 v14.4: function by language and context)
+Version: 1.6 (Step 1.2 v1.2: OPPOSING / SQUARED fixed, OSL priority; Step 4 reads the Step 1.4 output)
 """
 
 import csv
@@ -48,16 +48,18 @@ def main():
     s1 = OUT / "step1"
     check("1.1", "Syllabary_CM.csv identical to 2_professorsFiles/Syllabary_CM.csv",
           True, same_file(s1 / "Syllabary_CM.csv", PROF / "Syllabary_CM.csv"))
-    check("1.2", "3_matched_signs_full.csv identical to the repository file (791 signs)",
-          True, same_file(s1 / "3_matched_signs_full.csv", UA / "3_matched_signs_full.csv"))
-    check("1.2", "4_unmatched_for_review.csv identical to the repository file (443 signs)",
-          True, same_file(s1 / "4_unmatched_for_review.csv", UA / "4_unmatched_for_review.csv"))
-    check("1.3", "restUnicodeSigns.csv identical to 5_restUnicodeSigns.csv",
-          True, same_file(s1 / "restUnicodeSigns.csv", UA / "5_restUnicodeSigns.csv"))
-
-    check("1.4", "7_unicodePhoneticVersion_full.csv identical to the repository file",
-          True, same_file(s1 / "7_unicodePhoneticVersion_full.csv",
-                          DP / "7_unicodePhoneticVersion_full.csv"))
+    # Steps 1.2-1.4 (Step 1.2 v1.2, 2026-11-14: OPPOSING / SQUARED translated to the
+    # syllabary notation X@Y / X×4; OSL priority for the sign identity by code point)
+    check("1.2", "signs matched to the syllabary", 779, len(rows(s1 / "3_matched_signs_full.csv")))
+    check("1.2", "signs left for OSL (Step 1.3)", 455, len(rows(s1 / "4_unmatched_for_review.csv")))
+    check("1.2", "signs where syllabary and OSL disagree (review file)", 18,
+          len(rows(s1 / "step1_syllabary_osl_disagreements.csv")))
+    rest = rows(s1 / "restUnicodeSigns.csv")
+    check("1.3", "signs described from OSL", 455, len(rest))
+    check("1.3", "of them without a sign name in OSL", 19, sum(1 for r in rest if not r["syllabarySign"]))
+    full = rows(s1 / "7_unicodePhoneticVersion_full.csv")
+    check("1.4", "Unicode signs in the full list", 1234, len(full))
+    check("1.4", "signs with at least one reading", 1035, sum(1 for r in full if r["PhoneticsVersion"]))
     if (OUT / "step2" / "diri_lexical_list.csv").exists():
         new_diri = rows(OUT / "step2" / "diri_lexical_list.csv")
         old_diri = rows(UA / "diri_lexical_list.csv")
@@ -75,23 +77,23 @@ def main():
 
     # Steps 3-4: catalogue v13
     s4 = OUT / "step4"
-    if (s4 / "allograph_all_v13.csv").exists():
-        cat = rows(s4 / "allograph_all_v13.csv")
+    if (s4 / "sign_catalogue_v13.csv").exists():
+        cat = rows(s4 / "sign_catalogue_v13.csv")
         check("4", "catalogue rows", 10573, len(cat))
         atom = {r["unicode_id"] for r in cat if r["typePhonetic_Version"] == "Single Sign Reading"}
         uni = [r["unicode_id"] for r in rows(UA / "1_unicodeSigns.csv")]
         check("4", "Unicode signs without a simple-reading row", 9,
               sum(1 for u in uni if u not in atom))
-        check("4", "rows with OSL @v values added", 490,
+        check("4", "rows with OSL @v values added", 479,
               sum(1 for r in cat if r.get("osl_v_added")))
         comp = rows(s4 / "compound_form_reading_table_v13.csv")
         check("3", "compound forms in table", 2389, len(comp))
         check("3", "compound forms with attested reading", 1612,
               sum(1 for r in comp if r["reading_status"] == "ATTESTED_DIRECT"))
-        check("4", "OSL / catalogue conflicts recorded", 748,
+        check("4", "OSL / catalogue conflicts recorded", 702,
               len(rows(s4 / "osl_reading_conflicts_v13.csv")))
     else:
-        check("4", "allograph_all_v13.csv exists", True, False)
+        check("4", "sign_catalogue_v13.csv exists", True, False)
 
     # Step 5: parser v14.3 on the whole OB corpus (717 school + 16,189 practical tablets)
     s5 = OUT / "step5"
@@ -105,9 +107,9 @@ def main():
         check("5.1", "unreadable x", 56215, kinds["unreadable"])
         del tok
         gr = rows(s5 / "grapheme.csv")
-        check("5.2", "grapheme rows", 2157401, len(gr))
-        check("5.2", "grapheme rows with Unicode", 2154856, sum(1 for r in gr if r["unicode_id"]))
-        check("5.2", "LOGO rows (sign_type, by language and context)", 663102,
+        check("5.2", "grapheme rows", 2157404, len(gr))
+        check("5.2", "grapheme rows with Unicode", 2154861, sum(1 for r in gr if r["unicode_id"]))
+        check("5.2", "LOGO rows (sign_type, by language and context)", 663099,
               sum(1 for r in gr if r["sign_type"] == "LOGO"))
         check("5.2", "rows without sign_function (no rule and no letter)", 1905,
               sum(1 for r in gr if not r["sign_function"]))

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Name: 06_build_sign_catalogue_v13.py (= 2_build_allograph_pipeline_v13.py)
+Name: 06_build_sign_catalogue_v13.py (formerly 2_build_allograph_pipeline_v13.py)
 Description: Workflow Stage 1, Step 4. Builds the full sign catalogue
-             (allograph_all_v12.csv; the file name is historical and has
-             nothing to do with allographs) and compound_form_reading_table
+             (sign_catalogue_v13.csv, formerly allograph_all_v11/v12.csv:
+             the old name had nothing to do with allographs; since
+             2026-11-12 also the columns allograph_form -> osl_form and
+             graphic_variant_id -> osl_form_id) and compound_form_reading_table
              from osl.asl, the Unicode list, the phonetic reference, Diri,
              OGSL and Syllabary_CM.
              v12 FIX: a @sign that has @form variants now gets a row of its
@@ -56,7 +58,11 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 INPUT_ASL = DP / "6_osl.asl"
 INPUT_UNICODE = UA / "1_unicodeSigns.csv"
-INPUT_PHONETIC = DP / "7_unicodePhoneticVersion_full.csv"
+# Step 1.4 output of this pipeline (fixed 2026-11-14: before, the repository
+# copy was always read, so changes of Step 1 never reached the catalogue)
+INPUT_PHONETIC = (OUT / "step1" / "7_unicodePhoneticVersion_full.csv"
+                  if (OUT / "step1" / "7_unicodePhoneticVersion_full.csv").exists()
+                  else DP / "7_unicodePhoneticVersion_full.csv")
 INPUT_SYLLABARY = OUT / "step1" / "Syllabary_CM.csv"      # from Step 1.1
 INPUT_DIRI = (OUT / "step2" / "diri_lexical_list.csv"      # Step 2 re-run, if done
               if (OUT / "step2" / "diri_lexical_list.csv").exists()
@@ -88,7 +94,7 @@ def check_inputs():
 
 OUTPUT_COMPOUND_TABLE = OUTPUT_DIR / "compound_form_reading_table_v13.csv"
 OUTPUT_CONFLICTS = OUTPUT_DIR / "osl_reading_conflicts_v13.csv"
-OUTPUT_V8 = OUTPUT_DIR / "allograph_all_v13.csv"
+OUTPUT_V8 = OUTPUT_DIR / "sign_catalogue_v13.csv"
 
 SUBSCRIPT_TO_ASCII = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 V_PAT = re.compile(r'^@v\s+(.*)')
@@ -121,7 +127,7 @@ TYPE_PHONETIC_LABELS = {
 
 V8_FIELDNAMES = [
     "unicode_id", "sign_grapheme", "sign_source", "sign_structure", "structural_hint",
-    "component_position", "sign_name", "allograph_form", "graphic_variant_id",
+    "component_position", "sign_name", "osl_form", "osl_form_id",
     "sign_type", "compound_form", "compound_grapheme", "compound_unicode",
     "unicodeTrLit", "syllabary_sign", "typePhonetic_Version", "phonetic_version",
     "signList_analogue", "osl_v_added",
@@ -413,16 +419,16 @@ def parse_osl(path, unicode_ref):
     return sign_rows, entity_v_index
 
 
-def build_rows_for_entity(sign_name, allograph_form, cls, own_ucun, unicode_ref, sign_list_str):
+def build_rows_for_entity(sign_name, osl_form, cls, own_ucun, unicode_ref, sign_list_str):
     rows = []
-    entity_label = allograph_form if allograph_form else sign_name
+    entity_label = osl_form if osl_form else sign_name
 
     if cls["sign_structure"] in ("atomic", "not_identified"):
         rows.append({"unicode_id": cls["own_uid"],
                      "sign_grapheme": own_ucun or unicode_ref.get(cls["own_uid"], ""),
                      "sign_structure": cls["sign_structure"], "structural_hint": cls["structural_hint"],
-                     "component_position": "", "sign_name": sign_name, "allograph_form": allograph_form,
-                     "graphic_variant_id": "", "sign_type": cls["sign_type"],
+                     "component_position": "", "sign_name": sign_name, "osl_form": osl_form,
+                     "osl_form_id": "", "sign_type": cls["sign_type"],
                      "compound_form": "", "compound_grapheme": "", "compound_unicode": "",
                      "signList_analogue": sign_list_str})
 
@@ -431,8 +437,8 @@ def build_rows_for_entity(sign_name, allograph_form, cls, own_ucun, unicode_ref,
         rows.append({"unicode_id": cls["own_uid"],
                      "sign_grapheme": own_ucun or unicode_ref.get(cls["own_uid"].replace(" [unverified]", ""), ""),
                      "sign_structure": cls["sign_structure"], "structural_hint": "",
-                     "component_position": "", "sign_name": sign_name, "allograph_form": allograph_form,
-                     "graphic_variant_id": "", "sign_type": cls["sign_type"],
+                     "component_position": "", "sign_name": sign_name, "osl_form": osl_form,
+                     "osl_form_id": "", "sign_type": cls["sign_type"],
                      "compound_form": entity_label, "compound_grapheme": "".join(comp_glyphs) or own_ucun,
                      "compound_unicode": "; ".join(cls["component_uids"]), "signList_analogue": sign_list_str})
 
@@ -444,7 +450,7 @@ def build_rows_for_entity(sign_name, allograph_form, cls, own_ucun, unicode_ref,
         for pos, uid in enumerate(comp_uids, start=1):
             rows.append({"unicode_id": uid, "sign_grapheme": unicode_ref.get(uid.replace(" [unverified]", ""), ""),
                          "sign_structure": "compound", "structural_hint": "", "component_position": str(pos),
-                         "sign_name": sign_name, "allograph_form": allograph_form, "graphic_variant_id": "",
+                         "sign_name": sign_name, "osl_form": osl_form, "osl_form_id": "",
                          "sign_type": cls["sign_type"], "compound_form": entity_label,
                          "compound_grapheme": full_cun, "compound_unicode": uid_seq,
                          "signList_analogue": sign_list_str})
@@ -454,12 +460,12 @@ def build_rows_for_entity(sign_name, allograph_form, cls, own_ucun, unicode_ref,
 def assign_variant_ids(rows):
     form_order = defaultdict(dict)
     for row in rows:
-        sign, form = row["sign_name"], row["allograph_form"]
+        sign, form = row["sign_name"], row["osl_form"]
         if form not in form_order[sign]:
             form_order[sign][form] = len(form_order[sign]) + 1
     for row in rows:
-        sign, form = row["sign_name"], row["allograph_form"]
-        row["graphic_variant_id"] = f"{make_variant_prefix(sign)}_v{form_order[sign][form]}"
+        sign, form = row["sign_name"], row["osl_form"]
+        row["osl_form_id"] = f"{make_variant_prefix(sign)}_v{form_order[sign][form]}"
     return rows
 
 
@@ -565,7 +571,7 @@ def build_compound_table(sign_rows, entity_index, name_to_readings, diri_reading
 
     return table_rows, status_by_form, reading_by_form
 
-# STAGE 3 allograph_all_v8: attach phonetic typing to every sign (using Stage 2's compound readings) and extend coverage with sign names attested only in the historical syllabary
+# STAGE 3 sign catalogue: attach phonetic typing to every sign (using Stage 2's compound readings) and extend coverage with sign names attested only in the historical syllabary
 
 
 def clean_osl_value(v):
@@ -589,14 +595,14 @@ def add_osl_values(v8_rows, entity_v_index):
     for r in simple:
         for v in r["phonetic_version"].split("|"):
             if v.strip():
-                owner.setdefault(reading_key(v), r.get("allograph_form") or r["sign_name"])
+                owner.setdefault(reading_key(v), r.get("osl_form") or r["sign_name"])
     conflicts, seen_conf = [], set()
     for r in v8_rows:
         r.setdefault("osl_v_added", "")
     for r in simple:
         if r["sign_source"] != "OSL":
             continue
-        entity = r.get("allograph_form") or r["sign_name"]
+        entity = r.get("osl_form") or r["sign_name"]
         values = [clean_osl_value(v) for v in entity_v_index.get(entity, {}).get("v_values", [])]
         added = []
         for v in values:
@@ -735,7 +741,7 @@ def build_syllabary_only_rows(path, covered_names):
         rows.append({"unicode_id": "", "sign_grapheme": "",
                      "sign_source": SOURCE_LABELS.get(name_to_source.get(name, ""), name_to_source.get(name, "")),
                      "sign_structure": "not_identified", "structural_hint": "", "component_position": "",
-                     "sign_name": name, "allograph_form": "", "graphic_variant_id": f"{prefix}_v1",
+                     "sign_name": name, "osl_form": "", "osl_form_id": f"{prefix}_v1",
                      "sign_type": "Type_3", "compound_form": "", "compound_grapheme": "", "compound_unicode": "",
                      "typePhonetic_Version": "Single Sign Reading", "phonetic_version": "|".join(readings),
                      "unicodeTrLit": "", "syllabary_sign": name, "signList_analogue": ""})

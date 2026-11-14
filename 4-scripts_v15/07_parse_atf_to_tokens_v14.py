@@ -44,7 +44,7 @@ Description: Workflow Stage 1, Step 5 (part 1). ATF -> atf_tokens.csv (one row
              12. ş/ţ (cedilla, syllabaries) and ṣ/ṭ (dot below, OSL and ATF):
                  when the exact lookup fails, a second index with one folded
                  form is tried, so the exact (OSL) reading always wins.
-             Uses allograph_all_v13.csv / compound_form_reading_table_v13.csv.
+             Uses sign_catalogue_v13.csv / compound_form_reading_table_v13.csv.
 Author: Aima, v13-v14 changes prepared with Claude
 Date: 2026-11-09
 Version: 14.3 (fallback lookup for ş/ţ of the syllabaries vs ṣ/ṭ of ATF)
@@ -71,7 +71,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 # v14.2: the whole Old Babylonian corpus (717 school + 16,189 practical tablets)
 DEFAULT_ATF = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "practiceOBP_all.atf"
 
-INPUT_ALLOGRAPH = OUT / "step4" / "allograph_all_v13.csv"
+INPUT_CATALOGUE = OUT / "step4" / "sign_catalogue_v13.csv"
 INPUT_COMPOUND_TABLE = OUT / "step4" / "compound_form_reading_table_v13.csv"
 
 OUTPUT_TOKENS_CSV = OUTPUT_DIR / "atf_tokens.csv"
@@ -129,19 +129,19 @@ def x_operator_variants(name: str) -> set:
 def sign_identity(row: dict, registered: set) -> str:
     """v13: name under which a catalogue row is resolved (shared by part 1
     and part 2 of Step 5)."""
-    form = row.get("allograph_form", "")
+    form = row.get("osl_form", "")
     return form if form and form in registered else row["sign_name"]
 
 
 def load_simple_dict(path: str) -> dict:
     """{normalized_reading: sign_name}, atomic signs only (typePhonetic_Version
     == 'Single Sign Reading'). This already includes the Diri/OGSL fallback
-    readings baked into allograph_all_v11.csv —no separate lookup needed."""
+    readings baked into sign_catalogue_v13.csv —no separate lookup needed."""
     d = {}
     with open(path, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
-    # v13: names registered as signs of their own (rows without allograph_form)
-    registered = {r["sign_name"] for r in rows if not r.get("allograph_form")}
+    # v13: names registered as signs of their own (rows without osl_form)
+    registered = {r["sign_name"] for r in rows if not r.get("osl_form")}
     if True:
         for row in rows:
             if row["typePhonetic_Version"] != "Single Sign Reading":
@@ -458,14 +458,14 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
 NAME_INDEX = {}   # v14: normalised sign name -> (canonical name, kind)
 
 
-def build_name_index(allograph_path: str) -> dict:
+def build_name_index(catalogue_path: str) -> dict:
     """v14: every sign name of the catalogue (simple signs under the same
     identity as load_simple_dict, parent names, compound forms) so that a
     sign NAME written in ATF (DU, SU3@g, |LAGABxTIL|, qualifier in brackets)
     can be resolved directly."""
-    with open(allograph_path, encoding="utf-8-sig") as f:
+    with open(catalogue_path, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
-    registered = {r["sign_name"] for r in rows if not r.get("allograph_form")}
+    registered = {r["sign_name"] for r in rows if not r.get("osl_form")}
     index = {}
     for r in rows:
         if r["typePhonetic_Version"] == "Single Sign Reading":
@@ -563,7 +563,7 @@ NUMERAL_RE = re.compile(r"^n?\d*(/\d+)?\([\w@'~]+\)$", re.UNICODE)
 def is_broken_marker(word: str) -> bool:
     """The collapsed ellipsis '…' marks text broken/missing on the tablet
     (from ATF '[...]'), not an unidentified sign. It must never reach the
-    dictionaries at all: allograph_all_v11.csv happens to contain a real,
+    dictionaries at all: the sign catalogue happens to contain a real,
     unrelated catalogue entry (sign name 'xxx', a placeholder for an
     undeciphered sign) whose own attested reading is literally the string
     '…', a coincidental character collision confirmed on real data. Without
@@ -704,9 +704,9 @@ def process_atf_text(text: str, simple_dict: dict, attested_dict: dict,
 
 def main(atf_folder: str):
     print(f"[INFO] Loading dictionaries")
-    simple_dict = load_simple_dict(INPUT_ALLOGRAPH)
+    simple_dict = load_simple_dict(INPUT_CATALOGUE)
     attested_dict, inferred_dict, source_by_form = load_compound_dicts(INPUT_COMPOUND_TABLE)
-    NAME_INDEX.update(build_name_index(INPUT_ALLOGRAPH))   # v14
+    NAME_INDEX.update(build_name_index(INPUT_CATALOGUE))   # v14
     print(f"  sign-name index: {len(NAME_INDEX)} names")
     print(f"  simple_dict: {len(simple_dict)} readings")
     print(f"  attested_compound_dict: {len(attested_dict)} readings")
