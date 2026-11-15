@@ -12,9 +12,7 @@ Description: Workflow Stage 1, Steps 1-5 + check. Runs the whole pipeline
              Options:
                  --from 07   start at script 07 (Steps 1-4 already done)
                  --list      only print the scripts and their steps
-Author: Aima, prepared with Claude
-Date: 2026-11-12
-Version: 1.0
+
 """
 
 import subprocess
