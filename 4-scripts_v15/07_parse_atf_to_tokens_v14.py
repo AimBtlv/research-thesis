@@ -47,7 +47,9 @@ Description: Workflow Stage 1, Step 5 (part 1). ATF -> atf_tokens.csv (one row
              Uses sign_catalogue_v13.csv / compound_form_reading_table_v13.csv.
 Author: Aima, v13-v14 changes prepared with Claude
 Date: 2026-11-09
-Version: 14.3 (fallback lookup for ş/ţ of the syllabaries vs ṣ/ṭ of ATF)
+Version: 14.4 (2026-11-18: P08a a span of several readings is not merged into
+         a compound with a placeholder component X / O / ?, e.g. ni-ir is
+         ni + ir, not |NA₂.X|. See manual_check_v2/00_WORKFLOW.md)
 """
 import csv
 import re
@@ -394,7 +396,7 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
                 continue
             span_text = join_span(parts, seps, i, j)
             norm = normalize_name(span_text)
-            if norm in attested_dict:
+            if norm in attested_dict and attested_dict[norm] not in PLACEHOLDER_FORMS:
                 cf = attested_dict[norm]
                 slots[i] = {"text": span_text, "resolved": cf, "kind": "compound",
                             "confidence": "attested", "span": (i, j)}
@@ -420,7 +422,7 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
                 continue  # would overlap an attested match — never allowed
             span_text = join_span(parts, seps, i, j)
             norm = normalize_name(span_text)
-            if norm in inferred_dict:
+            if norm in inferred_dict and inferred_dict[norm] not in PLACEHOLDER_FORMS:
                 cf = inferred_dict[norm]
                 slots[i] = {"text": span_text, "resolved": cf, "kind": "compound",
                             "confidence": "inferred", "span": (i, j)}
@@ -456,6 +458,24 @@ def tokenize_word(word: str, attested_dict: dict, inferred_dict: dict) -> list:
 
 
 NAME_INDEX = {}   # v14: normalised sign name -> (canonical name, kind)
+
+# v14.4 (fix P08a): compound forms of the catalogue with a placeholder
+# component (X, O, ? instead of a code point, e.g. |NA₂.X| = ni-ir). A span of
+# SEVERAL readings (ni-ir) is not merged into such a compound: every reading
+# is resolved as a sign of its own (ni + ir). A single reading (zimbir) is
+# still matched; Step 5.2 then stores the placeholder without a code.
+PLACEHOLDER_FORMS = set()
+
+
+def load_placeholder_forms(catalogue_path: str) -> set:
+    out = set()
+    with open(catalogue_path, encoding="utf-8-sig") as f:
+        for r in csv.DictReader(f):
+            if r["sign_structure"] == "compound" and r["compound_form"]:
+                uid = r["unicode_id"].replace(" [unverified]", "").strip()
+                if not re.fullmatch(r"U\+[0-9A-F]{4,6}", uid):
+                    out.add(r["compound_form"])
+    return out
 
 
 def build_name_index(catalogue_path: str) -> dict:
@@ -707,6 +727,8 @@ def main(atf_folder: str):
     simple_dict = load_simple_dict(INPUT_CATALOGUE)
     attested_dict, inferred_dict, source_by_form = load_compound_dicts(INPUT_COMPOUND_TABLE)
     NAME_INDEX.update(build_name_index(INPUT_CATALOGUE))   # v14
+    PLACEHOLDER_FORMS.update(load_placeholder_forms(INPUT_CATALOGUE))   # v14.4
+    print(f"  compound forms with a placeholder component: {len(PLACEHOLDER_FORMS)}")
     print(f"  sign-name index: {len(NAME_INDEX)} names")
     print(f"  simple_dict: {len(simple_dict)} readings")
     print(f"  attested_compound_dict: {len(attested_dict)} readings")

@@ -41,7 +41,11 @@ Description: Workflow Stage 1, Step 5 (part 2). atf_tokens.csv -> grapheme.csv
              osl.asl and the ATF text (for the function rules).
 Author: Aima, v13-v14 changes prepared with Claude
 Date: 2026-11-09
-Version: 14.4 (function by language and context, gold rules; letter case only as fallback)
+Version: 14.5 (2026-11-18: P06 components of a compound taken from one entry
+         only, no duplicates; P07 placeholders X / O / ? of osl.asl are not
+         stored as unicode_id; P15 a registered name takes the code point
+         of its own row, not of a @form row of another sign (da, ri, nam, u).
+         See manual_check_v2/00_WORKFLOW.md)
 """
 
 import csv
@@ -106,6 +110,15 @@ GRAPHEME_FIELDS = [
 
 # STAGE 1  LOAD sign_catalogue_v13.csv (formerly allograph_all)
 
+CODE_POINT_RE = re.compile(r"^U\+[0-9A-F]{4,6}( \[unverified\])?$")
+
+
+def is_code_point(value: str) -> bool:
+    """v14.5: True only for a real code point (U+12000, also 'U+12550
+    [unverified]'); False for the placeholders X, O, ? of osl.asl and for ''."""
+    return bool(CODE_POINT_RE.match(value.strip()))
+
+
 
 def load_sign_lookup(path: str) -> tuple:
     """
@@ -125,14 +138,38 @@ def load_sign_lookup(path: str) -> tuple:
     # v13: same sign identity as part 1 (registered variants under own name)
     registered = {r["sign_name"] for r in rows if not r.get("osl_form")}
     parent_fallback = {}
+    own_row = {}          # v14.5 (fix P15)
+    # v14.5 (fix P06): one compound form can be listed under several entries
+    # of osl.asl (|AŠ.AŠ| as a @sign and as a @form of another sign). Only the
+    # components of the FIRST entry are used; before, the components of all
+    # entries were appended, so |AŠ.AŠ| got 4 components instead of 2.
+    first_entity = {}
     if True:
         for row in rows:
             if row["sign_structure"] == "compound":
+                cf = row["compound_form"]
+                entity = (row["sign_name"], row.get("osl_form", ""))
+                if first_entity.setdefault(cf, entity) != entity:
+                    continue
                 pos = int(row["component_position"]) if row["component_position"] else 0
-                compound_raw[row["compound_form"]].append(
-                    (pos, row["unicode_id"], row["sign_grapheme"]))
+                uid, glyph = row["unicode_id"], row["sign_grapheme"]
+                # v14.5 (fix P07): a placeholder of osl.asl (X, O, ?) is not a
+                # code point: the component is kept, but without a code
+                if not is_code_point(uid):
+                    uid, glyph = "", ""
+                compound_raw[cf].append((pos, uid, glyph))
             elif row["typePhonetic_Version"] == "Single Sign Reading":
                 form = row.get("osl_form", "")
+                # v14.5 (fix P15): the sign's OWN row (no osl_form) gives the
+                # code point of a registered name. Before, the first row won,
+                # and a @form row of ANOTHER sign with an inherited code came
+                # first for 30 names: da -> U+12009 (A₂) instead of U+12055
+                # (DA), ri, nam, u, kal ... (74,102 rows of grapheme.csv)
+                if not form and row["sign_name"] not in own_row:
+                    own_row[row["sign_name"]] = {
+                        "unicode_id": row["unicode_id"],
+                        "sign_grapheme": row["sign_grapheme"],
+                        "unicodeTrLit": row["unicodeTrLit"]}
                 name = form if form and form in registered else row["sign_name"]
                 # the parent name is kept as a fallback key (second pass)
                 parent_fallback.setdefault(row["sign_name"], {
@@ -146,6 +183,9 @@ def load_sign_lookup(path: str) -> tuple:
                         "unicodeTrLit": row["unicodeTrLit"],
                     }
 
+    for name, info in own_row.items():        # v14.5 (fix P15): own row wins
+        if info["unicode_id"]:
+            atomic_lookup[name] = info
     for name, info in parent_fallback.items():
         atomic_lookup.setdefault(name, info)   # only names still missing
     compound_components = {
@@ -540,7 +580,7 @@ def main(atf_folder: str = str(DEFAULT_ATF), metadata_folder: str = str(DEFAULT_
         w.writerows(records)
     print(f"\n[RESULT] {len(records)} sign-occurrence rows -> {OUTPUT_GRAPHEME}")
 
-    n_uid = sum(1 for r in records if r["unicode_id"])
+    n_uid = sum(1 for r in records if is_code_point(r["unicode_id"]))   # v14.5: X / O are not codes
     print(f"  Unicode resolved: {n_uid} / {len(records)} ({100*n_uid/len(records):.1f}%)")
 
     type_c = defaultdict(int)

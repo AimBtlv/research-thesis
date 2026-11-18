@@ -36,7 +36,11 @@ Description: Workflow Stage 1, Step 4. Builds the full sign catalogue
              Everything else is unchanged.
 Author: Aima, fixes prepared with Claude
 Date: 2026-11-09
-Version: 13
+Version: 13.1 (2026-11-18: automatic fixes of the manual check, see
+         manual_check_v2/00_WORKFLOW.md: P01 component looked up with its
+         modifier among the @form entries; P02 a @form named like a @sign with
+         its own code point takes that code point; P03b @v of all entries of
+         the same name; P04 'nested in longer form' matched on whole components)
 """
 
 import csv
@@ -254,6 +258,12 @@ def lookup_component_uid(candidate, sign_index):
     return ""
 
 
+# v13.1 (fix P01): index of @form entries with their own code point, used as a
+# second place to look for a component WITH its modifier (AMAR@t) before the
+# modifier is dropped. Filled by parse_osl().
+FORM_INDEX = {}
+
+
 def try_decompose_juxtaposition(name, operator, sign_index):
     inner = name.strip('|')
     if '(' in inner or ')' in inner:
@@ -264,7 +274,11 @@ def try_decompose_juxtaposition(name, operator, sign_index):
     comps = []
     for part in parts:
         base = re.sub(r'@[a-zA-Z0-9]+$', '', part).strip()
-        uid = lookup_component_uid(part, sign_index) or lookup_component_uid(base, sign_index)
+        # v13.1 (fix P01): the piece with its modifier is looked up among the
+        # @sign entries AND the @form entries before the modifier is dropped
+        uid = (lookup_component_uid(part, sign_index)
+               or lookup_component_uid(part, FORM_INDEX)
+               or lookup_component_uid(base, sign_index))
         if not uid:
             return []
         comps.append(uid)
@@ -272,6 +286,24 @@ def try_decompose_juxtaposition(name, operator, sign_index):
 
 
 def classify_entity(name, header, sign_index, unicode_ref):
+    """v13.1 (fix P02): a @form that would be stored as a COMPOUND (by @useq
+    or by a split of its name) but whose name is also a registered @sign WITH
+    its own code point (|HI×BAD| = KAM, U+12130) is that sign: it gets the
+    code point of the sign instead of the components."""
+    cls = _classify_entity_base(name, header, sign_index, unicode_ref)
+    if cls["sign_structure"] != "compound":
+        return cls
+    same = sign_index.get(name) or sign_index.get(f"|{name.strip('|')}|")
+    if same is not None and same is not header and same.get("own_uid"):
+        uid = same["own_uid"]
+        return {"sign_type": "Type_1", "sign_structure": "atomic",
+                "structural_hint": "uid_via_same_name_sign",
+                "own_uid": uid if uid in unicode_ref else uid + " [unverified]",
+                "component_uids": []}
+    return cls
+
+
+def _classify_entity_base(name, header, sign_index, unicode_ref):
     own_uid_raw, useq_val = header["own_uid"], header["useq"]
     own_uid = ""
     if own_uid_raw:
@@ -330,12 +362,43 @@ def load_phonetic_reference(path):
 # STAGE 1 PARSE osl.asl ONCE: classify every sign, decompose compounds, and collect @v readings, all from a single pass over the file
 
 
+# v13.1 (fix P03b): @v values of ALL entries with the same name. Before, a
+# later entry of the same name replaced the earlier one, so its @v was lost
+# (|HI×MAŠ|, |LAGAB×AŠ@c|). Used only for the compound reading table.
+ALL_V_VALUES = defaultdict(list)
+
+
+def _collect_v(name, header):
+    for v in header.get("v_values", []):
+        if v not in ALL_V_VALUES[name]:
+            ALL_V_VALUES[name].append(v)
+
+
+def component_tokens(name):
+    """v13.1 (fix P04): sign name -> list of its component names, cut at the
+    operators . × & + and brackets (subscripts as digits, x as ×), so that a
+    'nested in longer form' match is made on whole components: A.BU is no
+    longer found inside A.BUR2."""
+    s = normalize_name(name).replace("x", "×").replace("(", "").replace(")", "")
+    # the operators are kept as tokens: GU&GU is not GU.GU
+    return [p for p in re.split(r"([.×&+%])", s) if p]
+
+
+def is_nested_in(short, long_name):
+    a, b = component_tokens(short), component_tokens(long_name)
+    if not a or len(b) <= len(a):
+        return False
+    return any(b[i:i + len(a)] == a for i in range(0, len(b) - len(a) + 1, 2))
+
+
 def parse_osl(path, unicode_ref):
     with open(path, "r", encoding="utf-8") as f:
         content = f.read()
 
     sign_index = {}
     entity_v_index = {}
+    FORM_INDEX.clear()
+    ALL_V_VALUES.clear()
     sign_blocks_raw = re.split(r'^@sign-?[ \t]', content, flags=re.MULTILINE)
    
     deprecated_starts = set(m.start() for m in re.finditer(r'^@sign-[ \t]', content, flags=re.MULTILINE))
@@ -356,12 +419,19 @@ def parse_osl(path, unicode_ref):
         header = parse_entity_header(header_lines)
         sign_index[name] = header
         entity_v_index[name] = header
+        _collect_v(name, header)
         form_parts = split_form_blocks(block)
         for form_section, form_is_dep in form_parts:
             if form_is_dep:
                 continue  
             form_lines = form_section.strip().split('\n')
-            entity_v_index[form_lines[0].strip()] = parse_entity_header(form_lines[1:])
+            form_header = parse_entity_header(form_lines[1:])
+            entity_v_index[form_lines[0].strip()] = form_header
+            _collect_v(form_lines[0].strip(), form_header)
+            # only code points of the ratified list (1_unicodeSigns.csv): a
+            # proposed code (U+12550 …) is not used to build a compound
+            if form_header["own_uid"] in unicode_ref:
+                FORM_INDEX.setdefault(form_lines[0].strip(), form_header)   # v13.1 (fix P01)
     entity_index = sign_index  
 
     sign_rows = []
@@ -536,14 +606,16 @@ def build_compound_table(sign_rows, entity_index, name_to_readings, diri_reading
 
     for cf in sorted(compound_forms):
         norm = normalize_name(cf)
-        v_reading = entity_index.get(cf, {}).get("v_values", [])
+        v_reading = entity_index.get(cf, {}).get("v_values", []) or ALL_V_VALUES.get(cf, [])   # v13.1
         diri_reading = diri_readings.get(norm)
         ogsl_reading = ogsl_readings.get(norm)
         syll_reading = name_to_readings.get(norm)
 
         nested_in = []
         if not v_reading and not diri_reading and not ogsl_reading and not syll_reading:
-            nested_in = [n for n in syll_names if norm in n and n != norm][:5]
+            # v13.1 (fix P04): match on whole components, and a syllabary name
+            # that is the compound itself (|AMAR&AMAR|) is not a longer form
+            nested_in = [n for n in syll_names if is_nested_in(cf, n)][:5]
 
         comps = sorted(compound_components.get(cf, []))
         inferred = "-".join(c[1].lower() for c in comps) if comps and all(c[1] for c in comps) else ""

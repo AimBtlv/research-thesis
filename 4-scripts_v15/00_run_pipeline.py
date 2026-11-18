@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 Name: 00_run_pipeline.py
-Description: Workflow Stage 1, Steps 1-5 + check. Runs the whole pipeline
+Description: Workflow Stage 1, Steps 1-5 + check + Step 6.0. Runs the whole pipeline
              with one command, without VS Code:
                  python3 00_run_pipeline.py
-             The scripts 01-09 are run one after another, in order. The run
+             The scripts 01-10 are run one after another, in order. The run
              stops at the first script that fails and prints its name.
              The helper modules 08a_function_layer.py and 08b_goldlib.py are
              not run here: script 08 loads them itself.
@@ -13,6 +13,7 @@ Description: Workflow Stage 1, Steps 1-5 + check. Runs the whole pipeline
                  --from 07   start at script 07 (Steps 1-4 already done)
                  --list      only print the scripts and their steps
 
+Version: 1.1 (2026-11-18: script 10, manual check files P01-P15)
 """
 
 import subprocess
@@ -31,6 +32,7 @@ SCRIPTS = [
     ("07_parse_atf_to_tokens_v14.py",   "5.1",  "ATF -> atf_tokens.csv (whole OB corpus)"),
     ("08_tokens_to_grapheme_v14.py",    "5.2",  "atf_tokens.csv -> grapheme.csv"),
     ("09_verify_pipeline.py",           "check", "PASS / DIFF for every step"),
+    ("10_build_manual_check.py",        "6.0",  "files P01-P15 for the manual check"),
 ]
 
 HERE = Path(__file__).resolve().parent      # the scripts always run from their own folder
