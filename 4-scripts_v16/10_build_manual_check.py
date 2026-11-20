@@ -31,7 +31,9 @@ Description: Workflow Stage 1, Step 6.0 (manual check of the catalogue and of
              and summary.json. Run AFTER 00_run_pipeline.py.
 Author: Aima, prepared with Claude
 Date: 2026-11-18
-Version: 1.0
+Version: 1.1 (2026-11-20: P09 OSL suggestions also by reading; P10 column
+         relation: a @form of the same sign or really different signs; P12
+         column kind_guess)
 """
 
 import csv
@@ -456,17 +458,44 @@ def main():
          "corpus_example", "decision", "osl_sign", "comment"], "P09")
 
     # P10 OSL / catalogue reading conflicts ------------------------------
+    # relation of the two signs in osl.asl: is the OSL sign only a @form
+    # (variant) of the catalogue sign, or are they really different signs?
+    form_parent = defaultdict(set)
+    current = None
+    with open(OSL, encoding="utf-8") as fh:
+        for line in fh:
+            mm = re.match(r"^@(sign|form)([+-]?)[ \t]+(\S+)", line)
+            if not mm:
+                continue
+            if mm.group(1) == "sign":
+                current = None if mm.group(2) == "-" else mm.group(3)
+            elif current and mm.group(2) != "-":
+                form_parent[mm.group(3)].add(current)
+
+    def relation(osl_sign, cat_sign):
+        if cat_sign in form_parent.get(osl_sign, set()):
+            return "OSL sign is a @form of the catalogue sign"
+        if osl_sign in form_parent.get(cat_sign, set()):
+            return "catalogue sign is a @form of the OSL sign"
+        if form_parent.get(osl_sign, set()) & form_parent.get(cat_sign, set()):
+            return "both are @forms of one sign"
+        return "different signs"
+
     rows = []
     if CONFL.exists():
         for r in read_csv(CONFL):
             key = r["reading"].translate(SUB).lower()
             st = reading.get(key, EMPTY)
             used = reading_sign.get(key, Counter())
-            rows.append({**r, "parser_resolves_to": ", ".join(f"{n} {c}" for n, c in used.most_common(3)),
+            rows.append({**r, "relation": relation(r["osl_sign"], r["catalogue_sign"]),
+                         "osl_sign_is_form_of": "; ".join(sorted(form_parent.get(r["osl_sign"], set()))),
+                         "parser_resolves_to": ", ".join(f"{n} {c}" for n, c in used.most_common(3)),
                          **st.cols()})
-    rows.sort(key=lambda r: (-r["tokens_in_OB_corpus"], r["reading"]))
+    # real conflicts (different signs) first, then by frequency
+    rows.sort(key=lambda r: (r["relation"] != "different signs", -r["tokens_in_OB_corpus"], r["reading"]))
     summary["P10"] = write_csv("P10_osl_reading_conflicts.csv", rows,
-        ["reading", "osl_sign", "catalogue_sign", "parser_resolves_to", "tokens_in_OB_corpus",
+        ["reading", "osl_sign", "catalogue_sign", "relation", "osl_sign_is_form_of",
+         "parser_resolves_to", "tokens_in_OB_corpus",
          "tokens_school", "tokens_practical", "top_sites", "corpus_example",
          "decision", "comment"], "P10")
 
@@ -487,10 +516,23 @@ def main():
          "top_sites", "corpus_example", "decision", "comment"], "P11")
 
     # P12 unresolved tokens ----------------------------------------------
-    rows = [{"normalized_token": k, **st.cols()} for k, st in unresolved.items()]
+    def kind_guess(t):
+        """Rough first sorting for the expert (not a decision)."""
+        if re.fullmatch(r"[^()]+\((?:[^()]+)\)", t):
+            return "QUALIFIER reading(SIGN)"
+        if re.search(r"[{}()<>\[\]…%]", t) or t in ("|", "x|", "|x"):
+            return "MARKUP or broken bracket"
+        if re.match(r"^(rec|lak|zatu|bau|elles|abzl|mzl|kwu)\d", t):
+            return "SIGN-LIST NUMBER"
+        if re.search(r"[a-zšŋ]x(\(|$)", t) or "|" in t:
+            return "x-INDEX or SIGN NAME"
+        return "READING"
+
+    rows = [{"normalized_token": k, "kind_guess": kind_guess(k), **st.cols()}
+            for k, st in unresolved.items()]
     rows.sort(key=lambda r: -r["tokens_in_OB_corpus"])
     summary["P12"] = write_csv("P12_unresolved_tokens.csv", rows,
-        ["normalized_token", "tokens_in_OB_corpus", "tokens_school", "tokens_practical",
+        ["normalized_token", "kind_guess", "tokens_in_OB_corpus", "tokens_school", "tokens_practical",
          "top_sites", "corpus_example", "decision", "sign_or_reading", "comment"], "P12")
 
     # P13 compounds the script could not split ---------------------------

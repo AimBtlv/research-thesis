@@ -3,7 +3,9 @@
 """
 Name: 01_build_syllabary_CM.py
 Description: Workflow Stage 1, Step 1.1. Merges the CM syllabary, Uruk2 and the additional signs into Syllabary_CM.csv. Fix: input files are read with utf-8-sig (two inputs start with a BOM, which was read as part of the first entry). Output: output/step1/Syllabary_CM.csv.
-
+Author: Aima, pipeline packaging and fixes prepared with Claude
+Date: 2026-11-09
+Version: 1.1
 """
 
 import csv

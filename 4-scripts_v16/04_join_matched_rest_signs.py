@@ -11,7 +11,9 @@ Description: Workflow Stage 1, Step 1.4. Reconstruction of the empty script
              7_unicodePhoneticVersion_full.csv.
              The reconstruction was checked against the existing file
              (byte-identical output).
-
+Author: Aima, reconstruction prepared with Claude
+Date: 2026-11-09
+Version: 1.0
 """
 
 import csv

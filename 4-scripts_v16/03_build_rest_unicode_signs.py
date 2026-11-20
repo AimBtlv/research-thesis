@@ -3,7 +3,9 @@
 """
 Name: 03_build_rest_unicode_signs.py
 Description: Workflow Stage 1, Step 1.3. Unicode signs not matched to Syllabary_CM are described from osl.asl. Output: output/step1/restUnicodeSigns.csv (= 5_restUnicodeSigns.csv).
-
+Author: Aima, pipeline packaging and fixes prepared with Claude
+Date: 2026-11-09
+Version: 1.1
 """
 
 import csv

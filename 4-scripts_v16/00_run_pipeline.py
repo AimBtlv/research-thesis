@@ -13,6 +13,8 @@ Description: Workflow Stage 1, Steps 1-5 + check + Step 6.0. Runs the whole pipe
                  --from 07   start at script 07 (Steps 1-4 already done)
                  --list      only print the scripts and their steps
 
+Author: Aima, prepared with Claude
+Date: 2026-11-09
 Version: 1.1 (2026-11-18: script 10, manual check files P01-P15)
 """
 

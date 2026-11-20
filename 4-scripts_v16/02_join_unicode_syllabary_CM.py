@@ -20,7 +20,10 @@ Description: Workflow Stage 1, Step 1.2. Restoration of the empty script
              step1_syllabary_osl_disagreements.csv (18 signs, for review).
              v1.2: the identity of a sign is decided by OSL through its code
              point; the syllabary gives the readings when it names the same sign.
-
+Author: Aima, restored with Claude
+Date: 2026-11-09
+Version: 1.2 (2026-11-14: OPPOSING / SQUARED translated instead of deleted (1.1);
+         OSL priority for the sign identity by code point (1.2))
 """
 
 import csv
