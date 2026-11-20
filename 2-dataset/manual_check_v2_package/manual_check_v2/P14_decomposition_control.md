@@ -1,24 +1,57 @@
-# **P14. Control Sample Of The Decompositions (Контрольная выборка разложений)**
+# P14. Control Sample Of The Decompositions
 
-*File: `P14_decomposition_control.csv`, 78 rows, check_id `P14-0001`–`P14-0078`. Built by `10_build_manual_check.py` from the outputs of 2026-11-14 (pipeline v14.4).*
+*File: `P14_decomposition_control.csv`     
+78 rows     
+Check_id `P14-0001`–`P14-0078`     
+The outputs of 2026-11-14 (pipeline v14.4)*
 
-## **Place In The Workflow (Место в workflow)**
+## Place In The Workflow 
 
-Stage 1, Step 6.0 (manual check before the gold standard). Documented in `4.doc_sign_catalogue_v13.md` § 4; `5.doc_parsing_layer_v14.md` § 13; scripts 06, 08.
+Stage 1, Step 6.0 (manual check before the gold standard).      
+Documented in `4.doc_sign_catalogue_v13.md` § 4; `5.doc_parsing_layer_v14.md` § 13     
+Scripts: `06_build_sign_catalogue_v13.py`,`08_tokens_to_grapheme_v14.py`
 
-## **The Problem (Проблема)**
+## The Problem 
 
-The components of most compounds come from OSL `@useq` (expert decision); the others from a name split by the script. Part B lists all name splits that occur in the corpus; part C the 30 most frequent `@useq` compounds as a sample. If C finds no error, `@useq` is treated as reliable.
+This file is not a problem but a **control sample**: it checks whether the
+components of compound signs are recorded correctly. In `grapheme.csv` a
+compound is written as one row per component (|EN.ZU| → EN 𒂗 + ZU 𒍪).    
+The components come from one of two places:
 
-## **Automatic Fix (Автоматическое исправление)**
+| Source | Decided by | Example |
+|---|---|---|
+| OSL `@useq` | the editors of OSL: code points given directly | \|EN.ZU\|: `@useq x12097.x1236A` |
+| name split | our script: cuts the name at × / & | \|KA×ŠU\| → KA + ŠU |
 
-**No** (this is the control itself). Rows with placeholders (P07) are not repeated here.
+P01, P06, P07 and P13 found specific errors. To judge whether the **rest** is
+right, a sample is checked instead of all 2,389 compounds.
 
-## **Size And Effect On The Corpus (Объём)**
+*Part B: all name splits in the corpus* (48 rows).    
+The script is trusted less than OSL, so every case is checked.     
+7 rows are P02 cases (|HI×BAD| = KAM, |KA×ŠU|, |ZI&ZI| …) and become simple signs after the re-run. 
+Then 41 rows with only 389 tokens remain.
 
-78 rows (B: 48, C: 30), 72,849 tokens.
+*Part C: a sample of OSL.*       
+The corpus has **482** compounds with `@useq`, **78,799** tokens.    
+The **30** most frequent (part C) cover **76.9 %** of these tokens: |EN.ZU| (*suen*, 13,295), |KU₃.UD| (*kubabbar*, 5,868), |A.AN| (5,643), |EN.KID| (*enlil*, 4,447), |AMAR.UD| (*marduk*, 3,552) …
 
-## **Which Rows To Check (Scope)**
+If part C contains no error, `@useq` is accepted as reliable for the other 452
+compounds.      
+This is an assumption, not a proof: a rare compound can still be
+wrong, but rare compounds hardly affect the counts, and the visible errors
+(placeholders, duplicates) are already in P06 and P07.
+
+## Automatic Fix 
+
+**No**: this file is the check of the automatic decompositions. Rows with
+placeholders (P07) are not repeated here.
+
+## Size And Effect On The Corpus 
+
+78 rows (B: 48, 41 after the re-run; C: 30), 72,849 tokens (1,021 in school
+texts). All rows are mandatory: they are the sample.
+
+## Which Rows To Check (Scope)
 
 All rows: **mandatory** (sample).
 

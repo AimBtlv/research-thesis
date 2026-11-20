@@ -1,28 +1,81 @@
-# **P15. Registered Name Took The Code Of Another Sign (Чужой код у знака)**
+# P15. Registered Name Took The Code Of Another Sign 
 
-*File: `P15_wrong_code_of_registered_name.csv`, 30 rows, check_id `P15-0001`–`P15-0030`. Built by `10_build_manual_check.py` from the outputs of 2026-11-14 (pipeline v14.4).*
+*File: `P15_wrong_code_of_registered_name.csv`.   
+30 rows.   
+Check_id `P15-0001`–`P15-0030`.   
+The outputs of 2026-11-14*.   
 
-## **Place In The Workflow (Место в workflow)**
+## Place In The Workflow 
 
-Stage 1, Step 6.0 (manual check before the gold standard). Documented in `5.doc_parsing_layer_v14.md` § 10 *Sign Identity Of Variants* (v13); script `08_tokens_to_grapheme_v14.py`.
+Stage 1, Step 6.0 (manual check before the gold standard).    
+Documented in `5.doc_parsing_layer_v14.md` § 10 *Sign Identity Of Variants* (v13).   
+Script `08_tokens_to_grapheme_v14.py`.    
+ 
+## The Problem
 
-## **The Problem (Проблема)**
+**The largest error found.** For 30 frequent signs the parser stored the
+**glyph of another sign** in `grapheme.csv`: *da* got 𒀉 (A₂) instead of
+𒁕 (DA), *ri* got 𒄷 (HU) instead of 𒊑.
 
-**The largest error found.** Since v13 a variant that is a registered sign of its own is resolved under its own name (MAŠ₂, not KUN). Step 5.2 then took the code point of the *first* catalogue row with this name. For 30 names that first row was a `@form` row of *another* sign with an inherited code point: *da* got U+12009 (A₂, 𒀉) instead of U+12055 (DA, 𒁕), *ri* got 𒄷 (HU) instead of 𒊑, *nam* BURU₅ instead of NAM, *u* DIŠ instead of U. The reading and the sign name were right; only the glyph was wrong, so the check by function (gold, v14.4) could not see it.
+*Registered sign.* In this pipeline a sign is **registered** if it has its own
+`@sign` entry in OSL (a catalogue row without `osl_form`). A sign can also
+stand in OSL as a **variant** (`@form`) inside another sign:
 
-## **Automatic Fix (Автоматическое исправление)**
+| Where in OSL | What it is | Code point |
+|---|---|---|
+| `@sign DA` | its own entry | **U+12055** 𒁕 |
+| `@form DA` inside A₂ | a variant of A₂ | none of its own |
 
-**Yes (08 v14.5, fix P15).** A registered name takes the code point of its own row.
+*Inherited code point.*    
+A form without a code point receives the code point of
+its parent (`structural_hint = inherited_from_parent`): the form DA inside A₂
+got U+12009 𒀉 (A₂).
 
-## **Size And Effect On The Corpus (Объём)**
+*The change of v13.*      
+A variant that is a registered sign of its own is resolved
+under its own name (MAŠ₂, not its parent KUN). This rule is right.
 
-30 names, 74,102 tokens ≈ 74,100 rows of `grapheme.csv` (3.4 %), 1,428 of them in school texts. Every count by glyph (Jaccard, inventories) was affected.
+*Where the error arose?*      
+Step 5.2 (script 08) then took the code point of the **first** catalogue row with this name. 
+The entry A₂ comes before the entry DA in OSL, so the first row was the form DA **with the inherited code of A₂**:
+
+    code for DA?
+      1st row named DA: @form DA inside A₂ → U+12009 𒀉 (A₂)   ← taken
+      2nd row:          @sign DA          → U+12055 𒁕 (DA)   ← right
+
+The same happened to 30 names:    
+RI (23,554 tokens, code of HU)     
+DA (21,194,A₂)     
+NAM (11,448, BURU₅)   
+DUN₃@g (4,926)     
+KAL (2,571, GURUŠ)    
+PAP (1,790, DIŠ)    
+U (1,398, DIŠ) ....
+
+*Why it was not seen?*     
+The reading (*da*) and the sign name (DA) were right.    
+Only the glyph and the code point were wrong.     
+The gold check of v14.4 compared the **function** and the name of the sign, not the glyphs. The gold standard must therefore compare **glyph sequences**.
+
+## Automatic Fix 
+
+**Yes**: A registered name now takes the code point of **its own** row: *da* → DA → U+12055 𒁕.
+
+## Size And Effect On The Corpus 
+
+30 names
+**74,102** tokens  of the rows of `grapheme.csv`.   
+**1,428** in school texts.   
+72,674 in practical texts. 
+Every count by glyph (inventories, Jaccard index, frequencies) was affected: the data contained signs (A₂, HU, BURU₅) that are not in these words, and the real DA, RI, NAM
+were undercounted by thousands. 
+The expert compares `old_glyph` and `new_glyph` and writes `CONFIRM`.
 
 ## **Which Rows To Check (Scope)**
 
 All rows: a quick **confirmation** (compare `old_glyph` and `new_glyph`).
 
-## **Columns (Columns)**
+## **Columns**
 
 | Column | Meaning |
 |---|---|

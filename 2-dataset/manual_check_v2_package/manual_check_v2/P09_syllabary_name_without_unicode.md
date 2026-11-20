@@ -1,22 +1,69 @@
-# **P09. Syllabary Name Without Unicode In The Corpus (Имя силлабария без кода)**
+# P09. Syllabary Name Without Unicode In The Corpus
 
-*File: `P09_syllabary_name_without_unicode.csv`, 31 rows, check_id `P09-0001`–`P09-0031`. Built by `10_build_manual_check.py` from the outputs of 2026-11-14 (pipeline v14.4).*
+*File: `P09_syllabary_name_without_unicode.csv`    
+31 rows      
+Check_id `P09-0001`–`P09-0031`    
+The outputs of 2026-11-14*    
 
-## **Place In The Workflow (Место в workflow)**
+## Place In The Workflow
 
-Stage 1, Step 6.0 (manual check before the gold standard). Documented in `4.doc_sign_catalogue_v13.md` § 7 *Extending The Dataset* (Stage 6–7); `5.doc_parsing_layer_v14.md` ⚠️ note on 2,545 rows; script 06.
+Stage 1, Step 6.0 (manual check before the gold standard).         
+Documented in `4.doc_sign_catalogue_v13.md` § 7 *Extending The Dataset* (Stage 6–7)`5.doc_parsing_layer_v14.md`      
+Note on 2,545 rows      
+Script: `06_build_sign_catalogue_v13.py`
 
-## **The Problem (Проблема)**
+## The Problem
+*Where such names come from?* 
+The sign catalogue is built from two kinds of sources: **OSL** (a modern sign list, its signs have Unicode code points) and the **historical syllabaries** (Syllabary_CM of M. Maiocchi, Uruk2), which name signs in their own way. A syllabary name that does not exist in OSL is still added to the catalogue, so that its reading is not lost, but it has **no
+Unicode code point**, because only OSL gives code points.
 
-Some readings resolve to a name that comes only from the historical syllabaries and is written like a compound (SIPA, KA.AN.RA = Babylon, AŠ2.A.AN = udru, IDIGNA). The parser treats it as one simple sign **without a code point**, so these tokens have no glyph in `grapheme.csv`.
+*Where the problem arises?*      
+Example: the reading *sipa* ("shepherd").
 
-## **Automatic Fix (Автоматическое исправление)**
+| Step | What happens |
+|---|---|
+| ATF | *sipa* |
+| catalogue | *sipa* → name **SIPA** (from Uruk2) |
+| OSL | no sign named SIPA |
+| grapheme.csv | sign SIPA, `unicode_id` **empty**, no glyph |
 
-**No.** The link to an OSL compound (sipa = \|PA.LU\|, babila₂ = \|KA₂.AN.RA\| …) is a philological decision; `osl_suggestion` shows candidates where OSL has the same name or the same value.
+In OSL, *sipa* is a value of the compound **\|PA.LU\|** = PA + LU (𒉺𒇻): two
+glyphs should be stored.
 
-## **Size And Effect On The Corpus (Объём)**
+| Syllabary name | Reading | OSL candidate | Tokens |
+|---|---|---|---|
+| SIPA | *sipa* | \|PA.LU\| | 1,006 |
+| KA.AN.RA | *babila₂* (Babylon) | \|KA₂.AN.RA\| | 537 |
+| AŠ2.A.AN | *udru* (camel) | \|ZIZ₂.A.AN\| | 428 |
+| IDIGNA | *idigna* (Tigris) | \|GU₂.GAR₃\| or \|TUM×PAP\| | 205 |
 
-31 names, 2,543 tokens (50 in school texts).
+*Why it matters?*     
+A token without a glyph **drops out** of every count by sign
+(inventories, Jaccard index). These are frequent words, and they drop out
+unevenly: mostly in practical texts (Sippar, Mari, Larsa), only 50 of 2,543 in
+school texts.
+
+## Automatic Fix 
+
+**No.**     
+The OSL candidate (`osl_suggestion`) is only a **suggestion**:
+1. syllabary and OSL spell names differently (KA.AN.RA vs \|KA₂.AN.RA\|; KA and
+   KA₂ are different signs; AŠ2.A.AN vs \|ZIZ₂.A.AN\|).  
+2. there can be several candidates (*idigna*: two OSL signs)
+3. sometimes it is not a sign at all (`X`, 46 tokens, comes from ATF markup)
+4. OSL marks \|KA.AN.RA\| as deprecated (`@sign-`), the valid entry is
+   \|KA₂.AN.RA\|.
+
+The script 10(`10_build_manual_check.py`)  looks for OSL entries that have the syllabary name **or one of the readings** that lead to it in the corpus as a value, reading `osl.asl` line by line  
+22 of 31 rows now have a suggestion.
+
+## Size And Effect On The Corpus
+
+31 names         
+**2,543** tokens without a glyph (**50** in school texts).     
+The five most frequent give 2,247 tokens.     
+All rows are mandatory.
+
 
 ## **Which Rows To Check (Scope)**
 

@@ -1,24 +1,64 @@
-# **P11. Syllabary And OSL Name Different Signs (Расхождения силлабария и OSL)**
+# P11. Syllabary And OSL Name Different Signs 
 
-*File: `P11_syllabary_osl_disagreements.csv`, 18 rows, check_id `P11-0001`–`P11-0018`. Built by `10_build_manual_check.py` from the outputs of 2026-11-14 (pipeline v14.4).*
+*File: `P11_syllabary_osl_disagreements.csv`     
+18 rows      
+Check_id `P11-0001`–`P11-0018`          
+The outputs of 2026-11-14*
 
-## **Place In The Workflow (Место в workflow)**
+## **Place In The Workflow 
+Stage 1, Step 6.0 (manual check before the gold standard).
+Documented in `1.doc_unicode_assign_v3.md`, Step 1.2, *Correction: OSL decides which sign it is*
+Script:`02_join_unicode_syllabary_CM.py`
 
-Stage 1, Step 6.0 (manual check before the gold standard). Documented in `1.doc_unicode_assign_v3.md`, Step 1.2, *Correction: OSL decides which sign it is*; script 02.
+## The Problem
 
-## **The Problem (Проблема)**
+*What Step 1.2 does?*      
+For each of the 1,234 Unicode characters it finds **which sign** it is and which readings it has. Every character has a code point, a glyph and an English Unicode name:
 
-For 18 Unicode signs the syllabary and OSL name different signs (duh → GABA, ti₂ → HI …). Version 1.2 lets OSL decide. The decision should be checked against MZL, because it moves thousands of tokens (gaba → GABA 2,504).
+    U+12083   𒂃   "CUNEIFORM SIGN DUH"
 
-## **Automatic Fix (Автоматическое исправление)**
 
-**Already decided automatically (02 v1.2): OSL wins.** The check confirms or rejects this rule sign by sign.
 
-## **Size And Effect On The Corpus (Объём)**
+*The rule of version 1.2: OSL decides*      
+OSL records the code point of every sign **directly** (`@list U+12083` in `@sign DUH`). Since v1.2:
+1. **which sign** it is, is decided by OSL through the code point
+2. the syllabary gives the **readings** only if it names the **same** sign
+3. otherwise the sign is described from OSL (Step 1.3).
+>[Note] Before version 1.2 the script looked for the sign in the syllabary **by this
+English name** or, failing that, **by a reading**. So the character "duh" went
+to the sign GABA, because GABA has the reading *duh* in the syllabary. *Why this is dangerous?* A character assigned to the wrong sign receives the
+**readings of another sign**: *gaba* got the glyph 𒂃 (DUH) instead of its own.
+About 2,480 words of the corpus had a wrong sign (*gaba* → DUH, *kalam* →
+KALAM@g, *na₄* → DAG₃).
+This file lists all 18 disagreements: in 3 cases the syllabary sign with the
+OSL name was used (NIN → |SAL.TUG₂|, ARKAB₂, NU₁₁@t), in 15 the sign was
+described from OSL (𒂃: GABA → DUH).
 
-18 signs; 9 in the corpus, 21,670 tokens.
+## Automatic Fix 
 
-## **Which Rows To Check (Scope)**
+**Already decided automatically.** 
+The rule is convenient, but OSL can also be wrong or use another notation, so the check confirms or rejects it sign by sign against MZL.     
+Two pairs need special care:
+- **𒌦 (Unicode "UN") and 𒌧 ("UN gunû")**: in our OSL 𒌦 = KALAM@g and
+  𒌧 = KALAM. The syllabary calls them UN and UN@g. 9,993 tokens depend on this
+  pair (*un*, *uĝ₃*, *kalam*).
+- **𒎏 NIN = |SAL.TUG₂|**: the same sign under two names, almost certainly
+  safe, but 7,200 tokens.
+
+## Size And Effect On The Corpus 
+
+18 signs     
+9 occur in the corpus.     
+**21,670** tokens (366 in school texts).        
+The most frequent:    
+𒌦 UN / KALAM@g (8,896),    
+𒎏 NIN / |SAL.TUG₂| (7,200),    
+𒂃 GABA / DUH (2,504),    
+𒌧 UN@g / KALAM (1,097),    
+𒌤 UMUM×KASKAL / DE₂ (1,044),     
+𒇇 LAGAB×GUD+GUD / |LAGAB×(GUD&GUD)| (906).    
+All 18 rows are mandatory.     
+## **Which Rows To Check (Scope)**   
 
 All rows: **mandatory**.
 

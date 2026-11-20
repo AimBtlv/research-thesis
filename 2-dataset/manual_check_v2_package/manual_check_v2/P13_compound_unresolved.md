@@ -1,22 +1,57 @@
-# **P13. Compounds The Script Could Not Split (Неразрешённые составные)**
+# P13. Compounds The Script Could Not Split 
 
-*File: `P13_compound_unresolved.csv`, 182 rows, check_id `P13-0001`–`P13-0182`. Built by `10_build_manual_check.py` from the outputs of 2026-11-14 (pipeline v14.4).*
+*File: `P13_compound_unresolved.csv`   
+182 rows    
+Check_id `P13-0001`–`P13-0182`     
+The outputs of 2026-11-14 (pipeline v14.4)*
 
-## **Place In The Workflow (Место в workflow)**
+## Place In The Workflow 
 
-Stage 1, Step 6.0 (manual check before the gold standard). Documented in `4.doc_sign_catalogue_v13.md` § 4, `structural_hint = compound_unresolved`; script 06.
+Stage 1, Step 6.0 (manual check before the gold standard). 
+Documented in `4.doc_sign_catalogue_v13.md` § 4, `structural_hint = compound_unresolved`.    
+Script: `06_build_sign_catalogue_v13.py`
 
-## **The Problem (Проблема)**
+## The Problem 
 
-A name with `×` or `&` that the script could not split: nested brackets (\|GA₂×(HAL.A)\|) or a piece that is not a sign (LAK178, X).
+*How the script splits a compound?*      
+When OSL gives no list of components (`@useq`), `script 06` cuts the name at the operator and looks up every piece in OSL (as in P01): |AB×A| → AB + A. If one piece is not found, the script **does not guess**: the sign stays unsplit (`sign_structure = not_identified`,
+`compound_unresolved`).     
+A wrong split would be worse than none.
 
-## **Automatic Fix (Автоматическое исправление)**
+*Why a piece is not found?*       
+By the form of the name:
 
-**Partly (06 v13.1, fix P01).** Pieces are now also looked up among the `@form` entries with a ratified code: \|LAK648×IM\|, \|LAK648×IGI\|, \|LAK648×LU₃\|, \|LAK648×DIŠ@c\| are now split (the last one with the modifier dropped: DIŠ@c → DIŠ, see P01).
+| Group | Example | Rows | Reason |
+|---|---|---|---|
+| nested brackets | \|GA₂×(HAL.A)\|, \|(BU%BU)×AB\| | 126 | a compound inside a compound; the script cuts only one level |
+| X in the name | \|AB×X\|, \|EN×X\| | 24 | X = unknown sign, nothing to look up |
+| sign-list number | \|AB×LAK178\|, \|LAK648×IM\| | 9 | LAK178 is a number of the LAK list, not an OSL sign name |
+| numeral prefix | 2(\|GEŠU@c×KASKAL\|) | 8 | "two signs …", a count, not a component |
+| repetition number | \|3×LU₂\|, \|4×GABA\| | 4 | "three LU₂": the script does not read 3× as a repetition |
+| other | \|ASAL₂×A\|, \|ŠIM×X₁\| | 11 | the piece is not found under this name |
 
-## **Size And Effect On The Corpus (Объём)**
+(The grouping is by the form of the name, the column `reason` of the CSV has
+only two values: nested brackets / component not found.)
 
-182 entries; 1 in the corpus (2 tokens). For the catalogue, not for the thesis.
+## Automatic Fix 
+
+**Partly.**      
+A piece is now also looked up among the `@form` entries with a ratified code point.     
+This works for LAK648, which OSL lists as a `@form` with a code: |LAK648×IM|, |LAK648×IGI|, |LAK648×LU₃| and |LAK648×DIŠ@c| are now split (the last one with the modifier dropped, DIŠ@c → DIŠ, see P01).
+The file was built from the outputs before the re-run, after the re-run these 4 rows leave it (178 remain).
+
+For the other groups an expert decides how to split a nested sign (and whether
+it should be split at all: some are one graphic unit), which OSL sign a LAK
+number stands for, and whether a sign with X can be split.
+
+76 of the rows already have a reading found by the sign name (69 via OGSL,
+7 via Diri, column `hint_in_catalogue`): the reading is known, the components
+are not.
+
+## Size And Effect On The Corpus
+
+182 entries (178 after the re-run) 
+Only **1** occurs in the Old Babylonian corpus: |DAG.KISIM₅×LU| (a form of |DAG.KISIM₅×(LU.MAŠ₂)|), **2** tokens. This is a question of catalogue quality, not of the thesis: the file is optional.
 
 ## **Which Rows To Check (Scope)**
 

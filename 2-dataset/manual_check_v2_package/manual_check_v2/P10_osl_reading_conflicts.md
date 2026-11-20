@@ -1,28 +1,71 @@
-# **P10. OSL And Catalogue Give A Reading To Different Signs (Конфликты чтений)**
+# P10. OSL And Catalogue Give A Reading To Different Signs 
 
-*File: `P10_osl_reading_conflicts.csv`, 702 rows, check_id `P10-0001`–`P10-0702`. Built by `10_build_manual_check.py` from the outputs of 2026-11-14 (pipeline v14.4).*
+*File: `P10_osl_reading_conflicts.csv`   
+702 rows     
+Check_id `P10-0001`–`P10-0702`      
+The outputs of 2026-11-14*
 
-## **Place In The Workflow (Место в workflow)**
+## Place In The Workflow
 
-Stage 1, Step 6.0 (manual check before the gold standard). Documented in `4.doc_sign_catalogue_v13.md` § 6 *Gap filling from OSL @v* (`osl_reading_conflicts_v13.csv`); `1.doc_unicode_assign_v3.md` (702 conflicts); script 06.
+Stage 1, Step 6.0 (manual check before the gold standard). 
+Documented in `4.doc_sign_catalogue_v13.md` § 6 *Gap filling from OSL @v* (`osl_reading_conflicts_v13.csv`).    
+`1.doc_unicode_assign_v3.md` (702 conflicts).    
+Script: `06_build_sign_catalogue_v13.py`
 
-## **The Problem (Проблема)**
+## The Problem 
 
-OSL gives the reading to one sign, the catalogue (syllabary) to another (mur₂: MURUB₄ vs NISAG). By the project rule the disagreement is recorded, not overwritten. The column `parser_resolves_to` shows which sign the parser actually uses. Some conflicts come from the normalisation ḫ → h of Step 5 (*hi*: OSL DIN, catalogue HI), not from the sign lists.
+*Where the conflicts come from?*      
+Readings of simple signs come mostly from the syllabary, OSL `@v` values only **fill gaps** (Step 4, Stage 5). Before adding an OSL reading, `script 06` checks whether another sign of the catalogue already has it. If so, nothing is changed and the case is written to
+`osl_reading_conflicts_v13.csv` (702 rows).     
 
-## **Automatic Fix (Автоматическое исправление)**
+Example: *murub₄* ("middle") is a value of MURUB₄ in OSL, of NISAG in the catalogue. The column `parser_resolves_to` shows the sign the parser actually uses (NISAG, 79 times).
 
-**No.** Choosing between sign lists is philology. ⚠️ The ḫ / h cases may need a change of the normalisation instead of a sign decision.
+*Most conflicts are not real.* OSL sometimes lists a reading **both under a sign
+and under one of its `@form` variants**:
 
-## **Size And Effect On The Corpus (Объём)**
+    @sign HI        @v hi     ← the main sign
+      @form DIN     @v hi     ← a variant inside the sign HI
 
-702 conflicts; 42 readings occur in the corpus, 13,159 tokens.
+The script saw *hi* at HI in the catalogue and at DIN in OSL and recorded a
+conflict, but DIN is a variant of HI itself: one sign, nothing to change.
+
+The new column `relation` tells the cases apart:
+
+| `relation` | Meaning | Conflicts | Tokens |
+|---|---|---|---|
+| `different signs` | really different signs | 400 | 979 |
+| OSL sign is a @form of the catalogue sign | variant (*hi*, *maš*, *lil₂*) | 263 | 12,111 |
+| catalogue sign is a @form of the OSL sign | the reverse | 38 | 69 |
+| both are @forms of one sign | | 1 | 0 |
+
+
+*Real conflicts in the corpus (15 signs)*:    
+ *uš₂* (OSL TIL, catalogue UŠ₂, 608),       
+ *murub₄* (MURUB₄ / NISAG, 79),     
+ *samag* (DUB / UM, 78, **all in school texts**),     
+ *di₂* and *ti₂* (TI₂ / HI, 70 and 19, the same problem as *ti₂* in Step 1.2,
+see P11).
+
+## Automatic Fix
+
+**No.**     
+Choosing between sign lists is philology. Script 10 only adds the
+column `relation` and sorts the file.
+
+## Size And Effect On The Corpus
+
+702 conflicts     
+42 readings occur in the corpus.     
+13,159 tokens. 
+Real conflicts between different signs: 400, of them **15** in the corpus with **979** tokens (92 in school texts).     
+The 15 real conflicts are mandatory.    
+Variant cases need only a quick look (usually `SAME_SIGN`).
 
 ## **Which Rows To Check (Scope)**
 
 Rows in the corpus: **mandatory**, the 10 rows with ≥ 100 tokens first. The rest: optional.
 
-## **Columns (Columns)**
+## Columns 
 
 | Column | Meaning |
 |---|---|
