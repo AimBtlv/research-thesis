@@ -407,12 +407,22 @@ def main():
          "corpus_example", "decision", "comment"], "P08")
 
     # P09 syllabary-only names without Unicode used in the corpus --------
+    # value -> OSL entries, read line by line from osl.asl, so that a @v that
+    # stands after a @form line is also found (sipa of |PA.LU|)
     value_owner = defaultdict(set)
-    for name, h in entity_v.items():
-        for v in h.get("v_values", []):
-            v = v.strip().rstrip("?")
-            if v and " " not in v and not v.startswith("%"):
-                value_owner[v.translate(SUB).lower()].add(name)
+    current = None
+    with open(OSL, encoding="utf-8") as fh:
+        for line in fh:
+            mm = re.match(r"^@(sign|form)([+-]?)[ \t]+(\S+)", line)
+            if mm:
+                current = None if mm.group(2) == "-" else mm.group(3)
+                continue
+            if line.startswith("@end sign"):
+                current = None
+                continue
+            mm = re.match(r"^@v[ \t]+(\S+)\s*$", line)
+            if mm and current and not mm.group(1).startswith("%"):
+                value_owner[mm.group(1).rstrip("?").translate(SUB).lower()].add(current)
     norm_osl = {m06.normalize_name(n).upper(): n for n in entity_v}
     no_code = {}
     for r in cat:
@@ -426,13 +436,16 @@ def main():
         sugg = []
         if name.translate(SUB).upper() in norm_osl:
             sugg.append(f"same name in OSL: {norm_osl[name.translate(SUB).upper()]}")
-        own = value_owner.get(name.translate(SUB).lower(), set())
-        if own:
-            sugg.append("OSL value of: " + "; ".join(sorted(own)[:4]))
         readings_used = Counter()
         for key, c in reading_sign.items():
             if name in c:
                 readings_used[key] += c[name]
+        # OSL entries that have the NAME or one of the READINGS as a value
+        own = set(value_owner.get(name.translate(SUB).lower(), set()))
+        for key in readings_used:
+            own |= value_owner.get(key, set())
+        if own:
+            sugg.append("OSL value of: " + "; ".join(sorted(own)[:4]))
         rows.append({"sign_name": name, "sign_source": r["sign_source"],
                      "readings_in_corpus": ", ".join(f"{k} {v}" for k, v in readings_used.most_common(4)),
                      "osl_suggestion": " / ".join(sugg), **st.cols()})

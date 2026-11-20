@@ -9,9 +9,6 @@ Description: Workflow Stage 1, final check of the whole pipeline (Steps 1-5).
              pipeline was built (catalogue v13 + parser v14.3 on the whole
              Old Babylonian corpus: OBP_full/practiceOBP_all.atf, 16,906
              tablets, 15,709 with text). Prints PASS / DIFF for each check.
-Author: Aima, prepared with Claude
-Date: 2026-11-09
-Version: 1.6 (Step 1.2 v1.2: OPPOSING / SQUARED fixed, OSL priority; Step 4 reads the Step 1.4 output)
 """
 
 import csv

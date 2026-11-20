@@ -7,10 +7,7 @@ Description: Workflow Stage 1, Step 6.3 + 6.5. Core library for building the sig
              (line -> word -> sign), sign resolution (reading -> OSL sign ->
              Unicode) and rule-based function labelling (LOGO / SYLL / DET /
              NUM / UNCLEAR) by language and context.
-Author: Aima (thesis "Signs and Their Readings in School and Other Texts of
-        the Old Babylonian Period"), prepared with Claude
-Date: 2026-11-09
-Version: 1.2
+
 """
 
 import re
