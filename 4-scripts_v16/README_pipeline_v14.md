@@ -1,23 +1,29 @@
-# **pipeline_v14: Final Version Of 2026-11-20 (Финальная версия)**
+# Pipeline_v16: 
+*Stage 1.      
+Steps 1–5 and Step 6.0.           
+Run: `python3 00_run_pipeline.py`      
+Version Of 2026-11-20       
+Python 3.9 or newer.*
 
-*Stage 1, Steps 1–5 and Step 6.0. Python 3.9 or newer. Run: `python3 00_run_pipeline.py`.*
+## What Is In This Folder
 
-## **What Is In This Folder (Содержимое)**
+| No. | Script | Step | 
+|---|---|---|
+| 00 | `00_run_pipeline.py` | all | 
+| 01 | `01_build_syllabary_CM.py` | 1.1 | 
+| 02 | `02_join_unicode_syllabary_CM.py` | 1.2 | 
+| 03 | `03_build_rest_unicode_signs.py` | 1.3 |
+| 04 | `04_join_matched_rest_signs.py` | 1.4 | 
+| 05 | `05_build_diri_lexical_list.py` | 2 |
+| 06 | `06_build_sign_catalogue_v13.py` | 3–4 |
+| 07 | `07_parse_atf_to_tokens_v14.py` | 5.1 |
+| 08 | `08_tokens_to_grapheme_v14.py` | 5.2 | 
+| 08a| `08a_function_layer.py` | * |
+| 08b| `08b_goldlib.py` | ** |
+| 09 | `09_verify_pipeline.py` | ***| 
+| 10 | `10_build_manual_check.py` | 6.0 |
 
-| No. | Script | Step | Version | Changed on 2026-11-18/20? |
-|---|---|---|---|---|
-| 00 | `00_run_pipeline.py` | all | 1.1 | **yes**: runs script 10 at the end |
-| 01 | `01_build_syllabary_CM.py` | 1.1 | 1.1 | no |
-| 02 | `02_join_unicode_syllabary_CM.py` | 1.2 | 1.2 | no |
-| 03 | `03_build_rest_unicode_signs.py` | 1.3 | 1.1 | no |
-| 04 | `04_join_matched_rest_signs.py` | 1.4 | 1.0 | no |
-| 05 | `05_build_diri_lexical_list.py` | 2 | 1.1 | no |
-| 06 | `06_build_sign_catalogue_v13.py` | 3–4 | **13.1** | **yes** |
-| 07 | `07_parse_atf_to_tokens_v14.py` | 5.1 | **14.4** | **yes** |
-| 08 | `08_tokens_to_grapheme_v14.py` | 5.2 | **14.5** | **yes** |
-| 10 | `10_build_manual_check.py` | 6.0 | **1.1** | **new** |
-
-## **Not In This Folder: Keep Your Own Copies (Оставить свои файлы)**
+## Not In This Folder: Keep Your Own Copies 
 
 These files were not part of the upload and were not changed. Keep them in `pipeline_v14/`:
 
@@ -25,11 +31,11 @@ These files were not part of the upload and were not changed. Keep them in `pipe
 |---|---|
 | `08a_function_layer.py` | helper of 08 (function of the sign by language and context) |
 | `08b_goldlib.py` | helper of 08a (copy of `goldlib.py` of the gold package) |
-| `09_verify_pipeline.py` | PASS / DIFF check. ⚠️ Its reference numbers for Step 5 belong to v14.4 and must be updated after the first run of v14.5 (see below) |
+| `09_verify_pipeline.py` | PASS / DIFF check.  Its reference numbers for Step 5 belong to v14.4 and must be updated after the first run of v14.5 (see below) |
 
 Without these three files `00_run_pipeline.py` stops with a clear message.
 
-## **What Changed (Изменения)**
+## What Changed 
 
 | Script | Fix | What it does | Effect |
 |---|---|---|---|
