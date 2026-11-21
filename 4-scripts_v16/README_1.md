@@ -2,7 +2,7 @@
 
 `research-thesis/` repository.    
 `4-scripts_v14/`(next to `2-dataset/`)       
-All paths are relative to the repository, every result is written to `4-scripts_v14/output/`.     
+All paths are relative to the repository, every result is written to `4-scripts_v14/output/`     
 The original files are never overwritten.      
 Python 3.9 or newer.
 
@@ -29,7 +29,7 @@ Run order: 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 (uses 08a, which 
 
 ## Step 2: Oracc DCCLT Input
 
-Unzip the Oracc JSON archives (https://oracc.museum.upenn.edu/json/) into `2-dataset/DataProfile/oracc_dcclt/`:
+Unzip the Oracc JSON archives (https://oracc.museum.upenn.edu/json/) into `2-dataset/DataProfile/step2/oracc_dcclt/`:
 
 | Oracc archive (as downloaded) | Put its content in |
 |---|---|
