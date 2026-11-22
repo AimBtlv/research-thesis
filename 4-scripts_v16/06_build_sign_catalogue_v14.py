@@ -34,7 +34,15 @@ Description: Workflow Stage 1, Step 4. Builds the full sign catalogue
                 ('Syllabary Name Of OSL Compound'), so that it no longer hides
                 the compound reading from the parser.
              Everything else is unchanged.
-
+Author: Aima, fixes prepared with Claude
+Date: 2026-11-22
+Version: 13.2 (automatic fixes of the manual check, see
+         manual_check_v2/00_WORKFLOW.md: P01 component looked up with its
+         modifier among the @form entries; P02 a @form named like a @sign with
+         its own code point takes that code point, and keeps its own @v
+         readings instead of the parent's Diri/OGSL readings; P03b @v of all
+         entries of the same name; P04 'nested in longer form' matched on
+         whole components)
 """
 
 import csv
@@ -769,7 +777,15 @@ def build_v8_rows(sign_rows, status_by_form, reading_by_form, diri_readings, ogs
         if ss in ("atomic", "atomic_with_decompositions"):
             row["typePhonetic_Version"] = "Single Sign Reading"
            
-            if not row["phonetic_version"].strip():
+            # v13.2 (fix of a v13.1 regression): a @form that got the code point
+            # of a registered @sign with the same name (structural_hint
+            # "uid_via_same_name_sign", e.g. |ZI&ZI| under |ZI&ZI.LAGAB|) is a
+            # different sign from its parent. The Diri/OGSL look-up below works
+            # by the PARENT's name (sign_name), so it would give this form the
+            # parent's readings (numun2, gug4, šub5 -> |ZI&ZI|). Such rows are
+            # skipped here; their own @v values are added later by add_osl_values.
+            same_name_form = row.get("structural_hint") == "uid_via_same_name_sign"
+            if not row["phonetic_version"].strip() and not same_name_form:
                 if norm in diri_readings:
                     row["phonetic_version"] = "|".join(diri_readings[norm])
                     row["structural_hint"] = "phonetic_via_diri"
