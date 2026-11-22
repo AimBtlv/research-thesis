@@ -45,11 +45,7 @@ Description: Workflow Stage 1, Step 5 (part 1). ATF -> atf_tokens.csv (one row
                  when the exact lookup fails, a second index with one folded
                  form is tried, so the exact (OSL) reading always wins.
              Uses sign_catalogue_v13.csv / compound_form_reading_table_v13.csv.
-Author: Aima, v13-v14 changes prepared with Claude
-Date: 2026-11-09
-Version: 14.4 (2026-11-18: P08a a span of several readings is not merged into
-         a compound with a placeholder component X / O / ?, e.g. ni-ir is
-         ni + ir, not |NA₂.X|. See manual_check_v2/00_WORKFLOW.md)
+
 """
 import csv
 import re

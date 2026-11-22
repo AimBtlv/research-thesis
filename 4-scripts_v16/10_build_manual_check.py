@@ -29,11 +29,7 @@ Description: Workflow Stage 1, Step 6.0 (manual check of the catalogue and of
              The empty columns at the right end (decision ...) are filled in
              by hand. Output: output/manual_check_v2/P01_...csv ... P14_...csv
              and summary.json. Run AFTER 00_run_pipeline.py.
-Author: Aima, prepared with Claude
-Date: 2026-11-18
-Version: 1.1 (2026-11-20: P09 OSL suggestions also by reading; P10 column
-         relation: a @form of the same sign or really different signs; P12
-         column kind_guess)
+
 """
 
 import csv

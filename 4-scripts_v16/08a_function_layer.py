@@ -19,9 +19,7 @@ Description: Workflow Stage 1, Step 5.2 (helper of 08_tokens_to_grapheme_v14.py)
              '#atf: use lexical'; else the CDLI 'languages' field. If it is
              still unknown, or a token cannot be aligned, the old letter-case
              rule is used as a fallback (function_rule 'fallback:letter_case').
-Author: Aima, prepared with Claude
-Date: 2026-11-11
-Version: 1.0
+
 """
 
 import re

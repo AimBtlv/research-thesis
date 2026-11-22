@@ -39,13 +39,7 @@ Description: Workflow Stage 1, Step 5 (part 2). atf_tokens.csv -> grapheme.csv
                 function_needs_check, line_ref (side:column:line).
              Uses sign_catalogue_v13.csv, atf_tokens.csv from part 1 v14,
              osl.asl and the ATF text (for the function rules).
-Author: Aima, v13-v14 changes prepared with Claude
-Date: 2026-11-09
-Version: 14.5 (2026-11-18: P06 components of a compound taken from one entry
-         only, no duplicates; P07 placeholders X / O / ? of osl.asl are not
-         stored as unicode_id; P15 a registered name takes the code point
-         of its own row, not of a @form row of another sign (da, ri, nam, u).
-         See manual_check_v2/00_WORKFLOW.md)
+
 """
 
 import csv
