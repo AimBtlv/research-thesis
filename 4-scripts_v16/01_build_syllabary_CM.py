@@ -15,11 +15,11 @@ from pathlib import Path
 # 0. Paths
 
 
-# --- Paths (relative to the repository: research-thesis/pipeline_v14/<this file>) ---
+# --- Paths (relative to the repository: research-thesis/<scripts folder>/<this file>) ---
 from pathlib import Path as _P
 ROOT = _P(__file__).resolve().parents[1]                 # research-thesis/
 DP = ROOT / "2-dataset" / "DataProfile"
-UA = DP / "1-5unicodeAssignmentFiles"
+UA = DP / "step1"                           # input folder of Steps 1-4
 PROF = UA / "2_professorsFiles"
 INPUTDATA = ROOT / "2-dataset" / "InputData"
 OUT = _P(__file__).resolve().parent / "output"

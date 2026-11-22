@@ -75,11 +75,11 @@ fl = _load_helper("function_layer", "08a_function_layer.py")
 # CONFIGURATION
 
 
-# --- Paths (relative to the repository: research-thesis/pipeline_v14/<this file>) ---
+# --- Paths (relative to the repository: research-thesis/<scripts folder>/<this file>) ---
 from pathlib import Path as _P
 ROOT = _P(__file__).resolve().parents[1]                 # research-thesis/
 DP = ROOT / "2-dataset" / "DataProfile"
-UA = DP / "1-5unicodeAssignmentFiles"
+UA = DP / "step1"                           # input folder of Steps 1-4
 PROF = UA / "2_professorsFiles"
 INPUTDATA = ROOT / "2-dataset" / "InputData"
 OUT = _P(__file__).resolve().parent / "output"
@@ -91,7 +91,7 @@ DEFAULT_META = INPUTDATA / "1.downloadCorpusATF" / "OBP_full" / "allOBP_metadata
 
 INPUT_CATALOGUE = OUT / "step4" / "sign_catalogue_v13.csv"
 # v14.4: osl.asl for the gold function rules (08a_function_layer.py)
-INPUT_OSL = DP / "6_osl.asl"
+INPUT_OSL = UA / "6_osl.asl"
 INPUT_TOKENS = OUTPUT_DIR / "atf_tokens.csv"
 OUTPUT_GRAPHEME = OUTPUT_DIR / "grapheme.csv"
 OUTPUT_WARNINGS = OUTPUT_DIR / "warnings_grapheme.csv"

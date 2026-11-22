@@ -32,9 +32,9 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-# --- Paths (relative to the repository: research-thesis/pipeline_v14/<this file>) ---
+# --- Paths (relative to the repository: research-thesis/<scripts folder>/<this file>) ---
 ROOT = Path(__file__).resolve().parents[1]
-UA = ROOT / "2-dataset" / "DataProfile" / "1-5unicodeAssignmentFiles"
+UA = ROOT / "2-dataset" / "DataProfile" / "step1"      # input folder of Steps 1-4
 PROF = UA / "2_professorsFiles"
 OUTPUT_DIR = Path(__file__).resolve().parent / "output" / "step1"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -47,7 +47,7 @@ SYLLABARIES = [
     (PROF / "additional_signs.txt", False),
     (PROF / "syllabary_uruk2.txt", True),
 ]
-OSL_FILE = ROOT / "2-dataset" / "DataProfile" / "6_osl.asl"   # v1.2: sign identity by code point
+OSL_FILE = UA / "6_osl.asl"   # v1.2: sign identity by code point
 MATCHED_CSV = OUTPUT_DIR / "3_matched_signs_full.csv"
 UNMATCHED_CSV = OUTPUT_DIR / "4_unmatched_for_review.csv"
 # v1.2: signs where the syllabary and OSL disagree (for review against MZL)

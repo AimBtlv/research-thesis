@@ -19,7 +19,7 @@ from pathlib import Path
 # --- Paths (relative to the repository: research-thesis/pipeline_v14/<this file>) ---
 ROOT = Path(__file__).resolve().parents[1]
 DP = ROOT / "2-dataset" / "DataProfile"
-UA = DP / "1-5unicodeAssignmentFiles"
+UA = DP / "step1"
 PROF = UA / "2_professorsFiles"
 OUT = Path(__file__).resolve().parent / "output"
 

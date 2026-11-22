@@ -10,29 +10,68 @@ Description: Workflow Stage 1, Step 2. Extracts the lexical series Diri
              is skipped and the existing diri_lexical_list.csv is used.
 Author: Aima, paths prepared with Claude
 Date: 2026-11-09
-Version: 1.1
+Version: 1.3 (2026-11-22: Oracc JSON in 2-dataset/DataProfile/step2/dcclt/,
+         found automatically; the corpusjson folders found are listed; a run
+         with fewer lines than the reference file in DataProfile/ is written to
+         diri_lexical_list_PARTIAL.csv and does not replace the full list)
 """
 
 import json
 import csv
 from pathlib import Path
 
-# --- Paths (relative to the repository: research-thesis/pipeline_v14/<this file>) ---
+# --- Paths (relative to the repository: research-thesis/<scripts folder>/<this file>) ---
 ROOT = Path(__file__).resolve().parents[1]                 # research-thesis/
 DP = ROOT / "2-dataset" / "DataProfile"
-ORACC = DP / "oracc_dcclt"        # put the unzipped Oracc DCCLT JSON here
+# Oracc DCCLT JSON: 2-dataset/DataProfile/step2/dcclt/ (old place: oracc_dcclt/)
+ORACC = next((d for d in (DP / "step2" / "dcclt", DP / "oracc_dcclt") if d.exists()),
+             DP / "step2" / "dcclt")
 OUT = Path(__file__).resolve().parent / "output"
 OUTPUT_DIR = OUT / "step2"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-CATALOGUE_PATH = ORACC / "catalogue.json"
-CORPUS_DIRS = [
-    ORACC / "dcclt_full/dcclt/signlists/corpusjson",
-    ORACC / "dcclt2_full/dcclt-2/corpusjson",
-    ORACC / "dcclt-ebla_full/dcclt-ebla/ebla/corpusjson",
-    ORACC / "dcclt-niniveh_full/dcclt-niniveh/nineveh/corpusjson",
-]
+
+def find_catalogue(root: Path) -> Path:
+    """catalogue.json of the DCCLT/signlists project: directly in the Oracc
+    folder, else the first one found below it (signlists first)."""
+    if (root / "catalogue.json").exists():
+        return root / "catalogue.json"
+    found = sorted(root.rglob("catalogue.json"), key=lambda p: ("signlists" not in str(p), str(p)))
+    return found[0] if found else root / "catalogue.json"
+
+
+def find_corpus_dirs(root: Path) -> list:
+    """Every 'corpusjson' folder below the Oracc folder, in the order
+    signlists, dcclt main project, ebla, nineveh (the first copy of a text wins)."""
+    def rank(p):
+        s = str(p).lower()
+        for k, word in enumerate(("signlists", "dcclt-2", "ebla", "niniveh", "nineveh")):
+            if word in s:
+                return (k, s)
+        return (9, s)
+    return sorted((p for p in root.rglob("corpusjson") if p.is_dir()), key=rank)
+
+
+CATALOGUE_PATH = find_catalogue(ORACC) if ORACC.exists() else ORACC / "catalogue.json"
+CORPUS_DIRS = find_corpus_dirs(ORACC) if ORACC.exists() else []
 OUTPUT_CSV = OUTPUT_DIR / "diri_lexical_list.csv"
+# v1.3: a re-run that finds fewer lines than the reference file is written
+# here instead, so that an incomplete set of archives never replaces the list
+PARTIAL_CSV = OUTPUT_DIR / "diri_lexical_list_PARTIAL.csv"
+
+
+def reference_file():
+    """The Diri list kept in 2-dataset/ (input of Steps 3-4 when Step 2 is
+    not re-run): DataProfile/step2/ first, then DataProfile/step1/."""
+    for p in (DP / "step2" / "diri_lexical_list.csv", DP / "step1" / "diri_lexical_list.csv"):
+        if p.exists():
+            return p
+    return None
+
+
+def count_rows(path):
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        return sum(1 for _ in csv.DictReader(f))
 
 
 def load_diri_catalogue(path: str) -> dict:
@@ -172,6 +211,10 @@ def main():
     print(f"[INFO] {len(diri_catalogue)} Diri texts identified in catalogue "
           f"(individual exemplars + composite score editions)")
 
+    # v1.3: show which archives were found, so that a missing one is visible
+    print(f"[INFO] corpusjson folders found under {ORACC}: {len(CORPUS_DIRS)}")
+    for d in CORPUS_DIRS:
+        print(f"       {d.relative_to(ORACC)}  ({len(list(d.glob('P*.json')))} P-texts)")
     available = {}
     for corpus_dir in CORPUS_DIRS:
         for p in list(corpus_dir.glob("P*.json")) + list(corpus_dir.glob("Q*.json")):
@@ -189,14 +232,26 @@ def main():
         tag = "composite" if pid.startswith("Q") else "exemplar"
         print(f"  [OK] {pid} ({tag}, {meta.get('designation','')}): {len(rows)} lines")
 
-    with open(OUTPUT_CSV, "w", encoding="utf-8-sig", newline="") as f:
+    # v1.3: never replace the full list by a smaller one (archives missing)
+    ref = reference_file()
+    target = OUTPUT_CSV
+    if ref is not None and len(all_rows) < count_rows(ref):
+        target = PARTIAL_CSV
+        if OUTPUT_CSV.exists():
+            OUTPUT_CSV.unlink()      # Steps 3-4 then read the reference file
+        print(f"\n[WARN] only {len(all_rows)} lines; the reference file has {count_rows(ref)}:")
+        print(f"       {ref}")
+        print(f"       An Oracc archive is probably missing (see the folders above; the main")
+        print(f"       DCCLT project with ~5,000 texts holds most Old Babylonian Diri tablets).")
+        print(f"       The reference file stays the input of Steps 3-4; this run -> {target.name}")
+    with open(target, "w", encoding="utf-8-sig", newline="") as f:
         fieldnames = ["p_number", "designation", "period", "provenience", "subgenre",
                      "line_label", "sumerian_reading", "sign_sequence", "akkadian_gloss"]
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         w.writerows(all_rows)
 
-    print(f"\n[RESULT] {len(all_rows)} lines written -> {OUTPUT_CSV}")
+    print(f"\n[RESULT] {len(all_rows)} lines written -> {target}")
     print(f"[COVERAGE] {len(to_process)} / {len(diri_catalogue)} Diri texts processed "
           f"({100*len(to_process)/len(diri_catalogue):.1f}%)")
 
@@ -205,7 +260,7 @@ if __name__ == "__main__":
     import sys
     if not CATALOGUE_PATH.exists():
         print(f"[SKIP] Step 2 (Diri) not re-run: {CATALOGUE_PATH} not found.\n"
-              f"       The existing 2-dataset/DataProfile/1-5unicodeAssignmentFiles/"
+              f"       The existing 2-dataset/DataProfile/step2/"
               f"diri_lexical_list.csv will be used by Steps 3-4.\n"
               f"       To re-run: unzip the Oracc DCCLT JSON into {ORACC}")
         sys.exit(0)

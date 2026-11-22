@@ -57,8 +57,8 @@ SYLL = OUT / "step1" / "Syllabary_CM.csv"
 TOKENS = OUT / "step5" / "atf_tokens.csv"
 GRAPH = OUT / "step5" / "grapheme.csv"
 WARN = OUT / "step5" / "warnings.csv"
-OSL = DP / "6_osl.asl"
-UNICODE = DP / "1-5unicodeAssignmentFiles" / "1_unicodeSigns.csv"
+OSL = DP / "step1" / "6_osl.asl"
+UNICODE = DP / "step1" / "1_unicodeSigns.csv"
 DEST = OUT / "manual_check_v2"
 
 MAIN_SITES = ("Nippur", "Ur", "Shaduppum", "Sippar-Yahrurum", "Mari", "Larsa")

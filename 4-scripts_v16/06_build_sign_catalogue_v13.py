@@ -49,29 +49,39 @@ import re
 from collections import defaultdict, Counter
 
 # CONFIGURATION
-# --- Paths (relative to the repository: research-thesis/pipeline_v14/<this file>) ---
+# --- Paths (relative to the repository: research-thesis/<scripts folder>/<this file>) ---
 from pathlib import Path as _P
 ROOT = _P(__file__).resolve().parents[1]                 # research-thesis/
 DP = ROOT / "2-dataset" / "DataProfile"
-UA = DP / "1-5unicodeAssignmentFiles"
+UA = DP / "step1"                           # input folder of Steps 1-4
 PROF = UA / "2_professorsFiles"
 INPUTDATA = ROOT / "2-dataset" / "InputData"
 OUT = _P(__file__).resolve().parent / "output"
 OUTPUT_DIR = OUT / "step4"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-INPUT_ASL = DP / "6_osl.asl"
+INPUT_ASL = UA / "6_osl.asl"
 INPUT_UNICODE = UA / "1_unicodeSigns.csv"
 # Step 1.4 output of this pipeline (fixed 2026-11-14: before, the repository
 # copy was always read, so changes of Step 1 never reached the catalogue)
 INPUT_PHONETIC = (OUT / "step1" / "7_unicodePhoneticVersion_full.csv"
                   if (OUT / "step1" / "7_unicodePhoneticVersion_full.csv").exists()
-                  else DP / "7_unicodePhoneticVersion_full.csv")
+                  else UA / "7_unicodePhoneticVersion_full.csv")
 INPUT_SYLLABARY = OUT / "step1" / "Syllabary_CM.csv"      # from Step 1.1
-INPUT_DIRI = (OUT / "step2" / "diri_lexical_list.csv"      # Step 2 re-run, if done
-              if (OUT / "step2" / "diri_lexical_list.csv").exists()
-              else UA / "diri_lexical_list.csv")
-INPUT_OGSL = DP / "ogsl_sign_readings.json"
+STEP2_IN = DP / "step2"                                    # input folder of Step 2
+
+
+def first_existing(*paths):
+    """The first path that exists (else the first one, for the error message)."""
+    return next((p for p in paths if p.exists()), paths[0])
+
+
+# Diri: Step 2 re-run of this pipeline, else DataProfile/step2, else step1
+INPUT_DIRI = first_existing(OUT / "step2" / "diri_lexical_list.csv",
+                            STEP2_IN / "diri_lexical_list.csv",
+                            UA / "diri_lexical_list.csv")
+INPUT_OGSL = first_existing(STEP2_IN / "ogsl_sign_readings.json",
+                            UA / "ogsl_sign_readings.json")
 
 
 
