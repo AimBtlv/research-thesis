@@ -1,9 +1,9 @@
 # P14. Control Sample Of The Decompositions
 
 *File: `P14_decomposition_control.csv`     
-78 rows     
-Check_id `P14-0001`–`P14-0078`     
-The outputs of 2026-11-14 (pipeline v14.4)*
+72 rows     
+Check_id `P14-0001`–`P14-0072`     
+The outputs of 2026-11-22 (pipeline v14.5)*
 
 ## Place In The Workflow 
 
@@ -24,18 +24,17 @@ The components come from one of two places:
 | name split | our script: cuts the name at × / & | \|KA×ŠU\| → KA + ŠU |
 
 P01, P06, P07 and P13 found specific errors. To judge whether the **rest** is
-right, a sample is checked instead of all 2,389 compounds.
+right, a sample is checked instead of all 2,380 compounds.
 
-*Part B: all name splits in the corpus* (48 rows).    
+*Part B: all name splits in the corpus* (42 rows, 390 tokens).    
 The script is trusted less than OSL, so every case is checked.     
-7 rows are P02 cases (|HI×BAD| = KAM, |KA×ŠU|, |ZI&ZI| …) and become simple signs after the re-run. 
-Then 41 rows with only 389 tokens remain.
+Forms that are registered signs of their own (P02: |HI×BAD| = KAM, |KA×ŠU|, |ZI&ZI| …) are simple signs and are not split, so they are not in this part.
 
 *Part C: a sample of OSL.*       
-The corpus has **482** compounds with `@useq`, **78,799** tokens.    
-The **30** most frequent (part C) cover **76.9 %** of these tokens: |EN.ZU| (*suen*, 13,295), |KU₃.UD| (*kubabbar*, 5,868), |A.AN| (5,643), |EN.KID| (*enlil*, 4,447), |AMAR.UD| (*marduk*, 3,552) …
+The corpus has **480** compounds with `@useq`, **79,850** tokens.    
+The **30** most frequent (part C) cover **76.6 %** of these tokens: |EN.ZU| (*suen*, 13,295), |KU₃.UD| (*kubabbar*, 5,868), |A.AN| (5,643), |EN.KID| (*enlil*, 4,447), |AMAR.UD| (*marduk*, 3,552) …
 
-If part C contains no error, `@useq` is accepted as reliable for the other 452
+If part C contains no error, `@useq` is accepted as reliable for the other 450
 compounds.      
 This is an assumption, not a proof: a rare compound can still be
 wrong, but rare compounds hardly affect the counts, and the visible errors
@@ -48,7 +47,7 @@ placeholders (P07) are not repeated here.
 
 ## Size And Effect On The Corpus 
 
-78 rows (B: 48, 41 after the re-run; C: 30), 72,849 tokens (1,021 in school
+72 rows (B: 42; C: 30), 61,591 tokens (904 in school
 texts). All rows are mandatory: they are the sample.
 
 ## Which Rows To Check (Scope)
@@ -89,10 +88,10 @@ Only the empty columns at the right end (`decision`, …, `comment`) are filled 
 | compound_form | part | components_names | glyph | tokens_in_OB_corpus |
 |---|---|---|---|---|
 | \|EN.ZU\| | C (@useq sample) | EN + ZU | 𒂗𒍪 | 13295 |
-| \|HI×BAD\| | B (name split, in corpus) | HI + BAD | 𒄮 | 11512 |
 | \|KU₃.UD\| | C (@useq sample) | KU₃ + UD | 𒆬𒌓 | 5868 |
 | \|A.AN\| | C (@useq sample) | A + AN | 𒀀𒀭 | 5643 |
 | \|EN.KID\| | C (@useq sample) | EN + KID | 𒂗𒆤 | 4447 |
 | \|AMAR.UD\| | C (@useq sample) | AMAR + UD | 𒀫𒌓 | 3552 |
+| \|AN.NA\| | C (@useq sample) | AN + NA | 𒀭𒈾 | 3331 |
 
 *These are real rows of the file, not decisions.*

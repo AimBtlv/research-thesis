@@ -1,0 +1,339 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:31:25",
+  "textid": "P228320",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P228320.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P228320.x1471.1",
+          "label": "x1471"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P228320.o.2",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P228320.3",
+          "strict": "0",
+          "extent": "1",
+          "scope": "column",
+          "state": "other"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1o",
+          "type": "column",
+          "ref": "P228320.o.i.4",
+          "n": "1",
+          "label": "o i"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P228320.5",
+          "strict": "1",
+          "extent": "1",
+          "scope": "line",
+          "state": "missing"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P228320.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P228320.U2",
+              "label": "o i 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P228320.6",
+                  "n": "2",
+                  "label": "o i 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "[tug₂]",
+                  "id": "P228320.l28a89",
+                  "ref": "P228320.6.1",
+                  "inst": "tug[textile]",
+                  "exosig": "@dcclt%sux:tug₂=tug[textile//textile, garment]N'N$tug/tug₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tug₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "tug₂",
+                        "oid": "o0000557",
+                        "gdl_sign": "TUG₂",
+                        "utf8": "𒌆",
+                        "key": "o0000557..tug₂",
+                        "id": "P228320.6.1.0",
+                        "breakStart": "1",
+                        "o": "]",
+                        "break": "missing",
+                        "breakEnd": "P228320.6.1.0"
+                      }
+                    ],
+                    "cf": "tug",
+                    "gw": "textile",
+                    "sense": "textile, garment",
+                    "norm0": "tug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "tug₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P228320.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P228320.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢pala₃⸣-a",
+                  "id": "P228320.l28a8a",
+                  "ref": "P228320.6.2",
+                  "inst": "pala[garment]",
+                  "exosig": "@dcclt%sux:pala₃-a=pala[garment//a garment]N'N$pala,ak/pala₃#~,ak",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "pala₃-a",
+                    "gdl": [
+                      {
+                        "v": "pala₃",
+                        "oid": "o0002061",
+                        "gdl_sign": "|NAM.SAL.TUG₂|",
+                        "utf8": "𒉆𒎏",
+                        "key": "o0002061..pala₃",
+                        "id": "P228320.6.2.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P228320.6.2.1"
+                      }
+                    ],
+                    "cf": "pala",
+                    "gw": "garment",
+                    "sense": "a garment",
+                    "norm0": "pala,ak",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "pala₃",
+                    "morph": "~,ak"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P228320.6.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P228320.6.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P228320.U4",
+              "label": "o i 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P228320.7",
+                  "n": "3",
+                  "label": "o i 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "[tug₂",
+                  "id": "P228320.l28a8b",
+                  "ref": "P228320.7.1",
+                  "inst": "tug[textile]",
+                  "exosig": "@dcclt%sux:tug₂=tug[textile//textile, garment]N'N$tug/tug₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tug₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "tug₂",
+                        "oid": "o0000557",
+                        "gdl_sign": "TUG₂",
+                        "utf8": "𒌆",
+                        "key": "o0000557..tug₂",
+                        "id": "P228320.7.1.0",
+                        "breakStart": "1",
+                        "o": "[",
+                        "break": "missing"
+                      }
+                    ],
+                    "cf": "tug",
+                    "gw": "textile",
+                    "sense": "textile, garment",
+                    "norm0": "tug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "tug₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P228320.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P228320.7.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "a₂]-gu-hu-um",
+                  "id": "P228320.l28a8c",
+                  "ref": "P228320.7.2",
+                  "inst": "aguhum[an item of clothing]",
+                  "exosig": "@dcclt%sux:a₂-gu-hu-um=aguhum[clothing//an item of clothing, sash?, blanket?]N'N$aguhum,am/a₂-gu-hu#~,am",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "a₂-gu-hu-um",
+                    "gdl": [
+                      {
+                        "v": "a₂",
+                        "oid": "o0000112",
+                        "gdl_sign": "A₂",
+                        "utf8": "𒀉",
+                        "key": "o0000112..a₂",
+                        "id": "P228320.7.2.0",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P228320.7.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gu",
+                        "oid": "o0000221",
+                        "gdl_sign": "GU",
+                        "utf8": "𒄖",
+                        "key": "o0000221..gu",
+                        "id": "P228320.7.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "hu",
+                        "oid": "o0000239",
+                        "gdl_sign": "HU",
+                        "utf8": "𒄷",
+                        "key": "o0000239..hu",
+                        "id": "P228320.7.2.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "um",
+                        "oid": "o0000571",
+                        "gdl_sign": "UM",
+                        "utf8": "𒌝",
+                        "key": "o0000571..um",
+                        "id": "P228320.7.2.3"
+                      }
+                    ],
+                    "cf": "aguhum",
+                    "gw": "clothing",
+                    "sense": "an item of clothing, sash?, blanket?",
+                    "norm0": "aguhum,am",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "a₂-gu-hu",
+                    "morph": "~,am"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P228320.7.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P228320.7.2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

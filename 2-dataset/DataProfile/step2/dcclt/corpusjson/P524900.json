@@ -1,0 +1,351 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:47:29",
+  "textid": "P524900",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P524900.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P524900.o.1",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P524900.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P524900.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P524900.2",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}ma-lik",
+                  "id": "P524900.l5dc4e",
+                  "ref": "P524900.2.1",
+                  "inst": "Malik[1]DN",
+                  "exosig": "@dcclt%sux:{d}ma-lik=Malik[1//1]DN'DN$Malik/{d}ma-lik#~",
+                  "exoprj": "epsd2/names",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}ma-lik",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P524900.2.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "ma",
+                        "oid": "o0000444",
+                        "gdl_sign": "MA",
+                        "utf8": "𒈠",
+                        "key": "o0000444..ma",
+                        "id": "P524900.2.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "lik",
+                        "oid": "o0000576",
+                        "gdl_sign": "UR",
+                        "utf8": "𒌨",
+                        "key": "o0000576..lik",
+                        "id": "P524900.2.1.2"
+                      }
+                    ],
+                    "cf": "Malik",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Malik",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}ma-lik",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P524900.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P524900.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P524900.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P524900.3",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}ur-ma-šum",
+                  "id": "P524900.l5dc4f",
+                  "ref": "P524900.3.1",
+                  "inst": "Urmašum[1]DN",
+                  "sig": "@dcclt%sux:{d}ur-ma-šum=Urmašum[1//1]DN'DN$Urmašum/{d}ur-ma-šum#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}ur-ma-šum",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P524900.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "ur",
+                        "oid": "o0000576",
+                        "gdl_sign": "UR",
+                        "utf8": "𒌨",
+                        "key": "o0000576..ur",
+                        "id": "P524900.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ma",
+                        "oid": "o0000444",
+                        "gdl_sign": "MA",
+                        "utf8": "𒈠",
+                        "key": "o0000444..ma",
+                        "id": "P524900.3.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "šum",
+                        "oid": "o0000546",
+                        "gdl_sign": "TAG",
+                        "utf8": "𒋳",
+                        "key": "o0000546..šum",
+                        "id": "P524900.3.1.3"
+                      }
+                    ],
+                    "cf": "Urmašum",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Urmašum",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}ur-ma-šum",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P524900.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P524900.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P524900.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P524900.4",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}šu-bu-la₂-<<la₂>>",
+                  "id": "P524900.l5dc50",
+                  "ref": "P524900.4.1",
+                  "inst": "Šubula[1]DN",
+                  "exosig": "@dcclt%sux:{d}šu-bu-la₂=Šubula[1//1]DN'DN$Šubula/{d}šu-bu-la₂#~",
+                  "exoprj": "epsd2/names",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}šu-bu-la₂",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P524900.4.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "šu",
+                        "oid": "o0002845",
+                        "gdl_sign": "ŠU",
+                        "utf8": "𒋗",
+                        "key": "o0002845..šu",
+                        "id": "P524900.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "bu",
+                        "oid": "o0000124",
+                        "gdl_sign": "BU",
+                        "utf8": "𒁍",
+                        "key": "o0000124..bu",
+                        "id": "P524900.4.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "la₂",
+                        "oid": "o0000422",
+                        "gdl_sign": "LAL",
+                        "utf8": "𒇲",
+                        "key": "o0000422..la₂",
+                        "id": "P524900.4.1.3",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "la₂",
+                        "oid": "o0000422",
+                        "gdl_sign": "LAL",
+                        "utf8": "𒇲",
+                        "key": "o0000422..la₂",
+                        "id": "P524900.4.1.4",
+                        "statusStart": "P524900.4.1.4",
+                        "o": ">>"
+                      }
+                    ],
+                    "cf": "Šubula",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Šubula",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}šu-bu-la₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P524900.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P524900.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P524900.5",
+                  "strict": "1",
+                  "extent": "1",
+                  "scope": "line",
+                  "state": "ruling"
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P524900.r.6",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P524900.7",
+                  "strict": "1",
+                  "extent": "n",
+                  "scope": "line",
+                  "state": "blank"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 *File: `P07_placeholder_components.csv`     
 140 rows, check_id `P07-0001`–`P07-0140`     
-The outputs of 2026-11-14*
+The outputs of 2026-11-22*
 
 ## Place In The Workflow 
 
@@ -61,8 +61,8 @@ with existing code points? That is for the expert.
 ## Size And Effect On The Corpus 
 
 140 forms
-7 occur in the corpus 
-1,399 tokens (10 in school texts), almost all practical texts 
+6 occur in the corpus 
+1,152 tokens (3 in school texts), almost all practical texts. *ni-ir* (|NA₂.X|, 247 tokens) is no longer among them, because it is now read NI + IR (fix 1). 
 
 ## **Which Rows To Check (Scope)
 Rows in the corpus: **mandatory**. The rest: optional.
@@ -100,10 +100,10 @@ Only the empty columns at the right end (`decision`, …, `comment`) are filled 
 | compound_form | components_names | osl_v | tokens_in_OB_corpus | top_sites |
 |---|---|---|---|---|
 | \|UD.(GIŠ%GIŠ)@g.AN\| | UD + ? + AN | zimbir | 1145 | Sippar-Yahrurum 887, Sippar-Amnanum 111, (empty) 108, uncertain 11 |
-| \|NA₂.X\| | NA₂ + ? | ni-ir | 247 | (empty) 67, Nippur 66, Sippar-Yahrurum 27, Ur 21 |
 | \|NUNUZ.AB₂×TAB\| | NUNUZ + ? | lahtanₓ | 3 | Nippur 3 |
 | \|EN.DAG.NUN.X\| | EN + DAG + NUN + ? | enkumₓ | 1 | Isin 1 |
 | \|LAGAR@g&LAGAR@g.LAGAR@g&LAGAR@g.LAGAR@g&LAGAR@g\| | ? + ? + ? |  | 1 | Nippur 1 |
 | \|NUNUZ.AB₂×NI\| | NUNUZ + ? |  | 1 | Nippur 1 |
+| \|NUNUZ.AB₂×X\| | NUNUZ + ? | huburₓ \| mudₓ \| xdiₓ \| xgidaₓ | 1 | Nippur 1 |
 
 *These are real rows of the file, not decisions.*

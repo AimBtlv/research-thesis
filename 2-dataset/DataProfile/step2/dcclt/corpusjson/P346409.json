@@ -1,0 +1,690 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:41:08",
+  "textid": "P346409",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P346409.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P346409.x598.1",
+          "label": "x598"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P346409.o.2",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P346409.3",
+          "strict": "0",
+          "state": "other"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P346409.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P346409.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P346409.4",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "muš-lu-lu  {{",
+                  "id": "P346409.l16c76",
+                  "ref": "P346409.4.1",
+                  "inst": "mušlulu[skin disease]N",
+                  "exosig": "@dcclt%sux:muš-lu-lu=mušlulu[skin disease//a skin disease]N'N$mušlulu/muš-lu-lu#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "muš-lu-lu",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "muš",
+                        "oid": "o0000463",
+                        "gdl_sign": "MUŠ",
+                        "utf8": "𒈲",
+                        "key": "o0000463..muš",
+                        "id": "P346409.4.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "lu",
+                        "oid": "o0000433",
+                        "gdl_sign": "LU",
+                        "utf8": "𒇻",
+                        "key": "o0000433..lu",
+                        "id": "P346409.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "lu",
+                        "oid": "o0000433",
+                        "gdl_sign": "LU",
+                        "utf8": "𒇻",
+                        "key": "o0000433..lu",
+                        "id": "P346409.4.1.2"
+                      }
+                    ],
+                    "cf": "mušlulu",
+                    "gw": "skin disease",
+                    "sense": "a skin disease",
+                    "norm0": "mušlulu",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "muš-lu-lu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ep-qe₂-e-nu-um }}",
+                  "id": "P346409.l16c77",
+                  "ref": "P346409.4.2",
+                  "inst": "epqēnu[(a skin complaint)]N$epqēnum",
+                  "sig": "@dcclt%akk-x-oldbab:ep-qe₂-e-nu-um=epqēnu[(a skin complaint)//(a skin complaint)]N'N$epqēnum",
+                  "f": {
+                    "lang": "akk-x-oldbab",
+                    "form": "ep-qe₂-e-nu-um",
+                    "gdl": [
+                      {
+                        "v": "ep",
+                        "oid": "o0000244",
+                        "gdl_sign": "IB",
+                        "utf8": "𒅁",
+                        "key": "o0000244..ep",
+                        "id": "P346409.4.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "qe₂",
+                        "oid": "o0000279",
+                        "gdl_sign": "KI",
+                        "utf8": "𒆠",
+                        "key": "o0000279..qe₂",
+                        "id": "P346409.4.2.1",
+                        "gdl_remarked": "1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "e",
+                        "oid": "o0000166",
+                        "gdl_sign": "E",
+                        "utf8": "𒂊",
+                        "key": "o0000166..e",
+                        "id": "P346409.4.2.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "nu",
+                        "oid": "o0000487",
+                        "gdl_sign": "NU",
+                        "utf8": "𒉡",
+                        "key": "o0000487..nu",
+                        "id": "P346409.4.2.3",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "um",
+                        "oid": "o0000571",
+                        "gdl_sign": "UM",
+                        "utf8": "𒌝",
+                        "key": "o0000571..um",
+                        "id": "P346409.4.2.4"
+                      }
+                    ],
+                    "cf": "epqēnu",
+                    "gw": "(a skin complaint)",
+                    "sense": "(a skin complaint)",
+                    "norm": "epqēnum",
+                    "pos": "N",
+                    "epos": "N"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.4.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.4.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonw",
+                  "ref": ""
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P346409.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P346409.5",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "sa-da-hu-um }}",
+                  "id": "P346409.l16c78",
+                  "ref": "P346409.5.1",
+                  "inst": "sadāhu[unknown meaning]V$sadāhum",
+                  "sig": "@dcclt%akk-x-oldbab:sa-da-hu-um=sadāhu[unknown meaning//unknown meaning]V'V$sadāhum",
+                  "f": {
+                    "lang": "akk-x-oldbab",
+                    "form": "sa-da-hu-um",
+                    "gdl": [
+                      {
+                        "v": "sa",
+                        "oid": "o0000517",
+                        "gdl_sign": "SA",
+                        "utf8": "𒊓",
+                        "key": "o0000517..sa",
+                        "id": "P346409.5.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "da",
+                        "oid": "o0000132",
+                        "gdl_sign": "DA",
+                        "utf8": "𒁕",
+                        "key": "o0000132..da",
+                        "id": "P346409.5.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "hu",
+                        "oid": "o0000239",
+                        "gdl_sign": "HU",
+                        "utf8": "𒄷",
+                        "key": "o0000239..hu",
+                        "id": "P346409.5.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "um",
+                        "oid": "o0000571",
+                        "gdl_sign": "UM",
+                        "utf8": "𒌝",
+                        "key": "o0000571..um",
+                        "id": "P346409.5.1.3"
+                      }
+                    ],
+                    "cf": "sadāhu",
+                    "gw": "unknown meaning",
+                    "sense": "unknown meaning",
+                    "norm": "sadāhum",
+                    "pos": "V",
+                    "epos": "V"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gig",
+                  "id": "P346409.l16c79",
+                  "ref": "P346409.5.2",
+                  "inst": "gig[sick]",
+                  "exosig": "@dcclt%sux:gig=gig[sick//(to be) sick, to hurt, (to be) pained]V/i'V/i$gig/gig#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gig",
+                    "gdl": [
+                      {
+                        "v": "gig",
+                        "oid": "o0000212",
+                        "gdl_sign": "GIG",
+                        "utf8": "𒍼",
+                        "key": "o0000212..gig",
+                        "id": "P346409.5.2.0"
+                      }
+                    ],
+                    "cf": "gig",
+                    "gw": "sick",
+                    "sense": "(to be) sick, to hurt, (to be) pained",
+                    "norm0": "gig",
+                    "pos": "V/i",
+                    "epos": "V/i",
+                    "base": "gig",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.5.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.5.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P346409.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P346409.6",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ki-ri}kiri₃-{pe-eš}peš₂  {{",
+                  "id": "P346409.l16c7a",
+                  "ref": "P346409.6.1",
+                  "inst": "kiripeš[disease]",
+                  "exosig": "@dcclt%sux:{+ki-ri}kiri₃-{+pe-eš}peš₂=kiripeš[disease//a disease]N'N$kiripeš/{+ki-ri}kiri₃-{+pe-eš}peš₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{+ki-ri}kiri₃-{+pe-eš}peš₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "phonetic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ki",
+                            "oid": "o0000279",
+                            "gdl_sign": "KI",
+                            "utf8": "𒆠",
+                            "key": "o0000279..ki",
+                            "id": "P346409.6.1.0",
+                            "gdl_remarked": "1",
+                            "delim": "-"
+                          },
+                          {
+                            "v": "ri",
+                            "oid": "o0000514",
+                            "gdl_sign": "RI",
+                            "utf8": "𒊑",
+                            "key": "o0000514..ri",
+                            "id": "P346409.6.1.1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "kiri₃",
+                        "oid": "o0000260",
+                        "gdl_sign": "KA",
+                        "utf8": "𒅗",
+                        "key": "o0000260..kiri₃",
+                        "id": "P346409.6.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "det": "phonetic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "pe",
+                            "oid": "o0000502",
+                            "gdl_sign": "PI",
+                            "utf8": "𒉿",
+                            "key": "o0000502..pe",
+                            "id": "P346409.6.1.3",
+                            "delim": "-"
+                          },
+                          {
+                            "v": "eš",
+                            "oid": "o0002471",
+                            "gdl_sign": "|U.U.U|",
+                            "utf8": "𒌍",
+                            "key": "o0002471..eš",
+                            "id": "P346409.6.1.4"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "peš₂",
+                        "oid": "o0000501",
+                        "gdl_sign": "PEŠ₂",
+                        "utf8": "𒉾",
+                        "key": "o0000501..peš₂",
+                        "id": "P346409.6.1.5"
+                      }
+                    ],
+                    "cf": "kiripeš",
+                    "gw": "disease",
+                    "sense": "a disease",
+                    "norm0": "kiripeš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{+ki-ri}kiri₃-{+pe-eš}peš₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "bu-ša-nu-um }}",
+                  "id": "P346409.l16c7b",
+                  "ref": "P346409.6.2",
+                  "inst": "būšānu[bad smell//(a disease)]N'N$būšānum",
+                  "sig": "@dcclt%akk-x-oldbab:bu-ša-nu-um=būšānu[bad smell//(a disease)]N'N$būšānum",
+                  "f": {
+                    "lang": "akk-x-oldbab",
+                    "form": "bu-ša-nu-um",
+                    "gdl": [
+                      {
+                        "v": "bu",
+                        "oid": "o0000124",
+                        "gdl_sign": "BU",
+                        "utf8": "𒁍",
+                        "key": "o0000124..bu",
+                        "id": "P346409.6.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ša",
+                        "oid": "o0002824",
+                        "gdl_sign": "ŠA",
+                        "utf8": "𒊭",
+                        "key": "o0002824..ša",
+                        "id": "P346409.6.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "nu",
+                        "oid": "o0000487",
+                        "gdl_sign": "NU",
+                        "utf8": "𒉡",
+                        "key": "o0000487..nu",
+                        "id": "P346409.6.2.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "um",
+                        "oid": "o0000571",
+                        "gdl_sign": "UM",
+                        "utf8": "𒌝",
+                        "key": "o0000571..um",
+                        "id": "P346409.6.2.3"
+                      }
+                    ],
+                    "cf": "būšānu",
+                    "gw": "bad smell",
+                    "sense": "(a disease)",
+                    "norm": "būšānum",
+                    "pos": "N",
+                    "epos": "N"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.6.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.6.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonw",
+                  "ref": ""
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P346409.U8",
+              "label": "o 4",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P346409.7",
+                  "n": "4",
+                  "label": "o 4"
+                },
+                {
+                  "node": "l",
+                  "frag": "niŋ₂-a₂-zig₃  {{",
+                  "id": "P346409.l16c7c",
+                  "ref": "P346409.7.1",
+                  "inst": "niŋazig[malevolent]AJ",
+                  "exosig": "@dcclt%sux:niŋ₂-a₂-zig₃=niŋazig[violence//malevolent]N'AJ$niŋazig/niŋ₂-a₂-zig₃#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "niŋ₂-a₂-zig₃",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "niŋ₂",
+                        "oid": "o0000202",
+                        "gdl_sign": "GAR",
+                        "utf8": "𒃻",
+                        "key": "o0000202..niŋ₂",
+                        "id": "P346409.7.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "a₂",
+                        "oid": "o0000112",
+                        "gdl_sign": "A₂",
+                        "utf8": "𒀉",
+                        "key": "o0000112..a₂",
+                        "id": "P346409.7.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "zig₃",
+                        "oid": "o0000609",
+                        "gdl_sign": "ZI",
+                        "utf8": "𒍣",
+                        "key": "o0000609..zig₃",
+                        "id": "P346409.7.1.2"
+                      }
+                    ],
+                    "cf": "niŋazig",
+                    "gw": "violence",
+                    "sense": "malevolent",
+                    "norm0": "niŋazig",
+                    "pos": "N",
+                    "epos": "AJ",
+                    "base": "niŋ₂-a₂-zig₃",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.7.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ṣe₂-nu-um }}",
+                  "id": "P346409.l16c7d",
+                  "ref": "P346409.7.2",
+                  "inst": "ṣēnu[evil//malevolent]AJ'AJ$ṣēnum",
+                  "sig": "@dcclt%akk-x-oldbab:ṣe₂-nu-um=ṣēnu[evil//malevolent]AJ'AJ$ṣēnum",
+                  "f": {
+                    "lang": "akk-x-oldbab",
+                    "form": "ṣe₂-nu-um",
+                    "gdl": [
+                      {
+                        "v": "ṣe₂",
+                        "oid": "o0000609",
+                        "gdl_sign": "ZI",
+                        "utf8": "𒍣",
+                        "key": "o0000609..ṣe₂",
+                        "id": "P346409.7.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "nu",
+                        "oid": "o0000487",
+                        "gdl_sign": "NU",
+                        "utf8": "𒉡",
+                        "key": "o0000487..nu",
+                        "id": "P346409.7.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "um",
+                        "oid": "o0000571",
+                        "gdl_sign": "UM",
+                        "utf8": "𒌝",
+                        "key": "o0000571..um",
+                        "id": "P346409.7.2.2",
+                        "gdl_remarked": "1"
+                      }
+                    ],
+                    "cf": "ṣēnu",
+                    "gw": "evil",
+                    "sense": "malevolent",
+                    "norm": "ṣēnum",
+                    "pos": "AJ",
+                    "epos": "AJ"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P346409.7.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P346409.7.2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

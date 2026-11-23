@@ -1,15 +1,15 @@
 # P09. Syllabary Name Without Unicode In The Corpus
 
 *File: `P09_syllabary_name_without_unicode.csv`    
-31 rows      
-Check_id `P09-0001`–`P09-0031`    
-The outputs of 2026-11-14*    
+30 rows      
+Check_id `P09-0001`–`P09-0030`    
+The outputs of 2026-11-22*    
 
 ## Place In The Workflow
 
 Stage 1, Step 6.0 (manual check before the gold standard).         
 Documented in `4.doc_sign_catalogue_v13.md` § 7 *Extending The Dataset* (Stage 6–7)`5.doc_parsing_layer_v14.md`      
-Note on 2,545 rows      
+Note on 2,691 rows      
 Script: `06_build_sign_catalogue_v13.py`
 
 ## The Problem
@@ -28,25 +28,30 @@ Example: the reading *sipa* ("shepherd").
 | grapheme.csv | sign SIPA, `unicode_id` **empty**, no glyph |
 
 In OSL, *sipa* is a value of the compound **\|PA.LU\|** = PA + LU (𒉺𒇻): two
-glyphs should be stored.
+glyphs should be stored. For *sipa* script 06 now does this itself (see
+Automatic Fix). The names below are still without a glyph:
 
 | Syllabary name | Reading | OSL candidate | Tokens |
 |---|---|---|---|
-| SIPA | *sipa* | \|PA.LU\| | 1,006 |
 | KA.AN.RA | *babila₂* (Babylon) | \|KA₂.AN.RA\| | 537 |
 | AŠ2.A.AN | *udru* (camel) | \|ZIZ₂.A.AN\| | 428 |
 | IDIGNA | *idigna* (Tigris) | \|GU₂.GAR₃\| or \|TUM×PAP\| | 205 |
+| KA.AN | *babila* (Babylon) | \|KA₂.AN\| | 55 |
 
 *Why it matters?*     
 A token without a glyph **drops out** of every count by sign
 (inventories, Jaccard index). These are frequent words, and they drop out
-unevenly: mostly in practical texts (Sippar, Mari, Larsa), only 50 of 2,543 in
+unevenly: mostly in practical texts (Sippar, Mari, Larsa), only 18 of 1,537 in
 school texts.
 
 ## Automatic Fix 
 
-**No.**     
-The OSL candidate (`osl_suggestion`) is only a **suggestion**:
+**Only where the link is unambiguous.**     
+If a syllabary name is the OSL value of **exactly one** compound, script 06
+links the name to that compound (`4.doc_sign_catalogue_v13.md` § 7): SIPA →
+\|PA.LU\|, so *sipa* (1,006 tokens) now has its two glyphs and is no longer in
+this file. For the names that remain, the OSL candidate (`osl_suggestion`) is
+only a **suggestion**:
 1. syllabary and OSL spell names differently (KA.AN.RA vs \|KA₂.AN.RA\|; KA and
    KA₂ are different signs; AŠ2.A.AN vs \|ZIZ₂.A.AN\|).  
 2. there can be several candidates (*idigna*: two OSL signs)
@@ -55,13 +60,13 @@ The OSL candidate (`osl_suggestion`) is only a **suggestion**:
    \|KA₂.AN.RA\|.
 
 The script 10(`10_build_manual_check.py`)  looks for OSL entries that have the syllabary name **or one of the readings** that lead to it in the corpus as a value, reading `osl.asl` line by line  
-22 of 31 rows now have a suggestion.
+21 of 30 rows have a suggestion.
 
 ## Size And Effect On The Corpus
 
-31 names         
-**2,543** tokens without a glyph (**50** in school texts).     
-The five most frequent give 2,247 tokens.     
+30 names         
+**1,537** tokens without a glyph (**18** in school texts).     
+The five most frequent give 1,296 tokens.     
 All rows are mandatory.
 
 
@@ -101,11 +106,11 @@ Only the empty columns at the right end (`decision`, …, `comment`) are filled 
 
 | sign_name | readings_in_corpus | osl_suggestion | tokens_in_OB_corpus | tokens_school |
 |---|---|---|---|---|
-| SIPA | sipa 1005, rex(sipa) 1 | OSL value of: \|PA.LU\| | 1006 | 32 |
 | KA.AN.RA | babila2 537 | OSL value of: \|KA₂.AN.RA\| | 537 | 0 |
 | AŠ2.A.AN | udru 425, imgaga 3 | OSL value of: \|ZIZ₂.A.AN\| | 428 | 1 |
 | IDIGNA | idigna 205 | same name in OSL: IDIGNA / OSL value of: \|GU₂.GAR₃\|; \|TUM×PAP\| | 205 | 1 |
 | GIŠ.TUG2.PI.ŠIR.SILA3 | gizzal 71 | OSL value of: \|GIŠ.TUG₂.PI.NU₁₁@90.SILA₃\| | 71 | 1 |
 | KA.AN | babila 54, mitumx(\|ka+an\|) 1 | OSL value of: \|KA₂.AN\| | 55 | 4 |
+| ŠU2.ANx3 | suhub 35, šuhub 10, kunga 3 | OSL value of: \|3×AN.BAR\|; \|BAR.3×AN\|; \|ŠU₂.3×AN\| | 48 | 2 |
 
 *These are real rows of the file, not decisions.*

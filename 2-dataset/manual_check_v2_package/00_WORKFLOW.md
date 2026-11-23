@@ -1,5 +1,5 @@
 # Manual Check v2: How To Work With This Package 
-*Prepared 2026-11-18.   
+*Prepared 2026-11-22.   
 Stage 1, Step 6.0.    
 Period: Old Babylonian only.*   
 
@@ -46,20 +46,20 @@ The files fall into three kinds of task.
 **1. Confirm (short).** The pipeline has already been corrected, please check that the correction is right.
 | File | Question | Rows |
 |----|---|----|
-| **P01** | A modifier was lost when the name was split (\|AB₂×AMAR@t\| → AB₂ + AMAR). Does it matter? | 24 |
+| **P01** | A modifier was lost when the name was split (\|AB₂×AMAR@t\| → AB₂ + AMAR). Does it matter? | 25 |
 | **P02** | Is each of these forms the same sign as the simple sign of the same name? (\|HI×BAD\| = KAM) | 16 |
-| **P03** | No source gives a reading of this compound. Is a reading known? | 722 |
+| **P03** | No source gives a reading of this compound. Is a reading known? | 723 |
 | **P04** | A compound appears only inside a longer form. Is it a word of its own? | 53 |
 | **P05** | Two readings were joined into a compound on a guess. Is it one compound? (*ra-ra*) | 26 |
-| **P06** | Does each of these compounds have the right number of components? (\|AŠ.AŠ\| = 2, not 4) | 40 |
-| **P07** | OSL writes a component as `X` / `O`. Which sign is it? (*zimbir*) | 140 | 7 in the corpus | 1,399 (10) |
+| **P06** | Does each of these compounds have the right number of components? (\|AŠ.AŠ\| = 2, not 4) | 38 |
+| **P07** | OSL writes a component as `X` / `O`. Which sign is it? (*zimbir*) | 140 | 6 in the corpus | 1,152 (3) |
 | **P08** | Two readings were joined into one compound sign, which gives other glyphs. Compound or separate signs? (*eš₁₈-dar*, *um-me-da*) | 9 |
-| **P09** | A name from the syllabary has no Unicode sign. Which OSL sign is it? (SIPA, KA.AN.RA) | 31 |
-| **P10** | OSL and the catalogue give the same reading to different signs. Which is right? (*uš₂*, *murub₄*, *samag*) | 702 | 
+| **P09** | A name from the syllabary has no Unicode sign. Which OSL sign is it? (KA.AN.RA, IDIGNA) | 30 |
+| **P10** | OSL and the catalogue give the same reading to different signs. Which is right? (*uš₂*, *murub₄*, *samag*) | 701 | 
 | **P11** | The syllabary and OSL name different signs for the same Unicode character. Which is right? | 18 |
-| **P12** | The parser did not recognise this reading. What is it? (*tur₃*, *ginₓ*) | 1,265 |
-| **P13** | The program could not split this compound into components. What are they? | 182 |
-| **P14** | Control sample: are the components of these compounds right? | 78 |
+| **P12** | The parser did not recognise this reading. What is it? (*tur₃*, *ginₓ*) | 1,263 |
+| **P13** | The program could not split this compound into components. What are they? | 178 |
+| **P14** | Control sample: are the components of these compounds right? | 72 |
 | **P15** | Is the new glyph of these signs right? (e.g. *da* = 𒁕, not 𒀉) | 30 |
 
 

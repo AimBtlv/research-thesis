@@ -1,0 +1,390 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:28:59",
+  "textid": "P225006",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P225006.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P225006.x871.1",
+          "label": "x871"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P225006.o.2",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1o",
+          "type": "column",
+          "ref": "P225006.o.i.3",
+          "n": "1",
+          "label": "o i"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P225006.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P225006.U2",
+              "label": "o i 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P225006.4",
+                  "n": "1",
+                  "label": "o i 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{⸢ŋeš⸣}ig",
+                  "id": "P225006.l1dee1",
+                  "ref": "P225006.4.1",
+                  "inst": "ig[door]N",
+                  "exosig": "@dcclt%sux:{ŋeš}ig=ig[door//door]N'N$ig/{ŋeš}ig#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}ig",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P225006.4.1.0",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "ig",
+                        "oid": "o0000246",
+                        "gdl_sign": "IG",
+                        "utf8": "𒅅",
+                        "key": "o0000246..ig",
+                        "id": "P225006.4.1.1"
+                      }
+                    ],
+                    "cf": "ig",
+                    "gw": "door",
+                    "sense": "door",
+                    "norm0": "ig",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}ig",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P225006.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P225006.4.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P225006.U4",
+              "label": "o i 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P225006.5",
+                  "n": "2",
+                  "label": "o i 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}suku₅",
+                  "id": "P225006.l1dee2",
+                  "ref": "P225006.5.1",
+                  "inst": "suku[pole (of a door)]",
+                  "exosig": "@dcclt%sux:{ŋeš}suku₅=suku[pole//pole (of a door)]N'N$suku/{ŋeš}suku₅#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}suku₅",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P225006.5.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "suku₅",
+                        "oid": "o0000467",
+                        "gdl_sign": "MUŠ₃@g",
+                        "utf8": "𒈽",
+                        "key": "o0000467..suku₅",
+                        "id": "P225006.5.1.1"
+                      }
+                    ],
+                    "cf": "suku",
+                    "gw": "pole",
+                    "sense": "pole (of a door)",
+                    "norm0": "suku",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}suku₅",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P225006.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P225006.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ig",
+                  "id": "P225006.l1dee3",
+                  "ref": "P225006.5.2",
+                  "inst": "ig[door]N",
+                  "exosig": "@dcclt%sux:ig=ig[door//door]N'N$ig/ig#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ig",
+                    "gdl": [
+                      {
+                        "v": "ig",
+                        "oid": "o0000246",
+                        "gdl_sign": "IG",
+                        "utf8": "𒅅",
+                        "key": "o0000246..ig",
+                        "id": "P225006.5.2.0"
+                      }
+                    ],
+                    "cf": "ig",
+                    "gw": "door",
+                    "sense": "door",
+                    "norm0": "ig",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ig",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P225006.5.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P225006.5.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P225006.U6",
+              "label": "o i 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P225006.6",
+                  "n": "3",
+                  "label": "o i 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}za-ra",
+                  "id": "P225006.l1dee4",
+                  "ref": "P225006.6.1",
+                  "inst": "zara[(door) pivot]N",
+                  "exosig": "@dcclt%sux:{ŋeš}za-ra=zara[pivot//(door) pivot]N'N$zara/{ŋeš}za-ra#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}za-ra",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P225006.6.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "za",
+                        "oid": "o0000603",
+                        "gdl_sign": "ZA",
+                        "utf8": "𒍝",
+                        "key": "o0000603..za",
+                        "id": "P225006.6.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ra",
+                        "oid": "o0000510",
+                        "gdl_sign": "RA",
+                        "utf8": "𒊏",
+                        "key": "o0000510..ra",
+                        "id": "P225006.6.1.2"
+                      }
+                    ],
+                    "cf": "zara",
+                    "gw": "pivot",
+                    "sense": "(door) pivot",
+                    "norm0": "zara",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}za-ra",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P225006.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P225006.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ig",
+                  "id": "P225006.l1dee5",
+                  "ref": "P225006.6.2",
+                  "inst": "ig[door]N",
+                  "exosig": "@dcclt%sux:ig=ig[door//door]N'N$ig/ig#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ig",
+                    "gdl": [
+                      {
+                        "v": "ig",
+                        "oid": "o0000246",
+                        "gdl_sign": "IG",
+                        "utf8": "𒅅",
+                        "key": "o0000246..ig",
+                        "id": "P225006.6.2.0"
+                      }
+                    ],
+                    "cf": "ig",
+                    "gw": "door",
+                    "sense": "door",
+                    "norm0": "ig",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ig",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P225006.6.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P225006.6.2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 # P01. Modifier Lost In A Name Split 
 
 *File: `P01_modifier_lost.csv`.  
-24 rows.   
-Check_id `P01-0001`–`P01-0024`. 
+25 rows.   
+Check_id `P01-0001`–`P01-0025`. 
 
 ## Place In The Workflow
 
@@ -58,12 +58,12 @@ the official Unicode standard. Our list of such code points is
 They were therefore **deliberately not used**.
 
 **7. Result**    
-The automatic fix changed nothing for these 24 cases. Whether the modifier
+The automatic fix changed nothing for these 25 cases. Whether the modifier
 matters and how the components should be written will be decided by the
 expert. Hence the last sentence of the paragraph: *All rows stay manual*.
 
 
-24 forms; only 1 occurs in the OB corpus (1 token). The check matters for the catalogue, hardly for the thesis.
+25 forms; only 1 occurs in the OB corpus (1 token). The check matters for the catalogue, hardly for the thesis.
 
 ## **Which Rows To Check (Scope)**
 

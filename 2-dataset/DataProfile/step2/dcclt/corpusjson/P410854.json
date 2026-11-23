@@ -1,0 +1,303 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:46",
+  "textid": "P410854",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P410854.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P410854.x528.1",
+          "label": "x528"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P410854.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P410854.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P410854.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410854.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "[x]",
+                  "id": "P410854.l130c7",
+                  "ref": "P410854.3.1",
+                  "inst": "u",
+                  "f": {
+                    "lang": "sux",
+                    "form": "x",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "x",
+                        "oid": "o0000601",
+                        "gdl_sign": "X",
+                        "utf8": "X",
+                        "key": "o0000601..x",
+                        "id": "P410854.3.1.0",
+                        "breakStart": "1",
+                        "o": "]",
+                        "queried": "1",
+                        "break": "missing",
+                        "breakEnd": "P410854.3.1.0"
+                      }
+                    ],
+                    "pos": "u"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410854.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410854.3.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "GABA",
+                  "id": "P410854.l130c8",
+                  "ref": "P410854.3.2",
+                  "inst": "X",
+                  "f": {
+                    "lang": "sux",
+                    "form": "GABA",
+                    "gdl": [
+                      {
+                        "s": "GABA",
+                        "oid": "o0000190",
+                        "gdl_sign": "GABA",
+                        "utf8": "𒃮",
+                        "key": "o0000190..",
+                        "id": "P410854.3.2.0"
+                      }
+                    ],
+                    "pos": "X"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410854.3.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410854.3.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410854.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410854.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢ra₂⸣-gaba",
+                  "id": "P410854.l130c9",
+                  "ref": "P410854.4.1",
+                  "inst": "ragaba[rider]N",
+                  "exosig": "@dcclt%sux:ra₂-gaba=ragaba[rider//rider, messenger]N'N$ragaba/ra₂-gaba#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ra₂-gaba",
+                    "gdl": [
+                      {
+                        "v": "ra₂",
+                        "oid": "o0000149",
+                        "gdl_sign": "DU",
+                        "utf8": "𒁺",
+                        "key": "o0000149..ra₂",
+                        "id": "P410854.4.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "gaba",
+                        "oid": "o0000190",
+                        "gdl_sign": "GABA",
+                        "utf8": "𒃮",
+                        "key": "o0000190..gaba",
+                        "id": "P410854.4.1.1"
+                      }
+                    ],
+                    "cf": "ragaba",
+                    "gw": "rider",
+                    "sense": "rider, messenger",
+                    "norm0": "ragaba",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ra₂-gaba",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410854.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410854.4.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410854.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410854.5",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢ra⸣-gaba",
+                  "id": "P410854.l130ca",
+                  "ref": "P410854.5.1",
+                  "inst": "ragaba[rider]N",
+                  "exosig": "@dcclt%sux:ra-gaba=ragaba[rider//rider, messenger]N'N$ragaba/ra-gaba#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ra-gaba",
+                    "gdl": [
+                      {
+                        "v": "ra",
+                        "oid": "o0000510",
+                        "gdl_sign": "RA",
+                        "utf8": "𒊏",
+                        "key": "o0000510..ra",
+                        "id": "P410854.5.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "gaba",
+                        "oid": "o0000190",
+                        "gdl_sign": "GABA",
+                        "utf8": "𒃮",
+                        "key": "o0000190..gaba",
+                        "id": "P410854.5.1.1"
+                      }
+                    ],
+                    "cf": "ragaba",
+                    "gw": "rider",
+                    "sense": "rider, messenger",
+                    "norm0": "ragaba",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ra-gaba",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410854.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410854.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P410854.r.6",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P410854.7",
+                  "strict": "0",
+                  "state": "blank"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

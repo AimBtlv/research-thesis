@@ -1,22 +1,22 @@
 # P10. OSL And Catalogue Give A Reading To Different Signs 
 
 *File: `P10_osl_reading_conflicts.csv`   
-702 rows     
-Check_id `P10-0001`–`P10-0702`      
-The outputs of 2026-11-14*
+701 rows     
+Check_id `P10-0001`–`P10-0701`      
+The outputs of 2026-11-22*
 
 ## Place In The Workflow
 
 Stage 1, Step 6.0 (manual check before the gold standard). 
 Documented in `4.doc_sign_catalogue_v13.md` § 6 *Gap filling from OSL @v* (`osl_reading_conflicts_v13.csv`).    
-`1.doc_unicode_assign_v3.md` (702 conflicts).    
+`1.doc_unicode_assign_v3.md` (701 conflicts).    
 Script: `06_build_sign_catalogue_v13.py`
 
 ## The Problem 
 
 *Where the conflicts come from?*      
 Readings of simple signs come mostly from the syllabary, OSL `@v` values only **fill gaps** (Step 4, Stage 5). Before adding an OSL reading, `script 06` checks whether another sign of the catalogue already has it. If so, nothing is changed and the case is written to
-`osl_reading_conflicts_v13.csv` (702 rows).     
+`osl_reading_conflicts_v13.csv` (701 rows).     
 
 Example: *murub₄* ("middle") is a value of MURUB₄ in OSL, of NISAG in the catalogue. The column `parser_resolves_to` shows the sign the parser actually uses (NISAG, 79 times).
 
@@ -33,7 +33,7 @@ The new column `relation` tells the cases apart:
 
 | `relation` | Meaning | Conflicts | Tokens |
 |---|---|---|---|
-| `different signs` | really different signs | 400 | 979 |
+| `different signs` | really different signs | 399 | 979 |
 | OSL sign is a @form of the catalogue sign | variant (*hi*, *maš*, *lil₂*) | 263 | 12,111 |
 | catalogue sign is a @form of the OSL sign | the reverse | 38 | 69 |
 | both are @forms of one sign | | 1 | 0 |
@@ -54,10 +54,10 @@ column `relation` and sorts the file.
 
 ## Size And Effect On The Corpus
 
-702 conflicts     
+701 conflicts     
 42 readings occur in the corpus.     
 13,159 tokens. 
-Real conflicts between different signs: 400, of them **15** in the corpus with **979** tokens (92 in school texts).     
+Real conflicts between different signs: 399, of them **15** in the corpus with **979** tokens (92 in school texts).     
 The 15 real conflicts are mandatory.    
 Variant cases need only a quick look (usually `SAME_SIGN`).
 

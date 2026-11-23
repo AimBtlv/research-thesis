@@ -1,0 +1,311 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:43:58",
+  "textid": "P388095",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P388095.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "type": "surface",
+          "ref": ""
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P388095.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P388095.U2",
+              "label": "1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P388095.1",
+                  "n": "1",
+                  "label": "1"
+                },
+                {
+                  "node": "l",
+                  "frag": "kab-kab{mušen}",
+                  "id": "P388095.l27067",
+                  "ref": "P388095.1.1",
+                  "inst": "kabkab[bird]",
+                  "exosig": "@dcclt%sux:kab-kab{mušen}=kabkab[bird//a bird]N'N$kabkab/kab-kab{mušen}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "kab-kab{mušen}",
+                    "gdl": [
+                      {
+                        "v": "kab",
+                        "oid": "o0000263",
+                        "gdl_sign": "KAB",
+                        "utf8": "𒆏",
+                        "key": "o0000263..kab",
+                        "id": "P388095.1.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kab",
+                        "oid": "o0000263",
+                        "gdl_sign": "KAB",
+                        "utf8": "𒆏",
+                        "key": "o0000263..kab",
+                        "id": "P388095.1.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "mušen",
+                            "oid": "o0000239",
+                            "gdl_sign": "HU",
+                            "utf8": "𒄷",
+                            "key": "o0000239..mušen",
+                            "id": "P388095.1.1.2"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "kabkab",
+                    "gw": "bird",
+                    "sense": "a bird",
+                    "norm0": "kabkab",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "kab-kab{mušen}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P388095.1.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P388095.1.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P388095.U4",
+              "label": "2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P388095.2",
+                  "n": "2",
+                  "label": "2"
+                },
+                {
+                  "node": "l",
+                  "frag": "gam₃-gam₃{mušen}",
+                  "id": "P388095.l27068",
+                  "ref": "P388095.2.1",
+                  "inst": "gamgam[water bird]",
+                  "exosig": "@dcclt%sux:gam₃-gam₃{mušen}=gamgam[bird//a water bird]N'N$gamgam/gam₃-gam₃{mušen}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gam₃-gam₃{mušen}",
+                    "gdl": [
+                      {
+                        "v": "gam₃",
+                        "oid": "o0000273",
+                        "gdl_sign": "KAM₄",
+                        "utf8": "𒆛",
+                        "key": "o0000273..gam₃",
+                        "id": "P388095.2.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gam₃",
+                        "oid": "o0000273",
+                        "gdl_sign": "KAM₄",
+                        "utf8": "𒆛",
+                        "key": "o0000273..gam₃",
+                        "id": "P388095.2.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "mušen",
+                            "oid": "o0000239",
+                            "gdl_sign": "HU",
+                            "utf8": "𒄷",
+                            "key": "o0000239..mušen",
+                            "id": "P388095.2.1.2"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "gamgam",
+                    "gw": "bird",
+                    "sense": "a water bird",
+                    "norm0": "gamgam",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gam₃-gam₃{mušen}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P388095.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P388095.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P388095.U6",
+              "label": "3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P388095.3",
+                  "n": "3",
+                  "label": "3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}kiri₆-kar₂{mušen}",
+                  "id": "P388095.l27069",
+                  "ref": "P388095.3.1",
+                  "inst": "kirkir[bird]",
+                  "exosig": "@dcclt%sux:{ŋeš}kiri₆-kar₂{mušen}=kirkir[bird//a bird]N'N$kirkir/{ŋeš}kiri₆-kar₂{mušen}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}kiri₆-kar₂{mušen}",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P388095.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "kiri₆",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..kiri₆",
+                        "id": "P388095.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kar₂",
+                        "oid": "o0000201",
+                        "gdl_sign": "GAN₂@t",
+                        "utf8": "𒃸",
+                        "key": "o0000201..kar₂",
+                        "id": "P388095.3.1.2"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "mušen",
+                            "oid": "o0000239",
+                            "gdl_sign": "HU",
+                            "utf8": "𒄷",
+                            "key": "o0000239..mušen",
+                            "id": "P388095.3.1.3"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "kirkir",
+                    "gw": "bird",
+                    "sense": "a bird",
+                    "norm0": "kirkir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}kiri₆-kar₂{mušen}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P388095.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P388095.3.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,618 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:36",
+  "textid": "P410631",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P410631.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P410631.x1017.1",
+          "label": "x1017"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P410631.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P410631.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P410631.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410631.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{⸢dug⸣}za-⸢hum⸣",
+                  "id": "P410631.l229f3",
+                  "ref": "P410631.3.1",
+                  "inst": "zahum[metal basin]",
+                  "sig": "@dcclt%sux:{dug}za-hum=zahum[basin//a metal basin]N'N$zahum/{dug}za-hum#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{dug}za-hum",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "dug",
+                            "oid": "o0000155",
+                            "gdl_sign": "DUG",
+                            "utf8": "𒂁",
+                            "key": "o0000155..dug",
+                            "id": "P410631.3.1.0",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "za",
+                        "oid": "o0000603",
+                        "gdl_sign": "ZA",
+                        "utf8": "𒍝",
+                        "key": "o0000603..za",
+                        "id": "P410631.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "hum",
+                        "oid": "o0000438",
+                        "gdl_sign": "LUM",
+                        "utf8": "𒈝",
+                        "key": "o0000438..hum",
+                        "id": "P410631.3.1.2",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "zahum",
+                    "gw": "basin",
+                    "sense": "a metal basin",
+                    "norm0": "zahum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{dug}za-hum",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410631.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410631.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢dug⸣",
+                  "id": "P410631.l229f4",
+                  "ref": "P410631.4.1",
+                  "inst": "dug[(clay) pot]",
+                  "sig": "@dcclt%sux:dug=dug[pot//(clay) pot]N'N$dug/dug#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "dug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "dug",
+                        "oid": "o0000155",
+                        "gdl_sign": "DUG",
+                        "utf8": "𒂁",
+                        "key": "o0000155..dug",
+                        "id": "P410631.4.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "dug",
+                    "gw": "pot",
+                    "sense": "(clay) pot",
+                    "norm0": "dug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "dug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gaz",
+                  "id": "P410631.l229f5",
+                  "ref": "P410631.4.2",
+                  "inst": "gaz[break]V/t",
+                  "exosig": "@dcclt%sux:gaz=gaz[kill//to break]V/t'V/t$gaz/gaz#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gaz",
+                    "gdl": [
+                      {
+                        "v": "gaz",
+                        "oid": "o0001424",
+                        "gdl_sign": "|GUM×ŠE|",
+                        "utf8": "𒄤",
+                        "key": "o0001424..gaz",
+                        "id": "P410631.4.2.0"
+                      }
+                    ],
+                    "cf": "gaz",
+                    "gw": "kill",
+                    "sense": "to break",
+                    "norm0": "gaz",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "gaz",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.4.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.4.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410631.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410631.5",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{⸢dug⸣}utul₂",
+                  "id": "P410631.l229f6",
+                  "ref": "P410631.5.1",
+                  "inst": "utul[tureen]N",
+                  "exosig": "@dcclt%sux:{dug}utul₂=utul[tureen//tureen, large bowl]N'N$utul/{dug}utul₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{dug}utul₂",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "dug",
+                            "oid": "o0000155",
+                            "gdl_sign": "DUG",
+                            "utf8": "𒂁",
+                            "key": "o0000155..dug",
+                            "id": "P410631.5.1.0",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "utul₂",
+                        "oid": "o0001453",
+                        "gdl_sign": "|HI×BAD|",
+                        "utf8": "𒄰",
+                        "key": "o0001453..utul₂",
+                        "id": "P410631.5.1.1"
+                      }
+                    ],
+                    "cf": "utul",
+                    "gw": "tureen",
+                    "sense": "tureen, large bowl",
+                    "norm0": "utul",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{dug}utul₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P410631.r.6",
+                  "label": "r"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410631.U8",
+              "label": "r 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410631.7",
+                  "n": "1",
+                  "label": "r 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{⸢dug⸣}za-⸢hum⸣",
+                  "id": "P410631.l229f7",
+                  "ref": "P410631.7.1",
+                  "inst": "zahum[metal basin]",
+                  "sig": "@dcclt%sux:{dug}za-hum=zahum[basin//a metal basin]N'N$zahum/{dug}za-hum#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{dug}za-hum",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "dug",
+                            "oid": "o0000155",
+                            "gdl_sign": "DUG",
+                            "utf8": "𒂁",
+                            "key": "o0000155..dug",
+                            "id": "P410631.7.1.0",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "za",
+                        "oid": "o0000603",
+                        "gdl_sign": "ZA",
+                        "utf8": "𒍝",
+                        "key": "o0000603..za",
+                        "id": "P410631.7.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "hum",
+                        "oid": "o0000438",
+                        "gdl_sign": "LUM",
+                        "utf8": "𒈝",
+                        "key": "o0000438..hum",
+                        "id": "P410631.7.1.2",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "zahum",
+                    "gw": "basin",
+                    "sense": "a metal basin",
+                    "norm0": "zahum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{dug}za-hum",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.7.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410631.U10",
+              "label": "r 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410631.8",
+                  "n": "2",
+                  "label": "r 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢dug",
+                  "id": "P410631.l229f8",
+                  "ref": "P410631.8.1",
+                  "inst": "dug[(clay) pot]",
+                  "sig": "@dcclt%sux:dug=dug[pot//(clay) pot]N'N$dug/dug#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "dug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "dug",
+                        "oid": "o0000155",
+                        "gdl_sign": "DUG",
+                        "utf8": "𒂁",
+                        "key": "o0000155..dug",
+                        "id": "P410631.8.1.0",
+                        "break": "damaged",
+                        "ho": "1"
+                      }
+                    ],
+                    "cf": "dug",
+                    "gw": "pot",
+                    "sense": "(clay) pot",
+                    "norm0": "dug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "dug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.8.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gaz⸣",
+                  "id": "P410631.l229f9",
+                  "ref": "P410631.8.2",
+                  "inst": "gaz[break]V/t",
+                  "exosig": "@dcclt%sux:gaz=gaz[kill//to break]V/t'V/t$gaz/gaz#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gaz",
+                    "gdl": [
+                      {
+                        "v": "gaz",
+                        "oid": "o0001424",
+                        "gdl_sign": "|GUM×ŠE|",
+                        "utf8": "𒄤",
+                        "key": "o0001424..gaz",
+                        "id": "P410631.8.2.0",
+                        "break": "damaged",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "gaz",
+                    "gw": "kill",
+                    "sense": "to break",
+                    "norm0": "gaz",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "gaz",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.8.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.8.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410631.U12",
+              "label": "r 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410631.9",
+                  "n": "3",
+                  "label": "r 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{⸢dug⸣}utul₂",
+                  "id": "P410631.l229fa",
+                  "ref": "P410631.9.1",
+                  "inst": "utul[tureen]N",
+                  "exosig": "@dcclt%sux:{dug}utul₂=utul[tureen//tureen, large bowl]N'N$utul/{dug}utul₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{dug}utul₂",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "dug",
+                            "oid": "o0000155",
+                            "gdl_sign": "DUG",
+                            "utf8": "𒂁",
+                            "key": "o0000155..dug",
+                            "id": "P410631.9.1.0",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "utul₂",
+                        "oid": "o0001453",
+                        "gdl_sign": "|HI×BAD|",
+                        "utf8": "𒄰",
+                        "key": "o0001453..utul₂",
+                        "id": "P410631.9.1.1"
+                      }
+                    ],
+                    "cf": "utul",
+                    "gw": "tureen",
+                    "sense": "tureen, large bowl",
+                    "norm0": "utul",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{dug}utul₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410631.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410631.9.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

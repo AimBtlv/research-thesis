@@ -1,0 +1,203 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:43:40",
+  "textid": "P381853",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P381853.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P381853.x2124.1",
+          "label": "x2124"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P381853.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P381853.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P381853.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P381853.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "zab-ga",
+                  "id": "P381853.l44895",
+                  "ref": "P381853.3.1",
+                  "inst": "%sux:zab-ga=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "zab-ga",
+                    "gdl": [
+                      {
+                        "v": "zab",
+                        "oid": "o0000175",
+                        "gdl_sign": "ERIN₂",
+                        "utf8": "𒂟",
+                        "key": "o0000175..zab",
+                        "id": "P381853.3.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ga",
+                        "oid": "o0000187",
+                        "gdl_sign": "GA",
+                        "utf8": "𒂵",
+                        "key": "o0000187..ga",
+                        "id": "P381853.3.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P381853.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P381853.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P381853.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P381853.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "zab-zab-ga",
+                  "id": "P381853.l44896",
+                  "ref": "P381853.4.1",
+                  "inst": "%sux:zab-zab-ga=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "zab-zab-ga",
+                    "gdl": [
+                      {
+                        "v": "zab",
+                        "oid": "o0000175",
+                        "gdl_sign": "ERIN₂",
+                        "utf8": "𒂟",
+                        "key": "o0000175..zab",
+                        "id": "P381853.4.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "zab",
+                        "oid": "o0000175",
+                        "gdl_sign": "ERIN₂",
+                        "utf8": "𒂟",
+                        "key": "o0000175..zab",
+                        "id": "P381853.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ga",
+                        "oid": "o0000187",
+                        "gdl_sign": "GA",
+                        "utf8": "𒂵",
+                        "key": "o0000187..ga",
+                        "id": "P381853.4.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P381853.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P381853.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P381853.5",
+                  "strict": "1",
+                  "extent": "1",
+                  "scope": "line",
+                  "state": "ruling"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P381853.6",
+                  "strict": "0",
+                  "state": "other"
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P381853.r.7",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P381853.8",
+                  "strict": "0",
+                  "state": "other"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

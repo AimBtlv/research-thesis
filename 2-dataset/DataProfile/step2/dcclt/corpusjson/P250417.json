@@ -1,0 +1,1781 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:37:21",
+  "textid": "P250417",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P250417.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "reverse",
+          "type": "surface",
+          "ref": "P250417.r.1",
+          "label": "r"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1r",
+          "type": "column",
+          "ref": "P250417.r.i.2",
+          "n": "1",
+          "label": "r i"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P250417.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P250417.U2",
+              "label": "r i 1'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.3",
+                  "n": "1'",
+                  "label": "r i 1'"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢gu₂-en⸣-[na]",
+                  "id": "P250417.l161a5",
+                  "ref": "P250417.3.1",
+                  "inst": "%sux:gu₂-en-na=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gu₂-en-na",
+                    "gdl": [
+                      {
+                        "v": "gu₂",
+                        "oid": "o0000230",
+                        "gdl_sign": "GU₂",
+                        "utf8": "𒄘",
+                        "key": "o0000230..gu₂",
+                        "id": "P250417.3.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "en",
+                        "oid": "o0000173",
+                        "gdl_sign": "EN",
+                        "utf8": "𒂗",
+                        "key": "o0000173..en",
+                        "id": "P250417.3.1.1",
+                        "break": "damaged",
+                        "queried": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "na",
+                        "oid": "o0000469",
+                        "gdl_sign": "NA",
+                        "utf8": "𒈾",
+                        "key": "o0000469..na",
+                        "id": "P250417.3.1.2",
+                        "breakStart": "1",
+                        "o": "]",
+                        "break": "missing",
+                        "breakEnd": "P250417.3.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U4",
+              "label": "r i 2'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.4",
+                  "n": "2'",
+                  "label": "r i 2'"
+                },
+                {
+                  "node": "l",
+                  "frag": "ensi₂(|PA.TE.SI|)",
+                  "id": "P250417.l161a6",
+                  "ref": "P250417.4.1",
+                  "inst": "%sux:ensi₂(|PA.TE.SI|)=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ensi₂(|PA.TE.SI|)",
+                    "gdl": [
+                      {
+                        "q": "ensi₂(|PA.TE.SI|)",
+                        "oid": "o0002206",
+                        "gdl_sign": "|PA.TE.SI|",
+                        "utf8": "𒉺𒋼𒋛",
+                        "id": "P250417.4.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1",
+                        "qualified": [
+                          {
+                            "v": "ensi₂",
+                            "oid": "o0002206",
+                            "gdl_sign": "|PA.TE.SI|"
+                          },
+                          {
+                            "c": "|PA.TE.SI|",
+                            "oid": "o0002206",
+                            "gdl_sign": "|PA.TE.SI|",
+                            "utf8": "𒉺𒋼𒋛",
+                            "seq": [
+                              {
+                                "s": "PA",
+                                "oid": "o0000497",
+                                "gdl_sign": "PA"
+                              },
+                              {
+                                "o": "beside"
+                              },
+                              {
+                                "s": "TE",
+                                "oid": "o0000550",
+                                "gdl_sign": "TE"
+                              },
+                              {
+                                "o": "beside"
+                              },
+                              {
+                                "s": "SI",
+                                "oid": "o0000525",
+                                "gdl_sign": "SI"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.4.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U6",
+              "label": "r i 3'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.5",
+                  "n": "3'",
+                  "label": "r i 3'"
+                },
+                {
+                  "node": "l",
+                  "frag": "x",
+                  "id": "P250417.l161a7",
+                  "ref": "P250417.5.1",
+                  "inst": "%sux:x=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "x",
+                    "gdl": [
+                      {
+                        "v": "x",
+                        "oid": "o0000601",
+                        "gdl_sign": "X",
+                        "utf8": "X",
+                        "key": "o0000601..x",
+                        "id": "P250417.5.1.0"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.5.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U8",
+              "label": "r i 4'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.6",
+                  "n": "4'",
+                  "label": "r i 4'"
+                },
+                {
+                  "node": "l",
+                  "frag": "um-mi-a",
+                  "id": "P250417.l161a8",
+                  "ref": "P250417.6.1",
+                  "inst": "%sux:um-mi-a=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "um-mi-a",
+                    "gdl": [
+                      {
+                        "v": "um",
+                        "oid": "o0000571",
+                        "gdl_sign": "UM",
+                        "utf8": "𒌝",
+                        "key": "o0000571..um",
+                        "id": "P250417.6.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "mi",
+                        "oid": "o0000455",
+                        "gdl_sign": "MI",
+                        "utf8": "𒈪",
+                        "key": "o0000455..mi",
+                        "id": "P250417.6.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P250417.6.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.6.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U10",
+              "label": "r i 5'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.7",
+                  "n": "5'",
+                  "label": "r i 5'"
+                },
+                {
+                  "node": "l",
+                  "frag": "ša₃-tam",
+                  "id": "P250417.l161a9",
+                  "ref": "P250417.7.1",
+                  "inst": "%sux:ša₃-tam=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ša₃-tam",
+                    "gdl": [
+                      {
+                        "v": "ša₃",
+                        "oid": "o0002828",
+                        "gdl_sign": "ŠA₃",
+                        "utf8": "𒊮",
+                        "key": "o0002828..ša₃",
+                        "id": "P250417.7.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tam",
+                        "oid": "o0000565",
+                        "gdl_sign": "UD",
+                        "utf8": "𒌓",
+                        "key": "o0000565..tam",
+                        "id": "P250417.7.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.7.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U12",
+              "label": "r i 6'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.8",
+                  "n": "6'",
+                  "label": "r i 6'"
+                },
+                {
+                  "node": "l",
+                  "frag": "ša₃-tam-lugal",
+                  "id": "P250417.l161aa",
+                  "ref": "P250417.8.1",
+                  "inst": "%sux:ša₃-tam-lugal=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ša₃-tam-lugal",
+                    "gdl": [
+                      {
+                        "v": "ša₃",
+                        "oid": "o0002828",
+                        "gdl_sign": "ŠA₃",
+                        "utf8": "𒊮",
+                        "key": "o0002828..ša₃",
+                        "id": "P250417.8.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tam",
+                        "oid": "o0000565",
+                        "gdl_sign": "UD",
+                        "utf8": "𒌓",
+                        "key": "o0000565..tam",
+                        "id": "P250417.8.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "lugal",
+                        "oid": "o0000434",
+                        "gdl_sign": "LUGAL",
+                        "utf8": "𒈗",
+                        "key": "o0000434..lugal",
+                        "id": "P250417.8.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.8.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U14",
+              "label": "r i 7'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.9",
+                  "n": "7'",
+                  "label": "r i 7'"
+                },
+                {
+                  "node": "l",
+                  "frag": "ša₃-tam-e₂-gal",
+                  "id": "P250417.l161ab",
+                  "ref": "P250417.9.1",
+                  "inst": "%sux:ša₃-tam-e₂-gal=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ša₃-tam-e₂-gal",
+                    "gdl": [
+                      {
+                        "v": "ša₃",
+                        "oid": "o0002828",
+                        "gdl_sign": "ŠA₃",
+                        "utf8": "𒊮",
+                        "key": "o0002828..ša₃",
+                        "id": "P250417.9.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tam",
+                        "oid": "o0000565",
+                        "gdl_sign": "UD",
+                        "utf8": "𒌓",
+                        "key": "o0000565..tam",
+                        "id": "P250417.9.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "e₂",
+                        "oid": "o0000180",
+                        "gdl_sign": "E₂",
+                        "utf8": "𒂍",
+                        "key": "o0000180..e₂",
+                        "id": "P250417.9.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gal",
+                        "oid": "o0000194",
+                        "gdl_sign": "GAL",
+                        "utf8": "𒃲",
+                        "key": "o0000194..gal",
+                        "id": "P250417.9.1.3"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.9.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U16",
+              "label": "r i 8'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.10",
+                  "n": "8'",
+                  "label": "r i 8'"
+                },
+                {
+                  "node": "l",
+                  "frag": "ša₃-tam-ka₂-e₂-gal",
+                  "id": "P250417.l161ac",
+                  "ref": "P250417.10.1",
+                  "inst": "%sux:ša₃-tam-ka₂-e₂-gal=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ša₃-tam-ka₂-e₂-gal",
+                    "gdl": [
+                      {
+                        "v": "ša₃",
+                        "oid": "o0002828",
+                        "gdl_sign": "ŠA₃",
+                        "utf8": "𒊮",
+                        "key": "o0002828..ša₃",
+                        "id": "P250417.10.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tam",
+                        "oid": "o0000565",
+                        "gdl_sign": "UD",
+                        "utf8": "𒌓",
+                        "key": "o0000565..tam",
+                        "id": "P250417.10.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ka₂",
+                        "oid": "o0000277",
+                        "gdl_sign": "KA₂",
+                        "utf8": "𒆍",
+                        "key": "o0000277..ka₂",
+                        "id": "P250417.10.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "e₂",
+                        "oid": "o0000180",
+                        "gdl_sign": "E₂",
+                        "utf8": "𒂍",
+                        "key": "o0000180..e₂",
+                        "id": "P250417.10.1.3",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gal",
+                        "oid": "o0000194",
+                        "gdl_sign": "GAL",
+                        "utf8": "𒃲",
+                        "key": "o0000194..gal",
+                        "id": "P250417.10.1.4"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.10.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.10.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "column 2r",
+                  "type": "column",
+                  "ref": "P250417.r.ii.11",
+                  "n": "2",
+                  "label": "r ii"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U18",
+              "label": "r ii 1'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.12",
+                  "n": "1'",
+                  "label": "r ii 1'"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢dub⸣-[sar-x]",
+                  "id": "P250417.l161ad",
+                  "ref": "P250417.12.1",
+                  "inst": "%sux:dub-sar-x=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "dub-sar-x",
+                    "gdl": [
+                      {
+                        "v": "dub",
+                        "oid": "o0000153",
+                        "gdl_sign": "DUB",
+                        "utf8": "𒁾",
+                        "key": "o0000153..dub",
+                        "id": "P250417.12.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "sar",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..sar",
+                        "id": "P250417.12.1.1",
+                        "breakStart": "1",
+                        "o": "[",
+                        "break": "missing",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "x",
+                        "oid": "o0000601",
+                        "gdl_sign": "X",
+                        "utf8": "X",
+                        "key": "o0000601..x",
+                        "id": "P250417.12.1.2",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P250417.12.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.12.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.12.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U20",
+              "label": "r ii 2'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.13",
+                  "n": "2'",
+                  "label": "r ii 2'"
+                },
+                {
+                  "node": "l",
+                  "frag": "dub-sar-kuru₇-[ak]",
+                  "id": "P250417.l161ae",
+                  "ref": "P250417.13.1",
+                  "inst": "%sux:dub-sar-kuru₇-ak=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "dub-sar-kuru₇-ak",
+                    "gdl": [
+                      {
+                        "v": "dub",
+                        "oid": "o0000153",
+                        "gdl_sign": "DUB",
+                        "utf8": "𒁾",
+                        "key": "o0000153..dub",
+                        "id": "P250417.13.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "sar",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..sar",
+                        "id": "P250417.13.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kuru₇",
+                        "oid": "o0001492",
+                        "gdl_sign": "|IGI.ERIN₂|",
+                        "utf8": "𒅆𒂟",
+                        "key": "o0001492..kuru₇",
+                        "id": "P250417.13.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ak",
+                        "oid": "o0000093",
+                        "gdl_sign": "AK",
+                        "utf8": "𒀝",
+                        "key": "o0000093..ak",
+                        "id": "P250417.13.1.3",
+                        "breakStart": "1",
+                        "o": "]",
+                        "break": "missing",
+                        "breakEnd": "P250417.13.1.3"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.13.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.13.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U22",
+              "label": "r ii 3'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.14",
+                  "n": "3'",
+                  "label": "r ii 3'"
+                },
+                {
+                  "node": "l",
+                  "frag": "dub-sar-umun₂-ak",
+                  "id": "P250417.l161af",
+                  "ref": "P250417.14.1",
+                  "inst": "%sux:dub-sar-umun₂-ak=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "dub-sar-umun₂-ak",
+                    "gdl": [
+                      {
+                        "v": "dub",
+                        "oid": "o0000153",
+                        "gdl_sign": "DUB",
+                        "utf8": "𒁾",
+                        "key": "o0000153..dub",
+                        "id": "P250417.14.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "sar",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..sar",
+                        "id": "P250417.14.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "umun₂",
+                        "oid": "o0000573",
+                        "gdl_sign": "UMUM",
+                        "utf8": "𒌣",
+                        "key": "o0000573..umun₂",
+                        "id": "P250417.14.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ak",
+                        "oid": "o0000093",
+                        "gdl_sign": "AK",
+                        "utf8": "𒀝",
+                        "key": "o0000093..ak",
+                        "id": "P250417.14.1.3"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.14.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.14.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U24",
+              "label": "r ii 4'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.15",
+                  "n": "4'",
+                  "label": "r ii 4'"
+                },
+                {
+                  "node": "l",
+                  "frag": "dub-sar-tur",
+                  "id": "P250417.l161b0",
+                  "ref": "P250417.15.1",
+                  "inst": "%sux:dub-sar-tur=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "dub-sar-tur",
+                    "gdl": [
+                      {
+                        "v": "dub",
+                        "oid": "o0000153",
+                        "gdl_sign": "DUB",
+                        "utf8": "𒁾",
+                        "key": "o0000153..dub",
+                        "id": "P250417.15.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "sar",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..sar",
+                        "id": "P250417.15.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tur",
+                        "oid": "o0000560",
+                        "gdl_sign": "TUR",
+                        "utf8": "𒌉",
+                        "key": "o0000560..tur",
+                        "id": "P250417.15.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.15.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.15.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U26",
+              "label": "r ii 5'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.16",
+                  "n": "5'",
+                  "label": "r ii 5'"
+                },
+                {
+                  "node": "l",
+                  "frag": "dub-sar-a-ša₃-ga",
+                  "id": "P250417.l161b1",
+                  "ref": "P250417.16.1",
+                  "inst": "%sux:dub-sar-a-ša₃-ga=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "dub-sar-a-ša₃-ga",
+                    "gdl": [
+                      {
+                        "v": "dub",
+                        "oid": "o0000153",
+                        "gdl_sign": "DUB",
+                        "utf8": "𒁾",
+                        "key": "o0000153..dub",
+                        "id": "P250417.16.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "sar",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..sar",
+                        "id": "P250417.16.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P250417.16.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ša₃",
+                        "oid": "o0002828",
+                        "gdl_sign": "ŠA₃",
+                        "utf8": "𒊮",
+                        "key": "o0002828..ša₃",
+                        "id": "P250417.16.1.3",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ga",
+                        "oid": "o0000187",
+                        "gdl_sign": "GA",
+                        "utf8": "𒂵",
+                        "key": "o0000187..ga",
+                        "id": "P250417.16.1.4"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.16.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.16.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U28",
+              "label": "r ii 6'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.17",
+                  "n": "6'",
+                  "label": "r ii 6'"
+                },
+                {
+                  "node": "l",
+                  "frag": "sa₁₂-du₅",
+                  "id": "P250417.l161b2",
+                  "ref": "P250417.17.1",
+                  "inst": "%sux:sa₁₂-du₅=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "sa₁₂-du₅",
+                    "gdl": [
+                      {
+                        "v": "sa₁₂",
+                        "oid": "o0000518",
+                        "gdl_sign": "SAG",
+                        "utf8": "𒊕",
+                        "key": "o0000518..sa₁₂",
+                        "id": "P250417.17.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "du₅",
+                        "oid": "o0000160",
+                        "gdl_sign": "DUN₃",
+                        "utf8": "𒂅",
+                        "key": "o0000160..du₅",
+                        "id": "P250417.17.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.17.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.17.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U30",
+              "label": "r ii 7'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.18",
+                  "n": "7'",
+                  "label": "r ii 7'"
+                },
+                {
+                  "node": "l",
+                  "frag": "nir-ŋal₂",
+                  "id": "P250417.l161b3",
+                  "ref": "P250417.18.1",
+                  "inst": "%sux:nir-ŋal₂=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "nir-ŋal₂",
+                    "gdl": [
+                      {
+                        "v": "nir",
+                        "oid": "o0002123",
+                        "gdl_sign": "|NUN&NUN|",
+                        "utf8": "𒉪",
+                        "key": "o0002123..nir",
+                        "id": "P250417.18.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ŋal₂",
+                        "oid": "o0000246",
+                        "gdl_sign": "IG",
+                        "utf8": "𒅅",
+                        "key": "o0000246..ŋal₂",
+                        "id": "P250417.18.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.18.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.18.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U32",
+              "label": "r ii 8'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.19",
+                  "n": "8'",
+                  "label": "r ii 8'"
+                },
+                {
+                  "node": "l",
+                  "frag": "nir-ŋal₂",
+                  "id": "P250417.l161b4",
+                  "ref": "P250417.19.1",
+                  "inst": "%sux:nir-ŋal₂=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "nir-ŋal₂",
+                    "gdl": [
+                      {
+                        "v": "nir",
+                        "oid": "o0002123",
+                        "gdl_sign": "|NUN&NUN|",
+                        "utf8": "𒉪",
+                        "key": "o0002123..nir",
+                        "id": "P250417.19.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ŋal₂",
+                        "oid": "o0000246",
+                        "gdl_sign": "IG",
+                        "utf8": "𒅅",
+                        "key": "o0000246..ŋal₂",
+                        "id": "P250417.19.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.19.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.19.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U34",
+              "label": "r ii 9'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.20",
+                  "n": "9'",
+                  "label": "r ii 9'"
+                },
+                {
+                  "node": "l",
+                  "frag": "inim-mud-ŋal₂",
+                  "id": "P250417.l161b5",
+                  "ref": "P250417.20.1",
+                  "inst": "%sux:inim-mud-ŋal₂=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "inim-mud-ŋal₂",
+                    "gdl": [
+                      {
+                        "v": "inim",
+                        "oid": "o0000260",
+                        "gdl_sign": "KA",
+                        "utf8": "𒅗",
+                        "key": "o0000260..inim",
+                        "id": "P250417.20.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "mud",
+                        "oid": "o0001466",
+                        "gdl_sign": "|HU.HI|",
+                        "utf8": "𒄷𒄭",
+                        "key": "o0001466..mud",
+                        "id": "P250417.20.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ŋal₂",
+                        "oid": "o0000246",
+                        "gdl_sign": "IG",
+                        "utf8": "𒅅",
+                        "key": "o0000246..ŋal₂",
+                        "id": "P250417.20.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.20.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.20.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U36",
+              "label": "r ii 10'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.21",
+                  "n": "10'",
+                  "label": "r ii 10'"
+                },
+                {
+                  "node": "l",
+                  "frag": "KA-bal-bal",
+                  "id": "P250417.l161b6",
+                  "ref": "P250417.21.1",
+                  "inst": "%sux:KA-bal-bal=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "KA-bal-bal",
+                    "gdl": [
+                      {
+                        "s": "KA",
+                        "oid": "o0000260",
+                        "gdl_sign": "KA",
+                        "utf8": "𒅗",
+                        "key": "o0000260..",
+                        "id": "P250417.21.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "bal",
+                        "oid": "o0000118",
+                        "gdl_sign": "BAL",
+                        "utf8": "𒁄",
+                        "key": "o0000118..bal",
+                        "id": "P250417.21.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "bal",
+                        "oid": "o0000118",
+                        "gdl_sign": "BAL",
+                        "utf8": "𒁄",
+                        "key": "o0000118..bal",
+                        "id": "P250417.21.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.21.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.21.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "column 3r",
+                  "type": "column",
+                  "ref": "P250417.r.iii.22",
+                  "n": "3",
+                  "label": "r iii"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U38",
+              "label": "r iii 1'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.23",
+                  "n": "1'",
+                  "label": "r iii 1'"
+                },
+                {
+                  "node": "l",
+                  "frag": "a-zu-anše",
+                  "id": "P250417.l161b7",
+                  "ref": "P250417.23.1",
+                  "inst": "%sux:a-zu-anše=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "a-zu-anše",
+                    "gdl": [
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P250417.23.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "zu",
+                        "oid": "o0000614",
+                        "gdl_sign": "ZU",
+                        "utf8": "𒍪",
+                        "key": "o0000614..zu",
+                        "id": "P250417.23.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "anše",
+                        "oid": "o0000101",
+                        "gdl_sign": "ANŠE",
+                        "utf8": "𒀲",
+                        "key": "o0000101..anše",
+                        "id": "P250417.23.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.23.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.23.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U40",
+              "label": "r iii 2'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.24",
+                  "n": "2'",
+                  "label": "r iii 2'"
+                },
+                {
+                  "node": "l",
+                  "frag": "ugula-šu-i",
+                  "id": "P250417.l161b8",
+                  "ref": "P250417.24.1",
+                  "inst": "%sux:ugula-šu-i=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ugula-šu-i",
+                    "gdl": [
+                      {
+                        "v": "ugula",
+                        "oid": "o0000497",
+                        "gdl_sign": "PA",
+                        "utf8": "𒉺",
+                        "key": "o0000497..ugula",
+                        "id": "P250417.24.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "šu",
+                        "oid": "o0002845",
+                        "gdl_sign": "ŠU",
+                        "utf8": "𒋗",
+                        "key": "o0002845..šu",
+                        "id": "P250417.24.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "i",
+                        "oid": "o0000242",
+                        "gdl_sign": "I",
+                        "utf8": "𒄿",
+                        "key": "o0000242..i",
+                        "id": "P250417.24.1.2"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.24.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.24.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U42",
+              "label": "r iii 3'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.25",
+                  "n": "3'",
+                  "label": "r iii 3'"
+                },
+                {
+                  "node": "l",
+                  "frag": "muhaldim",
+                  "id": "P250417.l161b9",
+                  "ref": "P250417.25.1",
+                  "inst": "%sux:muhaldim=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "muhaldim",
+                    "gdl": [
+                      {
+                        "v": "muhaldim",
+                        "oid": "o0000457",
+                        "gdl_sign": "MU",
+                        "utf8": "𒈬",
+                        "key": "o0000457..muhaldim",
+                        "id": "P250417.25.1.0"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.25.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.25.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U44",
+              "label": "r iii 4'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.26",
+                  "n": "4'",
+                  "label": "r iii 4'"
+                },
+                {
+                  "node": "l",
+                  "frag": "muhaldim-gal",
+                  "id": "P250417.l161ba",
+                  "ref": "P250417.26.1",
+                  "inst": "%sux:muhaldim-gal=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "muhaldim-gal",
+                    "gdl": [
+                      {
+                        "v": "muhaldim",
+                        "oid": "o0000457",
+                        "gdl_sign": "MU",
+                        "utf8": "𒈬",
+                        "key": "o0000457..muhaldim",
+                        "id": "P250417.26.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gal",
+                        "oid": "o0000194",
+                        "gdl_sign": "GAL",
+                        "utf8": "𒃲",
+                        "key": "o0000194..gal",
+                        "id": "P250417.26.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.26.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.26.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U46",
+              "label": "r iii 5'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.27",
+                  "n": "5'",
+                  "label": "r iii 5'"
+                },
+                {
+                  "node": "l",
+                  "frag": "ugula-muhaldim",
+                  "id": "P250417.l161bb",
+                  "ref": "P250417.27.1",
+                  "inst": "%sux:ugula-muhaldim=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ugula-muhaldim",
+                    "gdl": [
+                      {
+                        "v": "ugula",
+                        "oid": "o0000497",
+                        "gdl_sign": "PA",
+                        "utf8": "𒉺",
+                        "key": "o0000497..ugula",
+                        "id": "P250417.27.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "muhaldim",
+                        "oid": "o0000457",
+                        "gdl_sign": "MU",
+                        "utf8": "𒈬",
+                        "key": "o0000457..muhaldim",
+                        "id": "P250417.27.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.27.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.27.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P250417.U48",
+              "label": "r iii 6'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P250417.28",
+                  "n": "6'",
+                  "label": "r iii 6'"
+                },
+                {
+                  "node": "l",
+                  "frag": "gu₄-gaz",
+                  "id": "P250417.l161bc",
+                  "ref": "P250417.28.1",
+                  "inst": "%sux:gu₄-gaz=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gu₄-gaz",
+                    "gdl": [
+                      {
+                        "v": "gu₄",
+                        "oid": "o0000222",
+                        "gdl_sign": "GUD",
+                        "utf8": "𒄞",
+                        "key": "o0000222..gu₄",
+                        "id": "P250417.28.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gaz",
+                        "oid": "o0001424",
+                        "gdl_sign": "|GUM×ŠE|",
+                        "utf8": "𒄤",
+                        "key": "o0001424..gaz",
+                        "id": "P250417.28.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P250417.28.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P250417.28.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P250417.29",
+                  "strict": "1",
+                  "extent": "1-2",
+                  "scope": "line",
+                  "state": "missing"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

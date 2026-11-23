@@ -3,7 +3,7 @@
 *File: `P02_name_compound_and_simple.csv`,    
 16 rows    
 Check_id `P02-0001`–`P02-0016`     
-The outputs of 2026-11-14.*
+The outputs of 2026-11-22.*
 
 ## Place In The Workflow 
 
@@ -43,6 +43,12 @@ Such rows are marked `structural_hint = uid_via_same_name_sign` ("code point
 taken from the sign of the same name"). The 13 forms are no longer compounds and
 leave the compound reading table.
 
+Because such a form is a sign of its own, it keeps only **its own** OSL readings
+(`@v`); the readings of the entry it stands in are not passed on to it. The form
+|ZI&ZI| inside |ZI&ZI.LAGAB| therefore does not receive *numun₂*, *gug₄*, *šub₅*:
+these readings stay with the compounds |ZI&ZI.LAGAB| and |ZI&ZI.EŠ₂|, and the
+parser keeps writing them with two glyphs.
+
 ## Size And Effect On The Corpus
 
 16 rows for 13 forms: some forms stand inside **two** entries (|HI×AŠ| and
@@ -59,7 +65,7 @@ are really the same sign (`CONFIRM` or `REJECT`).
 
 All rows: a quick **confirmation**.
 
-## **Columns (Columns)**
+## **Columns**
 
 | Column | Meaning |
 |---|---|

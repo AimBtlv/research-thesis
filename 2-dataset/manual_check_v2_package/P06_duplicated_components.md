@@ -1,9 +1,9 @@
 # P06. Duplicated Components
 
 *File: `P06_duplicated_components.csv`.   
-40 rows    
-Check_id `P06-0001`–`P06-0040`   
-The outputs of 2026-11-14 (pipeline v14.4)*   
+38 rows    
+Check_id `P06-0001`–`P06-0038`   
+The outputs of 2026-11-22 (pipeline v14.5)*   
 
 ## Place In The Workflow 
 
@@ -45,22 +45,22 @@ Every *didli* in the corpus gave **4 rows**.
     |AŠ.AŠ|  →  AŠ + AŠ   (2 rows per token)
 
 **Nothing is lost.**     
-The column `same_components_in_all_entries` shows whether all entries give the same components. It is `yes` in **all 40** rows, so taking the first entry is safe.
+The column `same_components_in_all_entries` shows whether all entries give the same components. It is `yes` in **all 38** rows, so taking the first entry is safe.
 
 ## Size And Effect On The Corpus
 
-**40** compounds are listed several times in OSL.    
-**18** occur in the corpus, with **935** tokens (41 in school texts).     
-About **2,377 superfluous rows** disappear from `grapheme.csv`.      
-The most frequent: |AŠ.AŠ| (283, *didli*), |ŠE.NAGA| (215), |ZI&ZI.LAGAB| (134), |ANŠE.ARAD| (69).     
+**38** compounds are listed several times in OSL.    
+**16** occur in the corpus, with **1,903** tokens (66 in school texts).     
+About **4,300 superfluous rows** no longer appear in `grapheme.csv`.      
+The most frequent: |PA.LU| (1,040, *sipa*), |AŠ.AŠ| (283, *didli*), |ŠE.NAGA| (215), |ZI&ZI.LAGAB| (134), |ANŠE.ARAD| (68).     
 The expert only confirms (`CONFIRM`).    
 
 ## Size And Effect On The Corpus
 
-40 forms.   
-18 in the corpus    
-935 tokens.    
-About 2,377 superfluous rows disappear from `grapheme.csv`.
+38 forms.   
+16 in the corpus    
+1,903 tokens.    
+About 4,300 superfluous rows no longer appear in `grapheme.csv`.
 
 ## Which Rows To Check (Scope)
 
@@ -96,11 +96,11 @@ Only the empty columns at the right end (`decision`, …, `comment`) are filled 
 
 | compound_form | entries | components_before | components_after | tokens_in_OB_corpus |
 |---|---|---|---|---|
+| \|PA.LU\| | \|PA.LU\| / (sign); \|PA.TUG₂\| / \|PA.LU\| | 4 | 2 | 1,040 |
 | \|AŠ.AŠ\| | \|AN.AŠ.AN\| / \|AŠ.AŠ\|; \|AŠ.AŠ\| / (sign) | 4 | 2 | 283 |
 | \|ŠE.NAGA\| | \|AN.ŠE.NAGA\| / \|ŠE.NAGA\|; NAGA / \|ŠE.NAGA\|; \|ŠE.NAGA\| / (sign) | 6 | 2 | 215 |
 | \|ZI&ZI.LAGAB\| | \|ZI&ZI.EŠ₂\| / \|ZI&ZI.LAGAB\|; \|ZI&ZI.LAGAB\| / (sign) | 4 | 2 | 134 |
-| \|ANŠE.ARAD\| | \|ANŠE.ARAD\| / (sign); \|GIR₃.ARAD\| / \|ANŠE.ARAD\| | 4 | 2 | 69 |
-| \|ZI&ZI\| | \|ZI&ZI.A\| / \|ZI&ZI\|; \|ZI&ZI.LAGAB\| / \|ZI&ZI\| | 4 | 2 | 43 |
+| \|ANŠE.ARAD\| | \|ANŠE.ARAD\| / (sign); \|GIR₃.ARAD\| / \|ANŠE.ARAD\| | 4 | 2 | 68 |
 | \|ZI&ZI.EŠ₂\| | \|A.ZI&ZI\| / \|ZI&ZI.EŠ₂\|; \|ZI&ZI.EŠ₂\| / (sign) | 4 | 2 | 34 |
 
 *These are real rows of the file, not decisions.*

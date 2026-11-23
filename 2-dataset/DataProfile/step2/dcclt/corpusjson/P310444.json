@@ -1,0 +1,293 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:40:03",
+  "textid": "P310444",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P310444.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "type": "surface",
+          "ref": ""
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P310444.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P310444.U2",
+              "label": "1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P310444.1",
+                  "n": "1",
+                  "label": "1"
+                },
+                {
+                  "node": "l",
+                  "frag": "šum₂{sar}",
+                  "id": "P310444.l26ff1",
+                  "ref": "P310444.1.1",
+                  "inst": "šum[garlic]",
+                  "sig": "@dcclt%sux:šum₂{sar}=šum[garlic//garlic]N'N$šum/šum₂{sar}#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "šum₂{sar}",
+                    "gdl": [
+                      {
+                        "v": "šum₂",
+                        "oid": "o0000536",
+                        "gdl_sign": "SUM",
+                        "utf8": "𒋧",
+                        "key": "o0000536..šum₂",
+                        "id": "P310444.1.1.0"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "sar",
+                            "oid": "o0000524",
+                            "gdl_sign": "SAR",
+                            "utf8": "𒊬",
+                            "key": "o0000524..sar",
+                            "id": "P310444.1.1.1"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "šum",
+                    "gw": "garlic",
+                    "sense": "garlic",
+                    "norm0": "šum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "šum₂{sar}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P310444.1.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P310444.1.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P310444.U4",
+              "label": "2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P310444.2",
+                  "n": "2",
+                  "label": "2"
+                },
+                {
+                  "node": "l",
+                  "frag": "šum₂-sikil{sar}",
+                  "id": "P310444.l26ff2",
+                  "ref": "P310444.2.1",
+                  "inst": "šumsikil[an alliaceous vegetable]",
+                  "exosig": "@dcclt%sux:šum₂-sikil{sar}=šumsikil[vegetable//an alliaceous vegetable, onion]N'N$šumsikil/šum₂-sikil{sar}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "šum₂-sikil{sar}",
+                    "gdl": [
+                      {
+                        "v": "šum₂",
+                        "oid": "o0000536",
+                        "gdl_sign": "SUM",
+                        "utf8": "𒋧",
+                        "key": "o0000536..šum₂",
+                        "id": "P310444.2.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "sikil",
+                        "oid": "o0000170",
+                        "gdl_sign": "EL",
+                        "utf8": "𒂖",
+                        "key": "o0000170..sikil",
+                        "id": "P310444.2.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "sar",
+                            "oid": "o0000524",
+                            "gdl_sign": "SAR",
+                            "utf8": "𒊬",
+                            "key": "o0000524..sar",
+                            "id": "P310444.2.1.2"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "šumsikil",
+                    "gw": "vegetable",
+                    "sense": "an alliaceous vegetable, onion",
+                    "norm0": "šumsikil",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "šum₂-sikil{sar}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P310444.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P310444.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P310444.U6",
+              "label": "3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P310444.3",
+                  "n": "3",
+                  "label": "3"
+                },
+                {
+                  "node": "l",
+                  "frag": "šum₂-el-lum{sar}",
+                  "id": "P310444.l26ff3",
+                  "ref": "P310444.3.1",
+                  "inst": "šumelum[an alliaceous vegetable]",
+                  "sig": "@dcclt%sux:šum₂-el-lum{sar}=šumelum[vegetable//an alliaceous vegetable]N'N$šumelum/šum₂-el-lum{sar}#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "šum₂-el-lum{sar}",
+                    "gdl": [
+                      {
+                        "v": "šum₂",
+                        "oid": "o0000536",
+                        "gdl_sign": "SUM",
+                        "utf8": "𒋧",
+                        "key": "o0000536..šum₂",
+                        "id": "P310444.3.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "el",
+                        "oid": "o0000170",
+                        "gdl_sign": "EL",
+                        "utf8": "𒂖",
+                        "key": "o0000170..el",
+                        "id": "P310444.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "lum",
+                        "oid": "o0000438",
+                        "gdl_sign": "LUM",
+                        "utf8": "𒈝",
+                        "key": "o0000438..lum",
+                        "id": "P310444.3.1.2"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "sar",
+                            "oid": "o0000524",
+                            "gdl_sign": "SAR",
+                            "utf8": "𒊬",
+                            "key": "o0000524..sar",
+                            "id": "P310444.3.1.3"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "šumelum",
+                    "gw": "vegetable",
+                    "sense": "an alliaceous vegetable",
+                    "norm0": "šumelum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "šum₂-el-lum{sar}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P310444.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P310444.3.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

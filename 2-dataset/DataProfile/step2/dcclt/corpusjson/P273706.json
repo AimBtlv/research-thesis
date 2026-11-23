@@ -1,0 +1,326 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:39:07",
+  "textid": "P273706",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P273706.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P273706.o.1",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P273706.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P273706.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P273706.2",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[ŋeš]}dilim₂",
+                  "id": "P273706.l1dd3a",
+                  "ref": "P273706.2.1",
+                  "inst": "dilim[spoon]",
+                  "exosig": "@dcclt%sux:{ŋeš}dilim₂=dilim[spoon//spoon]N'N$dilim/{ŋeš}dilim₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}dilim₂",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P273706.2.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P273706.2.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "dilim₂",
+                        "oid": "o0000431",
+                        "gdl_sign": "LIŠ",
+                        "utf8": "𒇺",
+                        "key": "o0000431..dilim₂",
+                        "id": "P273706.2.1.1"
+                      }
+                    ],
+                    "cf": "dilim",
+                    "gw": "spoon",
+                    "sense": "spoon",
+                    "norm0": "dilim",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}dilim₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P273706.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P273706.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P273706.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P273706.3",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[ŋeš]}dilim₂-gal",
+                  "id": "P273706.l1dd3b",
+                  "ref": "P273706.3.1",
+                  "inst": "dilimgal[dish]",
+                  "exosig": "@dcclt%sux:{ŋeš}dilim₂-gal=dilimgal[dish//dish, shallow bowl]N'N$dilimgal/{ŋeš}dilim₂-gal#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}dilim₂-gal",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P273706.3.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P273706.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "dilim₂",
+                        "oid": "o0000431",
+                        "gdl_sign": "LIŠ",
+                        "utf8": "𒇺",
+                        "key": "o0000431..dilim₂",
+                        "id": "P273706.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gal",
+                        "oid": "o0000194",
+                        "gdl_sign": "GAL",
+                        "utf8": "𒃲",
+                        "key": "o0000194..gal",
+                        "id": "P273706.3.1.2"
+                      }
+                    ],
+                    "cf": "dilimgal",
+                    "gw": "dish",
+                    "sense": "dish, shallow bowl",
+                    "norm0": "dilimgal",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}dilim₂-gal",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P273706.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P273706.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P273706.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P273706.4",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{⸢ŋeš⸣}ma-al-tum₂",
+                  "id": "P273706.l1dd3c",
+                  "ref": "P273706.4.1",
+                  "inst": "maltum[bowl]N",
+                  "exosig": "@dcclt%sux:{ŋeš}ma-al-tum₂=maltum[bowl//a bowl]N'N$maltum/{ŋeš}ma-al-tum₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}ma-al-tum₂",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P273706.4.1.0",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "ma",
+                        "oid": "o0000444",
+                        "gdl_sign": "MA",
+                        "utf8": "𒈠",
+                        "key": "o0000444..ma",
+                        "id": "P273706.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "al",
+                        "oid": "o0000094",
+                        "gdl_sign": "AL",
+                        "utf8": "𒀠",
+                        "key": "o0000094..al",
+                        "id": "P273706.4.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tum₂",
+                        "oid": "o0000149",
+                        "gdl_sign": "DU",
+                        "utf8": "𒁺",
+                        "key": "o0000149..tum₂",
+                        "id": "P273706.4.1.3"
+                      }
+                    ],
+                    "cf": "maltum",
+                    "gw": "bowl",
+                    "sense": "a bowl",
+                    "norm0": "maltum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}ma-al-tum₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P273706.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P273706.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P273706.r.5",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P273706.6",
+                  "strict": "0",
+                  "extent": "0",
+                  "scope": "obverse",
+                  "state": "other"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

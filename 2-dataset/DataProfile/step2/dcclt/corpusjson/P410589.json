@@ -1,0 +1,493 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:34",
+  "textid": "P410589",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P410589.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P410589.x75.1",
+          "label": "x75"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P410589.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P410589.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P410589.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410589.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢tiru⸣",
+                  "id": "P410589.l06f6d",
+                  "ref": "P410589.3.1",
+                  "inst": "tiru[courtier]N",
+                  "exosig": "@dcclt%sux:tiru=tiru[courtier//courtier]N'N$tiru/tiru#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tiru",
+                    "gdl": [
+                      {
+                        "v": "tiru",
+                        "oid": "o0001208",
+                        "gdl_sign": "|GAL.TE|",
+                        "utf8": "𒃲𒋼",
+                        "key": "o0001208..tiru",
+                        "id": "P410589.3.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "tiru",
+                    "gw": "courtier",
+                    "sense": "courtier",
+                    "norm0": "tiru",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "tiru",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410589.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410589.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410589.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410589.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "sukkalgalₓ(|GAL.LUH|)",
+                  "id": "P410589.l06f6e",
+                  "ref": "P410589.4.1",
+                  "inst": "sukkalgal[an official]",
+                  "exosig": "@dcclt%sux:sukkalgalₓ(|GAL.LUH|)=sukkalgal[official//an official]N'N$sukkalgal/sukkalgalₓ(|GAL.LUH|)#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "sukkalgalₓ(|GAL.LUH|)",
+                    "gdl": [
+                      {
+                        "q": "sukkalgalₓ(|GAL.LUH|)",
+                        "oid": "o0001203",
+                        "gdl_sign": "|GAL.LUH|",
+                        "utf8": "𒃲𒈛",
+                        "id": "P410589.4.1.0",
+                        "qualified": [
+                          {
+                            "v": "sukkalgalₓ",
+                            "oid": ""
+                          },
+                          {
+                            "c": "|GAL.LUH|",
+                            "oid": "o0001203",
+                            "gdl_sign": "|GAL.LUH|",
+                            "utf8": "𒃲𒈛",
+                            "seq": [
+                              {
+                                "s": "GAL",
+                                "oid": "o0000194",
+                                "gdl_sign": "GAL"
+                              },
+                              {
+                                "o": "beside"
+                              },
+                              {
+                                "s": "LUH",
+                                "oid": "o0000436",
+                                "gdl_sign": "LUH"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "sukkalgal",
+                    "gw": "official",
+                    "sense": "an official",
+                    "norm0": "sukkalgal",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "sukkalgalₓ(|GAL.LUH|)",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410589.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410589.4.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410589.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410589.5",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "GADA-⸢LUH⸣",
+                  "id": "P410589.l06f6f",
+                  "ref": "P410589.5.1",
+                  "inst": "X",
+                  "f": {
+                    "lang": "sux",
+                    "form": "GADA-LUH",
+                    "gdl": [
+                      {
+                        "s": "GADA",
+                        "oid": "o0000193",
+                        "gdl_sign": "GAD",
+                        "utf8": "𒃰",
+                        "key": "o0000193..",
+                        "id": "P410589.5.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "LUH",
+                        "oid": "o0000436",
+                        "gdl_sign": "LUH",
+                        "utf8": "𒈛",
+                        "key": "o0000436..",
+                        "id": "P410589.5.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "pos": "X"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410589.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410589.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P410589.r.6",
+                  "label": "r"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410589.U8",
+              "label": "r 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410589.7",
+                  "n": "1",
+                  "label": "r 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "tiru",
+                  "id": "P410589.l06f70",
+                  "ref": "P410589.7.1",
+                  "inst": "tiru[courtier]N",
+                  "exosig": "@dcclt%sux:tiru=tiru[courtier//courtier]N'N$tiru/tiru#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tiru",
+                    "gdl": [
+                      {
+                        "v": "tiru",
+                        "oid": "o0001208",
+                        "gdl_sign": "|GAL.TE|",
+                        "utf8": "𒃲𒋼",
+                        "key": "o0001208..tiru",
+                        "id": "P410589.7.1.0"
+                      }
+                    ],
+                    "cf": "tiru",
+                    "gw": "courtier",
+                    "sense": "courtier",
+                    "norm0": "tiru",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "tiru",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410589.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410589.7.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410589.U10",
+              "label": "r 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410589.8",
+                  "n": "2",
+                  "label": "r 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "sukkalgalₓ(|GAL.LUH|)",
+                  "id": "P410589.l06f71",
+                  "ref": "P410589.8.1",
+                  "inst": "sukkalgal[an official]",
+                  "exosig": "@dcclt%sux:sukkalgalₓ(|GAL.LUH|)=sukkalgal[official//an official]N'N$sukkalgal/sukkalgalₓ(|GAL.LUH|)#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "sukkalgalₓ(|GAL.LUH|)",
+                    "gdl": [
+                      {
+                        "q": "sukkalgalₓ(|GAL.LUH|)",
+                        "oid": "o0001203",
+                        "gdl_sign": "|GAL.LUH|",
+                        "utf8": "𒃲𒈛",
+                        "id": "P410589.8.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1",
+                        "qualified": [
+                          {
+                            "v": "sukkalgalₓ",
+                            "oid": ""
+                          },
+                          {
+                            "c": "|GAL.LUH|",
+                            "oid": "o0001203",
+                            "gdl_sign": "|GAL.LUH|",
+                            "utf8": "𒃲𒈛",
+                            "seq": [
+                              {
+                                "s": "GAL",
+                                "oid": "o0000194",
+                                "gdl_sign": "GAL"
+                              },
+                              {
+                                "o": "beside"
+                              },
+                              {
+                                "s": "LUH",
+                                "oid": "o0000436",
+                                "gdl_sign": "LUH"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "sukkalgal",
+                    "gw": "official",
+                    "sense": "an official",
+                    "norm0": "sukkalgal",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "sukkalgalₓ(|GAL.LUH|)",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410589.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410589.8.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410589.U12",
+              "label": "r 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410589.9",
+                  "n": "3",
+                  "label": "r 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "GADA-⸢LUH⸣",
+                  "id": "P410589.l06f72",
+                  "ref": "P410589.9.1",
+                  "inst": "X",
+                  "f": {
+                    "lang": "sux",
+                    "form": "GADA-LUH",
+                    "gdl": [
+                      {
+                        "s": "GADA",
+                        "oid": "o0000193",
+                        "gdl_sign": "GAD",
+                        "utf8": "𒃰",
+                        "key": "o0000193..",
+                        "id": "P410589.9.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "LUH",
+                        "oid": "o0000436",
+                        "gdl_sign": "LUH",
+                        "utf8": "𒈛",
+                        "key": "o0000436..",
+                        "id": "P410589.9.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "pos": "X"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410589.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410589.9.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

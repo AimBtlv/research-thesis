@@ -1,0 +1,281 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:42:40",
+  "textid": "P369715",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P369715.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P369715.o.1",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P369715.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P369715.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P369715.2",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "tum₁₂{mušen}",
+                  "id": "P369715.l1db3b",
+                  "ref": "P369715.2.1",
+                  "inst": "tum[wild dove]",
+                  "exosig": "@dcclt%sux:tum₁₂{mušen}=tum[dove//wild dove]N'N$tum/tum₁₂{mušen}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tum₁₂{mušen}",
+                    "gdl": [
+                      {
+                        "v": "tum₁₂",
+                        "oid": "o0000556",
+                        "gdl_sign": "TU",
+                        "utf8": "𒌅",
+                        "key": "o0000556..tum₁₂",
+                        "id": "P369715.2.1.0"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "mušen",
+                            "oid": "o0000239",
+                            "gdl_sign": "HU",
+                            "utf8": "𒄷",
+                            "key": "o0000239..mušen",
+                            "id": "P369715.2.1.1"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "tum",
+                    "gw": "dove",
+                    "sense": "wild dove",
+                    "norm0": "tum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "tum₁₂{mušen}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P369715.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P369715.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P369715.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P369715.3",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "tum₁₂-gur₄{mušen}",
+                  "id": "P369715.l1db3c",
+                  "ref": "P369715.3.1",
+                  "inst": "tumgur[domesticated dove]",
+                  "exosig": "@dcclt%sux:tum₁₂-gur₄{mušen}=tumgur[bird//a domesticated dove]N'N$tumgur/tum₁₂-gur₄{mušen}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tum₁₂-gur₄{mušen}",
+                    "gdl": [
+                      {
+                        "v": "tum₁₂",
+                        "oid": "o0000556",
+                        "gdl_sign": "TU",
+                        "utf8": "𒌅",
+                        "key": "o0000556..tum₁₂",
+                        "id": "P369715.3.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gur₄",
+                        "oid": "o0000306",
+                        "gdl_sign": "LAGAB",
+                        "utf8": "𒆸",
+                        "key": "o0000306..gur₄",
+                        "id": "P369715.3.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "mušen",
+                            "oid": "o0000239",
+                            "gdl_sign": "HU",
+                            "utf8": "𒄷",
+                            "key": "o0000239..mušen",
+                            "id": "P369715.3.1.2"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "tumgur",
+                    "gw": "bird",
+                    "sense": "a domesticated dove",
+                    "norm0": "tumgur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "tum₁₂-gur₄{mušen}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P369715.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P369715.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P369715.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P369715.4",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "nim{mušen}",
+                  "id": "P369715.l1db3d",
+                  "ref": "P369715.4.1",
+                  "inst": "nim[fly]",
+                  "exosig": "@dcclt%sux:nim{mušen}=nim[fly//fly, insect]N'N$nim/nim{mušen}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "nim{mušen}",
+                    "gdl": [
+                      {
+                        "v": "nim",
+                        "oid": "o0000482",
+                        "gdl_sign": "NIM",
+                        "utf8": "𒉏",
+                        "key": "o0000482..nim",
+                        "id": "P369715.4.1.0"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "mušen",
+                            "oid": "o0000239",
+                            "gdl_sign": "HU",
+                            "utf8": "𒄷",
+                            "key": "o0000239..mušen",
+                            "id": "P369715.4.1.1"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "nim",
+                    "gw": "fly",
+                    "sense": "fly, insect",
+                    "norm0": "nim",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "nim{mušen}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P369715.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P369715.4.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

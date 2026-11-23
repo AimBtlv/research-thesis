@@ -1,0 +1,156 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:40:22",
+  "textid": "P332856",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P332856.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P332856.x753.1",
+          "label": "x753"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse?",
+          "type": "surface",
+          "ref": "P332856.o_.2",
+          "queried": "1",
+          "label": "o?"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P332856.3",
+          "strict": "1",
+          "extent": "n",
+          "scope": "column",
+          "state": "missing"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1o?",
+          "type": "column",
+          "ref": "P332856.o_.i.4",
+          "n": "1",
+          "label": "o? i"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P332856.5",
+          "strict": "1",
+          "extent": "n",
+          "scope": "line",
+          "state": "missing"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P332856.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P332856.U2",
+              "label": "o? i 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332856.6",
+                  "n": "1",
+                  "label": "o? i 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "[...]-ZU",
+                  "id": "P332856.l1b6b0",
+                  "ref": "P332856.6.1",
+                  "inst": "%sux:x-ZU=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "x-ZU",
+                    "gdl": [
+                      {
+                        "x": "ellipsis",
+                        "id": "P332856.6.1.0",
+                        "breakStart": "1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332856.6.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "ZU",
+                        "oid": "o0000614",
+                        "gdl_sign": "ZU",
+                        "utf8": "𒍪",
+                        "key": "o0000614..",
+                        "id": "P332856.6.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332856.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332856.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P332856.7",
+                  "strict": "1",
+                  "extent": "3",
+                  "scope": "line",
+                  "state": "traces"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P332856.8",
+                  "strict": "1",
+                  "extent": "rest",
+                  "scope": "column",
+                  "state": "missing"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P332856.9",
+                  "strict": "1",
+                  "extent": "rest",
+                  "scope": "line",
+                  "state": "missing"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

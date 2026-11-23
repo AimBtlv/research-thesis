@@ -1,0 +1,965 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:23",
+  "textid": "P409565",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P409565.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P409565.o.1",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P409565.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P409565.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.2",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "kaš₄-kaš₄{ku₆}",
+                  "id": "P409565.l272a8",
+                  "ref": "P409565.2.1",
+                  "inst": "kaškaš[fish]",
+                  "exosig": "@dcclt%sux:kaš₄-kaš₄{ku₆}=kaškaš[fish//a fish]N'N$kaškaš/kaš₄-kaš₄{ku₆}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "kaš₄-kaš₄{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "kaš₄",
+                        "oid": "o0000152",
+                        "gdl_sign": "DU@s",
+                        "utf8": "𒁽",
+                        "key": "o0000152..kaš₄",
+                        "id": "P409565.2.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kaš₄",
+                        "oid": "o0000152",
+                        "gdl_sign": "DU@s",
+                        "utf8": "𒁽",
+                        "key": "o0000152..kaš₄",
+                        "id": "P409565.2.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.2.1.2"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "kaškaš",
+                    "gw": "fish",
+                    "sense": "a fish",
+                    "norm0": "kaškaš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "kaš₄-kaš₄{ku₆}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.3",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}nin-a-tu{ku₆}",
+                  "id": "P409565.l272a9",
+                  "ref": "P409565.3.1",
+                  "inst": "ninatu[fish]N",
+                  "sig": "@dcclt%sux:{d}nin-a-tu{ku₆}=ninatu[fish//fish]N'N$ninatu/{d}nin-a-tu{ku₆}#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}nin-a-tu{ku₆}",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P409565.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nin",
+                        "oid": "o0002323",
+                        "gdl_sign": "|SAL.TUG₂|",
+                        "utf8": "𒎏",
+                        "key": "o0002323..nin",
+                        "id": "P409565.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P409565.3.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tu",
+                        "oid": "o0000556",
+                        "gdl_sign": "TU",
+                        "utf8": "𒌅",
+                        "key": "o0000556..tu",
+                        "id": "P409565.3.1.3"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.3.1.4"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "ninatu",
+                    "gw": "fish",
+                    "sense": "fish",
+                    "norm0": "ninatu",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{d}nin-a-tu{ku₆}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.4",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "šu-a-tag-ga{ku₆}",
+                  "id": "P409565.l272aa",
+                  "ref": "P409565.4.1",
+                  "inst": "šuʾataga[fish]N",
+                  "sig": "@dcclt%sux:šu-a-tag-ga{ku₆}=šuʾataga[fish//fish]N'N$šuʾataga/šu-a-tag-ga{ku₆}#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "šu-a-tag-ga{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "šu",
+                        "oid": "o0002845",
+                        "gdl_sign": "ŠU",
+                        "utf8": "𒋗",
+                        "key": "o0002845..šu",
+                        "id": "P409565.4.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P409565.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tag",
+                        "oid": "o0000546",
+                        "gdl_sign": "TAG",
+                        "utf8": "𒋳",
+                        "key": "o0000546..tag",
+                        "id": "P409565.4.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ga",
+                        "oid": "o0000187",
+                        "gdl_sign": "GA",
+                        "utf8": "𒂵",
+                        "key": "o0000187..ga",
+                        "id": "P409565.4.1.3"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.4.1.4"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "šuʾataga",
+                    "gw": "fish",
+                    "sense": "fish",
+                    "norm0": "šuʾataga",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "šu-a-tag-ga{ku₆}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.4.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U8",
+              "label": "o 4",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.5",
+                  "n": "4",
+                  "label": "o 4"
+                },
+                {
+                  "node": "l",
+                  "frag": "SAL-SAL{ku₆}",
+                  "id": "P409565.l272ab",
+                  "ref": "P409565.5.1",
+                  "inst": "SAL.SAL[fish]",
+                  "exosig": "@dcclt%sux:SAL-SAL{ku₆}=SAL.SAL[fish//a fish]N'N$SAL.SAL/SAL-SAL{ku₆}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "SAL-SAL{ku₆}",
+                    "gdl": [
+                      {
+                        "s": "SAL",
+                        "oid": "o0000522",
+                        "gdl_sign": "SAL",
+                        "utf8": "𒊩",
+                        "key": "o0000522..",
+                        "id": "P409565.5.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "SAL",
+                        "oid": "o0000522",
+                        "gdl_sign": "SAL",
+                        "utf8": "𒊩",
+                        "key": "o0000522..",
+                        "id": "P409565.5.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.5.1.2"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "SAL.SAL",
+                    "gw": "fish",
+                    "sense": "a fish",
+                    "norm0": "SAL.SAL",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "SAL-SAL{ku₆}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.5.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U10",
+              "label": "o 5",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.6",
+                  "n": "5",
+                  "label": "o 5"
+                },
+                {
+                  "node": "l",
+                  "frag": "kar-kid{ku₆}",
+                  "id": "P409565.l272ac",
+                  "ref": "P409565.6.1",
+                  "inst": "karkid[fish]",
+                  "sig": "@dcclt%sux:kar-kid{ku₆}=karkid[bird//a fish]N'N$karkid/kar-kid{ku₆}#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "kar-kid{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "kar",
+                        "oid": "o0002412",
+                        "gdl_sign": "|TE.A|",
+                        "utf8": "𒋼𒀀",
+                        "key": "o0002412..kar",
+                        "id": "P409565.6.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kid",
+                        "oid": "o0000281",
+                        "gdl_sign": "KID",
+                        "utf8": "𒆤",
+                        "key": "o0000281..kid",
+                        "id": "P409565.6.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.6.1.2"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "karkid",
+                    "gw": "bird",
+                    "sense": "a fish",
+                    "norm0": "karkid",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "kar-kid{ku₆}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P409565.r.7",
+                  "label": "r"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U12",
+              "label": "r 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.8",
+                  "n": "1",
+                  "label": "r 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "kaš₄-⸢kaš₄⸣{ku₆}",
+                  "id": "P409565.l272ad",
+                  "ref": "P409565.8.1",
+                  "inst": "%sux:kaš₄-kaš₄{ku₆}=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "kaš₄-kaš₄{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "kaš₄",
+                        "oid": "o0000152",
+                        "gdl_sign": "DU@s",
+                        "utf8": "𒁽",
+                        "key": "o0000152..kaš₄",
+                        "id": "P409565.8.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kaš₄",
+                        "oid": "o0000152",
+                        "gdl_sign": "DU@s",
+                        "utf8": "𒁽",
+                        "key": "o0000152..kaš₄",
+                        "id": "P409565.8.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.8.1.2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.8.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U14",
+              "label": "r 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.9",
+                  "n": "2",
+                  "label": "r 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}⸢nin⸣-[a-tu]{ku₆}",
+                  "id": "P409565.l272ae",
+                  "ref": "P409565.9.1",
+                  "inst": "%sux:{d}nin-a-tu{ku₆}=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}nin-a-tu{ku₆}",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P409565.9.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nin",
+                        "oid": "o0002323",
+                        "gdl_sign": "|SAL.TUG₂|",
+                        "utf8": "𒎏",
+                        "key": "o0002323..nin",
+                        "id": "P409565.9.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P409565.9.1.2",
+                        "breakStart": "1",
+                        "o": "[",
+                        "break": "missing",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tu",
+                        "oid": "o0000556",
+                        "gdl_sign": "TU",
+                        "utf8": "𒌅",
+                        "key": "o0000556..tu",
+                        "id": "P409565.9.1.3",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P409565.9.1.2"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.9.1.4"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.9.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U16",
+              "label": "r 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.10",
+                  "n": "3",
+                  "label": "r 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢šu⸣-[a-tag-ga]{ku₆}",
+                  "id": "P409565.l272af",
+                  "ref": "P409565.10.1",
+                  "inst": "%sux:šu-a-tag-ga{ku₆}=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "šu-a-tag-ga{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "šu",
+                        "oid": "o0002845",
+                        "gdl_sign": "ŠU",
+                        "utf8": "𒋗",
+                        "key": "o0002845..šu",
+                        "id": "P409565.10.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P409565.10.1.1",
+                        "breakStart": "1",
+                        "o": "[",
+                        "break": "missing",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tag",
+                        "oid": "o0000546",
+                        "gdl_sign": "TAG",
+                        "utf8": "𒋳",
+                        "key": "o0000546..tag",
+                        "id": "P409565.10.1.2",
+                        "break": "missing",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ga",
+                        "oid": "o0000187",
+                        "gdl_sign": "GA",
+                        "utf8": "𒂵",
+                        "key": "o0000187..ga",
+                        "id": "P409565.10.1.3",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P409565.10.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.10.1.4"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.10.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.10.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U18",
+              "label": "r 4",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.11",
+                  "n": "4",
+                  "label": "r 4"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢SAL⸣-[SAL]{ku₆}",
+                  "id": "P409565.l272b0",
+                  "ref": "P409565.11.1",
+                  "inst": "%sux:SAL-SAL{ku₆}=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "SAL-SAL{ku₆}",
+                    "gdl": [
+                      {
+                        "s": "SAL",
+                        "oid": "o0000522",
+                        "gdl_sign": "SAL",
+                        "utf8": "𒊩",
+                        "key": "o0000522..",
+                        "id": "P409565.11.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "s": "SAL",
+                        "oid": "o0000522",
+                        "gdl_sign": "SAL",
+                        "utf8": "𒊩",
+                        "key": "o0000522..",
+                        "id": "P409565.11.1.1",
+                        "breakStart": "1",
+                        "o": "]",
+                        "break": "missing",
+                        "breakEnd": "P409565.11.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.11.1.2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.11.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.11.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409565.U20",
+              "label": "r 5",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409565.12",
+                  "n": "5",
+                  "label": "r 5"
+                },
+                {
+                  "node": "l",
+                  "frag": "kar-kid{ku₆}",
+                  "id": "P409565.l272b1",
+                  "ref": "P409565.12.1",
+                  "inst": "%sux:kar-kid{ku₆}=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "kar-kid{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "kar",
+                        "oid": "o0002412",
+                        "gdl_sign": "|TE.A|",
+                        "utf8": "𒋼𒀀",
+                        "key": "o0002412..kar",
+                        "id": "P409565.12.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kid",
+                        "oid": "o0000281",
+                        "gdl_sign": "KID",
+                        "utf8": "𒆤",
+                        "key": "o0000281..kid",
+                        "id": "P409565.12.1.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P409565.12.1.2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409565.12.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409565.12.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

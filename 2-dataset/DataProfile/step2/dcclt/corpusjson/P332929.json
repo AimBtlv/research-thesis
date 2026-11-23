@@ -1,0 +1,2625 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:40:40",
+  "textid": "P332929",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P332929.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P332929.x1382.1",
+          "label": "x1382"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P332929.o.2",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P332929.3",
+          "strict": "1",
+          "extent": "1",
+          "scope": "line",
+          "state": "traces"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P332929.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P332929.U2",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}gug]",
+                  "id": "P332929.l2740d",
+                  "ref": "P332929.4.1",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:{na₄}gug=gug[carnelian//carnelian]N'N$gug/{na₄}gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}gug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.4.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.4.1.1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.4.1.0"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "me-luh-ha",
+                  "id": "P332929.l2740e",
+                  "ref": "P332929.4.2",
+                  "inst": "Meluhha[1]",
+                  "exosig": "@dcclt%sux:me-luh-ha=Meluhha[1//1]GN'GN$Meluhha/me-luh-ha#~",
+                  "exoprj": "epsd2/names",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "me-luh-ha",
+                    "gdl": [
+                      {
+                        "v": "me",
+                        "oid": "o0000453",
+                        "gdl_sign": "ME",
+                        "utf8": "𒈨",
+                        "key": "o0000453..me",
+                        "id": "P332929.4.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "luh",
+                        "oid": "o0000436",
+                        "gdl_sign": "LUH",
+                        "utf8": "𒈛",
+                        "key": "o0000436..luh",
+                        "id": "P332929.4.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ha",
+                        "oid": "o0000232",
+                        "gdl_sign": "HA",
+                        "utf8": "𒄩",
+                        "key": "o0000232..ha",
+                        "id": "P332929.4.2.2"
+                      }
+                    ],
+                    "cf": "Meluhha",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Meluhha",
+                    "pos": "GN",
+                    "epos": "GN",
+                    "base": "me-luh-ha",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.4.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.4.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U4",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.5",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}gug]",
+                  "id": "P332929.l2740f",
+                  "ref": "P332929.5.1",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:{na₄}gug=gug[carnelian//carnelian]N'N$gug/{na₄}gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}gug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.5.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.5.1.1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.5.1.0"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gid₂-da",
+                  "id": "P332929.l27410",
+                  "ref": "P332929.5.2",
+                  "inst": "gid[long]",
+                  "exosig": "@dcclt%sux:gid₂-da=gid[long//(to be) long]V/i'V/i$gid;a/gid₂+-da=d.a#~;a",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gid₂-da",
+                    "gdl": [
+                      {
+                        "v": "gid₂",
+                        "oid": "o0000124",
+                        "gdl_sign": "BU",
+                        "utf8": "𒁍",
+                        "key": "o0000124..gid₂",
+                        "id": "P332929.5.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "da",
+                        "oid": "o0000132",
+                        "gdl_sign": "DA",
+                        "utf8": "𒁕",
+                        "key": "o0000132..da",
+                        "id": "P332929.5.2.1"
+                      }
+                    ],
+                    "cf": "gid",
+                    "gw": "long",
+                    "sense": "(to be) long",
+                    "norm0": "gid;a",
+                    "pos": "V/i",
+                    "epos": "V/i",
+                    "base": "gid₂",
+                    "cont": "-da=d.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.5.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.5.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U6",
+              "label": "o 4",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.6",
+                  "n": "4",
+                  "label": "o 4"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}gug]",
+                  "id": "P332929.l27411",
+                  "ref": "P332929.6.1",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:{na₄}gug=gug[carnelian//carnelian]N'N$gug/{na₄}gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}gug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.6.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.6.1.1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.6.1.0"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "lugud₂-<<gid₂>>-da",
+                  "id": "P332929.l27412",
+                  "ref": "P332929.6.2",
+                  "inst": "lugud[short]",
+                  "exosig": "@dcclt%sux:lugud₂-da=lugud[short//(to be) short]V/i'V/i$lugud;a/lugud₂+-da=d.a#~;a",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "lugud₂-da",
+                    "gdl": [
+                      {
+                        "v": "lugud₂",
+                        "oid": "o0000306",
+                        "gdl_sign": "LAGAB",
+                        "utf8": "𒆸",
+                        "key": "o0000306..lugud₂",
+                        "id": "P332929.6.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gid₂",
+                        "oid": "o0000124",
+                        "gdl_sign": "BU",
+                        "utf8": "𒁍",
+                        "key": "o0000124..gid₂",
+                        "id": "P332929.6.2.1",
+                        "statusStart": "P332929.6.2.1",
+                        "o": ">>",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "da",
+                        "oid": "o0000132",
+                        "gdl_sign": "DA",
+                        "utf8": "𒁕",
+                        "key": "o0000132..da",
+                        "id": "P332929.6.2.2"
+                      }
+                    ],
+                    "cf": "lugud",
+                    "gw": "short",
+                    "sense": "(to be) short",
+                    "norm0": "lugud;a",
+                    "pos": "V/i",
+                    "epos": "V/i",
+                    "base": "lugud₂",
+                    "cont": "-da=d.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.6.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.6.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U8",
+              "label": "o 5",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.7",
+                  "n": "5",
+                  "label": "o 5"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}gug]",
+                  "id": "P332929.l27413",
+                  "ref": "P332929.7.1",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:{na₄}gug=gug[carnelian//carnelian]N'N$gug/{na₄}gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}gug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.7.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.7.1.1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.7.1.0"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.7.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gurum-ma",
+                  "id": "P332929.l27414",
+                  "ref": "P332929.7.2",
+                  "inst": "gurum[bend]",
+                  "exosig": "@dcclt%sux:gurum-ma=gurum[bend//to bend, curve, wrap around]V/t'V/t$gurum;a/gurum+-ma=m.a#~;a",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gurum-ma",
+                    "gdl": [
+                      {
+                        "v": "gurum",
+                        "oid": "o0000196",
+                        "gdl_sign": "GAM",
+                        "utf8": "𒃵",
+                        "key": "o0000196..gurum",
+                        "id": "P332929.7.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ma",
+                        "oid": "o0000444",
+                        "gdl_sign": "MA",
+                        "utf8": "𒈠",
+                        "key": "o0000444..ma",
+                        "id": "P332929.7.2.1"
+                      }
+                    ],
+                    "cf": "gurum",
+                    "gw": "bend",
+                    "sense": "to bend, curve, wrap around",
+                    "norm0": "gurum;a",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "gurum",
+                    "cont": "-ma=m.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.7.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.7.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U10",
+              "label": "o 6",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.8",
+                  "n": "6",
+                  "label": "o 6"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}⸢gug⸣",
+                  "id": "P332929.l27415",
+                  "ref": "P332929.8.1",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:{na₄}gug=gug[carnelian//carnelian]N'N$gug/{na₄}gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}gug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.8.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.8.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.8.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.8.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "LAGAB",
+                  "id": "P332929.l27416",
+                  "ref": "P332929.8.2",
+                  "inst": "u",
+                  "f": {
+                    "lang": "sux",
+                    "form": "LAGAB",
+                    "gdl": [
+                      {
+                        "s": "LAGAB",
+                        "oid": "o0000306",
+                        "gdl_sign": "LAGAB",
+                        "utf8": "𒆸",
+                        "key": "o0000306..",
+                        "id": "P332929.8.2.0"
+                      }
+                    ],
+                    "pos": "u"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.8.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.8.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U12",
+              "label": "o 7",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.9",
+                  "n": "7",
+                  "label": "o 7"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}gug",
+                  "id": "P332929.l27417",
+                  "ref": "P332929.9.1",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:{na₄}gug=gug[carnelian//carnelian]N'N$gug/{na₄}gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}gug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.9.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.9.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.9.1.1"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.9.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "SI-KAK",
+                  "id": "P332929.l27418",
+                  "ref": "P332929.9.2",
+                  "inst": "X",
+                  "f": {
+                    "lang": "sux",
+                    "form": "SI-KAK",
+                    "gdl": [
+                      {
+                        "s": "SI",
+                        "oid": "o0000525",
+                        "gdl_sign": "SI",
+                        "utf8": "𒋛",
+                        "key": "o0000525..",
+                        "id": "P332929.9.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "KAK",
+                        "oid": "o0000269",
+                        "gdl_sign": "KAK",
+                        "utf8": "𒆕",
+                        "key": "o0000269..",
+                        "id": "P332929.9.2.1"
+                      }
+                    ],
+                    "pos": "X"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.9.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.9.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U14",
+              "label": "o 8",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.10",
+                  "n": "8",
+                  "label": "o 8"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}kišib",
+                  "id": "P332929.l27419",
+                  "ref": "P332929.10.1",
+                  "inst": "kišib[cylinder seal]",
+                  "exosig": "@dcclt%sux:{na₄}kišib=kišib[seal//cylinder seal]N'N$kišib/{na₄}kišib#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}kišib",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.10.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.10.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "kišib",
+                        "oid": "o0000454",
+                        "gdl_sign": "MES",
+                        "utf8": "𒈩",
+                        "key": "o0000454..kišib",
+                        "id": "P332929.10.1.1"
+                      }
+                    ],
+                    "cf": "kišib",
+                    "gw": "seal",
+                    "sense": "cylinder seal",
+                    "norm0": "kišib",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}kišib",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.10.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.10.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gug",
+                  "id": "P332929.l2741a",
+                  "ref": "P332929.10.2",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:gug=gug[carnelian//carnelian]N'N$gug/gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gug",
+                    "gdl": [
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.10.2.0"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.10.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.10.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U16",
+              "label": "o 9",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.11",
+                  "n": "9",
+                  "label": "o 9"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}lagab",
+                  "id": "P332929.l2741b",
+                  "ref": "P332929.11.1",
+                  "inst": "lagab[block]",
+                  "exosig": "@dcclt%sux:{na₄}lagab=lagab[block//block]N'N$lagab/{na₄}lagab#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}lagab",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.11.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.11.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "lagab",
+                        "oid": "o0000306",
+                        "gdl_sign": "LAGAB",
+                        "utf8": "𒆸",
+                        "key": "o0000306..lagab",
+                        "id": "P332929.11.1.1"
+                      }
+                    ],
+                    "cf": "lagab",
+                    "gw": "block",
+                    "sense": "block",
+                    "norm0": "lagab",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}lagab",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.11.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.11.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gug",
+                  "id": "P332929.l2741c",
+                  "ref": "P332929.11.2",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:gug=gug[carnelian//carnelian]N'N$gug/gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gug",
+                    "gdl": [
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.11.2.0"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.11.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.11.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U18",
+              "label": "o 10",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.12",
+                  "n": "10",
+                  "label": "o 10"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}ellaŋ₂",
+                  "id": "P332929.l2741d",
+                  "ref": "P332929.12.1",
+                  "inst": "ellaŋ[bead]",
+                  "exosig": "@dcclt%sux:{na₄}ellaŋ₂=ellaŋ[bead//bead]N'N$ellaŋ/{na₄}ellaŋ₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}ellaŋ₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.12.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.12.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "ellaŋ₂",
+                        "oid": "o0001464",
+                        "gdl_sign": "|HI×ŠE|",
+                        "utf8": "𒄵",
+                        "key": "o0001464..ellaŋ₂",
+                        "id": "P332929.12.1.1"
+                      }
+                    ],
+                    "cf": "ellaŋ",
+                    "gw": "bead",
+                    "sense": "bead",
+                    "norm0": "ellaŋ",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}ellaŋ₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.12.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.12.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gug",
+                  "id": "P332929.l2741e",
+                  "ref": "P332929.12.2",
+                  "inst": "gug[carnelian]",
+                  "exosig": "@dcclt%sux:gug=gug[carnelian//carnelian]N'N$gug/gug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gug",
+                    "gdl": [
+                      {
+                        "v": "gug",
+                        "oid": "o0002643",
+                        "gdl_sign": "|ZA.GUL|",
+                        "utf8": "𒍝𒄢",
+                        "key": "o0002643..gug",
+                        "id": "P332929.12.2.0"
+                      }
+                    ],
+                    "cf": "gug",
+                    "gw": "carnelian",
+                    "sense": "carnelian",
+                    "norm0": "gug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.12.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.12.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U20",
+              "label": "o 11",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.13",
+                  "n": "11",
+                  "label": "o 11"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}nir₂(|ZA.DUN₃@g|)",
+                  "id": "P332929.l2741f",
+                  "ref": "P332929.13.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂(|ZA.DUN₃@g|)=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂(|ZA.DUN₃@g|)",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.13.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.13.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "q": "nir₂(|ZA.DUN₃@g|)",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "id": "P332929.13.1.1",
+                        "qualified": [
+                          {
+                            "v": "nir₂",
+                            "oid": "o0002642",
+                            "gdl_sign": "|ZA.DUN₃@g|"
+                          },
+                          {
+                            "c": "|ZA.DUN₃@g|",
+                            "oid": "o0002642",
+                            "gdl_sign": "|ZA.DUN₃@g|",
+                            "utf8": "𒍝𒂆",
+                            "seq": [
+                              {
+                                "s": "ZA",
+                                "oid": "o0000603",
+                                "gdl_sign": "ZA"
+                              },
+                              {
+                                "o": "beside"
+                              },
+                              {
+                                "oid": "o0000161",
+                                "gdl_sign": "DUN₃@g",
+                                "form": "DUN₃@g",
+                                "utf8": "𒂆",
+                                "mods": [
+                                  {
+                                    "b": "DUN₃"
+                                  },
+                                  {
+                                    "m": "g"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.13.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.13.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U22",
+              "label": "o 12",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.14",
+                  "n": "12",
+                  "label": "o 12"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}⸢nir₂⸣",
+                  "id": "P332929.l27420",
+                  "ref": "P332929.14.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.14.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.14.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.14.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.14.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.14.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ib₂",
+                  "id": "P332929.l27421",
+                  "ref": "P332929.14.2",
+                  "inst": "ib[hips]",
+                  "exosig": "@dcclt%sux:ib₂=ib[hips//hips]N'N$ib/ib₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ib₂",
+                    "gdl": [
+                      {
+                        "v": "ib₂",
+                        "oid": "o0000559",
+                        "gdl_sign": "TUM",
+                        "utf8": "𒌈",
+                        "key": "o0000559..ib₂",
+                        "id": "P332929.14.2.0"
+                      }
+                    ],
+                    "cf": "ib",
+                    "gw": "hips",
+                    "sense": "hips",
+                    "norm0": "ib",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ib₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.14.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.14.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U24",
+              "label": "o 13",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.15",
+                  "n": "13",
+                  "label": "o 13"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}⸢nir₂⸣",
+                  "id": "P332929.l27422",
+                  "ref": "P332929.15.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.15.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.15.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.15.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.15.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.15.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "igi",
+                  "id": "P332929.l27423",
+                  "ref": "P332929.15.2",
+                  "inst": "igi[eye]",
+                  "sig": "@dcclt%sux:igi=igi[eye//face]N'N$igi/igi#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "igi",
+                    "gdl": [
+                      {
+                        "v": "igi",
+                        "oid": "o0000247",
+                        "gdl_sign": "IGI",
+                        "utf8": "𒅆",
+                        "key": "o0000247..igi",
+                        "id": "P332929.15.2.0"
+                      }
+                    ],
+                    "cf": "igi",
+                    "gw": "eye",
+                    "sense": "face",
+                    "norm0": "igi",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "igi",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.15.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.15.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U26",
+              "label": "o 14",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.16",
+                  "n": "14",
+                  "label": "o 14"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄]}nir₂",
+                  "id": "P332929.l27424",
+                  "ref": "P332929.16.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.16.1.0",
+                            "breakStart": "1",
+                            "o": "]",
+                            "break": "missing",
+                            "breakEnd": "P332929.16.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.16.1.1"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.16.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.16.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "kab",
+                  "id": "P332929.l27425",
+                  "ref": "P332929.16.2",
+                  "inst": "kab[wing of a horse bit]",
+                  "exosig": "@dcclt%sux:kab=kab[nose-rope//wing of a horse bit]N'N$kab/kab#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "kab",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "kab",
+                        "oid": "o0000263",
+                        "gdl_sign": "KAB",
+                        "utf8": "𒆏",
+                        "key": "o0000263..kab",
+                        "id": "P332929.16.2.0"
+                      }
+                    ],
+                    "cf": "kab",
+                    "gw": "nose-rope",
+                    "sense": "wing of a horse bit",
+                    "norm0": "kab",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "kab",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.16.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.16.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "mušen",
+                  "id": "P332929.l27426",
+                  "ref": "P332929.16.3",
+                  "inst": "mušen[bird]",
+                  "sig": "@dcclt%sux:mušen=mušen[bird//bird]N'N$mušen/mušen#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "mušen",
+                    "gdl": [
+                      {
+                        "v": "mušen",
+                        "oid": "o0000239",
+                        "gdl_sign": "HU",
+                        "utf8": "𒄷",
+                        "key": "o0000239..mušen",
+                        "id": "P332929.16.3.0"
+                      }
+                    ],
+                    "cf": "mušen",
+                    "gw": "bird",
+                    "sense": "bird",
+                    "norm0": "mušen",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "mušen",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.16.3"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.16.3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U28",
+              "label": "o 15",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.17",
+                  "n": "15",
+                  "label": "o 15"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}nir₂]",
+                  "id": "P332929.l27427",
+                  "ref": "P332929.17.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.17.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.17.1.1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.17.1.0"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.17.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.17.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢a⸣-la-lum",
+                  "id": "P332929.l27428",
+                  "ref": "P332929.17.2",
+                  "inst": "alalum[object made of agate]",
+                  "exosig": "@dcclt%sux:a-la-lum=alalum[jewelry//object made of agate]N'N$alalum/a-la-lum#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "a-la-lum",
+                    "gdl": [
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P332929.17.2.0",
+                        "break": "damaged",
+                        "queried": "1",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "la",
+                        "oid": "o0000305",
+                        "gdl_sign": "LA",
+                        "utf8": "𒆷",
+                        "key": "o0000305..la",
+                        "id": "P332929.17.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "lum",
+                        "oid": "o0000438",
+                        "gdl_sign": "LUM",
+                        "utf8": "𒈝",
+                        "key": "o0000438..lum",
+                        "id": "P332929.17.2.2"
+                      }
+                    ],
+                    "cf": "alalum",
+                    "gw": "jewelry",
+                    "sense": "object made of agate",
+                    "norm0": "alalum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "a-la-lum",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.17.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.17.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U30",
+              "label": "o 16",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.18",
+                  "n": "16",
+                  "label": "o 16"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}nir₂",
+                  "id": "P332929.l27429",
+                  "ref": "P332929.18.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.18.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.18.1.1",
+                        "break": "missing"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.18.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.18.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ma]-du-lum",
+                  "id": "P332929.l2742a",
+                  "ref": "P332929.18.2",
+                  "inst": "madanum[stone]",
+                  "exosig": "@dcclt%sux:ma-du-lum=madanum[stone//a stone]N'N$madanum/ma-du-lum#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ma-du-lum",
+                    "gdl": [
+                      {
+                        "v": "ma",
+                        "oid": "o0000444",
+                        "gdl_sign": "MA",
+                        "utf8": "𒈠",
+                        "key": "o0000444..ma",
+                        "id": "P332929.18.2.0",
+                        "queried": "1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.18.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "du",
+                        "oid": "o0000149",
+                        "gdl_sign": "DU",
+                        "utf8": "𒁺",
+                        "key": "o0000149..du",
+                        "id": "P332929.18.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "lum",
+                        "oid": "o0000438",
+                        "gdl_sign": "LUM",
+                        "utf8": "𒈝",
+                        "key": "o0000438..lum",
+                        "id": "P332929.18.2.2"
+                      }
+                    ],
+                    "cf": "madanum",
+                    "gw": "stone",
+                    "sense": "a stone",
+                    "norm0": "madanum",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ma-du-lum",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.18.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.18.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U32",
+              "label": "o 17",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.19",
+                  "n": "17",
+                  "label": "o 17"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}nir₂]",
+                  "id": "P332929.l2742b",
+                  "ref": "P332929.19.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.19.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.19.1.1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.19.1.0"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.19.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.19.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢muš⸣-ŋiri₂",
+                  "id": "P332929.l2742c",
+                  "ref": "P332929.19.2",
+                  "inst": "mušŋiri[stone]",
+                  "exosig": "@dcclt%sux:muš-ŋiri₂=mušŋiri[stone//a stone]N'N$mušŋiri/muš-ŋiri₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "muš-ŋiri₂",
+                    "gdl": [
+                      {
+                        "v": "muš",
+                        "oid": "o0000463",
+                        "gdl_sign": "MUŠ",
+                        "utf8": "𒈲",
+                        "key": "o0000463..muš",
+                        "id": "P332929.19.2.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "ŋiri₂",
+                        "oid": "o0000213",
+                        "gdl_sign": "GIR₂",
+                        "utf8": "𒄈",
+                        "key": "o0000213..ŋiri₂",
+                        "id": "P332929.19.2.1"
+                      }
+                    ],
+                    "cf": "mušŋiri",
+                    "gw": "stone",
+                    "sense": "a stone",
+                    "norm0": "mušŋiri",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "muš-ŋiri₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.19.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.19.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U34",
+              "label": "o 18",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.20",
+                  "n": "18",
+                  "label": "o 18"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}nir₂",
+                  "id": "P332929.l2742d",
+                  "ref": "P332929.20.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.20.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.20.1.1",
+                        "break": "missing"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.20.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.20.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "igi]",
+                  "id": "P332929.l2742e",
+                  "ref": "P332929.20.2",
+                  "inst": "igi[eye]",
+                  "sig": "@dcclt%sux:igi=igi[eye//face]N'N$igi/igi#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "igi",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "igi",
+                        "oid": "o0000247",
+                        "gdl_sign": "IGI",
+                        "utf8": "𒅆",
+                        "key": "o0000247..igi",
+                        "id": "P332929.20.2.0",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.20.1.0"
+                      }
+                    ],
+                    "cf": "igi",
+                    "gw": "eye",
+                    "sense": "face",
+                    "norm0": "igi",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "igi",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.20.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.20.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "muš-ŋiri₂",
+                  "id": "P332929.l2742f",
+                  "ref": "P332929.20.3",
+                  "inst": "mušŋiri[stone]",
+                  "exosig": "@dcclt%sux:muš-ŋiri₂=mušŋiri[stone//a stone]N'N$mušŋiri/muš-ŋiri₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "muš-ŋiri₂",
+                    "gdl": [
+                      {
+                        "v": "muš",
+                        "oid": "o0000463",
+                        "gdl_sign": "MUŠ",
+                        "utf8": "𒈲",
+                        "key": "o0000463..muš",
+                        "id": "P332929.20.3.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ŋiri₂",
+                        "oid": "o0000213",
+                        "gdl_sign": "GIR₂",
+                        "utf8": "𒄈",
+                        "key": "o0000213..ŋiri₂",
+                        "id": "P332929.20.3.1"
+                      }
+                    ],
+                    "cf": "mušŋiri",
+                    "gw": "stone",
+                    "sense": "a stone",
+                    "norm0": "mušŋiri",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "muš-ŋiri₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.20.3"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.20.3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332929.U36",
+              "label": "o 19",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332929.21",
+                  "n": "19",
+                  "label": "o 19"
+                },
+                {
+                  "node": "l",
+                  "frag": "{[na₄}nir₂",
+                  "id": "P332929.l27430",
+                  "ref": "P332929.21.1",
+                  "inst": "nir[valuable stone]",
+                  "exosig": "@dcclt%sux:{na₄}nir₂=nir[stone//a valuable stone, banded agate]N'N$nir/{na₄}nir₂#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{na₄}nir₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "na₄",
+                            "oid": "o0002079",
+                            "gdl_sign": "|NI.UD|",
+                            "utf8": "𒎎",
+                            "key": "o0002079..na₄",
+                            "id": "P332929.21.1.0",
+                            "breakStart": "1",
+                            "o": "[",
+                            "break": "missing"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nir₂",
+                        "oid": "o0002642",
+                        "gdl_sign": "|ZA.DUN₃@g|",
+                        "utf8": "𒍝𒂆",
+                        "key": "o0002642..nir₂",
+                        "id": "P332929.21.1.1",
+                        "break": "missing"
+                      }
+                    ],
+                    "cf": "nir",
+                    "gw": "stone",
+                    "sense": "a valuable stone, banded agate",
+                    "norm0": "nir",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{na₄}nir₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.21.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.21.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "babbar]-dili",
+                  "id": "P332929.l27431",
+                  "ref": "P332929.21.2",
+                  "inst": "babbardili[single-striped]",
+                  "exosig": "@dcclt%sux:babbar-dili=babbardili[~stone//single-striped, a qualification of agate]N'N$babbardili/babbar-dili#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "babbar-dili",
+                    "gdl": [
+                      {
+                        "v": "babbar",
+                        "oid": "o0000565",
+                        "gdl_sign": "UD",
+                        "utf8": "𒌓",
+                        "key": "o0000565..babbar",
+                        "id": "P332929.21.2.0",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332929.21.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "dili",
+                        "oid": "o0000106",
+                        "gdl_sign": "AŠ",
+                        "utf8": "𒀸",
+                        "key": "o0000106..dili",
+                        "id": "P332929.21.2.1"
+                      }
+                    ],
+                    "cf": "babbardili",
+                    "gw": "~stone",
+                    "sense": "single-striped, a qualification of agate",
+                    "norm0": "babbardili",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "babbar-dili",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332929.21.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332929.21.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P332929.22",
+                  "strict": "1",
+                  "extent": "2",
+                  "scope": "line",
+                  "state": "traces"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

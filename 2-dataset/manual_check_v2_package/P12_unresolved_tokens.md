@@ -1,8 +1,8 @@
 # P12. Unresolved Tokens 
 *File: `P12_unresolved_tokens.csv`.   
-1265 rows.    
-Check_id `P12-0001`–`P12-1265`.    
-The outputs of 2026-11-14*
+1263 rows.    
+Check_id `P12-0001`–`P12-1263`.    
+The outputs of 2026-11-22*
 
 ## Place In The Workflow
 
@@ -22,7 +22,7 @@ The column `kind_guess` gives a rough first sorting by the form of the token (no
 
 | kind_guess | What it is | Example | Types / tokens |
 |---|---|---|---|
-| READING | reading missing from the catalogue | *tur₃* (357), *gilgameš₂* (94) | 408 / 1,205 |
+| READING | reading missing from the catalogue | *tur₃* (357), *gilgameš₂* (94) | 406 / 1,175 |
 | MARKUP or broken bracket | ATF markup, or a bracket cut apart by a space | `(…)`, `{{%a`, `min(gu` + `za)` | 368 / 1,158 |
 | QUALIFIER reading(SIGN) | a qualified reading whose sign name the parser could not read | *geštuₓ(\|giš+tug₂\|)*, *sukuₓ(sukud)* | 374 / 673 |
 | x-INDEX or SIGN NAME | a reading with the index ₓ, or a sign name | *ginₓ* (109), \|KA×X\| (46) | 112 / 392 |
@@ -44,14 +44,14 @@ makes 07 skip it.
 
 ## Size And Effect On The Corpus
 
-1,265 token types.    
-**3,495** tokens ( **135** in school texts).    
-The 41 rows with ≥ 10 tokens (1,559 tokens, almost half) are mandatory.     
+1,263 token types.    
+**3,465** tokens ( **135** in school texts).    
+The 40 rows with ≥ 10 tokens (1,530 tokens, almost half) are mandatory.     
 For the thesis this answers the open question whether different shares of unresolved tokens distort the comparison: the share is small, but higher in lexical texts.     
 
 ## **Which Rows To Check (Scope)**
 
-Rows with ≥ 10 tokens (41 rows, 1,559 tokens): **mandatory**. The rest: optional.
+Rows with ≥ 10 tokens (40 rows, 1,530 tokens): **mandatory**. The rest: optional.
 
 ## Columns 
 

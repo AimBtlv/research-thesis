@@ -1,0 +1,311 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:23",
+  "textid": "P409566",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P409566.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P409566.x919.1",
+          "label": "x919"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P409566.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P409566.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P409566.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409566.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}šennur",
+                  "id": "P409566.l1f34d",
+                  "ref": "P409566.3.1",
+                  "inst": "šennur[plum]N",
+                  "exosig": "@dcclt%sux:{ŋeš}šennur=šennur[plum//plum, plum tree]N'N$šennur/{ŋeš}šennur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}šennur",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P409566.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "šennur",
+                        "oid": "o0001363",
+                        "gdl_sign": "|GIŠ%GIŠ|",
+                        "utf8": "𒄒",
+                        "key": "o0001363..šennur",
+                        "id": "P409566.3.1.1"
+                      }
+                    ],
+                    "cf": "šennur",
+                    "gw": "plum",
+                    "sense": "plum, plum tree",
+                    "norm0": "šennur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}šennur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409566.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409566.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409566.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409566.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}lam-⸢gal⸣",
+                  "id": "P409566.l1f34e",
+                  "ref": "P409566.4.1",
+                  "inst": "lamgal[nut]N",
+                  "exosig": "@dcclt%sux:{ŋeš}lam-gal=lamgal[nut//a nut, terebinth]N'N$lamgal/{ŋeš}lam-gal#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}lam-gal",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P409566.4.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "lam",
+                        "oid": "o0000424",
+                        "gdl_sign": "LAM",
+                        "utf8": "𒇴",
+                        "key": "o0000424..lam",
+                        "id": "P409566.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gal",
+                        "oid": "o0000194",
+                        "gdl_sign": "GAL",
+                        "utf8": "𒃲",
+                        "key": "o0000194..gal",
+                        "id": "P409566.4.1.2",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "lamgal",
+                    "gw": "nut",
+                    "sense": "a nut, terebinth",
+                    "norm0": "lamgal",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}lam-gal",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409566.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409566.4.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P409566.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P409566.5",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}lam-tur",
+                  "id": "P409566.l1f34f",
+                  "ref": "P409566.5.1",
+                  "inst": "lamtur[nut]N",
+                  "exosig": "@dcclt%sux:{ŋeš}lam-tur=lamtur[nut//a nut, small terebinth]N'N$lamtur/{ŋeš}lam-tur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}lam-tur",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P409566.5.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "lam",
+                        "oid": "o0000424",
+                        "gdl_sign": "LAM",
+                        "utf8": "𒇴",
+                        "key": "o0000424..lam",
+                        "id": "P409566.5.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "tur",
+                        "oid": "o0000560",
+                        "gdl_sign": "TUR",
+                        "utf8": "𒌉",
+                        "key": "o0000560..tur",
+                        "id": "P409566.5.1.2"
+                      }
+                    ],
+                    "cf": "lamtur",
+                    "gw": "nut",
+                    "sense": "a nut, small terebinth",
+                    "norm0": "lamtur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}lam-tur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P409566.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P409566.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P409566.r.6",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P409566.7",
+                  "strict": "1",
+                  "extent": "n",
+                  "scope": "line",
+                  "state": "blank"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

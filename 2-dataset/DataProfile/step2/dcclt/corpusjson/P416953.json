@@ -1,0 +1,605 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:45:23",
+  "textid": "P416953",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P416953.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P416953.o.1",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P416953.2",
+          "strict": "0",
+          "extent": "0",
+          "scope": "tablet",
+          "state": "other"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P416953.3",
+          "strict": "1",
+          "extent": "4",
+          "scope": "line",
+          "state": "traces"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P416953.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P416953.U2",
+              "label": "o 5'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P416953.4",
+                  "n": "5'",
+                  "label": "o 5'"
+                },
+                {
+                  "node": "l",
+                  "frag": "bulug",
+                  "id": "P416953.l223f3",
+                  "ref": "P416953.4.1",
+                  "inst": "bulug[needle]N",
+                  "exosig": "@dcclt%sux:bulug=bulug[needle//needle, drill]N'N$bulug/bulug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "bulug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "bulug",
+                        "oid": "o0000128",
+                        "gdl_sign": "BULUG",
+                        "utf8": "𒁑",
+                        "key": "o0000128..bulug",
+                        "id": "P416953.4.1.0"
+                      }
+                    ],
+                    "cf": "bulug",
+                    "gw": "needle",
+                    "sense": "needle, drill",
+                    "norm0": "bulug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "bulug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "nu-kiri₆{⸢zabar⸣}",
+                  "id": "P416953.l223f4",
+                  "ref": "P416953.4.2",
+                  "inst": "nukirik[gardener]",
+                  "exosig": "@dcclt%sux:nu-kiri₆{zabar}=nukirik[gardener//gardener, horticulturalist]N'N$nukirik/nu-kiri₆#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "nu-kiri₆{zabar}",
+                    "gdl": [
+                      {
+                        "v": "nu",
+                        "oid": "o0000487",
+                        "gdl_sign": "NU",
+                        "utf8": "𒉡",
+                        "key": "o0000487..nu",
+                        "id": "P416953.4.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kiri₆",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..kiri₆",
+                        "id": "P416953.4.2.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "zabar",
+                            "oid": "o0002497",
+                            "gdl_sign": "|UD.KA.BAR|",
+                            "utf8": "𒌓𒅗𒁇",
+                            "key": "o0002497..zabar",
+                            "id": "P416953.4.2.2",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "nukirik",
+                    "gw": "gardener",
+                    "sense": "gardener, horticulturalist",
+                    "norm0": "nukirik",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "nu-kiri₆",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.4.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.4.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P416953.U4",
+              "label": "o 6'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P416953.5",
+                  "n": "6'",
+                  "label": "o 6'"
+                },
+                {
+                  "node": "l",
+                  "frag": "bulug",
+                  "id": "P416953.l223f5",
+                  "ref": "P416953.5.1",
+                  "inst": "bulug[needle]N",
+                  "exosig": "@dcclt%sux:bulug=bulug[needle//needle, drill]N'N$bulug/bulug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "bulug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "bulug",
+                        "oid": "o0000128",
+                        "gdl_sign": "BULUG",
+                        "utf8": "𒁑",
+                        "key": "o0000128..bulug",
+                        "id": "P416953.5.1.0"
+                      }
+                    ],
+                    "cf": "bulug",
+                    "gw": "needle",
+                    "sense": "needle, drill",
+                    "norm0": "bulug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "bulug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "me-x{⸢zabar⸣}",
+                  "id": "P416953.l223f6",
+                  "ref": "P416953.5.2",
+                  "inst": "u",
+                  "f": {
+                    "lang": "sux",
+                    "form": "me-x{zabar}",
+                    "gdl": [
+                      {
+                        "v": "me",
+                        "oid": "o0000453",
+                        "gdl_sign": "ME",
+                        "utf8": "𒈨",
+                        "key": "o0000453..me",
+                        "id": "P416953.5.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "x",
+                        "oid": "o0000601",
+                        "gdl_sign": "X",
+                        "utf8": "X",
+                        "key": "o0000601..x",
+                        "id": "P416953.5.2.1"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "zabar",
+                            "oid": "o0002497",
+                            "gdl_sign": "|UD.KA.BAR|",
+                            "utf8": "𒌓𒅗𒁇",
+                            "key": "o0002497..zabar",
+                            "id": "P416953.5.2.2",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      }
+                    ],
+                    "pos": "u"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.5.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.5.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P416953.U6",
+              "label": "o 7'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P416953.6",
+                  "n": "7'",
+                  "label": "o 7'"
+                },
+                {
+                  "node": "l",
+                  "frag": "bulug",
+                  "id": "P416953.l223f7",
+                  "ref": "P416953.6.1",
+                  "inst": "bulug[needle]N",
+                  "exosig": "@dcclt%sux:bulug=bulug[needle//needle, drill]N'N$bulug/bulug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "bulug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "bulug",
+                        "oid": "o0000128",
+                        "gdl_sign": "BULUG",
+                        "utf8": "𒁑",
+                        "key": "o0000128..bulug",
+                        "id": "P416953.6.1.0"
+                      }
+                    ],
+                    "cf": "bulug",
+                    "gw": "needle",
+                    "sense": "needle, drill",
+                    "norm0": "bulug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "bulug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "algameš{⸢zabar⸣}",
+                  "id": "P416953.l223f8",
+                  "ref": "P416953.6.2",
+                  "inst": "algameš[stone]",
+                  "exosig": "@dcclt%sux:algameš{zabar}=algameš[stone//a stone]N'N$algameš/algameš#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "algameš{zabar}",
+                    "gdl": [
+                      {
+                        "v": "algameš",
+                        "oid": "o0002509",
+                        "gdl_sign": "|UD.SAL.HUB₂|",
+                        "utf8": "𒌓𒊩𒄸",
+                        "key": "o0002509..algameš",
+                        "id": "P416953.6.2.0"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "zabar",
+                            "oid": "o0002497",
+                            "gdl_sign": "|UD.KA.BAR|",
+                            "utf8": "𒌓𒅗𒁇",
+                            "key": "o0002497..zabar",
+                            "id": "P416953.6.2.1",
+                            "break": "damaged",
+                            "ho": "1",
+                            "hc": "1"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "algameš",
+                    "gw": "stone",
+                    "sense": "a stone",
+                    "norm0": "algameš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "algameš",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.6.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.6.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonw",
+                  "ref": ""
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P416953.U8",
+              "label": "o 8'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P416953.7",
+                  "n": "8'",
+                  "label": "o 8'"
+                },
+                {
+                  "node": "l",
+                  "frag": "bulug",
+                  "id": "P416953.l223f9",
+                  "ref": "P416953.7.1",
+                  "inst": "bulug[needle]N",
+                  "exosig": "@dcclt%sux:bulug=bulug[needle//needle, drill]N'N$bulug/bulug#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "bulug",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "bulug",
+                        "oid": "o0000128",
+                        "gdl_sign": "BULUG",
+                        "utf8": "𒁑",
+                        "key": "o0000128..bulug",
+                        "id": "P416953.7.1.0"
+                      }
+                    ],
+                    "cf": "bulug",
+                    "gw": "needle",
+                    "sense": "needle, drill",
+                    "norm0": "bulug",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "bulug",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.7.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "kaskal{zabar}",
+                  "id": "P416953.l223fa",
+                  "ref": "P416953.7.2",
+                  "inst": "kaskal[way]",
+                  "exosig": "@dcclt%sux:kaskal{zabar}=kaskal[way//way, road]N'N$kaskal/kaskal{zabar}#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "kaskal{zabar}",
+                    "gdl": [
+                      {
+                        "v": "kaskal",
+                        "oid": "o0000275",
+                        "gdl_sign": "KASKAL",
+                        "utf8": "𒆜",
+                        "key": "o0000275..kaskal",
+                        "id": "P416953.7.2.0"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "zabar",
+                            "oid": "o0002497",
+                            "gdl_sign": "|UD.KA.BAR|",
+                            "utf8": "𒌓𒅗𒁇",
+                            "key": "o0002497..zabar",
+                            "id": "P416953.7.2.1"
+                          }
+                        ]
+                      }
+                    ],
+                    "cf": "kaskal",
+                    "gw": "way",
+                    "sense": "way, road",
+                    "norm0": "kaskal",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "kaskal{zabar}",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P416953.7.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P416953.7.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P416953.8",
+                  "strict": "1",
+                  "extent": "rest",
+                  "scope": "column",
+                  "state": "missing"
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P416953.r.9",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P416953.10",
+                  "strict": "0",
+                  "state": "other"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

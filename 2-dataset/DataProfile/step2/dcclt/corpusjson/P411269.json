@@ -1,0 +1,982 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:57",
+  "textid": "P411269",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P411269.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P411269.x1027.1",
+          "label": "x1027"
+        },
+        {
+          "node": "d",
+          "type": "surface",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P411269.2",
+          "strict": "0",
+          "extent": "02",
+          "state": "other"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P411269.3",
+          "strict": "0",
+          "extent": "1",
+          "scope": "line",
+          "state": "ruling"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P411269.o.4",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P411269.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P411269.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P411269.5",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "gi-gur",
+                  "id": "P411269.l22a9b",
+                  "ref": "P411269.5.1",
+                  "inst": "gigur[measuring container]",
+                  "exosig": "@dcclt%sux:gi-gur=gigur[container//a measuring container]N'N$gigur/gi-gur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gi-gur",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gi",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gi",
+                        "id": "P411269.5.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gur",
+                        "oid": "o0000226",
+                        "gdl_sign": "GUR",
+                        "utf8": "𒄥",
+                        "key": "o0000226..gur",
+                        "id": "P411269.5.1.1"
+                      }
+                    ],
+                    "cf": "gigur",
+                    "gw": "container",
+                    "sense": "a measuring container",
+                    "norm0": "gigur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gi-gur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "niŋ₂-ar₃-ra",
+                  "id": "P411269.l22a9c",
+                  "ref": "P411269.5.2",
+                  "inst": "niŋara[groats]N",
+                  "exosig": "@dcclt%sux:niŋ₂-ar₃-ra=niŋara[groats//groats]N'N$niŋara/niŋ₂-ar₃-ra#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "niŋ₂-ar₃-ra",
+                    "gdl": [
+                      {
+                        "v": "niŋ₂",
+                        "oid": "o0000202",
+                        "gdl_sign": "GAR",
+                        "utf8": "𒃻",
+                        "key": "o0000202..niŋ₂",
+                        "id": "P411269.5.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ar₃",
+                        "oid": "o0001452",
+                        "gdl_sign": "|HI×AŠ₂|",
+                        "utf8": "𒄯",
+                        "key": "o0001452..ar₃",
+                        "id": "P411269.5.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ra",
+                        "oid": "o0000510",
+                        "gdl_sign": "RA",
+                        "utf8": "𒊏",
+                        "key": "o0000510..ra",
+                        "id": "P411269.5.2.2"
+                      }
+                    ],
+                    "cf": "niŋara",
+                    "gw": "groats",
+                    "sense": "groats",
+                    "norm0": "niŋara",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "niŋ₂-ar₃-ra",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.5.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.5.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P411269.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P411269.6",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "gi-gur",
+                  "id": "P411269.l22a9d",
+                  "ref": "P411269.6.1",
+                  "inst": "gigur[measuring container]",
+                  "exosig": "@dcclt%sux:gi-gur=gigur[container//a measuring container]N'N$gigur/gi-gur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gi-gur",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gi",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gi",
+                        "id": "P411269.6.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gur",
+                        "oid": "o0000226",
+                        "gdl_sign": "GUR",
+                        "utf8": "𒄥",
+                        "key": "o0000226..gur",
+                        "id": "P411269.6.1.1"
+                      }
+                    ],
+                    "cf": "gigur",
+                    "gw": "container",
+                    "sense": "a measuring container",
+                    "norm0": "gigur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gi-gur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gurun",
+                  "id": "P411269.l22a9e",
+                  "ref": "P411269.6.2",
+                  "inst": "gurun[fruit]N",
+                  "sig": "@dcclt%sux:gurun=gurun[fruit//fruit, flower]N'N$gurun/gurun#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gurun",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gurun",
+                        "oid": "o0000227",
+                        "gdl_sign": "GURUN",
+                        "utf8": "𒄧",
+                        "key": "o0000227..gurun",
+                        "id": "P411269.6.2.0",
+                        "queried": "1"
+                      }
+                    ],
+                    "cf": "gurun",
+                    "gw": "fruit",
+                    "sense": "fruit, flower",
+                    "norm0": "gurun",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gurun",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.6.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.6.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ba",
+                  "id": "P411269.l22a9f",
+                  "ref": "P411269.6.3",
+                  "inst": "ba[allot]V/t",
+                  "exosig": "@dcclt%sux:ba=ba[allot//to allot]V/t'V/t$ba/ba#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ba",
+                    "gdl": [
+                      {
+                        "v": "ba",
+                        "oid": "o0000113",
+                        "gdl_sign": "BA",
+                        "utf8": "𒁀",
+                        "key": "o0000113..ba",
+                        "id": "P411269.6.3.0"
+                      }
+                    ],
+                    "cf": "ba",
+                    "gw": "allot",
+                    "sense": "to allot",
+                    "norm0": "ba",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "ba",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.6.3"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.6.3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P411269.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P411269.7",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "gi-gur",
+                  "id": "P411269.l22aa0",
+                  "ref": "P411269.7.1",
+                  "inst": "gigur[measuring container]",
+                  "exosig": "@dcclt%sux:gi-gur=gigur[container//a measuring container]N'N$gigur/gi-gur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gi-gur",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gi",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gi",
+                        "id": "P411269.7.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gur",
+                        "oid": "o0000226",
+                        "gdl_sign": "GUR",
+                        "utf8": "𒄥",
+                        "key": "o0000226..gur",
+                        "id": "P411269.7.1.1"
+                      }
+                    ],
+                    "cf": "gigur",
+                    "gw": "container",
+                    "sense": "a measuring container",
+                    "norm0": "gigur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gi-gur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.7.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "niŋ₂",
+                  "id": "P411269.l22aa1",
+                  "ref": "P411269.7.2",
+                  "inst": "niŋ[thing]",
+                  "sig": "@dcclt%sux:niŋ₂=niŋ[thing//thing, possession]N'N$niŋ/niŋ₂#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "niŋ₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "niŋ₂",
+                        "oid": "o0000202",
+                        "gdl_sign": "GAR",
+                        "utf8": "𒃻",
+                        "key": "o0000202..niŋ₂",
+                        "id": "P411269.7.2.0"
+                      }
+                    ],
+                    "cf": "niŋ",
+                    "gw": "thing",
+                    "sense": "thing, possession",
+                    "norm0": "niŋ",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "niŋ₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.7.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.7.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "nisig",
+                  "id": "P411269.l22aa2",
+                  "ref": "P411269.7.3",
+                  "inst": "nisig[greenery]",
+                  "exosig": "@dcclt%sux:nisig=nisig[greenery//greenery, vegetable(s)]N'N$nisig/nisig#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "nisig",
+                    "gdl": [
+                      {
+                        "v": "nisig",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..nisig",
+                        "id": "P411269.7.3.0"
+                      }
+                    ],
+                    "cf": "nisig",
+                    "gw": "greenery",
+                    "sense": "greenery, vegetable(s)",
+                    "norm0": "nisig",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "nisig",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.7.3"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.7.3"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P411269.r.8",
+                  "label": "r"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P411269.U8",
+              "label": "r 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P411269.9",
+                  "n": "1",
+                  "label": "r 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "gi-⸢gur",
+                  "id": "P411269.l22aa3",
+                  "ref": "P411269.9.1",
+                  "inst": "gigur[measuring container]",
+                  "exosig": "@dcclt%sux:gi-gur=gigur[container//a measuring container]N'N$gigur/gi-gur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gi-gur",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gi",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gi",
+                        "id": "P411269.9.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gur",
+                        "oid": "o0000226",
+                        "gdl_sign": "GUR",
+                        "utf8": "𒄥",
+                        "key": "o0000226..gur",
+                        "id": "P411269.9.1.1",
+                        "break": "damaged",
+                        "ho": "1"
+                      }
+                    ],
+                    "cf": "gigur",
+                    "gw": "container",
+                    "sense": "a measuring container",
+                    "norm0": "gigur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gi-gur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.9.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "niŋ₂-ar₃-ra⸣",
+                  "id": "P411269.l22aa4",
+                  "ref": "P411269.9.2",
+                  "inst": "niŋara[groats]N",
+                  "exosig": "@dcclt%sux:niŋ₂-ar₃-ra=niŋara[groats//groats]N'N$niŋara/niŋ₂-ar₃-ra#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "niŋ₂-ar₃-ra",
+                    "gdl": [
+                      {
+                        "v": "niŋ₂",
+                        "oid": "o0000202",
+                        "gdl_sign": "GAR",
+                        "utf8": "𒃻",
+                        "key": "o0000202..niŋ₂",
+                        "id": "P411269.9.2.0",
+                        "break": "damaged",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ar₃",
+                        "oid": "o0001452",
+                        "gdl_sign": "|HI×AŠ₂|",
+                        "utf8": "𒄯",
+                        "key": "o0001452..ar₃",
+                        "id": "P411269.9.2.1",
+                        "break": "damaged",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ra",
+                        "oid": "o0000510",
+                        "gdl_sign": "RA",
+                        "utf8": "𒊏",
+                        "key": "o0000510..ra",
+                        "id": "P411269.9.2.2",
+                        "break": "damaged",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "niŋara",
+                    "gw": "groats",
+                    "sense": "groats",
+                    "norm0": "niŋara",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "niŋ₂-ar₃-ra",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.9.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.9.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P411269.U10",
+              "label": "r 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P411269.10",
+                  "n": "2",
+                  "label": "r 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢gi⸣-gur",
+                  "id": "P411269.l22aa5",
+                  "ref": "P411269.10.1",
+                  "inst": "gigur[measuring container]",
+                  "exosig": "@dcclt%sux:gi-gur=gigur[container//a measuring container]N'N$gigur/gi-gur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gi-gur",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gi",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gi",
+                        "id": "P411269.10.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "gur",
+                        "oid": "o0000226",
+                        "gdl_sign": "GUR",
+                        "utf8": "𒄥",
+                        "key": "o0000226..gur",
+                        "id": "P411269.10.1.1"
+                      }
+                    ],
+                    "cf": "gigur",
+                    "gw": "container",
+                    "sense": "a measuring container",
+                    "norm0": "gigur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gi-gur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.10.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.10.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gurun",
+                  "id": "P411269.l22aa6",
+                  "ref": "P411269.10.2",
+                  "inst": "gurun[fruit]N",
+                  "sig": "@dcclt%sux:gurun=gurun[fruit//fruit, flower]N'N$gurun/gurun#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gurun",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gurun",
+                        "oid": "o0000227",
+                        "gdl_sign": "GURUN",
+                        "utf8": "𒄧",
+                        "key": "o0000227..gurun",
+                        "id": "P411269.10.2.0",
+                        "queried": "1"
+                      }
+                    ],
+                    "cf": "gurun",
+                    "gw": "fruit",
+                    "sense": "fruit, flower",
+                    "norm0": "gurun",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gurun",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.10.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.10.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ba",
+                  "id": "P411269.l22aa7",
+                  "ref": "P411269.10.3",
+                  "inst": "ba[allot]V/t",
+                  "exosig": "@dcclt%sux:ba=ba[allot//to allot]V/t'V/t$ba/ba#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ba",
+                    "gdl": [
+                      {
+                        "v": "ba",
+                        "oid": "o0000113",
+                        "gdl_sign": "BA",
+                        "utf8": "𒁀",
+                        "key": "o0000113..ba",
+                        "id": "P411269.10.3.0"
+                      }
+                    ],
+                    "cf": "ba",
+                    "gw": "allot",
+                    "sense": "to allot",
+                    "norm0": "ba",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "ba",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.10.3"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.10.3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P411269.U12",
+              "label": "r 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P411269.11",
+                  "n": "3",
+                  "label": "r 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "gi-gur",
+                  "id": "P411269.l22aa8",
+                  "ref": "P411269.11.1",
+                  "inst": "gigur[measuring container]",
+                  "exosig": "@dcclt%sux:gi-gur=gigur[container//a measuring container]N'N$gigur/gi-gur#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gi-gur",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gi",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gi",
+                        "id": "P411269.11.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "gur",
+                        "oid": "o0000226",
+                        "gdl_sign": "GUR",
+                        "utf8": "𒄥",
+                        "key": "o0000226..gur",
+                        "id": "P411269.11.1.1"
+                      }
+                    ],
+                    "cf": "gigur",
+                    "gw": "container",
+                    "sense": "a measuring container",
+                    "norm0": "gigur",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "gi-gur",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.11.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.11.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "niŋ₂-⸢SAR⸣",
+                  "id": "P411269.l22aa9",
+                  "ref": "P411269.11.2",
+                  "inst": "X",
+                  "f": {
+                    "lang": "sux",
+                    "form": "niŋ₂-SAR",
+                    "gdl": [
+                      {
+                        "v": "niŋ₂",
+                        "oid": "o0000202",
+                        "gdl_sign": "GAR",
+                        "utf8": "𒃻",
+                        "key": "o0000202..niŋ₂",
+                        "id": "P411269.11.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "SAR",
+                        "oid": "o0000524",
+                        "gdl_sign": "SAR",
+                        "utf8": "𒊬",
+                        "key": "o0000524..",
+                        "id": "P411269.11.2.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "pos": "X"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P411269.11.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P411269.11.2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:39:07",
+  "textid": "P273619",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P273619.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P273619.x112.1",
+          "label": "x112"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P273619.o.2",
+          "label": "o"
+        },
+        {
+          "node": "d",
+          "subtype": "column 1o",
+          "type": "column",
+          "ref": "P273619.o.i.3",
+          "n": "1",
+          "label": "o i"
+        },
+        {
+          "node": "d",
+          "type": "nonx",
+          "ref": "P273619.4",
+          "strict": "1",
+          "extent": "1",
+          "scope": "line",
+          "state": "missing"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P273619.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P273619.U2",
+              "label": "o i 2'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P273619.5",
+                  "n": "2'",
+                  "label": "o i 2'"
+                },
+                {
+                  "node": "l",
+                  "frag": "muš{ku₆}",
+                  "id": "P273619.l07edf",
+                  "ref": "P273619.5.1",
+                  "inst": "%sux:muš{ku₆}=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "muš{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "muš",
+                        "oid": "o0000463",
+                        "gdl_sign": "MUŠ",
+                        "utf8": "𒈲",
+                        "key": "o0000463..muš",
+                        "id": "P273619.5.1.0"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P273619.5.1.1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P273619.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P273619.5.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P273619.U4",
+              "label": "o i 3'",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P273619.6",
+                  "n": "3'",
+                  "label": "o i 3'"
+                },
+                {
+                  "node": "l",
+                  "frag": "du₆{ku₆}",
+                  "id": "P273619.l07ee0",
+                  "ref": "P273619.6.1",
+                  "inst": "%sux:du₆{ku₆}=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "du₆{ku₆}",
+                    "gdl": [
+                      {
+                        "v": "du₆",
+                        "oid": "o0000308",
+                        "gdl_sign": "LAGAR@g",
+                        "utf8": "𒇯",
+                        "key": "o0000308..du₆",
+                        "id": "P273619.6.1.0"
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "post",
+                        "seq": [
+                          {
+                            "v": "ku₆",
+                            "oid": "o0000232",
+                            "gdl_sign": "HA",
+                            "utf8": "𒄩",
+                            "key": "o0000232..ku₆",
+                            "id": "P273619.6.1.1"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P273619.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P273619.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P273619.7",
+                  "strict": "1",
+                  "extent": "2",
+                  "scope": "line",
+                  "state": "missing"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

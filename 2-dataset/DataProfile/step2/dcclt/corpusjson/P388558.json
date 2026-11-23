@@ -1,0 +1,173 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:14",
+  "textid": "P388558",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P388558.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P388558.o.1",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P388558.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P388558.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P388558.2",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "tukum-bi",
+                  "id": "P388558.l5d82b",
+                  "ref": "P388558.2.1",
+                  "inst": "tukumbi[if]",
+                  "sig": "@dcclt%sux:tukum-bi=tukumbi[if//if]CNJ'CNJ$tukumbi/tukum-bi#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tukum-bi",
+                    "gdl": [
+                      {
+                        "v": "tukum",
+                        "oid": "o0002777",
+                        "gdl_sign": "|ŠU.GAR.TUR.LAL|",
+                        "utf8": "𒋗𒃻𒌉𒇲",
+                        "key": "o0002777..tukum",
+                        "id": "P388558.2.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "bi",
+                        "oid": "o0000122",
+                        "gdl_sign": "BI",
+                        "utf8": "𒁉",
+                        "key": "o0000122..bi",
+                        "id": "P388558.2.1.1"
+                      }
+                    ],
+                    "cf": "tukumbi",
+                    "gw": "if",
+                    "sense": "if",
+                    "norm0": "tukumbi",
+                    "pos": "CNJ",
+                    "epos": "CNJ",
+                    "base": "tukum-bi",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P388558.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P388558.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P388558.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P388558.3",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "tukum",
+                  "id": "P388558.l5d82c",
+                  "ref": "P388558.3.1",
+                  "inst": "tukum[if]",
+                  "exosig": "@dcclt%sux:tukum=tukum[if//if]CNJ'CNJ$tukum/tukum#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tukum",
+                    "gdl": [
+                      {
+                        "v": "tukum",
+                        "oid": "o0002777",
+                        "gdl_sign": "|ŠU.GAR.TUR.LAL|",
+                        "utf8": "𒋗𒃻𒌉𒇲",
+                        "key": "o0002777..tukum",
+                        "id": "P388558.3.1.0"
+                      }
+                    ],
+                    "cf": "tukum",
+                    "gw": "if",
+                    "sense": "if",
+                    "norm0": "tukum",
+                    "pos": "CNJ",
+                    "epos": "CNJ",
+                    "base": "tukum",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P388558.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P388558.3.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

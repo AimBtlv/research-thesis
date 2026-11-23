@@ -1,0 +1,640 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:44:28",
+  "textid": "P410135",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P410135.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P410135.x925.1",
+          "label": "x925"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P410135.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P410135.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P410135.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410135.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}tah",
+                  "id": "P410135.l1f37f",
+                  "ref": "P410135.3.1",
+                  "inst": "X",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}tah",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P410135.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "tah",
+                        "oid": "o0002016",
+                        "gdl_sign": "|MU&MU|",
+                        "utf8": "𒈭",
+                        "key": "o0002016..tah",
+                        "id": "P410135.3.1.1"
+                      }
+                    ],
+                    "pos": "X"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410135.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410135.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}šu",
+                  "id": "P410135.l1f380",
+                  "ref": "P410135.4.1",
+                  "inst": "šu[handle]N",
+                  "exosig": "@dcclt%sux:{ŋeš}šu=šu[handle//handle]N'N$šu/{ŋeš}šu#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}šu",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P410135.4.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "šu",
+                        "oid": "o0002845",
+                        "gdl_sign": "ŠU",
+                        "utf8": "𒋗",
+                        "key": "o0002845..šu",
+                        "id": "P410135.4.1.1"
+                      }
+                    ],
+                    "cf": "šu",
+                    "gw": "handle",
+                    "sense": "handle",
+                    "norm0": "šu",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}šu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gub-ba",
+                  "id": "P410135.l1f381",
+                  "ref": "P410135.4.2",
+                  "inst": "gub[stand]V/i",
+                  "sig": "@dcclt%sux:gub-ba=gub[stand//to stand]V/i'V/i$gub;a/gub+-ba=b.a#~;a",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gub-ba",
+                    "gdl": [
+                      {
+                        "v": "gub",
+                        "oid": "o0000149",
+                        "gdl_sign": "DU",
+                        "utf8": "𒁺",
+                        "key": "o0000149..gub",
+                        "id": "P410135.4.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ba",
+                        "oid": "o0000113",
+                        "gdl_sign": "BA",
+                        "utf8": "𒁀",
+                        "key": "o0000113..ba",
+                        "id": "P410135.4.2.1"
+                      }
+                    ],
+                    "cf": "gub",
+                    "gw": "stand",
+                    "sense": "to stand",
+                    "norm0": "gub;a",
+                    "pos": "V/i",
+                    "epos": "V/i",
+                    "base": "gub",
+                    "cont": "-ba=b.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.4.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.4.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410135.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410135.5",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}{d}⸢lamma⸣",
+                  "id": "P410135.l1f382",
+                  "ref": "P410135.5.1",
+                  "inst": "lammar[(female) tutelary deity]",
+                  "sig": "@dcclt%sux:{ŋeš}{d}lamma=lammar[deity//(female) tutelary deity]N'N$lammar/{ŋeš}{d}lamma#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}{d}lamma",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P410135.5.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P410135.5.1.1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "lamma",
+                        "oid": "o0000270",
+                        "gdl_sign": "KAL",
+                        "utf8": "𒆗",
+                        "key": "o0000270..lamma",
+                        "id": "P410135.5.1.2",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "lammar",
+                    "gw": "deity",
+                    "sense": "(female) tutelary deity",
+                    "norm0": "lammar",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}{d}lamma",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P410135.r.6",
+                  "label": "r"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410135.U8",
+              "label": "r 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410135.7",
+                  "n": "1",
+                  "label": "r 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}⸢tah⸣",
+                  "id": "P410135.l1f383",
+                  "ref": "P410135.7.1",
+                  "inst": "X",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}tah",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P410135.7.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "tah",
+                        "oid": "o0002016",
+                        "gdl_sign": "|MU&MU|",
+                        "utf8": "𒈭",
+                        "key": "o0002016..tah",
+                        "id": "P410135.7.1.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "pos": "X"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.7.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410135.U10",
+              "label": "r 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410135.8",
+                  "n": "2",
+                  "label": "r 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}šu",
+                  "id": "P410135.l1f384",
+                  "ref": "P410135.8.1",
+                  "inst": "šu[handle]N",
+                  "exosig": "@dcclt%sux:{ŋeš}šu=šu[handle//handle]N'N$šu/{ŋeš}šu#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}šu",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P410135.8.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "šu",
+                        "oid": "o0002845",
+                        "gdl_sign": "ŠU",
+                        "utf8": "𒋗",
+                        "key": "o0002845..šu",
+                        "id": "P410135.8.1.1"
+                      }
+                    ],
+                    "cf": "šu",
+                    "gw": "handle",
+                    "sense": "handle",
+                    "norm0": "šu",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}šu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.8.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gub-⸢ba⸣",
+                  "id": "P410135.l1f385",
+                  "ref": "P410135.8.2",
+                  "inst": "gub[stand]V/i",
+                  "sig": "@dcclt%sux:gub-ba=gub[stand//to stand]V/i'V/i$gub;a/gub+-ba=b.a#~;a",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gub-ba",
+                    "gdl": [
+                      {
+                        "v": "gub",
+                        "oid": "o0000149",
+                        "gdl_sign": "DU",
+                        "utf8": "𒁺",
+                        "key": "o0000149..gub",
+                        "id": "P410135.8.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ba",
+                        "oid": "o0000113",
+                        "gdl_sign": "BA",
+                        "utf8": "𒁀",
+                        "key": "o0000113..ba",
+                        "id": "P410135.8.2.1",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "gub",
+                    "gw": "stand",
+                    "sense": "to stand",
+                    "norm0": "gub;a",
+                    "pos": "V/i",
+                    "epos": "V/i",
+                    "base": "gub",
+                    "cont": "-ba=b.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.8.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.8.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P410135.U12",
+              "label": "r 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P410135.9",
+                  "n": "3",
+                  "label": "r 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}{d}lamma",
+                  "id": "P410135.l1f386",
+                  "ref": "P410135.9.1",
+                  "inst": "lammar[(female) tutelary deity]",
+                  "sig": "@dcclt%sux:{ŋeš}{d}lamma=lammar[deity//(female) tutelary deity]N'N$lammar/{ŋeš}{d}lamma#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}{d}lamma",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P410135.9.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P410135.9.1.1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "lamma",
+                        "oid": "o0000270",
+                        "gdl_sign": "KAL",
+                        "utf8": "𒆗",
+                        "key": "o0000270..lamma",
+                        "id": "P410135.9.1.2"
+                      }
+                    ],
+                    "cf": "lammar",
+                    "gw": "deity",
+                    "sense": "(female) tutelary deity",
+                    "norm0": "lammar",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}{d}lamma",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P410135.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P410135.9.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 # P03. Compound Without An Attested Reading 
 
 *File: `P03_no_attested_reading.csv`   
-722 rows    
-Check_id `P03-0001`–`P03-0722`.     
-The outputs of 2026-11-14*
+723 rows    
+Check_id `P03-0001`–`P03-0723`.     
+The outputs of 2026-11-22*
 
 ## Place In The Workflow 
 
@@ -38,32 +38,31 @@ for orientation only, not a fact.
 *Fix 1: "hidden" OSL readings.* Sometimes OSL has **two entries with the same
 name**. The old script kept only the last one and lost the `@v` of the first.
 It now collects the readings of all entries of that name, e.g. |HI×MAŠ| gets
-*surₓ | šurₓ*. These rows are marked in `auto_fix` (2 rows), after the next run
-of the pipeline they leave this file, because they now have a reading.
+*surₓ | šurₓ*. Such compounds (|HI×MAŠ|, |LAGAB×AŠ@c|) now have a reading and
+are no longer in this file.
 
 *Fix 2: false "nesting".* A compound without a reading used to be tested for
 being part of a longer name (`NESTED_IN_LONGER_FORM`, see P04). The test
 compared **letters**, so |A.BU| was "found" inside SI.A.BUR₂, although BU and
 BUR₂ are **different signs**, and |AMAR&AMAR| was "found" inside **itself**.
 The test now compares whole components. 37 compounds (36 accidental matches +
-|AMAR&AMAR|) lost the wrong status and come to this file, also marked in
-`auto_fix`.
+|AMAR&AMAR|) lost the wrong status and are in this file.
 
 ## Size And Effect On The Corpus 
 
-722 compounds (the catalogue is deliberately broader than the corpus and covers
+723 compounds (the catalogue is deliberately broader than the corpus and covers
 all periods). Only **41** occur in the Old Babylonian corpus, with **133**
 tokens (5 in school texts). 
 
 ## **Which Rows To Check (Scope)**
-Rows in the corpus (the first rows of the file) and rows with `auto_fix`: **mandatory**. The rest: optional.
+Rows in the corpus (the first rows of the file): **mandatory**. The rest: optional.
 
 ## Columns
 
 | Column | Meaning |
 |---|---|
 | `component_reading_inferred` | guess only, for orientation (see P05) |
-| `auto_fix` | what 06 v13.1 changed for this row |
+| `auto_fix` | what script 06 changed for this row; empty when the catalogue already contains the fix, as in this run |
 | `check_id` | row id (P01-0001 …); quote it in e-mails |
 | `tokens_in_OB_corpus` | how often the parser used this case in the OB corpus (atf_tokens.csv) |
 | `tokens_school / tokens_practical` | the same, split by the CDLI flag `is_school_text` |
@@ -93,7 +92,7 @@ Only the empty columns at the right end (`decision`, …, `comment`) are filled 
 | compound_form | components_names | tokens_in_OB_corpus | tokens_school | auto_fix |
 |---|---|---|---|---|
 | \|DUR₂&DUR₂\| | DUR₂ + DUR₂ | 29 | 0 |  |
-| \|AMAR&AMAR\| | AMAR + AMAR | 15 | 0 | 06 v13.1: old 'nested' match was accidental (\|AMAR&AMAR\|) |
+| \|AMAR&AMAR\| | AMAR + AMAR | 15 | 0 |  |
 | \|GU&GU\| | GU + GU | 15 | 0 |  |
 | \|AB₂×MU\| | AB₂ + MU | 12 | 0 |  |
 | \|NE.NE\| | NE + NE | 11 | 0 |  |

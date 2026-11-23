@@ -1,0 +1,180 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:28:48",
+  "textid": "P220987",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P220987.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P220987.x67.1",
+          "label": "x67"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P220987.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P220987.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P220987.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P220987.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "ŠITA:GIŠ-NAM₂",
+                  "id": "P220987.l06cf4",
+                  "ref": "P220987.3.1",
+                  "inst": "%sux:ŠITA-GIŠ-NAM₂=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ŠITA-GIŠ-NAM₂",
+                    "gdl": [
+                      {
+                        "gg": "reordering",
+                        "gdl_type": "reordering",
+                        "group": [
+                          {
+                            "s": "ŠITA",
+                            "oid": "o0002842",
+                            "gdl_sign": "ŠITA",
+                            "utf8": "𒋖",
+                            "key": "o0002842..",
+                            "id": "P220987.3.1.0",
+                            "delim": ":"
+                          },
+                          {
+                            "s": "GIŠ",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..",
+                            "id": "P220987.3.1.1",
+                            "gdl_remarked": "1",
+                            "delim": "-"
+                          },
+                          {
+                            "s": "NAM₂",
+                            "oid": "o0000475",
+                            "gdl_sign": "NAM₂",
+                            "utf8": "𒉇",
+                            "key": "o0000475..",
+                            "id": "P220987.3.1.2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P220987.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P220987.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P220987.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P220987.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "nam₂-TUK",
+                  "id": "P220987.l06cf5",
+                  "ref": "P220987.4.1",
+                  "inst": "%sux:nam₂-TUK=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "nam₂-TUK",
+                    "gdl": [
+                      {
+                        "v": "nam₂",
+                        "oid": "o0000475",
+                        "gdl_sign": "NAM₂",
+                        "utf8": "𒉇",
+                        "key": "o0000475..nam₂",
+                        "id": "P220987.4.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "TUK",
+                        "oid": "o0000558",
+                        "gdl_sign": "TUK",
+                        "utf8": "𒌇",
+                        "key": "o0000558..",
+                        "id": "P220987.4.1.1"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P220987.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P220987.4.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

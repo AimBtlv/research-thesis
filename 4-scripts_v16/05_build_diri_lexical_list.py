@@ -8,7 +8,15 @@ Description: Workflow Stage 1, Step 2. Extracts the lexical series Diri
              Only the paths are changed: the Oracc downloads are expected in
              2-dataset/DataProfile/oracc_dcclt/. If they are absent the step
              is skipped and the existing diri_lexical_list.csv is used.
-
+Author: Aima, paths prepared with Claude
+Date: 2026-11-23
+Version: 1.4 (Oracc JSON in 2-dataset/DataProfile/step2/dcclt/, found
+         automatically; the corpusjson folders found are listed; a run with
+         fewer lines than the reference file in DataProfile/ is written to
+         diri_lexical_list_PARTIAL.csv and does not replace the full list;
+         the Diri texts are always chosen by the catalogue.json of the
+         signlists project, also when the main dcclt project puts its own
+         catalogue.json directly into step2/dcclt/)
 """
 
 import json
@@ -27,11 +35,15 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def find_catalogue(root: Path) -> Path:
-    """catalogue.json of the DCCLT/signlists project: directly in the Oracc
-    folder, else the first one found below it (signlists first)."""
-    if (root / "catalogue.json").exists():
-        return root / "catalogue.json"
-    found = sorted(root.rglob("catalogue.json"), key=lambda p: ("signlists" not in str(p), str(p)))
+    """catalogue.json that decides which texts are Diri.
+    The catalogue of the signlists project comes first: it classifies the
+    Diri tablets as the reference list does. The catalogue of the main dcclt
+    project (often unpacked directly into step2/dcclt/) gives some of them
+    another subgenre (e.g. P230218 'OB Nippur Izi'), so with it about 30
+    Diri texts are lost. Any other catalogue.json is used only without
+    signlists."""
+    found = sorted(root.rglob("catalogue.json"),
+                   key=lambda p: ("signlists" not in str(p).lower(), len(p.parts), str(p)))
     return found[0] if found else root / "catalogue.json"
 
 
@@ -75,8 +87,8 @@ def load_diri_catalogue(path: str) -> dict:
     members = cat["members"]
 
     return {pid: rec for pid, rec in members.items()
-            if "diri" in rec.get("subgenre", "").lower()
-            or rec.get("series", "").strip().lower() == "diri"}
+            if "diri" in (rec.get("subgenre") or "").lower()
+            or (rec.get("series") or "").strip().lower() == "diri"}
 
 
 def process_composite_text(json_path: Path, meta: dict) -> list:
@@ -205,6 +217,7 @@ def main():
     diri_catalogue = load_diri_catalogue(CATALOGUE_PATH)
     print(f"[INFO] {len(diri_catalogue)} Diri texts identified in catalogue "
           f"(individual exemplars + composite score editions)")
+    print(f"       catalogue used: {CATALOGUE_PATH}")
 
     # v1.3: show which archives were found, so that a missing one is visible
     print(f"[INFO] corpusjson folders found under {ORACC}: {len(CORPUS_DIRS)}")

@@ -1,0 +1,486 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:40:10",
+  "textid": "P330001",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P330001.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P330001.x1191.1",
+          "label": "x1191"
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P330001.o.2",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P330001.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P330001.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P330001.3",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "ugu",
+                  "id": "P330001.l24f38",
+                  "ref": "P330001.3.1",
+                  "inst": "ugu[skull]N",
+                  "exosig": "@dcclt%sux:ugu=ugu[skull//skull, pate]N'N$ugu/ugu#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ugu",
+                    "gdl": [
+                      {
+                        "v": "ugu",
+                        "oid": "o0002461",
+                        "gdl_sign": "|U.KA|",
+                        "utf8": "𒌋𒅗",
+                        "key": "o0002461..ugu",
+                        "id": "P330001.3.1.0"
+                      }
+                    ],
+                    "cf": "ugu",
+                    "gw": "skull",
+                    "sense": "skull, pate",
+                    "norm0": "ugu",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ugu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P330001.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P330001.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P330001.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P330001.4",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ugu}⸢ugu₄⸣-bi",
+                  "id": "P330001.l24f39",
+                  "ref": "P330001.4.1",
+                  "inst": "ugubi[monkey]N",
+                  "exosig": "@dcclt%sux:{+ugu}ugu₄-bi=ugubi[monkey//monkey]N'N$ugubi/{+ugu}ugu₄-bi#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{+ugu}ugu₄-bi",
+                    "gdl": [
+                      {
+                        "det": "phonetic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ugu",
+                            "oid": "o0002461",
+                            "gdl_sign": "|U.KA|",
+                            "utf8": "𒌋𒅗",
+                            "key": "o0002461..ugu",
+                            "id": "P330001.4.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "ugu₄",
+                        "oid": "o0000289",
+                        "gdl_sign": "KU",
+                        "utf8": "𒆪",
+                        "key": "o0000289..ugu₄",
+                        "id": "P330001.4.1.1",
+                        "break": "damaged",
+                        "queried": "1",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "bi",
+                        "oid": "o0000122",
+                        "gdl_sign": "BI",
+                        "utf8": "𒁉",
+                        "key": "o0000122..bi",
+                        "id": "P330001.4.1.2"
+                      }
+                    ],
+                    "cf": "ugubi",
+                    "gw": "monkey",
+                    "sense": "monkey",
+                    "norm0": "ugubi",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{+ugu}ugu₄-bi",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P330001.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P330001.4.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P330001.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P330001.5",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "az",
+                  "id": "P330001.l24f3a",
+                  "ref": "P330001.5.1",
+                  "inst": "az[bear]N",
+                  "exosig": "@dcclt%sux:az=az[bear//bear]N'N$az/az#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "az",
+                    "gdl": [
+                      {
+                        "v": "az",
+                        "oid": "o0002245",
+                        "gdl_sign": "|PIRIG×ZA|",
+                        "utf8": "𒊍",
+                        "key": "o0002245..az",
+                        "id": "P330001.5.1.0"
+                      }
+                    ],
+                    "cf": "az",
+                    "gw": "bear",
+                    "sense": "bear",
+                    "norm0": "az",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "az",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P330001.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P330001.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P330001.r.6",
+                  "label": "r"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P330001.U8",
+              "label": "r 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P330001.7",
+                  "n": "1",
+                  "label": "r 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "ugu",
+                  "id": "P330001.l24f3b",
+                  "ref": "P330001.7.1",
+                  "inst": "ugu[skull]N",
+                  "exosig": "@dcclt%sux:ugu=ugu[skull//skull, pate]N'N$ugu/ugu#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ugu",
+                    "gdl": [
+                      {
+                        "v": "ugu",
+                        "oid": "o0002461",
+                        "gdl_sign": "|U.KA|",
+                        "utf8": "𒌋𒅗",
+                        "key": "o0002461..ugu",
+                        "id": "P330001.7.1.0"
+                      }
+                    ],
+                    "cf": "ugu",
+                    "gw": "skull",
+                    "sense": "skull, pate",
+                    "norm0": "ugu",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ugu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P330001.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P330001.7.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P330001.U10",
+              "label": "r 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P330001.8",
+                  "n": "2",
+                  "label": "r 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{⸢ugu}ugu₄⸣-bi",
+                  "id": "P330001.l24f3c",
+                  "ref": "P330001.8.1",
+                  "inst": "ugubi[monkey]N",
+                  "exosig": "@dcclt%sux:{+ugu}ugu₄-bi=ugubi[monkey//monkey]N'N$ugubi/{+ugu}ugu₄-bi#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{+ugu}ugu₄-bi",
+                    "gdl": [
+                      {
+                        "det": "phonetic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ugu",
+                            "oid": "o0002461",
+                            "gdl_sign": "|U.KA|",
+                            "utf8": "𒌋𒅗",
+                            "key": "o0002461..ugu",
+                            "id": "P330001.8.1.0",
+                            "break": "damaged",
+                            "ho": "1"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "ugu₄",
+                        "oid": "o0000289",
+                        "gdl_sign": "KU",
+                        "utf8": "𒆪",
+                        "key": "o0000289..ugu₄",
+                        "id": "P330001.8.1.1",
+                        "break": "damaged",
+                        "queried": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "bi",
+                        "oid": "o0000122",
+                        "gdl_sign": "BI",
+                        "utf8": "𒁉",
+                        "key": "o0000122..bi",
+                        "id": "P330001.8.1.2"
+                      }
+                    ],
+                    "cf": "ugubi",
+                    "gw": "monkey",
+                    "sense": "monkey",
+                    "norm0": "ugubi",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{+ugu}ugu₄-bi",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P330001.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P330001.8.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P330001.U12",
+              "label": "r 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P330001.9",
+                  "n": "3",
+                  "label": "r 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "az",
+                  "id": "P330001.l24f3d",
+                  "ref": "P330001.9.1",
+                  "inst": "az[bear]N",
+                  "exosig": "@dcclt%sux:az=az[bear//bear]N'N$az/az#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "az",
+                    "gdl": [
+                      {
+                        "v": "az",
+                        "oid": "o0002245",
+                        "gdl_sign": "|PIRIG×ZA|",
+                        "utf8": "𒊍",
+                        "key": "o0002245..az",
+                        "id": "P330001.9.1.0"
+                      }
+                    ],
+                    "cf": "az",
+                    "gw": "bear",
+                    "sense": "bear",
+                    "norm0": "az",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "az",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P330001.9.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P330001.9.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

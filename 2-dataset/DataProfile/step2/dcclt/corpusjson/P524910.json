@@ -1,0 +1,425 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:47:31",
+  "textid": "P524910",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P524910.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P524910.o.1",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P524910.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P524910.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P524910.2",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}pap-sukkal",
+                  "id": "P524910.l5dc51",
+                  "ref": "P524910.2.1",
+                  "inst": "Papsukkal[1]DN",
+                  "exosig": "@dcclt%sux:{d}pap-sukkal=Papsukkal[1//1]DN'DN$Papsukkal/{d}pap-sukkal#~",
+                  "exoprj": "epsd2/names",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}pap-sukkal",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P524910.2.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "pap",
+                        "oid": "o0000500",
+                        "gdl_sign": "PAP",
+                        "utf8": "𒉽",
+                        "key": "o0000500..pap",
+                        "id": "P524910.2.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "sukkal",
+                        "oid": "o0000436",
+                        "gdl_sign": "LUH",
+                        "utf8": "𒈛",
+                        "key": "o0000436..sukkal",
+                        "id": "P524910.2.1.2"
+                      }
+                    ],
+                    "cf": "Papsukkal",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Papsukkal",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}pap-sukkal",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P524910.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P524910.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P524910.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P524910.3",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}nin-ŋir₂{ŋiri₃}su",
+                  "id": "P524910.l5dc52",
+                  "ref": "P524910.3.1",
+                  "inst": "Ninŋirsuk[1]",
+                  "sig": "@dcclt%sux:{d}nin-ŋir₂{+ŋiri₃}-su=Ninŋirsuk[1//1]DN'DN$Ninŋirsuk/{d}nin-ŋir₂{+ŋiri₃}-su#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}nin-ŋir₂{+ŋiri₃}-su",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P524910.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "nin",
+                        "oid": "o0002323",
+                        "gdl_sign": "|SAL.TUG₂|",
+                        "utf8": "𒎏",
+                        "key": "o0002323..nin",
+                        "id": "P524910.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ŋir₂",
+                        "oid": "o0000213",
+                        "gdl_sign": "GIR₂",
+                        "utf8": "𒄈",
+                        "key": "o0000213..ŋir₂",
+                        "id": "P524910.3.1.2",
+                        "gdl_remarked": "1"
+                      },
+                      {
+                        "det": "phonetic",
+                        "pos": "post",
+                        "delim": "-",
+                        "seq": [
+                          {
+                            "v": "ŋiri₃",
+                            "oid": "o0000215",
+                            "gdl_sign": "GIR₃",
+                            "utf8": "𒄊",
+                            "key": "o0000215..ŋiri₃",
+                            "id": "P524910.3.1.3"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "su",
+                        "oid": "o0000531",
+                        "gdl_sign": "SU",
+                        "utf8": "𒋢",
+                        "key": "o0000531..su",
+                        "id": "P524910.3.1.4"
+                      }
+                    ],
+                    "cf": "Ninŋirsuk",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Ninŋirsuk",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}nin-ŋir₂{+ŋiri₃}-su",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P524910.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P524910.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P524910.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P524910.4",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}saŋ-kud",
+                  "id": "P524910.l5dc53",
+                  "ref": "P524910.4.1",
+                  "inst": "Saŋkud[1]DN",
+                  "exosig": "@dcclt%sux:{d}saŋ-kud=Saŋkud[1//1]DN'DN$Saŋkud/{d}saŋ-kud#~",
+                  "exoprj": "epsd2/names",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}saŋ-kud",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P524910.4.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "saŋ",
+                        "oid": "o0000518",
+                        "gdl_sign": "SAG",
+                        "utf8": "𒊕",
+                        "key": "o0000518..saŋ",
+                        "id": "P524910.4.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kud",
+                        "oid": "o0000548",
+                        "gdl_sign": "TAR",
+                        "utf8": "𒋻",
+                        "key": "o0000548..kud",
+                        "id": "P524910.4.1.2"
+                      }
+                    ],
+                    "cf": "Saŋkud",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Saŋkud",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}saŋ-kud",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P524910.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P524910.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P524910.5",
+                  "strict": "1",
+                  "extent": "1",
+                  "scope": "line",
+                  "state": "ruling"
+                },
+                {
+                  "node": "d",
+                  "subtype": "reverse",
+                  "type": "surface",
+                  "ref": "P524910.r.6",
+                  "label": "r"
+                },
+                {
+                  "node": "d",
+                  "type": "nonx",
+                  "ref": "P524910.7",
+                  "strict": "0",
+                  "state": "other"
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P524910.U8",
+              "label": "r 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P524910.8",
+                  "n": "1",
+                  "label": "r 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "x-BAL-ME-DUL",
+                  "id": "P524910.l5dc54",
+                  "ref": "P524910.8.1",
+                  "inst": "%sux:x-BAL-ME-DUL=",
+                  "f": {
+                    "lang": "sux",
+                    "form": "x-BAL-ME-DUL",
+                    "gdl": [
+                      {
+                        "v": "x",
+                        "oid": "o0000601",
+                        "gdl_sign": "X",
+                        "utf8": "X",
+                        "key": "o0000601..x",
+                        "id": "P524910.8.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "BAL",
+                        "oid": "o0000118",
+                        "gdl_sign": "BAL",
+                        "utf8": "𒁄",
+                        "key": "o0000118..",
+                        "id": "P524910.8.1.1",
+                        "queried": "1",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "ME",
+                        "oid": "o0000453",
+                        "gdl_sign": "ME",
+                        "utf8": "𒈨",
+                        "key": "o0000453..",
+                        "id": "P524910.8.1.2",
+                        "delim": "-"
+                      },
+                      {
+                        "s": "DUL",
+                        "oid": "o0002468",
+                        "gdl_sign": "|U.TUG₂|",
+                        "utf8": "𒌋𒌆",
+                        "key": "o0002468..",
+                        "id": "P524910.8.1.3"
+                      }
+                    ]
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P524910.8.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P524910.8.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

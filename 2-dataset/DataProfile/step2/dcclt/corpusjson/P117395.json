@@ -1,0 +1,285 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:28:38",
+  "textid": "P117395",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P117395.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "type": "object",
+          "ref": ""
+        },
+        {
+          "node": "d",
+          "subtype": "obverse",
+          "type": "surface",
+          "ref": "P117395.o.1",
+          "label": "o"
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P117395.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P117395.U2",
+              "label": "o 1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P117395.2",
+                  "n": "1",
+                  "label": "o 1"
+                },
+                {
+                  "node": "l",
+                  "frag": "ŋeš-e₃-a",
+                  "id": "P117395.l1dcfa",
+                  "ref": "P117395.2.1",
+                  "inst": "ŋeše[key]",
+                  "exosig": "@dcclt%sux:ŋeš-e₃-a=ŋeše[key//key]N'N$ŋeše/ŋeš-e₃-a#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ŋeš-e₃-a",
+                    "gdl": [
+                      {
+                        "v": "ŋeš",
+                        "oid": "o0000217",
+                        "gdl_sign": "GIŠ",
+                        "utf8": "𒄑",
+                        "key": "o0000217..ŋeš",
+                        "id": "P117395.2.1.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "e₃",
+                        "oid": "o0002488",
+                        "gdl_sign": "|UD.DU|",
+                        "utf8": "𒌓𒁺",
+                        "key": "o0002488..e₃",
+                        "id": "P117395.2.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "a",
+                        "oid": "o0000087",
+                        "gdl_sign": "A",
+                        "utf8": "𒀀",
+                        "key": "o0000087..a",
+                        "id": "P117395.2.1.2"
+                      }
+                    ],
+                    "cf": "ŋeše",
+                    "gw": "key",
+                    "sense": "key",
+                    "norm0": "ŋeše",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "ŋeš-e₃-a",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P117395.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P117395.2.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P117395.U4",
+              "label": "o 2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P117395.3",
+                  "n": "2",
+                  "label": "o 2"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}pa-kud",
+                  "id": "P117395.l1dcfb",
+                  "ref": "P117395.3.1",
+                  "inst": "pakud[trimmed part of a tree]",
+                  "exosig": "@dcclt%sux:{ŋeš}pa-kud=pakud[~tree//a trimmed part of a tree]N'N$pakud/{ŋeš}pa-kud#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}pa-kud",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P117395.3.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "pa",
+                        "oid": "o0000497",
+                        "gdl_sign": "PA",
+                        "utf8": "𒉺",
+                        "key": "o0000497..pa",
+                        "id": "P117395.3.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "kud",
+                        "oid": "o0000548",
+                        "gdl_sign": "TAR",
+                        "utf8": "𒋻",
+                        "key": "o0000548..kud",
+                        "id": "P117395.3.1.2"
+                      }
+                    ],
+                    "cf": "pakud",
+                    "gw": "~tree",
+                    "sense": "a trimmed part of a tree",
+                    "norm0": "pakud",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}pa-kud",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P117395.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P117395.3.1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P117395.U6",
+              "label": "o 3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P117395.4",
+                  "n": "3",
+                  "label": "o 3"
+                },
+                {
+                  "node": "l",
+                  "frag": "{ŋeš}raba",
+                  "id": "P117395.l1dcfc",
+                  "ref": "P117395.4.1",
+                  "inst": "raba[clamp]N",
+                  "exosig": "@dcclt%sux:{ŋeš}raba=raba[clamp//clamp]N'N$raba/{ŋeš}raba#~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{ŋeš}raba",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "ŋeš",
+                            "oid": "o0000217",
+                            "gdl_sign": "GIŠ",
+                            "utf8": "𒄑",
+                            "key": "o0000217..ŋeš",
+                            "id": "P117395.4.1.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "raba",
+                        "oid": "o0000511",
+                        "gdl_sign": "RAB",
+                        "utf8": "𒊐",
+                        "key": "o0000511..raba",
+                        "id": "P117395.4.1.1"
+                      }
+                    ],
+                    "cf": "raba",
+                    "gw": "clamp",
+                    "sense": "clamp",
+                    "norm0": "raba",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "{ŋeš}raba",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P117395.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P117395.4.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

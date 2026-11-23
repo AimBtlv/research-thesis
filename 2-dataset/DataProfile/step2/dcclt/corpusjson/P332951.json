@@ -1,0 +1,930 @@
+{
+  "type": "cdl",
+  "project": "dcclt",
+  "source": "http://oracc.org/dcclt",
+  "license": "This data is released under the CC0 license",
+  "license-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "more-info": "http://oracc.org/doc/opendata/",
+  "UTC-timestamp": "2026-10-28T19:40:47",
+  "textid": "P332951",
+  "cdl": [
+    {
+      "node": "c",
+      "type": "text",
+      "id": "P332951.U0",
+      "cdl": [
+        {
+          "node": "d",
+          "subtype": "tablet",
+          "type": "object",
+          "ref": "P332951.x242.1",
+          "label": "x242"
+        },
+        {
+          "node": "d",
+          "type": "surface",
+          "ref": ""
+        },
+        {
+          "node": "c",
+          "type": "discourse",
+          "subtype": "body",
+          "id": "P332951.U1",
+          "cdl": [
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "id": "P332951.U2",
+              "label": "1",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332951.2",
+                  "n": "1",
+                  "label": "1"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢maš₂⸣-bi-še₃",
+                  "id": "P332951.l0b7f5",
+                  "ref": "P332951.2.1",
+                  "inst": "maš[interest]",
+                  "exosig": "@dcclt%sux:maš₂-bi-še₃=maš[interest//interest (on a loan)]N'N$maš,bi.eše/maš₂#~,bi.eše",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "maš₂-bi-še₃",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "maš₂",
+                        "oid": "o0000451",
+                        "gdl_sign": "MAŠ₂",
+                        "utf8": "𒈧",
+                        "key": "o0000451..maš₂",
+                        "id": "P332951.2.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "delim": "-",
+                        "hc": "1"
+                      },
+                      {
+                        "v": "bi",
+                        "oid": "o0000122",
+                        "gdl_sign": "BI",
+                        "utf8": "𒁉",
+                        "key": "o0000122..bi",
+                        "id": "P332951.2.1.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "še₃",
+                        "oid": "o0000178",
+                        "gdl_sign": "EŠ₂",
+                        "utf8": "𒂠",
+                        "key": "o0000178..še₃",
+                        "id": "P332951.2.1.2"
+                      }
+                    ],
+                    "cf": "maš",
+                    "gw": "interest",
+                    "sense": "interest (on a loan)",
+                    "norm0": "maš,bi.eše",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "maš₂",
+                    "morph": "~,bi.eše"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.2.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.2.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "[in-ŋar]",
+                  "id": "P332951.l0b7f6",
+                  "ref": "P332951.2.2",
+                  "inst": "ŋar[place\\t]",
+                  "exosig": "@dcclt%sux:in-ŋar=ŋar[place//to put, place, lay down]V/t'V/t$V.n:ŋar/ŋar#V.n:~",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "in-ŋar",
+                    "gdl": [
+                      {
+                        "v": "in",
+                        "oid": "o0000256",
+                        "gdl_sign": "IN",
+                        "utf8": "𒅔",
+                        "key": "o0000256..in",
+                        "id": "P332951.2.2.0",
+                        "breakStart": "1",
+                        "o": "[",
+                        "break": "missing",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ŋar",
+                        "oid": "o0000202",
+                        "gdl_sign": "GAR",
+                        "utf8": "𒃻",
+                        "key": "o0000202..ŋar",
+                        "id": "P332951.2.2.1",
+                        "break": "missing",
+                        "o": "]",
+                        "breakEnd": "P332951.2.2.0"
+                      }
+                    ],
+                    "cf": "ŋar",
+                    "gw": "place",
+                    "sense": "to put, place, lay down",
+                    "norm0": "V.n:ŋar",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "ŋar",
+                    "morph": "V.n:~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.2.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.2.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332951.U4",
+              "label": "2",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332951.3",
+                  "n": "2",
+                  "label": "2"
+                },
+                {
+                  "node": "l",
+                  "frag": "maš₂",
+                  "id": "P332951.l0b7f7",
+                  "ref": "P332951.3.1",
+                  "inst": "maš[interest]",
+                  "sig": "@dcclt%sux:maš₂=maš[interest//interest (on a loan)]N'N$maš/maš₂#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "maš₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "maš₂",
+                        "oid": "o0000451",
+                        "gdl_sign": "MAŠ₂",
+                        "utf8": "𒈧",
+                        "key": "o0000451..maš₂",
+                        "id": "P332951.3.1.0"
+                      }
+                    ],
+                    "cf": "maš",
+                    "gw": "interest",
+                    "sense": "interest (on a loan)",
+                    "norm0": "maš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "maš₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.3.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.3.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}utu",
+                  "id": "P332951.l0b7f8",
+                  "ref": "P332951.3.2",
+                  "inst": "Utu[]DN",
+                  "exosig": "@dcclt%sux:{d}utu=Utu[1//1]DN'DN$Utu/{d}utu#~",
+                  "exoprj": "epsd2/names",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}utu",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P332951.3.2.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "utu",
+                        "oid": "o0000565",
+                        "gdl_sign": "UD",
+                        "utf8": "𒌓",
+                        "key": "o0000565..utu",
+                        "id": "P332951.3.2.1"
+                      }
+                    ],
+                    "cf": "Utu",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Utu",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}utu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.3.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.3.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332951.U6",
+              "label": "3",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332951.4",
+                  "n": "3",
+                  "label": "3"
+                },
+                {
+                  "node": "l",
+                  "frag": "maš₂",
+                  "id": "P332951.l0b7f9",
+                  "ref": "P332951.4.1",
+                  "inst": "maš[interest]",
+                  "sig": "@dcclt%sux:maš₂=maš[interest//interest (on a loan)]N'N$maš/maš₂#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "maš₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "maš₂",
+                        "oid": "o0000451",
+                        "gdl_sign": "MAŠ₂",
+                        "utf8": "𒈧",
+                        "key": "o0000451..maš₂",
+                        "id": "P332951.4.1.0"
+                      }
+                    ],
+                    "cf": "maš",
+                    "gw": "interest",
+                    "sense": "interest (on a loan)",
+                    "norm0": "maš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "maš₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.4.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.4.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "{d}utu",
+                  "id": "P332951.l0b7fa",
+                  "ref": "P332951.4.2",
+                  "inst": "Utu[]DN",
+                  "exosig": "@dcclt%sux:{d}utu=Utu[1//1]DN'DN$Utu/{d}utu#~",
+                  "exoprj": "epsd2/names",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "{d}utu",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "det": "semantic",
+                        "pos": "pre",
+                        "seq": [
+                          {
+                            "v": "d",
+                            "oid": "o0000099",
+                            "gdl_sign": "AN",
+                            "utf8": "𒀭",
+                            "key": "o0000099..d",
+                            "id": "P332951.4.2.0"
+                          }
+                        ]
+                      },
+                      {
+                        "v": "utu",
+                        "oid": "o0000565",
+                        "gdl_sign": "UD",
+                        "utf8": "𒌓",
+                        "key": "o0000565..utu",
+                        "id": "P332951.4.2.1"
+                      }
+                    ],
+                    "cf": "Utu",
+                    "gw": "1",
+                    "sense": "1",
+                    "norm0": "Utu",
+                    "pos": "DN",
+                    "epos": "DN",
+                    "base": "{d}utu",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.4.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.4.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gin₆-na",
+                  "id": "P332951.l0b7fb",
+                  "ref": "P332951.4.3",
+                  "inst": "gin[firm//establish]",
+                  "exosig": "@dcclt%sux:gin₆-na=gin[firm//to confirm, establish (in legal contexts), verify]V/i'V/t$gin;a/gin₆+-na=n.a#~;a",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gin₆-na",
+                    "gdl": [
+                      {
+                        "v": "gin₆",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gin₆",
+                        "id": "P332951.4.3.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "na",
+                        "oid": "o0000469",
+                        "gdl_sign": "NA",
+                        "utf8": "𒈾",
+                        "key": "o0000469..na",
+                        "id": "P332951.4.3.1"
+                      }
+                    ],
+                    "cf": "gin",
+                    "gw": "firm",
+                    "sense": "to confirm, establish (in legal contexts), verify",
+                    "norm0": "gin;a",
+                    "pos": "V/i",
+                    "epos": "V/t",
+                    "base": "gin₆",
+                    "cont": "-na=n.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.4.3"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.4.3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332951.U8",
+              "label": "4",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332951.5",
+                  "n": "4",
+                  "label": "4"
+                },
+                {
+                  "node": "l",
+                  "frag": "maš₂",
+                  "id": "P332951.l0b7fc",
+                  "ref": "P332951.5.1",
+                  "inst": "maš[interest]",
+                  "sig": "@dcclt%sux:maš₂=maš[interest//interest (on a loan)]N'N$maš/maš₂#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "maš₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "maš₂",
+                        "oid": "o0000451",
+                        "gdl_sign": "MAŠ₂",
+                        "utf8": "𒈧",
+                        "key": "o0000451..maš₂",
+                        "id": "P332951.5.1.0"
+                      }
+                    ],
+                    "cf": "maš",
+                    "gw": "interest",
+                    "sense": "interest (on a loan)",
+                    "norm0": "maš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "maš₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.5.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.5.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gin₆-na",
+                  "id": "P332951.l0b7fd",
+                  "ref": "P332951.5.2",
+                  "inst": "gin[firm//establish]",
+                  "exosig": "@dcclt%sux:gin₆-na=gin[firm//to confirm, establish (in legal contexts), verify]V/i'V/t$gin;a/gin₆+-na=n.a#~;a",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gin₆-na",
+                    "gdl": [
+                      {
+                        "v": "gin₆",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gin₆",
+                        "id": "P332951.5.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "na",
+                        "oid": "o0000469",
+                        "gdl_sign": "NA",
+                        "utf8": "𒈾",
+                        "key": "o0000469..na",
+                        "id": "P332951.5.2.1"
+                      }
+                    ],
+                    "cf": "gin",
+                    "gw": "firm",
+                    "sense": "to confirm, establish (in legal contexts), verify",
+                    "norm0": "gin;a",
+                    "pos": "V/i",
+                    "epos": "V/t",
+                    "base": "gin₆",
+                    "cont": "-na=n.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.5.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.5.2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332951.U10",
+              "label": "5",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332951.6",
+                  "n": "5",
+                  "label": "5"
+                },
+                {
+                  "node": "l",
+                  "frag": "maš₂",
+                  "id": "P332951.l0b7fe",
+                  "ref": "P332951.6.1",
+                  "inst": "maš[interest]",
+                  "sig": "@dcclt%sux:maš₂=maš[interest//interest (on a loan)]N'N$maš/maš₂#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "maš₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "maš₂",
+                        "oid": "o0000451",
+                        "gdl_sign": "MAŠ₂",
+                        "utf8": "𒈧",
+                        "key": "o0000451..maš₂",
+                        "id": "P332951.6.1.0"
+                      }
+                    ],
+                    "cf": "maš",
+                    "gw": "interest",
+                    "sense": "interest (on a loan)",
+                    "norm0": "maš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "maš₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.6.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.6.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "gin₆-na",
+                  "id": "P332951.l0b7ff",
+                  "ref": "P332951.6.2",
+                  "inst": "gin[firm//establish]",
+                  "exosig": "@dcclt%sux:gin₆-na=gin[firm//to confirm, establish (in legal contexts), verify]V/i'V/t$gin;a/gin₆+-na=n.a#~;a",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "gin₆-na",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "gin₆",
+                        "oid": "o0000210",
+                        "gdl_sign": "GI",
+                        "utf8": "𒄀",
+                        "key": "o0000210..gin₆",
+                        "id": "P332951.6.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "na",
+                        "oid": "o0000469",
+                        "gdl_sign": "NA",
+                        "utf8": "𒈾",
+                        "key": "o0000469..na",
+                        "id": "P332951.6.2.1"
+                      }
+                    ],
+                    "cf": "gin",
+                    "gw": "firm",
+                    "sense": "to confirm, establish (in legal contexts), verify",
+                    "norm0": "gin;a",
+                    "pos": "V/i",
+                    "epos": "V/t",
+                    "base": "gin₆",
+                    "cont": "-na=n.a",
+                    "morph": "~;a"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.6.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.6.2"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "tah-he-dam",
+                  "id": "P332951.l0b800",
+                  "ref": "P332951.6.3",
+                  "inst": "tah[add]",
+                  "exosig": "@dcclt%sux:tah-he-dam=tah[add//to add, increase]V/t'V/t$tah;e.de.am/tah+-he=h.e#~;e.de.am",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "tah-he-dam",
+                    "gdl": [
+                      {
+                        "v": "tah",
+                        "oid": "o0002016",
+                        "gdl_sign": "|MU&MU|",
+                        "utf8": "𒈭",
+                        "key": "o0002016..tah",
+                        "id": "P332951.6.3.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "he",
+                        "oid": "o0000237",
+                        "gdl_sign": "HI",
+                        "utf8": "𒄭",
+                        "key": "o0000237..he",
+                        "id": "P332951.6.3.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "dam",
+                        "oid": "o0000134",
+                        "gdl_sign": "DAM",
+                        "utf8": "𒁮",
+                        "key": "o0000134..dam",
+                        "id": "P332951.6.3.2"
+                      }
+                    ],
+                    "cf": "tah",
+                    "gw": "add",
+                    "sense": "to add, increase",
+                    "norm0": "tah;e.de.am",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "tah",
+                    "cont": "-he=h.e",
+                    "morph": "~;e.de.am"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.6.3"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.6.3"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "node": "c",
+              "type": "sentence",
+              "implicit": "yes",
+              "tag": "#auto",
+              "id": "P332951.U12",
+              "label": "6",
+              "cdl": [
+                {
+                  "node": "d",
+                  "type": "line-start",
+                  "ref": "P332951.7",
+                  "n": "6",
+                  "label": "6"
+                },
+                {
+                  "node": "l",
+                  "frag": "⸢maš₂⸣",
+                  "id": "P332951.l0b801",
+                  "ref": "P332951.7.1",
+                  "inst": "maš[interest]",
+                  "sig": "@dcclt%sux:maš₂=maš[interest//interest (on a loan)]N'N$maš/maš₂#~",
+                  "f": {
+                    "lang": "sux",
+                    "form": "maš₂",
+                    "delim": "",
+                    "gdl": [
+                      {
+                        "v": "maš₂",
+                        "oid": "o0000451",
+                        "gdl_sign": "MAŠ₂",
+                        "utf8": "𒈧",
+                        "key": "o0000451..maš₂",
+                        "id": "P332951.7.1.0",
+                        "break": "damaged",
+                        "ho": "1",
+                        "hc": "1"
+                      }
+                    ],
+                    "cf": "maš",
+                    "gw": "interest",
+                    "sense": "interest (on a loan)",
+                    "norm0": "maš",
+                    "pos": "N",
+                    "epos": "N",
+                    "base": "maš₂",
+                    "morph": "~"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.7.1"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.7.1"
+                    }
+                  ]
+                },
+                {
+                  "node": "l",
+                  "frag": "ŋa₂-ŋa₂-dam",
+                  "id": "P332951.l0b802",
+                  "ref": "P332951.7.2",
+                  "inst": "ŋar[place\\t]",
+                  "exosig": "@dcclt%sux:ŋa₂-ŋa₂-dam=ŋar[place//to put, place, lay down]V/t'V/t$ŋar;de.am/ŋa₂-ŋa₂#~;de.am",
+                  "exoprj": "epsd2",
+                  "exolng": "sux",
+                  "f": {
+                    "lang": "sux",
+                    "form": "ŋa₂-ŋa₂-dam",
+                    "gdl": [
+                      {
+                        "v": "ŋa₂",
+                        "oid": "o0000206",
+                        "gdl_sign": "GA₂",
+                        "utf8": "𒂷",
+                        "key": "o0000206..ŋa₂",
+                        "id": "P332951.7.2.0",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "ŋa₂",
+                        "oid": "o0000206",
+                        "gdl_sign": "GA₂",
+                        "utf8": "𒂷",
+                        "key": "o0000206..ŋa₂",
+                        "id": "P332951.7.2.1",
+                        "delim": "-"
+                      },
+                      {
+                        "v": "dam",
+                        "oid": "o0000134",
+                        "gdl_sign": "DAM",
+                        "utf8": "𒁮",
+                        "key": "o0000134..dam",
+                        "id": "P332951.7.2.2"
+                      }
+                    ],
+                    "cf": "ŋar",
+                    "gw": "place",
+                    "sense": "to put, place, lay down",
+                    "norm0": "ŋar;de.am",
+                    "pos": "V/t",
+                    "epos": "V/t",
+                    "base": "ŋa₂-ŋa₂",
+                    "morph": "~;de.am"
+                  },
+                  "props": [
+                    {
+                      "name": "field",
+                      "group": "env",
+                      "ngram": "-1",
+                      "ref": "P332951.7.2"
+                    },
+                    {
+                      "name": "discourse",
+                      "group": "env",
+                      "value": "body",
+                      "ngram": "-1",
+                      "ref": "P332951.7.2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
