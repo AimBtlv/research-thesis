@@ -34,7 +34,15 @@ Description: Workflow Stage 1, Step 4. Builds the full sign catalogue
                 ('Syllabary Name Of OSL Compound'), so that it no longer hides
                 the compound reading from the parser.
              Everything else is unchanged.
-
+Author: Aima, fixes prepared with Claude
+Date: 2026-11-22
+Version: 13.2 (automatic fixes of the manual check, see
+         manual_check_v2/00_WORKFLOW.md: P01 component looked up with its
+         modifier among the @form entries; P02 a @form named like a @sign with
+         its own code point takes that code point, and keeps its own @v
+         readings instead of the parent's Diri/OGSL readings; P03b @v of all
+         entries of the same name; P04 'nested in longer form' matched on
+         whole components)
 """
 
 import csv

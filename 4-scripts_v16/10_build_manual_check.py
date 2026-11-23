@@ -29,7 +29,11 @@ Description: Workflow Stage 1, Step 6.0 (manual check of the catalogue and of
              The empty columns at the right end (decision ...) are filled in
              by hand. Output: output/manual_check_v2/P01_...csv ... P14_...csv
              and summary.json. Run AFTER 00_run_pipeline.py.
-
+Author: Aima, prepared with Claude
+Date: 2026-11-22
+Version: 1.2 (P09 OSL suggestions also by reading; P10 column relation: a
+         @form of the same sign or really different signs; P12 column
+         kind_guess; P02 keeps the old split of the name in old_components)
 """
 
 import csv
@@ -254,8 +258,11 @@ def main():
     rows = []
     for r in cat:
         if r["structural_hint"] == "uid_via_same_name_sign":
+            # the old split of the name at its operators (what 06 v13 stored)
+            old = " + ".join(p for p in re.split(r"[×&%.]", r["osl_form"].strip("|")) if p)
             rows.append({"osl_form": r["osl_form"], "parent_sign": r["sign_name"],
-                         "status": "auto-fixed (06 v13.1)", "new_unicode_id": r["unicode_id"],
+                         "status": "auto-fixed (06 v13.2)", "old_components": old,
+                         "new_unicode_id": r["unicode_id"],
                          "new_glyph": r["sign_grapheme"],
                          **by_name.get(r["osl_form"], EMPTY).cols()})
     if not rows:   # catalogue built by 06 v13: list the cases the fix will change

@@ -39,9 +39,11 @@ OUT = Path(__file__).resolve().parent / "output"
 
 # --- Reference numbers of the last checked run ---
 # Change them ONLY after a run whose differences were checked and explained
-# (see the WorkFlowDocumentations). Values marked "to confirm" come from the
-# run of 22.11.2026 and are expected to move slightly after the fix of 06
-# v13.2 (ZI&ZI forms no longer get the readings of their parent compound).
+# (see the WorkFlowDocumentations). Steps 1-3 and 5: run of 22.11.2026.
+# Step 4: catalogue 06 v13.2 (the forms |ZI&ZI| and |GU₂×IGI@g| keep their
+# own readings: 2 more rows with OSL @v, 4 conflicts fewer). Values marked
+# "to confirm" may move slightly with 06 v13.2 (numun₂, gug₄, šub₅ are again
+# compounds: about 160 tokens).
 REFERENCE = {
     # Step 1
     "matched_syllabary": 779,
@@ -54,17 +56,17 @@ REFERENCE = {
     # Steps 3-4
     "catalogue_rows": 10563,
     "unicode_without_simple_row": 9,
-    "rows_osl_v_added": 477,            # to confirm
+    "rows_osl_v_added": 479,
     "compound_forms": 2380,
     "compound_attested": 1604,
-    "osl_conflicts": 705,               # to confirm
+    "osl_conflicts": 701,
     "same_name_form_rows": 16,          # P02: forms that take the code of a same-name @sign
     # Step 5.1
     "tablets_with_text": 15709,
     "token_rows": 2267828,
     "tokens_compound": 81150,           # to confirm
     "tokens_atomic": 1985845,           # to confirm
-    "tokens_unresolved": 3465,
+    "tokens_unresolved": 3465,          # to confirm (ginₓ may now be read as DUN₃)
     "tokens_unreadable": 56215,
     # Step 5.2
     "grapheme_rows": 2156055,           # to confirm
