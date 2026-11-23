@@ -12,9 +12,6 @@ Description: Workflow Stage 1, Steps 1-5 + check + Step 6.0. Runs the whole pipe
              Options:
                  --from 07   start at script 07 (Steps 1-4 already done)
                  --list      only print the scripts and their steps
-
-
-
 """
 
 import subprocess
