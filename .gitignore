@@ -1,1 +1,31 @@
 .DS_Store
+2-dataset/InputData/1.downloadCorpusATF.zip
+2-dataset/DataProfile/step5/*.csv
+**/.venv/
+
+# Игнорировать виртуальные окружения
+**/.venv/
+.venv/
+
+# Игнорировать крупные сгенерированные датасеты (>100 MB) и архивы
+2-dataset/DataProfile/step5/atf_tokens.csv
+2-dataset/DataProfile/step5/grapheme.csv
+*.zip
+
+# Виртуальные окружения
+**/.venv/
+.venv/
+
+# Крупные сгенерированные CSV (>100 MB) и архивы
+2-dataset/DataProfile/step5/atf_tokens.csv
+2-dataset/DataProfile/step5/grapheme.csv
+4-scripts_v15/output/step5/atf_tokens.csv
+4-scripts_v15/output/step5/grapheme.csv
+*.zip
+
+# Oracc DCCLT archives (download: https://oracc.museum.upenn.edu/json/)
+2-dataset/DataProfile/step2/dcclt/
+
+# per-tablet text files of Step 5.1 (recreated by 07)
+2-dataset/DataProfile/step5/txt/
+2-dataset/DataProfile/step5/*.csv
